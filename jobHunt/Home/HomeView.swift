@@ -37,7 +37,7 @@ struct HomeView: View {
                         .padding(.leading, 170)
                 }
                 .sheet(isPresented: $add) {
-//                    addEvent()
+                    addEvent()
                 }
             }
 
