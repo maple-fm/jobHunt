@@ -18,6 +18,9 @@
 		F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789F228F331F800B4E3E3 /* InternshipView.swift */; };
 		F5B789F528F3325700B4E3E3 /* InterviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789F428F3325700B4E3E3 /* InterviewView.swift */; };
 		F5B789F728F3327C00B4E3E3 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789F628F3327C00B4E3E3 /* SwiftUIView.swift */; };
+		F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B78A0328F337F500B4E3E3 /* TextField.swift */; };
+		F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B78A0528F3380800B4E3E3 /* Text.swift */; };
+		F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B78A0728F3382200B4E3E3 /* Image.swift */; };
 		F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */; };
 		F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B6D28F311FE00A01E4E /* HomeView.swift */; };
 		F5C83B7028F311FF00A01E4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5C83B6F28F311FF00A01E4E /* Assets.xcassets */; };
@@ -59,6 +62,9 @@
 		F5B789F228F331F800B4E3E3 /* InternshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipView.swift; sourceTree = "<group>"; };
 		F5B789F428F3325700B4E3E3 /* InterviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewView.swift; sourceTree = "<group>"; };
 		F5B789F628F3327C00B4E3E3 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		F5B78A0328F337F500B4E3E3 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		F5B78A0528F3380800B4E3E3 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		F5B78A0728F3382200B4E3E3 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		F5C83B6828F311FE00A01E4E /* jobHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobHuntApp.swift; sourceTree = "<group>"; };
 		F5C83B6D28F311FE00A01E4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -148,6 +154,16 @@
 			path = Struct;
 			sourceTree = "<group>";
 		};
+		F5B78A0928F3383400B4E3E3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F5B78A0328F337F500B4E3E3 /* TextField.swift */,
+				F5B78A0528F3380800B4E3E3 /* Text.swift */,
+				F5B78A0728F3382200B4E3E3 /* Image.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		F5C83B5F28F311FE00A01E4E = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +189,7 @@
 		F5C83B6A28F311FE00A01E4E /* jobHunt */ = {
 			isa = PBXGroup;
 			children = (
+				F5B78A0928F3383400B4E3E3 /* Extension */,
 				F5B789E528F3210E00B4E3E3 /* Struct */,
 				F5B789E228F320BE00B4E3E3 /* Create */,
 				F5B789E128F31ECC00B4E3E3 /* Home */,
@@ -385,12 +402,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5B789F728F3327C00B4E3E3 /* SwiftUIView.swift in Sources */,
+				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* Internship.swift in Sources */,
 				F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */,
+				F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */,
 				F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */,
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
 				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
+				F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */,
 				F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */,
 				F5B789F128F331D300B4E3E3 /* ESView.swift in Sources */,
 				F5B789E928F3311A00B4E3E3 /* ES.swift in Sources */,
