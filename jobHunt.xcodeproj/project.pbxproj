@@ -15,6 +15,7 @@
 		F5C83B7E28F311FF00A01E4E /* jobHuntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B7D28F311FF00A01E4E /* jobHuntTests.swift */; };
 		F5C83B8828F311FF00A01E4E /* jobHuntUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B8728F311FF00A01E4E /* jobHuntUITests.swift */; };
 		F5C83B8A28F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B8928F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift */; };
+		F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F5C83B8328F311FF00A01E4E /* jobHuntUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jobHuntUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C83B8728F311FF00A01E4E /* jobHuntUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobHuntUITests.swift; sourceTree = "<group>"; };
 		F5C83B8928F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobHuntUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,6 @@
 				35F4ED617C7B83A5C622BAC6 /* Pods-jobHunt.debug.xcconfig */,
 				36ED71507D6C45A887754D36 /* Pods-jobHunt.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -125,6 +126,7 @@
 				F5C83B6F28F311FF00A01E4E /* Assets.xcassets */,
 				F5C83B7128F311FF00A01E4E /* jobHunt.entitlements */,
 				F5C83B7228F311FF00A01E4E /* Preview Content */,
+				F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */,
 			);
 			path = jobHunt;
 			sourceTree = "<group>";
@@ -330,6 +332,7 @@
 			files = (
 				F5C83B6E28F311FE00A01E4E /* ContentView.swift in Sources */,
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
+				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
