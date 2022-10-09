@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B44F1BEA60D89BBBD84D202B /* Pods_jobHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2C90ACBB90DC8CBB62A91D /* Pods_jobHunt.framework */; };
+		F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E328F320D400B4E3E3 /* AddView.swift */; };
+		F5B789E728F3212500B4E3E3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E628F3212500B4E3E3 /* Event.swift */; };
 		F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */; };
 		F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B6D28F311FE00A01E4E /* HomeView.swift */; };
 		F5C83B7028F311FF00A01E4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5C83B6F28F311FF00A01E4E /* Assets.xcassets */; };
@@ -39,6 +41,8 @@
 		35F4ED617C7B83A5C622BAC6 /* Pods-jobHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobHunt.debug.xcconfig"; path = "Target Support Files/Pods-jobHunt/Pods-jobHunt.debug.xcconfig"; sourceTree = "<group>"; };
 		36ED71507D6C45A887754D36 /* Pods-jobHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobHunt.release.xcconfig"; path = "Target Support Files/Pods-jobHunt/Pods-jobHunt.release.xcconfig"; sourceTree = "<group>"; };
 		5E2C90ACBB90DC8CBB62A91D /* Pods_jobHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jobHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5B789E328F320D400B4E3E3 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		F5B789E628F3212500B4E3E3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F5C83B6828F311FE00A01E4E /* jobHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobHuntApp.swift; sourceTree = "<group>"; };
 		F5C83B6D28F311FE00A01E4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,22 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		F5B789E228F320BE00B4E3E3 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				F5B789E328F320D400B4E3E3 /* AddView.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		F5B789E528F3210E00B4E3E3 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				F5B789E628F3212500B4E3E3 /* Event.swift */,
+			);
+			path = Struct;
+			sourceTree = "<group>";
+		};
 		F5C83B5F28F311FE00A01E4E = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +149,8 @@
 		F5C83B6A28F311FE00A01E4E /* jobHunt */ = {
 			isa = PBXGroup;
 			children = (
+				F5B789E528F3210E00B4E3E3 /* Struct */,
+				F5B789E228F320BE00B4E3E3 /* Create */,
 				F5B789E128F31ECC00B4E3E3 /* Home */,
 				F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */,
 				F5C83B6F28F311FF00A01E4E /* Assets.xcassets */,
@@ -338,9 +360,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */,
 				F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */,
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
 				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
+				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

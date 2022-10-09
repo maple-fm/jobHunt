@@ -8,6 +8,7 @@ target 'jobHunt' do
   # Pods for jobHunt
   pod 'FSCalendar'
   pod 'CalculateCalendarLogic'
+  pod 'RealmSwift'
 
 
 end

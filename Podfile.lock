@@ -1,20 +1,30 @@
 PODS:
   - CalculateCalendarLogic (0.5.0)
   - FSCalendar (2.8.4)
+  - Realm (10.31.0):
+    - Realm/Headers (= 10.31.0)
+  - Realm/Headers (10.31.0)
+  - RealmSwift (10.31.0):
+    - Realm (= 10.31.0)
 
 DEPENDENCIES:
   - CalculateCalendarLogic
   - FSCalendar
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
     - CalculateCalendarLogic
     - FSCalendar
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   CalculateCalendarLogic: d14189787cd47766e64281b2686608afea07ae4d
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  Realm: 10df7d86e1ca09d9948fdce2faa3fc623fb092c6
+  RealmSwift: aecc52389574be4d451bf6cb1b08824eaa17dad0
 
-PODFILE CHECKSUM: 221074560b1f87f840742efd579a8e91914904a7
+PODFILE CHECKSUM: 961c4151a7adf853bfb0607cbb63efad507be6af
 
 COCOAPODS: 1.11.3
