@@ -32,9 +32,9 @@ struct addEvent: View {
                                 }
                                 .frame(width: 200, height: 70)
                                 .background(
-                                    event == eventName ?
-                                    Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor) :
-                                    .green)
+                                    event == eventName
+                                    ? Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor)
+                                    : Color(UIColor(red: 0.918, green: 0.95, blue: 0.923, alpha: 1).cgColor))
                                 .cornerRadius(50)
                                 .padding(EdgeInsets(
                                     top:15,
