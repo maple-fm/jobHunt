@@ -26,8 +26,16 @@ struct ESView: View {
                         .input()
                 }
 
-                DatePicker("start Date", selection: $es.deadline, displayedComponents: [.date])
-                    .datePickerStyle(.graphical)
+                Section(
+                    header: Text("開始時間")
+                        .headetTitle()
+                ) {
+                    DatePicker("開始時間", selection: $es.deadline)
+                        .labelsHidden()
+                        .background()
+                }
+                .listRowBackground(Color.clear)
+
 
 
                 Section(
@@ -81,6 +89,7 @@ struct ESView: View {
 struct EntrysheetView_Previews: PreviewProvider {
     static var previews: some View {
         ESView()
+            .environment(\.locale, Locale(identifier: "ja_JP"))
 
     }
 }

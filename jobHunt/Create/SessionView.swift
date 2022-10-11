@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  SessionView.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/10/10.
@@ -22,8 +22,15 @@ struct SessionView: View {
                         .input()
                 }
 
-                DatePicker("start Date", selection: $session.deadline, displayedComponents: [.date])
-                    .datePickerStyle(.graphical)
+                Section(
+                    header: Text("開始時間")
+                        .headetTitle()
+                ) {
+                    DatePicker("開始時間", selection: $session.deadline)
+                        .labelsHidden()
+                        .background()
+                }
+                .listRowBackground(Color.clear)
 
                 Section(
                     header: Text("開催場所")
@@ -74,5 +81,6 @@ struct SessionView: View {
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
         SessionView()
+            .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

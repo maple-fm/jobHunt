@@ -17,7 +17,7 @@
 		F5B789F128F331D300B4E3E3 /* ESView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789F028F331D300B4E3E3 /* ESView.swift */; };
 		F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789F228F331F800B4E3E3 /* InternshipView.swift */; };
 		F5B789F528F3325700B4E3E3 /* InterviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789F428F3325700B4E3E3 /* InterviewView.swift */; };
-		F5B789F728F3327C00B4E3E3 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789F628F3327C00B4E3E3 /* SwiftUIView.swift */; };
+		F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789F628F3327C00B4E3E3 /* SessionView.swift */; };
 		F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B78A0328F337F500B4E3E3 /* TextField.swift */; };
 		F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B78A0528F3380800B4E3E3 /* Text.swift */; };
 		F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B78A0728F3382200B4E3E3 /* Image.swift */; };
@@ -61,7 +61,7 @@
 		F5B789F028F331D300B4E3E3 /* ESView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESView.swift; sourceTree = "<group>"; };
 		F5B789F228F331F800B4E3E3 /* InternshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipView.swift; sourceTree = "<group>"; };
 		F5B789F428F3325700B4E3E3 /* InterviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewView.swift; sourceTree = "<group>"; };
-		F5B789F628F3327C00B4E3E3 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		F5B789F628F3327C00B4E3E3 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		F5B78A0328F337F500B4E3E3 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		F5B78A0528F3380800B4E3E3 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		F5B78A0728F3382200B4E3E3 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 				F5B789F028F331D300B4E3E3 /* ESView.swift */,
 				F5B789F228F331F800B4E3E3 /* InternshipView.swift */,
 				F5B789F428F3325700B4E3E3 /* InterviewView.swift */,
-				F5B789F628F3327C00B4E3E3 /* SwiftUIView.swift */,
+				F5B789F628F3327C00B4E3E3 /* SessionView.swift */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5B789F728F3327C00B4E3E3 /* SwiftUIView.swift in Sources */,
+				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* Internship.swift in Sources */,
 				F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */,

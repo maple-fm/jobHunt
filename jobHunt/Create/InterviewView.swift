@@ -22,8 +22,15 @@ struct InterviewView: View {
                         .input()
                 }
 
-                DatePicker("start Date", selection: $interview.deadline, displayedComponents: [.date])
-                    .datePickerStyle(.graphical)
+                Section(
+                    header: Text("開始時間")
+                        .headetTitle()
+                ) {
+                    DatePicker("開始時間", selection: $interview.deadline)
+                        .labelsHidden()
+                        .background()
+                }
+                .listRowBackground(Color.clear)
 
                 Section(
                     header: Text("開催場所")
@@ -91,5 +98,6 @@ struct InterviewView: View {
 struct InterviewView_Previews: PreviewProvider {
     static var previews: some View {
         InterviewView()
+            .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }
