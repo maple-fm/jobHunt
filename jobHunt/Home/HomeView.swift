@@ -14,6 +14,8 @@ struct HomeView: View {
     @State var eventsDate: [String] = ["05-10-2022", "15-10-2022", "22-10-2022", "30-10-2022", "05-11-2022"]
     let items = ["サイバーエージェント", "SanSan", "LINE", "ZOZO"]
 
+    var homeModel = HomeModel()
+
     var body: some View {
         VStack(alignment: .leading) {
             CalendarTestView(selectedDate: $selectedDate, eventsDate: $eventsDate)
@@ -22,7 +24,7 @@ struct HomeView: View {
             Divider()
 
             HStack {
-                Text(selectedDate,style: .date)
+                Text(homeModel.format(date: selectedDate))
                     .font(.callout)
                    .padding(.top, 10)
                    .padding(.leading, 15)
