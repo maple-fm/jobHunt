@@ -31,8 +31,7 @@ struct ESView: View {
                         .headetTitle()
                 ) {
                     DatePicker("開始時間", selection: $es.deadline)
-                        .labelsHidden()
-                        .background()
+                        .PickerItem()
                 }
                 .listRowBackground(Color.clear)
 

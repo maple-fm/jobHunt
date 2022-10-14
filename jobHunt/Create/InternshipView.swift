@@ -27,8 +27,7 @@ struct InternshipView: View {
                         .headetTitle()
                 ) {
                     DatePicker("開始時間", selection: $intern.deadline)
-                        .labelsHidden()
-                        .background()
+                        .PickerItem()
                 }
                 .listRowBackground(Color.clear)
 

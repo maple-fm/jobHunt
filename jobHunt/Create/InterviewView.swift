@@ -27,8 +27,7 @@ struct InterviewView: View {
                         .headetTitle()
                 ) {
                     DatePicker("開始時間", selection: $interview.deadline)
-                        .labelsHidden()
-                        .background()
+                        .PickerItem()
                 }
                 .listRowBackground(Color.clear)
 

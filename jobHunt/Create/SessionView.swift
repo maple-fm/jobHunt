@@ -27,8 +27,7 @@ struct SessionView: View {
                         .headetTitle()
                 ) {
                     DatePicker("開始時間", selection: $session.deadline)
-                        .labelsHidden()
-                        .background()
+                        .PickerItem()
                 }
                 .listRowBackground(Color.clear)
 
