@@ -11,11 +11,12 @@ struct HomeView: View {
     @State var selectedDate = Date()
     @State private var add = false
 
+    @State var eventsDate: [String] = ["05-10-2022", "15-10-2022", "22-10-2022", "30-10-2022", "05-11-2022"]
     let items = ["サイバーエージェント", "SanSan", "LINE", "ZOZO"]
 
     var body: some View {
         VStack(alignment: .leading) {
-            CalendarTestView(selectedDate: $selectedDate)
+            CalendarTestView(selectedDate: $selectedDate, eventsDate: $eventsDate)
                 .frame(width: 400, height: 400.0, alignment: .center)
 
             Divider()
