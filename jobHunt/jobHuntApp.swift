@@ -12,6 +12,7 @@ struct jobHuntApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environment(\.locale, Locale(identifier: "ja_JP"))
         }
     }
 }
