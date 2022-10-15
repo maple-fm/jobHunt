@@ -67,7 +67,7 @@ struct CalendarTestView: UIViewRepresentable {
         }
 
         func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-            dateFormatter.dateFormat = "dd-MM-yyyy"
+            dateFormatter.dateFormat = "yyyy年MM月dd日"
             for eventDate in eventsDate {
                 guard let eventDate = dateFormatter.date(from: eventDate)
                 else {return 0}

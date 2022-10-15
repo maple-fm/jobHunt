@@ -7,18 +7,19 @@
 
 import SwiftUI
 
+
 struct HomeView: View {
     @State var selectedDate = Date()
     @State private var add = false
 
-    @State var eventsDate: [String] = ["05-10-2022", "15-10-2022", "22-10-2022", "30-10-2022", "05-11-2022"]
-    let items = ["サイバーエージェント", "SanSan", "LINE", "ZOZO"]
-
-    var homeModel = HomeModel()
+    @State var eventsDate: [String] = []
+    @State var homeModel = HomeModel()
 
     var body: some View {
+
         VStack(alignment: .leading) {
-            CalendarTestView(selectedDate: $selectedDate, eventsDate: $eventsDate)
+
+            CalendarTestView(selectedDate: $selectedDate, eventsDate: $homeModel.eventDateArray)
                 .frame(width: 400, height: 400.0, alignment: .center)
 
             Divider()
@@ -26,8 +27,8 @@ struct HomeView: View {
             HStack {
                 Text(homeModel.format(date: selectedDate))
                     .font(.callout)
-                   .padding(.top, 10)
-                   .padding(.leading, 15)
+                    .padding(.top, 10)
+                    .padding(.leading, 15)
 
                 Button(action: {
                     self.add.toggle()
@@ -36,7 +37,6 @@ struct HomeView: View {
                         .font(.system(size: 40))
                         .frame(width: 60, height: 60)
                         .foregroundColor(.green)
-//                        .padding(.top, UIScreen.main.bounds.size.width/2 + 50)
                         .padding(.leading, 170)
                 }
                 .sheet(isPresented: $add) {
@@ -47,13 +47,16 @@ struct HomeView: View {
 
             ZStack {
                 ScrollView {
-                    ForEach(items, id: \.self) { item in
-                        Text(item)
-                            .frame(width: 350, height: 70)
-                            .padding(.leading)
-                            .padding(.top, 20)
-                            .background(Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor))
-                            .cornerRadius(50)
+                    ForEach(homeModel.events, id: \.self) { event in
+                        if event[0] == homeModel.format(date: selectedDate) {
+                            Text(event[1])
+                                .frame(width: 350, height: 70)
+                                .padding(.leading)
+                                .padding(.top, 20)
+                                .background(Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor))
+                                .cornerRadius(50)
+                        }
+
                     }
                     .padding(.leading, 15)
                 }
@@ -69,3 +72,4 @@ struct ContentView_Previews: PreviewProvider {
         HomeView()
     }
 }
+

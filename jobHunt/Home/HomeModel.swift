@@ -6,13 +6,27 @@
 //
 
 import Foundation
+import UIKit
+import SwiftUI
 
-struct HomeModel {
+class HomeModel {
     let dateFormatter = DateFormatter()
+    @Published var eventDateArray : [String] = []
+    @Published var events = [["2022年10月05日", "サイバーエージェント"], ["2022年10月15日", "SanSan"], ["2022年10月22日","LINE"], ["2022年10月05日", "Yahoo!"], ["2022年11月01日", "Google"]]
+
+    init() {
+        AddEvents()
+    }
 
     func format(date: Date) -> String {
         dateFormatter.dateFormat = "YYYY年MM月dd日"
         return dateFormatter.string(from:date)
+    }
+
+    func AddEvents(){
+        for event in events {
+            eventDateArray.append(event[0])
+        }
     }
 }
 
