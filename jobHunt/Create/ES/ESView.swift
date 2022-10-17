@@ -9,9 +9,15 @@ import SwiftUI
 
 struct ESView: View {
     @State var es = ES()
+    @ObservedObject var viewModel = ESViewModel()
+    var click: Bool
 
-    init() {
-        self.es.isClick.toggle()
+    init(click: Bool) {
+        self.click = click
+        print("clickされたか", click)
+        if self.click {
+            viewModel.clickButton()
+        }
     }
 
     var body: some View {
@@ -22,7 +28,7 @@ struct ESView: View {
                         .headetTitle()
 
                 ) {
-                    TextField("会社名", text: $es.name)
+                    TextField("会社名", text: $viewModel.name)
                         .input()
                 }
 
@@ -30,7 +36,7 @@ struct ESView: View {
                     header: Text("開始時間")
                         .headetTitle()
                 ) {
-                    DatePicker("開始時間", selection: $es.deadline)
+                    DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
                 }
                 .listRowBackground(Color.clear)
@@ -41,7 +47,7 @@ struct ESView: View {
                     header: Text("志望動機")
                         .headetTitle()
                 ) {
-                    TextEditor( text: $es.motivation)
+                    TextEditor( text: $viewModel.motivation)
                         .input()
                 }
 
@@ -50,7 +56,7 @@ struct ESView: View {
                     header: Text("ガクチカ")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $es.gakuchika)
+                    TextEditor(text: $viewModel.gakuchika)
                         .input()
                 }
 
@@ -58,7 +64,7 @@ struct ESView: View {
                     header: Text("長所")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $es.strongPoints)
+                    TextEditor(text: $viewModel.strongPoints)
                         .input()
                 }
 
@@ -66,7 +72,7 @@ struct ESView: View {
                     header: Text("短所")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $es.weakPoints)
+                    TextEditor(text: $viewModel.weakPoints)
                         .input()
                 }
 
@@ -74,7 +80,7 @@ struct ESView: View {
                     header: Text("その他")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $es.other)
+                    TextEditor(text: $viewModel.other)
                         .input()
                 }
             }
@@ -82,12 +88,14 @@ struct ESView: View {
             .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
         }
 
+
+
     }
 }
 
 struct EntrysheetView_Previews: PreviewProvider {
     static var previews: some View {
-        ESView()
+        ESView(click: false)
             .environment(\.locale, Locale(identifier: "ja_JP"))
 
     }
