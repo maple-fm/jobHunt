@@ -38,12 +38,15 @@ struct CalendarTestView: UIViewRepresentable {
         fsCalendar.appearance.titleWeekendColor = .red
 
         // カレンダー日付表示のカスタマイズ
-        fsCalendar.appearance.todayColor = .clear //本日の選択カラー
-        fsCalendar.appearance.titleTodayColor = .blue //本日のテキストカラー
+        fsCalendar.appearance.todayColor = UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1) //本日の選択カラー
+        fsCalendar.appearance.titleTodayColor = .black //本日のテキストカラー
 
         fsCalendar.appearance.selectionColor = .clear //選択した日付のカラー
-        fsCalendar.appearance.borderSelectionColor = .blue //選択した日付のボーダーカラー
+        fsCalendar.appearance.borderSelectionColor = UIColor(red: 0.019, green: 0.75, blue: 0.223, alpha: 1) //選択した日付のボーダーカラー
         fsCalendar.appearance.titleSelectionColor = .black //選択した日付のテキストカラー
+
+        fsCalendar.appearance.eventDefaultColor = UIColor(red: 0.019, green: 0.75, blue: 0.223, alpha: 1) // ドットカラー
+        fsCalendar.appearance.eventSelectionColor = UIColor(red: 0.019, green: 0.75, blue: 0.223, alpha: 1) // 選択時のドットカラー
 
         return fsCalendar
     }
