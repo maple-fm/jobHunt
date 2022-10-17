@@ -10,6 +10,16 @@ import SwiftUI
 struct SessionView: View {
 
     @State var session = Session()
+    @ObservedObject var viewModel = SessionViewModel()
+    var click: Bool
+
+    init(click: Bool) {
+        self.click = click
+        print("clickされたか", click)
+        if self.click {
+            viewModel.clickButton()
+        }
+    }
 
     var body: some View {
         VStack {
@@ -18,7 +28,7 @@ struct SessionView: View {
                     header: Text("会社名")
                         .headetTitle()
                 ) {
-                    TextField("会社名", text: $session.name)
+                    TextField("会社名", text: $viewModel.name)
                         .input()
                 }
 
@@ -26,7 +36,7 @@ struct SessionView: View {
                     header: Text("開始時間")
                         .headetTitle()
                 ) {
-                    DatePicker("開始時間", selection: $session.deadline)
+                    DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
                 }
                 .listRowBackground(Color.clear)
@@ -35,7 +45,7 @@ struct SessionView: View {
                     header: Text("開催場所")
                         .headetTitle()
                 ) {
-                    TextField("", text: $session.location)
+                    TextField("", text: $viewModel.location)
                         .input()
                 }
 
@@ -43,7 +53,7 @@ struct SessionView: View {
                     header: Text("服装")
                         .headetTitle()
                 ) {
-                    TextField("", text: $session.clothes)
+                    TextField("", text: $viewModel.clothes)
                         .input()
                 }
 
@@ -51,7 +61,7 @@ struct SessionView: View {
                     header: Text("持ち物")
                         .headetTitle()
                 ) {
-                    TextField("", text: $session.item)
+                    TextField("", text: $viewModel.item)
                         .input()
                 }
 
@@ -59,7 +69,7 @@ struct SessionView: View {
                     header: Text("質問したいこと")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $session.questions)
+                    TextEditor(text: $viewModel.questions)
                         .input()
                 }
 
@@ -67,7 +77,7 @@ struct SessionView: View {
                     header: Text("その他")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $session.other)
+                    TextEditor(text: $viewModel.other)
                         .input()
                 }
             }
@@ -79,7 +89,7 @@ struct SessionView: View {
 
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionView()
+        SessionView(click: false)
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

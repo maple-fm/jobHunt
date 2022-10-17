@@ -75,7 +75,7 @@ extension EventName {
         switch self {
         case .es : return AnyView(ESView(click: click))
         case .interview : return AnyView(InterviewView())
-        case .session : return AnyView(SessionView())
+        case .session : return AnyView(SessionView(click: click))
         case .internship : return AnyView(InternshipView())
         }
     }

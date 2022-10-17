@@ -12,6 +12,8 @@
 		F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9328F988EE00323EFA /* DatePicker.swift */; };
 		F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9528FB912000323EFA /* ESViewModel.swift */; };
 		F58BEB9828FB924100323EFA /* ESModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9728FB924100323EFA /* ESModel.swift */; };
+		F58BEB9C28FDA98B00323EFA /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9B28FDA98B00323EFA /* SessionViewModel.swift */; };
+		F58BEB9E28FDA9E300323EFA /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9D28FDA9E300323EFA /* SessionModel.swift */; };
 		F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E328F320D400B4E3E3 /* AddView.swift */; };
 		F5B789E728F3212500B4E3E3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E628F3212500B4E3E3 /* Event.swift */; };
 		F5B789E928F3311A00B4E3E3 /* ES.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E828F3311A00B4E3E3 /* ES.swift */; };
@@ -60,6 +62,8 @@
 		F58BEB9328F988EE00323EFA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		F58BEB9528FB912000323EFA /* ESViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESViewModel.swift; sourceTree = "<group>"; };
 		F58BEB9728FB924100323EFA /* ESModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESModel.swift; sourceTree = "<group>"; };
+		F58BEB9B28FDA98B00323EFA /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		F58BEB9D28FDA9E300323EFA /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
 		F5B789E328F320D400B4E3E3 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		F5B789E628F3212500B4E3E3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F5B789E828F3311A00B4E3E3 /* ES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ES.swift; sourceTree = "<group>"; };
@@ -140,6 +144,16 @@
 			path = ES;
 			sourceTree = "<group>";
 		};
+		F58BEB9A28FDA97800323EFA /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				F5B789F628F3327C00B4E3E3 /* SessionView.swift */,
+				F58BEB9B28FDA98B00323EFA /* SessionViewModel.swift */,
+				F58BEB9D28FDA9E300323EFA /* SessionModel.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		F5B789E128F31ECC00B4E3E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +170,7 @@
 				F5B789E328F320D400B4E3E3 /* AddView.swift */,
 				F5B789F228F331F800B4E3E3 /* InternshipView.swift */,
 				F5B789F428F3325700B4E3E3 /* InterviewView.swift */,
-				F5B789F628F3327C00B4E3E3 /* SessionView.swift */,
+				F58BEB9A28FDA97800323EFA /* Session */,
 			);
 			path = Create;
 			sourceTree = "<group>";
@@ -425,7 +439,9 @@
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* Internship.swift in Sources */,
 				F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */,
+				F58BEB9C28FDA98B00323EFA /* SessionViewModel.swift in Sources */,
 				F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */,
+				F58BEB9E28FDA9E300323EFA /* SessionModel.swift in Sources */,
 				F58BEB9828FB924100323EFA /* ESModel.swift in Sources */,
 				F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */,
 				F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */,
