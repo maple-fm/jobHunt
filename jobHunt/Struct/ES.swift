@@ -15,6 +15,5 @@ struct ES {
     var strongPoints: String = ""
     var weakPoints: String = ""
     var other: String = ""
-    var isClick: Bool = false
 
 }

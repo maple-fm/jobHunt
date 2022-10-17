@@ -10,9 +10,8 @@ import SwiftUI
 struct addEvent: View {
 
     @State var event: EventName = .es
-    @State private var isCreate = false
+    @State private var canCreate = false
     @Environment(\.dismiss) var dismiss
-    @State var es = ES()
 
 
     var body: some View {
@@ -46,9 +45,10 @@ struct addEvent: View {
                         }
                     }
 
-                event.eventView
+                event.eventView(click: canCreate)
 
                 Button(action: {
+                    canCreate.toggle()
                     dismiss()
                 }) {
                     Image(systemName: "checkmark.circle.fill")
@@ -71,9 +71,9 @@ struct addEvent_Previews: PreviewProvider {
 }
 
 extension EventName {
-    var eventView : some View {
+    func eventView(click: Bool) -> some View {
         switch self {
-        case .es : return AnyView(ESView())
+        case .es : return AnyView(ESView(click: click))
         case .interview : return AnyView(InterviewView())
         case .session : return AnyView(SessionView())
         case .internship : return AnyView(InternshipView())

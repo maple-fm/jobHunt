@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import UIKit
-import SwiftUI
 
 class HomeModel {
     let dateFormatter = DateFormatter()
