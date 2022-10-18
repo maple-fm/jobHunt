@@ -15,7 +15,7 @@ class ESViewModel: ObservableObject {
     @Published var name = "" {
         didSet {
             model.name = name
-            print(name)
+            print(model.name)
         }
     }
 
@@ -52,7 +52,15 @@ class ESViewModel: ObservableObject {
         }
     }
 
-    func clickButton() {
+    @Published private(set) var canCreate = false
+
+    func isValidated() -> Bool {
+        model.isValidated()
+    }
+
+
+    func clickButton(click: Bool) {
+//        print(self.name != "" ? self.name : "x")
         model.create()
     }
 

@@ -8,17 +8,12 @@
 import SwiftUI
 
 struct ESView: View {
-    @State var es = ES()
-    @ObservedObject var viewModel = ESViewModel()
-    var click: Bool
+    @Binding var click: Bool
 
-    init(click: Bool) {
-        self.click = click
-        print("clickされたか", click)
-        if self.click {
-            viewModel.clickButton()
-        }
-    }
+    @State var es = ES()
+    @StateObject var viewModel = ESViewModel()
+
+    let action: () -> Void // クロージャ
 
     var body: some View {
         VStack {
@@ -86,16 +81,23 @@ struct ESView: View {
             }
             .scrollContentBackground(.hidden)
             .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
+
         }
+        .onChange(of: click) {
+            // clickが変更したときだけ実行される
+            if viewModel.isValidated() {
+                viewModel.clickButton(click: $0)
+                action()
+            }
 
-
+        }
 
     }
 }
 
 struct EntrysheetView_Previews: PreviewProvider {
     static var previews: some View {
-        ESView(click: false)
+        ESView(click: .constant(false)) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
 
     }

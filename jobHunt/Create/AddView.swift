@@ -20,36 +20,42 @@ struct addEvent: View {
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 ScrollView(.horizontal) {
-                        HStack {
-                            ForEach(EventName.allCases, id: \.self) { (eventName) in
-                                Button(action: {
-                                    event = eventName
-                                }) {
-                                    Text(eventName.rawValue).tag(eventName)
-                                        .padding()
-                                        .foregroundColor(.black)
-                                }
-                                .frame(width: 200, height: 70)
-                                .background(
-                                    event == eventName
-                                    ? Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor)
-                                    : Color(UIColor(red: 0.918, green: 0.95, blue: 0.923, alpha: 1).cgColor))
-                                .cornerRadius(50)
-                                .padding(EdgeInsets(
-                                    top:15,
-                                    leading: 5,
-                                    bottom: 15,
-                                    trailing: 5
-                                ))
+                    HStack {
+                        ForEach(EventName.allCases, id: \.self) { (eventName) in
+                            Button(action: {
+                                event = eventName
+                            }) {
+                                Text(eventName.rawValue).tag(eventName)
+                                    .padding()
+                                    .foregroundColor(.black)
                             }
+                            .frame(width: 200, height: 70)
+                            .background(
+                                event == eventName
+                                ? Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor)
+                                : Color(UIColor(red: 0.918, green: 0.95, blue: 0.923, alpha: 1).cgColor)
+                            )
+                            .cornerRadius(50)
+                            .padding(EdgeInsets(
+                                top:15,
+                                leading: 5,
+                                bottom: 15,
+                                trailing: 5
+                            ))
                         }
                     }
+                }
 
-                event.eventView(click: canCreate)
+                //                event.eventView(click: $canCreate) {
+//                dismiss()
+//            }
+                ESView(click: $canCreate) {
+                    // actionラベルの省略
+                    dismiss()
+                }
 
                 Button(action: {
                     canCreate.toggle()
-                    dismiss()
                 }) {
                     Image(systemName: "checkmark.circle.fill")
                         .ImageItem()
@@ -58,8 +64,6 @@ struct addEvent: View {
             }
 
         }
-
-
     }
 }
 
@@ -71,11 +75,11 @@ struct addEvent_Previews: PreviewProvider {
 }
 
 extension EventName {
-    func eventView(click: Bool) -> some View {
+    func eventView(click: Binding<Bool>, action: @escaping () -> Void) -> some View {
         switch self {
-        case .es : return AnyView(ESView(click: click))
+        case .es : return AnyView(ESView(click: click , action: action))
         case .interview : return AnyView(InterviewView())
-        case .session : return AnyView(SessionView(click: click))
+        case .session : return AnyView(SessionView(click: false))
         case .internship : return AnyView(InternshipView())
         }
     }

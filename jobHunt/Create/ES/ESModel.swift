@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 struct ESModel {
 
@@ -17,8 +18,31 @@ struct ESModel {
     var weakPoints: String?
     var other: String?
 
-    mutating func create() {
+
+    init(name: String? = nil, deadline: Date? = nil, motivation: String? = nil, gakuchika: String? = nil, strongPoints: String? = nil, weakPoints: String? = nil, other: String? = nil) {
+        self.name = name
+        self.deadline = deadline
+        self.motivation = motivation
+        self.gakuchika = gakuchika
+        self.strongPoints = strongPoints
+        self.weakPoints = weakPoints
+        self.other = other
+
+        print("model init")
+    }
+
+    func create() {
         print("ES")
         print(self.name ?? "名無し")
+    }
+
+    func isValidated() -> Bool {
+        guard
+            let name = name
+        else{ return false }
+        let isValidName = !name.isEmpty
+
+        return isValidName
+
     }
 }
