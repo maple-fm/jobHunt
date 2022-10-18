@@ -1,16 +1,16 @@
 //
-//  ESViewModel.swift
+//  InterviewViewModel.swift
 //  jobHunt
 //
-//  Created by 出口楓真 on 2022/10/16.
+//  Created by 出口楓真 on 2022/10/18.
 //
 
 import Foundation
 import Combine
 import SwiftUI
 
-class ESViewModel: ObservableObject {
-    private var model = ESModel()
+class InterviewViewModel: ObservableObject {
+    private var model = InterviewModel()
 
     @Published var name = "" {
         didSet {
@@ -21,6 +21,18 @@ class ESViewModel: ObservableObject {
     @Published var deadline = Date.now {
         didSet {
             model.deadline = deadline
+        }
+    }
+
+    @Published var location = "" {
+        didSet {
+            model.location = location
+        }
+    }
+
+    @Published var clothes = "" {
+        didSet {
+            model.clothes = clothes
         }
     }
 
@@ -51,12 +63,9 @@ class ESViewModel: ObservableObject {
         }
     }
 
-
     func isValidated() -> Bool {
-        // 一行の時はreturnは省略できる
         model.isValidated()
     }
-
 
     func clickButton(click: Bool) {
         model.create()

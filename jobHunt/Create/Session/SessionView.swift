@@ -10,16 +10,10 @@ import SwiftUI
 struct SessionView: View {
 
     @State var session = Session()
-    @ObservedObject var viewModel = SessionViewModel()
-    var click: Bool
+    @StateObject var viewModel = SessionViewModel()
+    @Binding var click: Bool
 
-    init(click: Bool) {
-        self.click = click
-        print("clickされたか", click)
-        if self.click {
-            viewModel.clickButton()
-        }
-    }
+    let action: () -> Void
 
     var body: some View {
         VStack {
@@ -84,12 +78,20 @@ struct SessionView: View {
             .scrollContentBackground(.hidden)
             .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
         }
+        .onChange(of: click) {
+            // clickが変更したときだけ実行される
+            if viewModel.isValidated() {
+                viewModel.clickButton(click: $0)
+                action()
+            }
+
+        }
     }
 }
 
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionView(click: false)
+        SessionView(click: .constant(false)) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

@@ -15,7 +15,6 @@ class SessionViewModel: ObservableObject {
     @Published var name = "" {
         didSet {
             model.name = name
-            print(name)
         }
     }
 
@@ -52,7 +51,11 @@ class SessionViewModel: ObservableObject {
         }
     }
 
-    func clickButton() {
+    func isValidated() -> Bool {
+        model.isValidated()
+    }
+
+    func clickButton(click: Bool) {
         model.create()
     }
 

@@ -10,6 +10,10 @@ import SwiftUI
 struct InterviewView: View {
 
     @State var interview = Interview()
+    @StateObject var viewModel = InterviewViewModel()
+    @Binding var click: Bool
+
+    let action: () -> Void
 
     var body: some View {
         VStack {
@@ -18,7 +22,7 @@ struct InterviewView: View {
                     header: Text("会社名")
                         .headetTitle()
                 ) {
-                    TextField("会社名", text: $interview.name)
+                    TextField("会社名", text: $viewModel.name)
                         .input()
                 }
 
@@ -26,7 +30,7 @@ struct InterviewView: View {
                     header: Text("開始時間")
                         .headetTitle()
                 ) {
-                    DatePicker("開始時間", selection: $interview.deadline)
+                    DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
                 }
                 .listRowBackground(Color.clear)
@@ -35,7 +39,7 @@ struct InterviewView: View {
                     header: Text("開催場所")
                         .headetTitle()
                 ) {
-                    TextField("", text: $interview.location)
+                    TextField("", text: $viewModel.location)
                         .input()
                 }
 
@@ -43,7 +47,7 @@ struct InterviewView: View {
                     header: Text("服装")
                         .headetTitle()
                 ) {
-                    TextField("", text: $interview.clothes)
+                    TextField("", text: $viewModel.clothes)
                         .input()
                 }
 
@@ -51,7 +55,7 @@ struct InterviewView: View {
                     header: Text("志望動機")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $interview.motivation)
+                    TextEditor(text: $viewModel.motivation)
                         .input()
                 }
 
@@ -59,7 +63,7 @@ struct InterviewView: View {
                     header: Text("ガクチカ")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $interview.gakuchika)
+                    TextEditor(text: $viewModel.gakuchika)
                         .input()
                 }
 
@@ -67,7 +71,7 @@ struct InterviewView: View {
                     header: Text("長所")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $interview.strongPoints)
+                    TextEditor(text: $viewModel.strongPoints)
                         .input()
                 }
 
@@ -75,7 +79,7 @@ struct InterviewView: View {
                     header: Text("短所")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $interview.weakPoints)
+                    TextEditor(text: $viewModel.weakPoints)
                         .input()
                 }
 
@@ -83,7 +87,7 @@ struct InterviewView: View {
                     header: Text("その他")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $interview.other)
+                    TextEditor(text: $viewModel.other)
                         .input()
 
                 }
@@ -91,12 +95,20 @@ struct InterviewView: View {
             .scrollContentBackground(.hidden)
             .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
         }
+        .onChange(of: click) {
+            // clickが変更したときだけ実行される
+            if viewModel.isValidated() {
+                viewModel.clickButton(click: $0)
+                action()
+            }
+
+        }
     }
 }
 
 struct InterviewView_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewView()
+        InterviewView(click: .constant(false)) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

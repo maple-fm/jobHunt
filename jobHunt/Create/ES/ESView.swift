@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ESView: View {
-    @Binding var click: Bool
 
     @State var es = ES()
     @StateObject var viewModel = ESViewModel()
+    @Binding var click: Bool
 
     let action: () -> Void // クロージャ
 

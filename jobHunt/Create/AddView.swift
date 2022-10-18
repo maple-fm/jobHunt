@@ -46,13 +46,9 @@ struct addEvent: View {
                     }
                 }
 
-                //                event.eventView(click: $canCreate) {
-//                dismiss()
-//            }
-                ESView(click: $canCreate) {
-                    // actionラベルの省略
-                    dismiss()
-                }
+            event.eventView(click: $canCreate) {
+                dismiss()
+            }
 
                 Button(action: {
                     canCreate.toggle()
@@ -78,9 +74,9 @@ extension EventName {
     func eventView(click: Binding<Bool>, action: @escaping () -> Void) -> some View {
         switch self {
         case .es : return AnyView(ESView(click: click , action: action))
-        case .interview : return AnyView(InterviewView())
-        case .session : return AnyView(SessionView(click: false))
-        case .internship : return AnyView(InternshipView())
+        case .interview : return AnyView(InterviewView(click: click, action: action))
+        case .session : return AnyView(SessionView(click: click , action: action))
+        case .internship : return AnyView(InternshipView(click: click, action: action))
         }
     }
 }

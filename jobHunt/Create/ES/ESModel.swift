@@ -27,8 +27,6 @@ struct ESModel {
         self.strongPoints = strongPoints
         self.weakPoints = weakPoints
         self.other = other
-
-        print("model init")
     }
 
     func create() {
@@ -43,6 +41,5 @@ struct ESModel {
         let isValidName = !name.isEmpty
 
         return isValidName
-
     }
 }

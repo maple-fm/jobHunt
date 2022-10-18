@@ -1,5 +1,5 @@
 //
-//  SessionModel.swift
+//  InterviewModel.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/10/18.
@@ -7,28 +7,32 @@
 
 import Foundation
 
-struct SessionModel {
+struct InterviewModel {
 
     var name: String?
     var deadline: Date?
     var location: String?
     var clothes: String?
-    var item: String?
-    var questions: String?
+    var motivation: String?
+    var gakuchika: String?
+    var strongPoints: String?
+    var weakPoints: String?
     var other: String?
 
-    init(name: String? = nil, deadline: Date? = nil, location: String? = nil, clothes: String? = nil, item: String? = nil, questions: String? = nil, other: String? = nil) {
+    init(name: String? = nil, deadline: Date? = nil, location: String? = nil, clothes: String? = nil, motivation: String? = nil, gakuchika: String? = nil, strongPoints: String? = nil, weakPoints: String? = nil, other: String? = nil) {
         self.name = name
         self.deadline = deadline
         self.location = location
         self.clothes = clothes
-        self.item = item
-        self.questions = questions
+        self.motivation = motivation
+        self.gakuchika = gakuchika
+        self.strongPoints = strongPoints
+        self.weakPoints = weakPoints
         self.other = other
     }
 
     func create() {
-        print("Session")
+        print("Interview")
         print(self.name ?? "名無し")
     }
 

@@ -14,6 +14,10 @@
 		F58BEB9828FB924100323EFA /* ESModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9728FB924100323EFA /* ESModel.swift */; };
 		F58BEB9C28FDA98B00323EFA /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9B28FDA98B00323EFA /* SessionViewModel.swift */; };
 		F58BEB9E28FDA9E300323EFA /* SessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9D28FDA9E300323EFA /* SessionModel.swift */; };
+		F58BEBA128FED03800323EFA /* InternshipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA028FED03800323EFA /* InternshipViewModel.swift */; };
+		F58BEBA328FED07C00323EFA /* InternshipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA228FED07C00323EFA /* InternshipModel.swift */; };
+		F58BEBA628FED14B00323EFA /* InterviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */; };
+		F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA728FED1CD00323EFA /* InterviewModel.swift */; };
 		F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E328F320D400B4E3E3 /* AddView.swift */; };
 		F5B789E728F3212500B4E3E3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E628F3212500B4E3E3 /* Event.swift */; };
 		F5B789E928F3311A00B4E3E3 /* ES.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E828F3311A00B4E3E3 /* ES.swift */; };
@@ -64,6 +68,10 @@
 		F58BEB9728FB924100323EFA /* ESModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESModel.swift; sourceTree = "<group>"; };
 		F58BEB9B28FDA98B00323EFA /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
 		F58BEB9D28FDA9E300323EFA /* SessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionModel.swift; sourceTree = "<group>"; };
+		F58BEBA028FED03800323EFA /* InternshipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipViewModel.swift; sourceTree = "<group>"; };
+		F58BEBA228FED07C00323EFA /* InternshipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipModel.swift; sourceTree = "<group>"; };
+		F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewModel.swift; sourceTree = "<group>"; };
+		F58BEBA728FED1CD00323EFA /* InterviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewModel.swift; sourceTree = "<group>"; };
 		F5B789E328F320D400B4E3E3 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		F5B789E628F3212500B4E3E3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F5B789E828F3311A00B4E3E3 /* ES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ES.swift; sourceTree = "<group>"; };
@@ -154,6 +162,26 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
+		F58BEB9F28FED01E00323EFA /* Internship */ = {
+			isa = PBXGroup;
+			children = (
+				F5B789F228F331F800B4E3E3 /* InternshipView.swift */,
+				F58BEBA028FED03800323EFA /* InternshipViewModel.swift */,
+				F58BEBA228FED07C00323EFA /* InternshipModel.swift */,
+			);
+			path = Internship;
+			sourceTree = "<group>";
+		};
+		F58BEBA428FED12A00323EFA /* Interview */ = {
+			isa = PBXGroup;
+			children = (
+				F5B789F428F3325700B4E3E3 /* InterviewView.swift */,
+				F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */,
+				F58BEBA728FED1CD00323EFA /* InterviewModel.swift */,
+			);
+			path = Interview;
+			sourceTree = "<group>";
+		};
 		F5B789E128F31ECC00B4E3E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,10 +194,10 @@
 		F5B789E228F320BE00B4E3E3 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				F58BEBA428FED12A00323EFA /* Interview */,
+				F58BEB9F28FED01E00323EFA /* Internship */,
 				F58BEB9928FDA39B00323EFA /* ES */,
 				F5B789E328F320D400B4E3E3 /* AddView.swift */,
-				F5B789F228F331F800B4E3E3 /* InternshipView.swift */,
-				F5B789F428F3325700B4E3E3 /* InterviewView.swift */,
 				F58BEB9A28FDA97800323EFA /* Session */,
 			);
 			path = Create;
@@ -435,11 +463,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F58BEBA628FED14B00323EFA /* InterviewViewModel.swift in Sources */,
 				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* Internship.swift in Sources */,
 				F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */,
 				F58BEB9C28FDA98B00323EFA /* SessionViewModel.swift in Sources */,
+				F58BEBA328FED07C00323EFA /* InternshipModel.swift in Sources */,
 				F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */,
 				F58BEB9E28FDA9E300323EFA /* SessionModel.swift in Sources */,
 				F58BEB9828FB924100323EFA /* ESModel.swift in Sources */,
@@ -450,6 +480,7 @@
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
 				F58BEB9228F9870400323EFA /* HomeModel.swift in Sources */,
 				F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */,
+				F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */,
 				F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */,
 				F5B789F128F331D300B4E3E3 /* ESView.swift in Sources */,
 				F5B789E928F3311A00B4E3E3 /* ES.swift in Sources */,
@@ -457,6 +488,7 @@
 				F5B789F528F3325700B4E3E3 /* InterviewView.swift in Sources */,
 				F5B789EF28F3319E00B4E3E3 /* Session.swift in Sources */,
 				F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */,
+				F58BEBA128FED03800323EFA /* InternshipViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

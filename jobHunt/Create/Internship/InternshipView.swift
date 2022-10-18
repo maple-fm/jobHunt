@@ -10,6 +10,10 @@ import SwiftUI
 struct InternshipView: View {
 
     @State var intern = Internship()
+    @StateObject var viewModel = InternshipViewModel()
+    @Binding var click: Bool
+
+    let action: () -> Void
 
     var body: some View {
         VStack {
@@ -18,7 +22,7 @@ struct InternshipView: View {
                     header: Text("会社名")
                         .headetTitle()
                 ) {
-                    TextField("会社名", text: $intern.name)
+                    TextField("会社名", text: $viewModel.name)
                         .input()
                 }
 
@@ -26,7 +30,7 @@ struct InternshipView: View {
                     header: Text("開始時間")
                         .headetTitle()
                 ) {
-                    DatePicker("開始時間", selection: $intern.deadline)
+                    DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
                 }
                 .listRowBackground(Color.clear)
@@ -35,7 +39,7 @@ struct InternshipView: View {
                     header: Text("開催場所")
                         .headetTitle()
                 ) {
-                    TextField("", text: $intern.location)
+                    TextField("", text: $viewModel.location)
                         .input()
                 }
 
@@ -43,7 +47,7 @@ struct InternshipView: View {
                     header: Text("服装")
                         .headetTitle()
                 ) {
-                    TextField("", text: $intern.clothes)
+                    TextField("", text: $viewModel.clothes)
                         .input()
                 }
 
@@ -51,7 +55,7 @@ struct InternshipView: View {
                     header: Text("持ち物")
                         .headetTitle()
                 ) {
-                    TextField("", text: $intern.item)
+                    TextField("", text: $viewModel.item)
                         .input()
                 }
 
@@ -59,19 +63,27 @@ struct InternshipView: View {
                     header: Text("その他")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $intern.other)
+                    TextEditor(text: $viewModel.other)
                         .input()
                 }
             }
             .scrollContentBackground(.hidden)
             .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
         }
+        .onChange(of: click) {
+            // clickが変更したときだけ実行される
+            if viewModel.isValidated() {
+                viewModel.clickButton(click: $0)
+                action()
+            }
+
+        }
     }
 }
 
 struct InternshipView_Previews: PreviewProvider {
     static var previews: some View {
-        InternshipView()
+        InternshipView(click: .constant(false)) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }
