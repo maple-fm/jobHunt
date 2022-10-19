@@ -6,13 +6,21 @@
 //
 
 import Foundation
+import RealmSwift
 
 class HomeModel {
     let dateFormatter = DateFormatter()
-    @Published var eventDateArray : [String] = []
-    @Published var events = [["2022年10月05日", "サイバーエージェント"], ["2022年10月15日", "SanSan"], ["2022年10月22日","LINE"], ["2022年10月05日", "Yahoo!"], ["2022年11月01日", "Google"]]
+    var events: [ES] = []
+    var eventDateArray : [String] = []
+
+    let realm = try! Realm()
 
     init() {
+        getEvents()
+    }
+
+    func getEvents() {
+        events = Array(realm.objects(ES.self))
         AddEvents()
     }
 
@@ -23,7 +31,7 @@ class HomeModel {
 
     func AddEvents(){
         for event in events {
-            eventDateArray.append(event[0])
+            eventDateArray.append(format(date: event.deadline))
         }
     }
 }

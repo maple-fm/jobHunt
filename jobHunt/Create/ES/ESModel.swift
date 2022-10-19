@@ -30,7 +30,7 @@ struct ESModel {
             realm.add(es)
         }
         // ↓これは何の意味？
-//        realm.objects(ES.self)
+        realm.objects(ES.self)
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
