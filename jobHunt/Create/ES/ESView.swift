@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ESView: View {
 
-    @State var es = ES()
     @StateObject var viewModel = ESViewModel()
     @Binding var click: Bool
 

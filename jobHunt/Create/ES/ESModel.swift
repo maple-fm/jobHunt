@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 import Combine
 
 struct ESModel {
@@ -18,20 +19,19 @@ struct ESModel {
     var weakPoints: String?
     var other: String?
 
-
-    init(name: String? = nil, deadline: Date? = nil, motivation: String? = nil, gakuchika: String? = nil, strongPoints: String? = nil, weakPoints: String? = nil, other: String? = nil) {
-        self.name = name
-        self.deadline = deadline
-        self.motivation = motivation
-        self.gakuchika = gakuchika
-        self.strongPoints = strongPoints
-        self.weakPoints = weakPoints
-        self.other = other
-    }
-
     func create() {
         print("ES")
-        print(self.name ?? "名無し")
+        let es = ES(name: name ?? "", deadline: deadline ?? Date(), motivation: motivation ?? "", gakuchika: gakuchika ?? "", strongPoints: strongPoints ?? "", weakPoints: weakPoints ?? "", other: other ?? "")
+        print("作成しました")
+        print(es)
+
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(es)
+        }
+        // ↓これは何の意味？
+//        realm.objects(ES.self)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
     func isValidated() -> Bool {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct InterviewModel {
 
@@ -20,6 +21,7 @@ struct InterviewModel {
     var other: String?
 
     init(name: String? = nil, deadline: Date? = nil, location: String? = nil, clothes: String? = nil, motivation: String? = nil, gakuchika: String? = nil, strongPoints: String? = nil, weakPoints: String? = nil, other: String? = nil) {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         self.name = name
         self.deadline = deadline
         self.location = location

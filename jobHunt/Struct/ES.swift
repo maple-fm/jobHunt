@@ -6,14 +6,29 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct ES {
-    var name: String = ""
-    var deadline: Date = .now
-    var motivation: String = ""
-    var gakuchika: String = ""
-    var strongPoints: String = ""
-    var weakPoints: String = ""
-    var other: String = ""
+class ES: Object {
+    @Persisted var name: String
+    @Persisted var deadline: Date
+    @Persisted var motivation: String
+    @Persisted var gakuchika: String
+    @Persisted var strongPoints: String
+    @Persisted var weakPoints: String
+    @Persisted var other: String
+
+    init(name: String, deadline: Date, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, other: String) {
+        self.name = name
+        self.deadline = deadline
+        self.motivation = motivation
+        self.gakuchika = gakuchika
+        self.strongPoints = strongPoints
+        self.weakPoints = weakPoints
+        self.other = other
+    }
+
+    convenience override init() {
+        self.init(name: "", deadline: Date.now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "")
+    }
 
 }

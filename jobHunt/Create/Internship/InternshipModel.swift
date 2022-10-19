@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct InternshipModel {
 
@@ -17,6 +18,7 @@ struct InternshipModel {
     var other: String?
 
     init(name: String? = nil, deadline: Date? = nil, location: String? = nil, clothes: String? = nil, item: String? = nil, other: String? = nil) {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         self.name = name
         self.deadline = deadline
         self.location = location
