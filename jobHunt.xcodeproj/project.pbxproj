@@ -197,10 +197,10 @@
 		F5B789E228F320BE00B4E3E3 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				F5B789E328F320D400B4E3E3 /* AddView.swift */,
 				F58BEBA428FED12A00323EFA /* Interview */,
 				F58BEB9F28FED01E00323EFA /* Internship */,
 				F58BEB9928FDA39B00323EFA /* ES */,
-				F5B789E328F320D400B4E3E3 /* AddView.swift */,
 				F58BEB9A28FDA97800323EFA /* Session */,
 			);
 			path = Create;

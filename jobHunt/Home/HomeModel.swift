@@ -10,13 +10,14 @@ import RealmSwift
 
 class HomeModel {
     let dateFormatter = DateFormatter()
-    var events: [ES] = []
+    var events: [ES] = [] 
     var eventDateArray : [String] = []
 
     let realm = try! Realm()
 
     init() {
         getEvents()
+        AddEvents()
     }
 
     func getEvents() {
@@ -29,7 +30,7 @@ class HomeModel {
         return dateFormatter.string(from:date)
     }
 
-    func AddEvents(){
+    func AddEvents() {
         for event in events {
             eventDateArray.append(format(date: event.deadline))
         }

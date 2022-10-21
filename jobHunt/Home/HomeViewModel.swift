@@ -9,17 +9,16 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    private var homeModel = HomeModel() {
-        didSet {
-            events = homeModel.events
-            eventDateArray = homeModel.eventDateArray
-        }
-    }
+    private var homeModel = HomeModel()
 
     @Published private(set) var events: [ES] = []
     @Published var eventDateArray : [String] = []
 
     init() {
+        assignEvents()
+    }
+
+    func assignEvents() {
         events = homeModel.events
         eventDateArray = homeModel.eventDateArray
     }
@@ -30,6 +29,7 @@ class HomeViewModel: ObservableObject {
 
     func dismissActionSheet() {
         getEvents()
+        assignEvents()
     }
 
     func toString(date: Date) -> String {
