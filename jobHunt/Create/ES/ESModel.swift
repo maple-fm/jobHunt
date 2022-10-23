@@ -20,17 +20,13 @@ struct ESModel {
     var other: String?
 
     func create() {
-        print("ES")
         let es = ES(name: name ?? "", deadline: deadline ?? Date(), motivation: motivation ?? "", gakuchika: gakuchika ?? "", strongPoints: strongPoints ?? "", weakPoints: weakPoints ?? "", other: other ?? "")
-        print("作成しました")
-        print(es)
 
         let realm = try! Realm()
         try! realm.write {
             realm.add(es)
         }
-        // ↓これは何の意味？
-        realm.objects(ES.self)
+
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
