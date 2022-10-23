@@ -31,6 +31,7 @@ class HomeModel {
     }
 
     func AddEvents() {
+        eventDateArray = []
         for event in events {
             eventDateArray.append(format(date: event.deadline))
         }
