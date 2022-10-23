@@ -19,6 +19,7 @@
 		F58BEBA628FED14B00323EFA /* InterviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */; };
 		F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA728FED1CD00323EFA /* InterviewModel.swift */; };
 		F58BEBAA29003A5E00323EFA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA929003A5E00323EFA /* HomeViewModel.swift */; };
+		F58BEBAD2902706C00323EFA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBAC2902706C00323EFA /* DetailView.swift */; };
 		F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E328F320D400B4E3E3 /* AddView.swift */; };
 		F5B789E728F3212500B4E3E3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E628F3212500B4E3E3 /* Event.swift */; };
 		F5B789E928F3311A00B4E3E3 /* ES.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E828F3311A00B4E3E3 /* ES.swift */; };
@@ -74,6 +75,7 @@
 		F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewModel.swift; sourceTree = "<group>"; };
 		F58BEBA728FED1CD00323EFA /* InterviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewModel.swift; sourceTree = "<group>"; };
 		F58BEBA929003A5E00323EFA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F58BEBAC2902706C00323EFA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F5B789E328F320D400B4E3E3 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		F5B789E628F3212500B4E3E3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F5B789E828F3311A00B4E3E3 /* ES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ES.swift; sourceTree = "<group>"; };
@@ -184,6 +186,14 @@
 			path = Interview;
 			sourceTree = "<group>";
 		};
+		F58BEBAB2902705800323EFA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F58BEBAC2902706C00323EFA /* DetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		F5B789E128F31ECC00B4E3E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +264,7 @@
 		F5C83B6A28F311FE00A01E4E /* jobHunt */ = {
 			isa = PBXGroup;
 			children = (
+				F58BEBAB2902705800323EFA /* Detail */,
 				F5B78A0928F3383400B4E3E3 /* Extension */,
 				F5B789E528F3210E00B4E3E3 /* Struct */,
 				F5B789E228F320BE00B4E3E3 /* Create */,
@@ -483,6 +494,7 @@
 				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
 				F58BEB9228F9870400323EFA /* HomeModel.swift in Sources */,
+				F58BEBAD2902706C00323EFA /* DetailView.swift in Sources */,
 				F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */,
 				F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */,
 				F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */,
