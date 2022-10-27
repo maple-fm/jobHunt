@@ -10,6 +10,7 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     private var homeModel = HomeModel()
+    private var format = FormatModel()
 
     @Published private(set) var events: [ES] = []
     @Published var eventDateArray : [String] = []
@@ -18,22 +19,17 @@ class HomeViewModel: ObservableObject {
         assignEvents()
     }
 
-    func assignEvents() {
+    private func assignEvents() {
         events = homeModel.events
         eventDateArray = homeModel.eventDateArray
     }
 
-    func getEvents() {
-        homeModel.getEvents()
-    }
-
     func dismissActionSheet() {
-        getEvents()
+        homeModel.getEvents()
         assignEvents()
     }
 
     func toString(date: Date) -> String {
-
-        return homeModel.format(date: date)
+        return format.format(date: date)
     }
 }

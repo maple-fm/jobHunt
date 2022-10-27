@@ -9,31 +9,29 @@ import Foundation
 import RealmSwift
 
 class HomeModel {
-    let dateFormatter = DateFormatter()
+    
     var events: [ES] = [] 
     var eventDateArray : [String] = []
 
     let realm = try! Realm()
+    let format = FormatModel()
 
     init() {
         getEvents()
-        AddEvents()
+        addEvents()
     }
 
     func getEvents() {
         events = Array(realm.objects(ES.self))
-        AddEvents()
+        addEvents()
     }
 
-    func format(date: Date) -> String {
-        dateFormatter.dateFormat = "YYYY年MM月dd日"
-        return dateFormatter.string(from:date)
-    }
-
-    func AddEvents() {
+    // task: eventDateArrayをModelでもViewModelでも保持したくない
+    // viewから
+    func addEvents() {
         eventDateArray = []
         for event in events {
-            eventDateArray.append(format(date: event.deadline))
+            eventDateArray.append(format.format(date: event.deadline))
         }
     }
 }
