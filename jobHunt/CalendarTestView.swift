@@ -53,6 +53,9 @@ struct CalendarTestView: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIView, context: Context) {
         context.coordinator.eventsDate = eventsDate
+        if let uiView = uiView as? FSCalendar {
+            uiView.reloadData()
+        }
     }
 
     func makeCoordinator() -> Coordinator{
