@@ -59,17 +59,22 @@ struct HomeView: View {
 
                 ZStack {
                     ScrollView {
-                        ForEach(viewModel.events, id: \.self) { event in
+                        ForEach(viewModel.events, id: \.id) { event in
                             if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
                                 VStack {
-                                    NavigationLink(destination: DetailView(name: event.name, motivation: event.motivation/*event: event*/)){
-                                            Text(event.name)
-                                                .frame(width: 350, height: 70, alignment: .leading)
-                                                .padding(.leading, 30)
-                                                .padding(.top, 10)
-                                                .font(.system(size: 20))
-                                                .background(Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor))
-                                                .cornerRadius(50)
+                                    NavigationLink(destination: DetailView(event: event)){
+                                        Text(event.name)
+                                            .frame(width: 350, height: 70, alignment: .center)
+                                            .padding(.leading, 20)
+                                            .padding(.top, 10)
+                                            .font(.system(size: 20))
+
+                                            .background(event.category == .es ?
+                                                        Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor) :
+                                                            Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 1).cgColor)
+                                            )
+                                            .cornerRadius(50)
+                                            .foregroundColor(.black)
                                     }
                                 }
                             }

@@ -8,29 +8,28 @@
 import SwiftUI
 
 struct DetailView: View {
-//    var es = ES()
-    var name: String
-    var motivation: String
 
-//    @State var event: [ES] = []
+    var event: any Entry
 
-    init(name: String, motivation: String/*event: [ES]*/) {
-        self.name = name
-        self.motivation = motivation
-//        self.event = event
-    }
-
+    // task: UIを考える
     var body: some View {
         VStack{
-            Text(self.name)
-            Text(self.motivation)
+            Text(self.event.category.rawValue )
+                .headetTitle()
+//                .fontWeight()
+
+            Text("会社名")
+            Text(self.event.name )
+            
+//            Text(self.motivation)
+
         }
 
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(name:"", motivation: "")
-    }
-}
+//struct DetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DetailView(event: )
+//    }
+//}
