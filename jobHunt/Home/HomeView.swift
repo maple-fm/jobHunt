@@ -19,7 +19,6 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-
                 CalendarTestView(selectedDate: $selectedDate, eventsDate: $viewModel.eventDateArray)
                     .frame(width: 400, height: 400.0, alignment: .center)
 
@@ -30,19 +29,31 @@ struct HomeView: View {
                         .font(.callout)
                         .padding(.top, 10)
                         .padding(.leading, 15)
+                    Spacer()
 
                     Button(action: {
                         self.add.toggle()
                     }) {
                         Image(systemName: "plus.circle.fill")
-                            .font(.system(size: 40))
-                            .frame(width: 60, height: 60)
+
+                            .font(.system(size: 45))
+                            .frame(width: 40, height: 40)
                             .foregroundColor(.green)
-                            .padding(.leading, 170)
+                            .mask(Circle())
                     }
+                    .padding(EdgeInsets(
+                        top: 10 ,
+                        leading: 0,
+                        bottom: 0,
+                        trailing: 15)
+                    )
                     .sheet(isPresented: $add, onDismiss: viewModel.dismissActionSheet) {
                         addEvent()
                     }
+
+
+
+
                 }
 
 
@@ -81,4 +92,5 @@ struct ContentView_Previews: PreviewProvider {
 
     }
 }
+
 
