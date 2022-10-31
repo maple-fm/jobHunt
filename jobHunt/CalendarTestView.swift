@@ -14,7 +14,7 @@ import CalculateCalendarLogic
 struct CalendarTestView: UIViewRepresentable {
 
     @Binding var selectedDate: Date
-    @Binding var eventsDate: [String]
+    let eventsDate: [String]
     
     func makeUIView(context: Context) -> UIView {
 
@@ -51,14 +51,18 @@ struct CalendarTestView: UIViewRepresentable {
         return fsCalendar
     }
 
+
     func updateUIView(_ uiView: UIView, context: Context) {
         context.coordinator.eventsDate = eventsDate
         if let uiView = uiView as? FSCalendar {
-            uiView.reloadData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                uiView.reloadData()
+            }
         }
     }
 
     func makeCoordinator() -> Coordinator{
+
         return Coordinator(self)
     }
 
