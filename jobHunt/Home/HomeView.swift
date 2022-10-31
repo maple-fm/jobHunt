@@ -19,7 +19,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                CalendarTestView(selectedDate: $selectedDate, eventsDate: $viewModel.eventDateArray)
+                CalendarTestView(selectedDate: $selectedDate, eventsDate: viewModel.eventsDateArray)
                     .frame(width: 400, height: 400.0, alignment: .center)
 
                 Divider()

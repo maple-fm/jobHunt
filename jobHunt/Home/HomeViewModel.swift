@@ -12,8 +12,12 @@ class HomeViewModel: ObservableObject {
     private var homeModel = HomeModel()
     private var format = FormatModel()
 
-    @Published private(set) var events: [ES] = []
-    @Published var eventDateArray : [String] = []
+    @Published private(set) var events: [any Entry] = []
+    var eventsDateArray: [String] {
+        events.map {
+            toString(date: $0.deadline)
+        }
+    }
 
     init() {
         assignEvents()
@@ -21,7 +25,6 @@ class HomeViewModel: ObservableObject {
 
     private func assignEvents() {
         events = homeModel.events
-        eventDateArray = homeModel.eventDateArray
     }
 
     func dismissActionSheet() {
