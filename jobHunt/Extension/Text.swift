@@ -14,4 +14,14 @@ extension Text {
             .foregroundColor(.black)
             .padding(.bottom, 5)
     }
+
+    func TextArea() -> some View {
+        self
+            .fixedSize(horizontal: false, vertical: true)
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundColor(.black)
+            .background(.white)
+            .cornerRadius(14)
+    }
 }
