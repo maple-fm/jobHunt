@@ -55,6 +55,7 @@ struct addEvent: View {
                 }) {
                     Image(systemName: "checkmark.circle.fill")
                         .ImageItem()
+                        
                 }
 
             }

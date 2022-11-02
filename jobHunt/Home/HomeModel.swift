@@ -10,29 +10,22 @@ import RealmSwift
 
 class HomeModel {
     
-    var events: [ES] = [] 
-    var eventDateArray : [String] = []
+    var esArray: [ES] = []
+    var interviewArray: [Interview] = []
+    var events: [any Entry] = []
 
     let realm = try! Realm()
     let format = FormatModel()
 
     init() {
         getEvents()
-        addEvents()
     }
 
     func getEvents() {
-        events = Array(realm.objects(ES.self))
-        addEvents()
-    }
+        esArray = Array(realm.objects(ES.self))
+        interviewArray = Array(realm.objects(Interview.self))
+        events = esArray + interviewArray
 
-    // task: eventDateArrayをModelでもViewModelでも保持したくない
-    // viewから
-    func addEvents() {
-        eventDateArray = []
-        for event in events {
-            eventDateArray.append(format.format(date: event.deadline))
-        }
     }
 }
 
