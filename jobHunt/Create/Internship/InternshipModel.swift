@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct InternshipModel {
 
@@ -15,19 +16,16 @@ struct InternshipModel {
     var clothes: String?
     var item: String?
     var other: String?
+    var category: EventName?
 
-    init(name: String? = nil, deadline: Date? = nil, location: String? = nil, clothes: String? = nil, item: String? = nil, other: String? = nil) {
-        self.name = name
-        self.deadline = deadline
-        self.location = location
-        self.clothes = clothes
-        self.item = item
-        self.other = other
-    }
 
     func create() {
-        print("Internship")
-        print(self.name ?? "名無し")
+        let internship = Internship(name: name ?? "", deadline: deadline ?? Date(), location: location ?? "", clothes: clothes ?? "", item: item ?? "", other: other ?? "", category: category ?? .internship)
+
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(internship)
+        }
     }
 
     func isValidated() -> Bool {

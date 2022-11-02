@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct SessionModel {
 
@@ -16,20 +17,16 @@ struct SessionModel {
     var item: String?
     var questions: String?
     var other: String?
-
-    init(name: String? = nil, deadline: Date? = nil, location: String? = nil, clothes: String? = nil, item: String? = nil, questions: String? = nil, other: String? = nil) {
-        self.name = name
-        self.deadline = deadline
-        self.location = location
-        self.clothes = clothes
-        self.item = item
-        self.questions = questions
-        self.other = other
-    }
+    var category: EventName?
 
     func create() {
-        print("Session")
-        print(self.name ?? "名無し")
+        let session = Session(name: name ?? "", deadline: deadline ?? Date(), location: location ?? "", clothes: clothes ?? "", item: item ?? "", questions: questions ?? "", other: other ?? "", category: category ?? .session)
+
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(session)
+        }
+        
     }
 
     func isValidated() -> Bool {

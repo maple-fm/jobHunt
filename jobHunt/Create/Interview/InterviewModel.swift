@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 struct InterviewModel {
 
@@ -18,22 +19,18 @@ struct InterviewModel {
     var strongPoints: String?
     var weakPoints: String?
     var other: String?
-
-    init(name: String? = nil, deadline: Date? = nil, location: String? = nil, clothes: String? = nil, motivation: String? = nil, gakuchika: String? = nil, strongPoints: String? = nil, weakPoints: String? = nil, other: String? = nil) {
-        self.name = name
-        self.deadline = deadline
-        self.location = location
-        self.clothes = clothes
-        self.motivation = motivation
-        self.gakuchika = gakuchika
-        self.strongPoints = strongPoints
-        self.weakPoints = weakPoints
-        self.other = other
-    }
+    var category: EventName?
 
     func create() {
-        print("Interview")
-        print(self.name ?? "名無し")
+        let interview = Interview(name: name ?? "", deadline: deadline ?? Date(), location: location ?? "", clothes: clothes ?? "", motivation: motivation ?? "", gakuchika: gakuchika ?? "", strongPoints: strongPoints ?? "", weakPoints: weakPoints ?? "", other: other ?? "", category: category ?? .interview)
+
+        let realm = try! Realm()
+        try! realm.write {
+            print(interview)
+            realm.add(interview)
+        }
+
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
     func isValidated() -> Bool {

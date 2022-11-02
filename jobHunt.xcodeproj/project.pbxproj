@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B44F1BEA60D89BBBD84D202B /* Pods_jobHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2C90ACBB90DC8CBB62A91D /* Pods_jobHunt.framework */; };
+		F523936629125F190000F2C0 /* ESDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523936529125F190000F2C0 /* ESDetailView.swift */; };
+		F5239368291260B00000F2C0 /* InterviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5239367291260B00000F2C0 /* InterviewDetailView.swift */; };
+		F5262AD72912A9D500B98ACE /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD62912A9D500B98ACE /* SessionDetailView.swift */; };
+		F5262AD92912AB1100B98ACE /* InternshipDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */; };
 		F58BEB9228F9870400323EFA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9128F9870400323EFA /* HomeModel.swift */; };
 		F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9328F988EE00323EFA /* DatePicker.swift */; };
 		F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9528FB912000323EFA /* ESViewModel.swift */; };
@@ -18,6 +22,9 @@
 		F58BEBA328FED07C00323EFA /* InternshipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA228FED07C00323EFA /* InternshipModel.swift */; };
 		F58BEBA628FED14B00323EFA /* InterviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */; };
 		F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA728FED1CD00323EFA /* InterviewModel.swift */; };
+		F58BEBAA29003A5E00323EFA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBA929003A5E00323EFA /* HomeViewModel.swift */; };
+		F58BEBAD2902706C00323EFA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBAC2902706C00323EFA /* DetailView.swift */; };
+		F58BEBE8290ACBFA00323EFA /* FormatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEBE7290ACBFA00323EFA /* FormatModel.swift */; };
 		F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E328F320D400B4E3E3 /* AddView.swift */; };
 		F5B789E728F3212500B4E3E3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E628F3212500B4E3E3 /* Event.swift */; };
 		F5B789E928F3311A00B4E3E3 /* ES.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B789E828F3311A00B4E3E3 /* ES.swift */; };
@@ -62,6 +69,10 @@
 		35F4ED617C7B83A5C622BAC6 /* Pods-jobHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobHunt.debug.xcconfig"; path = "Target Support Files/Pods-jobHunt/Pods-jobHunt.debug.xcconfig"; sourceTree = "<group>"; };
 		36ED71507D6C45A887754D36 /* Pods-jobHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobHunt.release.xcconfig"; path = "Target Support Files/Pods-jobHunt/Pods-jobHunt.release.xcconfig"; sourceTree = "<group>"; };
 		5E2C90ACBB90DC8CBB62A91D /* Pods_jobHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jobHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F523936529125F190000F2C0 /* ESDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESDetailView.swift; sourceTree = "<group>"; };
+		F5239367291260B00000F2C0 /* InterviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewDetailView.swift; sourceTree = "<group>"; };
+		F5262AD62912A9D500B98ACE /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
+		F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipDetailView.swift; sourceTree = "<group>"; };
 		F58BEB9128F9870400323EFA /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		F58BEB9328F988EE00323EFA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		F58BEB9528FB912000323EFA /* ESViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESViewModel.swift; sourceTree = "<group>"; };
@@ -72,6 +83,9 @@
 		F58BEBA228FED07C00323EFA /* InternshipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipModel.swift; sourceTree = "<group>"; };
 		F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewViewModel.swift; sourceTree = "<group>"; };
 		F58BEBA728FED1CD00323EFA /* InterviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewModel.swift; sourceTree = "<group>"; };
+		F58BEBA929003A5E00323EFA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F58BEBAC2902706C00323EFA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F58BEBE7290ACBFA00323EFA /* FormatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatModel.swift; sourceTree = "<group>"; };
 		F5B789E328F320D400B4E3E3 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		F5B789E628F3212500B4E3E3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F5B789E828F3311A00B4E3E3 /* ES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ES.swift; sourceTree = "<group>"; };
@@ -182,11 +196,26 @@
 			path = Interview;
 			sourceTree = "<group>";
 		};
+		F58BEBAB2902705800323EFA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F58BEBAC2902706C00323EFA /* DetailView.swift */,
+				F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */,
+				F5239367291260B00000F2C0 /* InterviewDetailView.swift */,
+				F5262AD62912A9D500B98ACE /* SessionDetailView.swift */,
+				F523936529125F190000F2C0 /* ESDetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		F5B789E128F31ECC00B4E3E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */,
 				F5C83B6D28F311FE00A01E4E /* HomeView.swift */,
+				F58BEBA929003A5E00323EFA /* HomeViewModel.swift */,
 				F58BEB9128F9870400323EFA /* HomeModel.swift */,
+				F58BEBE7290ACBFA00323EFA /* FormatModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -194,10 +223,10 @@
 		F5B789E228F320BE00B4E3E3 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				F5B789E328F320D400B4E3E3 /* AddView.swift */,
 				F58BEBA428FED12A00323EFA /* Interview */,
 				F58BEB9F28FED01E00323EFA /* Internship */,
 				F58BEB9928FDA39B00323EFA /* ES */,
-				F5B789E328F320D400B4E3E3 /* AddView.swift */,
 				F58BEB9A28FDA97800323EFA /* Session */,
 			);
 			path = Create;
@@ -251,6 +280,7 @@
 		F5C83B6A28F311FE00A01E4E /* jobHunt */ = {
 			isa = PBXGroup;
 			children = (
+				F58BEBAB2902705800323EFA /* Detail */,
 				F5B78A0928F3383400B4E3E3 /* Extension */,
 				F5B789E528F3210E00B4E3E3 /* Struct */,
 				F5B789E228F320BE00B4E3E3 /* Create */,
@@ -259,7 +289,6 @@
 				F5C83B6F28F311FF00A01E4E /* Assets.xcassets */,
 				F5C83B7128F311FF00A01E4E /* jobHunt.entitlements */,
 				F5C83B7228F311FF00A01E4E /* Preview Content */,
-				F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */,
 			);
 			path = jobHunt;
 			sourceTree = "<group>";
@@ -467,18 +496,24 @@
 				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* Internship.swift in Sources */,
+				F5262AD72912A9D500B98ACE /* SessionDetailView.swift in Sources */,
 				F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */,
 				F58BEB9C28FDA98B00323EFA /* SessionViewModel.swift in Sources */,
+				F58BEBE8290ACBFA00323EFA /* FormatModel.swift in Sources */,
 				F58BEBA328FED07C00323EFA /* InternshipModel.swift in Sources */,
 				F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */,
+				F523936629125F190000F2C0 /* ESDetailView.swift in Sources */,
 				F58BEB9E28FDA9E300323EFA /* SessionModel.swift in Sources */,
 				F58BEB9828FB924100323EFA /* ESModel.swift in Sources */,
+				F58BEBAA29003A5E00323EFA /* HomeViewModel.swift in Sources */,
 				F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */,
 				F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */,
+				F5239368291260B00000F2C0 /* InterviewDetailView.swift in Sources */,
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
 				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
 				F58BEB9228F9870400323EFA /* HomeModel.swift in Sources */,
+				F58BEBAD2902706C00323EFA /* DetailView.swift in Sources */,
 				F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */,
 				F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */,
 				F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */,
@@ -486,6 +521,7 @@
 				F5B789E928F3311A00B4E3E3 /* ES.swift in Sources */,
 				F5B789ED28F3318900B4E3E3 /* InterView.swift in Sources */,
 				F5B789F528F3325700B4E3E3 /* InterviewView.swift in Sources */,
+				F5262AD92912AB1100B98ACE /* InternshipDetailView.swift in Sources */,
 				F5B789EF28F3319E00B4E3E3 /* Session.swift in Sources */,
 				F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */,
 				F58BEBA128FED03800323EFA /* InternshipViewModel.swift in Sources */,
@@ -528,7 +564,7 @@
 		F5C83B8B28F311FF00A01E4E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -575,6 +611,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -586,7 +623,7 @@
 		F5C83B8C28F311FF00A01E4E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -627,6 +664,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -641,9 +679,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = jobHunt/jobHunt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"jobHunt/Preview Content\"";
+				DEVELOPMENT_TEAM = 94M9FJ82WR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -656,14 +696,15 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ghp-okjizbZVvJfbYcR9Aff1wuNFG7FC8W44Xc8s.jobHunt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -678,9 +719,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = jobHunt/jobHunt.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"jobHunt/Preview Content\"";
+				DEVELOPMENT_TEAM = 94M9FJ82WR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -693,14 +736,15 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ghp-okjizbZVvJfbYcR9Aff1wuNFG7FC8W44Xc8s.jobHunt";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -716,7 +760,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ghp-okjizbZVvJfbYcR9Aff1wuNFG7FC8W44Xc8s.jobHuntTests";
@@ -738,7 +782,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ghp-okjizbZVvJfbYcR9Aff1wuNFG7FC8W44Xc8s.jobHuntTests";
@@ -759,7 +803,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ghp-okjizbZVvJfbYcR9Aff1wuNFG7FC8W44Xc8s.jobHuntUITests";
@@ -780,7 +824,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ghp-okjizbZVvJfbYcR9Aff1wuNFG7FC8W44Xc8s.jobHuntUITests";

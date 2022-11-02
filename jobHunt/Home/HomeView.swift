@@ -11,59 +11,82 @@ import SwiftUI
 struct HomeView: View {
     @State var selectedDate = Date()
     @State private var add = false
+    @ObservedObject var viewModel = HomeViewModel()
 
-    @State var eventsDate: [String] = []
-    @State var homeModel = HomeModel()
+    var formatSelectedDate: String = ""
+
+    func bgColor(category: EventName) -> Color {
+        switch category {
+        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor)
+        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 1).cgColor)
+        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 1).cgColor)
+        case .internship: return Color(UIColor(red: 1, green: 0.962, blue: 1, alpha: 1).cgColor)
+        }
+    }
 
     var body: some View {
+        NavigationView {
+            VStack(alignment: .leading) {
+                CalendarTestView(selectedDate: $selectedDate, eventsDate: viewModel.eventsDateArray)
+                    .frame(width: 400, height: 400.0, alignment: .center)
 
-        VStack(alignment: .leading) {
+                Divider()
 
-            CalendarTestView(selectedDate: $selectedDate, eventsDate: $homeModel.eventDateArray)
-                .frame(width: 400, height: 400.0, alignment: .center)
+                HStack {
+                    Text(viewModel.toString(date: selectedDate))
+                        .font(.callout)
+                        .padding(.top, 10)
+                        .padding(.leading, 15)
+                    Spacer()
 
-            Divider()
+                    Button(action: {
+                        self.add.toggle()
+                    }) {
+                        Image(systemName: "plus.circle.fill")
 
-            HStack {
-                Text(homeModel.format(date: selectedDate))
-                    .font(.callout)
-                    .padding(.top, 10)
-                    .padding(.leading, 15)
-
-                Button(action: {
-                    self.add.toggle()
-                }) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 40))
-                        .frame(width: 60, height: 60)
-                        .foregroundColor(.green)
-                        .padding(.leading, 170)
-                }
-                .sheet(isPresented: $add) {
-                    addEvent()
-                }
-            }
-
-
-            ZStack {
-                ScrollView {
-                    ForEach(homeModel.events, id: \.self) { event in
-                        if event[0] == homeModel.format(date: selectedDate) {
-                            Text(event[1])
-                                .frame(width: 350, height: 70)
-                                .padding(.leading)
-                                .padding(.top, 20)
-                                .background(Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor))
-                                .cornerRadius(50)
-                        }
-
+                            .font(.system(size: 45))
+                            .frame(width: 40, height: 40)
+                            .foregroundColor(.green)
+                            .mask(Circle())
                     }
-                    .padding(.leading, 15)
+                    .padding(EdgeInsets(
+                        top: 10 ,
+                        leading: 0,
+                        bottom: 0,
+                        trailing: 15)
+                    )
+                    .sheet(isPresented: $add, onDismiss: viewModel.dismissActionSheet) {
+                        addEvent()
+                    }
+                }
+
+                ZStack {
+                    ScrollView {
+                        ForEach(viewModel.events, id: \.id) { event in
+                            if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
+                                VStack {
+                                    NavigationLink(destination: DetailView(event: event)){
+                                        Text(event.name)
+                                            .frame(width: 350, height: 70, alignment: .center)
+                                            .padding(.leading, 20)
+                                            .padding(.top, 10)
+                                            .font(.system(size: 20))
+                                            .background(bgColor(category: event.category))
+                                            .cornerRadius(50)
+                                            .foregroundColor(.black)
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        .padding(.leading, 15)
+                    }
+
                 }
 
             }
-
         }
+
     }
 }
 
@@ -73,4 +96,5 @@ struct ContentView_Previews: PreviewProvider {
 
     }
 }
+
 
