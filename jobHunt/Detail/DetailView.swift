@@ -36,6 +36,8 @@ struct DetailView: View {
                         InterviewDetailView(interview: interview)
                     } else if let session = event as? Session {
                         SessionDetailView(session: session)
+                    } else if let intern = event as? Internship {
+                        InternshipDetailView(internship: intern)
                     }
                 }
             }
