@@ -12,6 +12,8 @@ class HomeModel {
     
     var esArray: [ES] = []
     var interviewArray: [Interview] = []
+    var sessionArray: [Session] = []
+    var internshipArray: [Internship] = []
     var events: [any Entry] = []
 
     let realm = try! Realm()
@@ -24,7 +26,9 @@ class HomeModel {
     func getEvents() {
         esArray = Array(realm.objects(ES.self))
         interviewArray = Array(realm.objects(Interview.self))
-        events = esArray + interviewArray
+        sessionArray = Array(realm.objects(Session.self))
+        internshipArray = Array(realm.objects(Internship.self))
+        events = esArray + interviewArray + sessionArray + internshipArray
 
     }
 }

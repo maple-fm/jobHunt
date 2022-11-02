@@ -11,8 +11,6 @@ import SwiftUI
 struct HomeView: View {
     @State var selectedDate = Date()
     @State private var add = false
-    
-
     @ObservedObject var viewModel = HomeViewModel()
 
     var formatSelectedDate: String = ""
@@ -60,12 +58,7 @@ struct HomeView: View {
                     .sheet(isPresented: $add, onDismiss: viewModel.dismissActionSheet) {
                         addEvent()
                     }
-
-
-
-
                 }
-
 
                 ZStack {
                     ScrollView {
@@ -85,7 +78,6 @@ struct HomeView: View {
                                     
                                 }
                             }
-
                         }
                         .padding(.leading, 15)
                     }
