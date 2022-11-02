@@ -8,7 +8,8 @@
 import Foundation
 import RealmSwift
 
-class ES: Object {
+class ES: Object, Entry {
+    let id = UUID()
     @Persisted var name: String
     @Persisted var deadline: Date
     @Persisted var motivation: String
@@ -16,8 +17,9 @@ class ES: Object {
     @Persisted var strongPoints: String
     @Persisted var weakPoints: String
     @Persisted var other: String
+    @Persisted var category: EventName
 
-    init(name: String, deadline: Date, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, other: String) {
+    init(name: String, deadline: Date, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, other: String, category: EventName) {
         self.name = name
         self.deadline = deadline
         self.motivation = motivation
@@ -25,10 +27,12 @@ class ES: Object {
         self.strongPoints = strongPoints
         self.weakPoints = weakPoints
         self.other = other
+        self.category = category
+
     }
 
     convenience override init() {
-        self.init(name: "", deadline: Date.now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "")
+        self.init(name: "", deadline: Date.now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
     }
 
 }

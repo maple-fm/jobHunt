@@ -7,7 +7,7 @@
 
 import Foundation
 import RealmSwift
-import Combine
+//import Combine
 
 struct ESModel {
 
@@ -18,10 +18,10 @@ struct ESModel {
     var strongPoints: String?
     var weakPoints: String?
     var other: String?
+    var category: EventName?
 
     func create() {
-        let es = ES(name: name ?? "", deadline: deadline ?? Date(), motivation: motivation ?? "", gakuchika: gakuchika ?? "", strongPoints: strongPoints ?? "", weakPoints: weakPoints ?? "", other: other ?? "")
-
+        let es = ES(name: name ?? "", deadline: deadline ?? Date(), motivation: motivation ?? "", gakuchika: gakuchika ?? "", strongPoints: strongPoints ?? "", weakPoints: weakPoints ?? "", other: other ?? "", category: category ?? .es)
         let realm = try! Realm()
         try! realm.write {
             realm.add(es)
@@ -30,6 +30,7 @@ struct ESModel {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
+    // task: この関数を一つのファイル内にまとめる
     func isValidated() -> Bool {
         guard
             let name = name
