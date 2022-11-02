@@ -12,12 +12,7 @@ struct DetailView: View {
     var event: any Entry
     @Environment(\.dismiss) var dismiss
 
-
-
-    // task: UIを考える
     var body: some View {
-        let bounds = UIScreen.main.bounds
-        let width = bounds.width
 
         ZStack {
             Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor)
@@ -38,7 +33,9 @@ struct DetailView: View {
                     if let es = event as? ES {
                         ESDetailView(es: es)
                     } else if let interview = event as? Interview {
-                        InterviewDatailView(interview: interview)
+                        InterviewDetailView(interview: interview)
+                    } else if let session = event as? Session {
+                        SessionDetailView(session: session)
                     }
                 }
             }

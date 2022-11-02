@@ -1,5 +1,5 @@
 //
-//  InterviewDatailView.swift
+//  InterviewDetailView.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/11/02.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InterviewDatailView: View {
+struct InterviewDetailView: View {
     let interview: Interview
 
     var body: some View {
@@ -53,8 +53,8 @@ struct InterviewDatailView: View {
     }
 }
 
-struct InterviewDatailView_Previews: PreviewProvider {
+struct InterviewDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewDatailView(interview: .init())
+        InterviewDetailView(interview: .init())
     }
 }
