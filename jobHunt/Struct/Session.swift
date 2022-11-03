@@ -9,7 +9,9 @@ import Foundation
 import RealmSwift
 
 class Session: Object, Entry {
-    var id = UUID()
+    let uuid = UUID()
+
+    @Persisted var id: String
     @Persisted var name: String
     @Persisted var deadline: Date
     @Persisted var location: String
@@ -20,6 +22,7 @@ class Session: Object, Entry {
     @Persisted var category: EventName
 
     init(name: String, deadline: Date, location: String, clothes: String, item: String, questions: String, other: String, category: EventName) {
+        self.id = self.uuid.uuidString
         self.name = name
         self.deadline = deadline
         self.location = location

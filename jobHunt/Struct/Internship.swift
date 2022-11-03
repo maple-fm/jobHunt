@@ -9,7 +9,8 @@ import Foundation
 import RealmSwift
 
 class Internship: Object, Entry {
-    let id = UUID()
+    let uuid = UUID()
+    @Persisted var id: String
     @Persisted var name: String
     @Persisted var deadline: Date
     @Persisted var location: String
@@ -19,6 +20,7 @@ class Internship: Object, Entry {
     @Persisted var category: EventName
 
     init(name: String, deadline: Date, location: String, clothes: String, item: String, other: String, category: EventName) {
+        self.id = self.uuid.uuidString
         self.name = name
         self.deadline = deadline
         self.location = location

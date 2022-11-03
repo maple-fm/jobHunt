@@ -8,8 +8,9 @@
 import Foundation
 import RealmSwift
 
-protocol Entry {
-    var id: UUID { get }
+protocol Entry: RealmFetchable {
+    var uuid: UUID { get }
+    var id: String { get }
     var name: String { get }
     var deadline: Date { get }
     var category: EventName { get }
