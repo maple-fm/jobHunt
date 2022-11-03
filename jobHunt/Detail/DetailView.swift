@@ -10,12 +10,24 @@ import SwiftUI
 struct DetailView: View {
 
     var event: any Entry
+    @State private var isUpdate = false
+    @State private var isDelete = false
     @Environment(\.dismiss) var dismiss
+    
+
+    func bgColor(category: EventName) -> Color {
+        switch category {
+        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
+        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
+        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 0.5).cgColor)
+        case .internship: return Color(UIColor(red: 1, green: 0.962, blue: 1, alpha: 1).cgColor)
+        }
+    }
 
     var body: some View {
 
         ZStack {
-            Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor)
+            bgColor(category: event.category)
                 .edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading) {
@@ -46,23 +58,60 @@ struct DetailView: View {
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    dismiss()
-                }) {
-                    HStack {
-                        Image(systemName: "chevron.backward")
-                            .font(.system(size: 17, weight: .medium))
-                        Text("カレンダー")
+                    Button(action: {
+                        if isUpdate {
+                            // TODO: 編集機能、保存機能
+                            isUpdate.toggle()
+                        } else {
+                            dismiss()
+                        }
+
+                    }) {
+                        if isUpdate {
+                            Text("完了")
+                                .padding(.leading, 10)
+                                .foregroundColor(.green)
+                        } else {
+                            HStack {
+                                Image(systemName: "chevron.backward")
+                                    .font(.system(size: 17, weight: .medium))
+                                Text("カレンダー")
+                            }
+                            .foregroundColor(.green)
+                        }
+
                     }
-                    .foregroundColor(.green)
+
+
                 }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    if isUpdate {
+                        // TODO: 削除機能を実行
+                        isDelete.toggle()
+                    } else {
+                        isUpdate.toggle()
+                    }
+
+                }) {
+                    if isUpdate {
+                        Text("削除")
+                    } else {
+                        Text("編集")
+                    }
+
+                }
+                .padding(.trailing, 10)
+                .foregroundColor(.green)
+                .alert(isPresented: $isDelete) {
+                    Alert(
+                    title: Text("本当に削除しますか")
+                    )
+                }
+
+
             }
         }
-
-
-
-
-
     }
 }
 
