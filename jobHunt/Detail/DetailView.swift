@@ -14,7 +14,7 @@ struct DetailView: View {
     @State private var isDelete = false
     @Environment(\.dismiss) var dismiss
 
-    var viewModel = DetailViewModel()
+    @ObservedObject var viewModel = DetailViewModel()
     
     func bgColor(category: EventName) -> Color {
         switch category {

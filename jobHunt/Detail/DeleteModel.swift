@@ -14,11 +14,13 @@ struct DeleteModel{
 
     func deleteES(id: String) {
 
-        let targetES = realm.objects(ES.self).filter("id == id")
+        let targetES = realm.objects(ES.self).filter("id == %@", id)
+        print("debug: \(targetES)")
+        print("debug: \(id)")
 
         try! realm.write{
             realm.delete(targetES)
-          }
+        }
 
     }
 

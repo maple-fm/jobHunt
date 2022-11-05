@@ -24,7 +24,7 @@ class HomeModel {
     }
 
     func getEvents() {
-        esArray = Array(realm.objects(ES.self))
+        esArray = Array((realm.objects(ES.self).freeze()))
         interviewArray = Array(realm.objects(Interview.self))
         sessionArray = Array(realm.objects(Session.self))
         internshipArray = Array(realm.objects(Internship.self))

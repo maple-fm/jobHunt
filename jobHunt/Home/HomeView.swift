@@ -65,7 +65,9 @@ struct HomeView: View {
                         ForEach(viewModel.events, id: \.id) { event in
                             if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
                                 VStack {
-                                    NavigationLink(destination: DetailView(event: event)){
+                                    NavigationLink(destination: DetailView(event: event).onDisappear(){
+                                        viewModel.dismissActionSheet()
+                                    } ){
                                         Text(event.name)
                                             .frame(width: 350, height: 70, alignment: .center)
                                             .padding(.leading, 20)
@@ -86,6 +88,7 @@ struct HomeView: View {
 
             }
         }
+        .onAppear()
 
     }
 }

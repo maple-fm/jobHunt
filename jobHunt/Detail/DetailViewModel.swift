@@ -8,12 +8,11 @@
 import Foundation
 import SwiftUI
 
-struct DetailViewModel {
+class DetailViewModel: ObservableObject {
 
     var model = DeleteModel()
 
     func delete(event: any Entry) {
-        print(event.id)
         if let es = event as? ES {
             model.deleteES(id: es.id)
 
