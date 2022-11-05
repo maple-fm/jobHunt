@@ -13,11 +13,23 @@ extension TextField {
         self
             .listRowBackground(Color.white)
     }
+
+
 }
 
 extension TextEditor {
     func input() -> some View {
         self
             .listRowBackground(Color.white)
+    }
+
+    func textArea() -> some View {
+        self
+            .fixedSize(horizontal: false, vertical: true)
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundColor(.black)
+            .background(.white)
+            .cornerRadius(14)
     }
 }

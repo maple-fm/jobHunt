@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-protocol Entry: RealmFetchable {
+protocol Entry: Identifiable {
     var uuid: UUID { get }
     var id: String { get }
     var name: String { get }

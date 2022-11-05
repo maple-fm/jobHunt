@@ -12,6 +12,8 @@
 		F5239368291260B00000F2C0 /* InterviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5239367291260B00000F2C0 /* InterviewDetailView.swift */; };
 		F5262AD72912A9D500B98ACE /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD62912A9D500B98ACE /* SessionDetailView.swift */; };
 		F5262AD92912AB1100B98ACE /* InternshipDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */; };
+		F5262ADB2913AA6900B98ACE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */; };
+		F5262ADD2913AAF400B98ACE /* DeleteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262ADC2913AAF400B98ACE /* DeleteModel.swift */; };
 		F58BEB9228F9870400323EFA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9128F9870400323EFA /* HomeModel.swift */; };
 		F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9328F988EE00323EFA /* DatePicker.swift */; };
 		F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9528FB912000323EFA /* ESViewModel.swift */; };
@@ -73,6 +75,8 @@
 		F5239367291260B00000F2C0 /* InterviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewDetailView.swift; sourceTree = "<group>"; };
 		F5262AD62912A9D500B98ACE /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
 		F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipDetailView.swift; sourceTree = "<group>"; };
+		F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		F5262ADC2913AAF400B98ACE /* DeleteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteModel.swift; sourceTree = "<group>"; };
 		F58BEB9128F9870400323EFA /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		F58BEB9328F988EE00323EFA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		F58BEB9528FB912000323EFA /* ESViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				F5239367291260B00000F2C0 /* InterviewDetailView.swift */,
 				F5262AD62912A9D500B98ACE /* SessionDetailView.swift */,
 				F523936529125F190000F2C0 /* ESDetailView.swift */,
+				F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */,
+				F5262ADC2913AAF400B98ACE /* DeleteModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -503,12 +509,14 @@
 				F58BEBA328FED07C00323EFA /* InternshipModel.swift in Sources */,
 				F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */,
 				F523936629125F190000F2C0 /* ESDetailView.swift in Sources */,
+				F5262ADD2913AAF400B98ACE /* DeleteModel.swift in Sources */,
 				F58BEB9E28FDA9E300323EFA /* SessionModel.swift in Sources */,
 				F58BEB9828FB924100323EFA /* ESModel.swift in Sources */,
 				F58BEBAA29003A5E00323EFA /* HomeViewModel.swift in Sources */,
 				F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */,
 				F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */,
 				F5239368291260B00000F2C0 /* InterviewDetailView.swift in Sources */,
+				F5262ADB2913AA6900B98ACE /* DetailViewModel.swift in Sources */,
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
 				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,

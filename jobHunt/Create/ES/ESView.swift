@@ -17,6 +17,7 @@ struct ESView: View {
     var body: some View {
         VStack {
             Form {
+                
                 Section(
                     header: Text("会社名")
                         .headetTitle()

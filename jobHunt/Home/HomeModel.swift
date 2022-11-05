@@ -28,6 +28,7 @@ class HomeModel {
         interviewArray = Array(realm.objects(Interview.self))
         sessionArray = Array(realm.objects(Session.self))
         internshipArray = Array(realm.objects(Internship.self))
+
         events = esArray + interviewArray + sessionArray + internshipArray
 
     }

@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 struct ESModel {
-
+    
     var name: String?
     var deadline: Date?
     var motivation: String?
@@ -29,7 +29,7 @@ struct ESModel {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
-    // task: この関数を一つのファイル内にまとめる
+    // TODO: この関数を一つのファイル内にまとめる
     func isValidated() -> Bool {
         guard
             let name = name
