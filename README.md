@@ -14,3 +14,23 @@
 
 ## デモ動画
 ![jobhunt](https://user-images.githubusercontent.com/104209788/200274722-7d0949d4-c76c-4591-8974-84db88bfdfaf.gif)
+
+# 環境構築
+
+## CocoaPodsの導入
+
+```bash
+$ sudo gem install cocoapods
+$ pod setup
+```
+
+## ライブラリの導入
+
+```bash
+$ pod init // Podfileの生成
+
+// podfileにて `pod 'ライブラリ名'` を追記
+
+$ pod install 
+```
+
