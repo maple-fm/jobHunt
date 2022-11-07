@@ -11,3 +11,6 @@
 * 面接/面談
 * 説明会
 * インターンシップ
+
+## デモ動画
+![jobhunt](https://user-images.githubusercontent.com/104209788/200274722-7d0949d4-c76c-4591-8974-84db88bfdfaf.gif)
