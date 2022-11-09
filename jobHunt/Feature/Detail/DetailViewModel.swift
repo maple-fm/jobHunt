@@ -10,7 +10,7 @@ import SwiftUI
 
 class DetailViewModel: ObservableObject {
 
-    var model = DeleteModel()
+    var model = DeleteRepository()
 
     func delete(event: any Entry) {
         if let es = event as? ES {
@@ -24,6 +24,5 @@ class DetailViewModel: ObservableObject {
             model.deleteInternship(id: intern.id)
         }
 
-//        return HomeView()
     }
 }

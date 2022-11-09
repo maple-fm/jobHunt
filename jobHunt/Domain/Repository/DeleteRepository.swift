@@ -1,5 +1,5 @@
 //
-//  DeleteModel.swift
+//  DeleteRepository.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/11/03.
@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-struct DeleteModel{
+struct DeleteRepository{
 
     let realm = try! Realm()
 
