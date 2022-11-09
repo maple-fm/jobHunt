@@ -11,7 +11,7 @@ import SwiftUI
 extension TextField {
     func input() -> some View {
         self
-            .listRowBackground(Color.white)
+            .listRowBackground(Color(UIColor(red: 0, green: 0.35, blue: 0.1, alpha: 0.1).cgColor))
     }
 
 
@@ -20,7 +20,7 @@ extension TextField {
 extension TextEditor {
     func input() -> some View {
         self
-            .listRowBackground(Color.white)
+            .listRowBackground(Color(UIColor(red: 0, green: 0.35, blue: 0.1, alpha: 0.1).cgColor))
     }
 
     func textArea() -> some View {
@@ -29,7 +29,9 @@ extension TextEditor {
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(.black)
-            .background(.white)
+            .background(Color(UIColor(red: 0, green: 0.35, blue: 0.1, alpha: 0.1).cgColor))
             .cornerRadius(14)
+            .scrollContentBackground(Visibility.hidden)
+
     }
 }
