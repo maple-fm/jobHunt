@@ -24,6 +24,7 @@ class HomeModel {
     }
 
     func getEvents() {
+        // freeze()を使って解消した
         esArray = Array((realm.objects(ES.self).freeze()))
         interviewArray = Array(realm.objects(Interview.self))
         sessionArray = Array(realm.objects(Session.self))

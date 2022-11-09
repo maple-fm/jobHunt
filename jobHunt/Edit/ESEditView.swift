@@ -21,22 +21,19 @@ struct ESEditView: View {
         UITextView.appearance().backgroundColor = .clear
     }
 
-
+    // TODO: 元々データない項目に追加で編集できるようにしたい
+    //  onAppearが良くない？
     var body: some View {
 
         Section(
             header: Text("志望動機")
                 .headetTitle()
         ) {
-            VStack {
-                TextEditor(text: $motivation)
-                    .textArea()
-
-                    .onAppear() {
-                        self.motivation = es.motivation
-                    }
-            }
-
+            TextEditor(text: $motivation)
+                .textArea()
+                .onAppear() {
+                    self.motivation = es.motivation
+                }
         }
 
         Section(
