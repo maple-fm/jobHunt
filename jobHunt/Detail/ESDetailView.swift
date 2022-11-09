@@ -10,48 +10,13 @@ import SwiftUI
 struct ESDetailView: View {
     let es: ES
     var isUpdate: Bool
-    @State var motivation: String = ""
-    @State var gakuchika: String = ""
 
     var body: some View {
         VStack(alignment: .leading)  {
             // TODO: 編集画面に変更する
             if isUpdate {
-                Section(
-                    header: Text("志望動機")
-                        .headetTitle()
+                ESEditView(es: self.es)
 
-                ) {
-                    TextEditor(text: $motivation)
-                        .textArea()
-                        .onAppear() {
-                            self.motivation = es.motivation
-                        }
-                }
-                Section(
-                    header: Text("ガクチカ")
-                        .headetTitle()
-                ) {
-                    TextEditor(text: $gakuchika)
-                        .textArea()
-                        .onAppear() {
-                            self.gakuchika = es.gakuchika
-                        }
-                }
-//                Text(es.gakuchika)
-//                    .TextArea()
-//                Text("長所")
-//                    .headetTitle()
-//                Text(es.strongPoints)
-//                    .TextArea()
-//                Text("短所")
-//                    .headetTitle()
-//                Text(es.weakPoints)
-//                    .TextArea()
-//                Text("その他")
-//                    .headetTitle()
-//                Text(es.other)
-//                    .TextArea()
             } else {
                 Text("志望動機")
                     .headetTitle()

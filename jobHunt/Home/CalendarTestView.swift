@@ -25,6 +25,7 @@ struct CalendarTestView: UIViewRepresentable {
         fsCalendar.dataSource = context.coordinator
 
         // 表示
+//        FSCalendar.appearance().backgroundColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 0.1)
         fsCalendar.locale = Locale(identifier: "ja")
         fsCalendar.scrollDirection = .horizontal //スクロールの方向
 
