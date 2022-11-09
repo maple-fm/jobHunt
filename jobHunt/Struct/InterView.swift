@@ -19,10 +19,11 @@ class Interview: Object, Entry {
     @Persisted var gakuchika: String
     @Persisted var strongPoints: String
     @Persisted var weakPoints: String
+    @Persisted var questions: String
     @Persisted var other: String
     @Persisted var category: EventName
 
-    init(name: String, deadline: Date, location: String, clothes: String, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, other: String, category: EventName) {
+    init(name: String, deadline: Date, location: String, clothes: String, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, questions: String, other: String, category: EventName) {
         self.id = self.uuid.uuidString
         self.name = name
         self.deadline = deadline
@@ -32,12 +33,13 @@ class Interview: Object, Entry {
         self.gakuchika = gakuchika
         self.strongPoints = strongPoints
         self.weakPoints = weakPoints
+        self.questions = questions
         self.other = other
         self.category = category
     }
 
     convenience override init() {
-        self.init(name: "", deadline: Date.now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .interview)
+        self.init(name: "", deadline: Date.now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
     }
 
 }

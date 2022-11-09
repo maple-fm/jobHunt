@@ -33,6 +33,8 @@ struct InterviewDetailView: View {
                     .headetTitle()
                 Text(interview.gakuchika)
                     .TextArea()
+            }
+            Group {
                 Text("長所")
                     .headetTitle()
                 Text(interview.strongPoints)
@@ -40,6 +42,10 @@ struct InterviewDetailView: View {
                 Text("短所")
                     .headetTitle()
                 Text(interview.weakPoints)
+                    .TextArea()
+                Text("質問したいこと")
+                    .headetTitle()
+                Text(interview.questions)
                     .TextArea()
                 Text("その他")
                     .headetTitle()

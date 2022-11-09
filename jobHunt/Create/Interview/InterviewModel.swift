@@ -18,11 +18,12 @@ struct InterviewModel {
     var gakuchika: String?
     var strongPoints: String?
     var weakPoints: String?
+    var questions: String?
     var other: String?
     var category: EventName?
 
     func create() {
-        let interview = Interview(name: name ?? "", deadline: deadline ?? Date(), location: location ?? "", clothes: clothes ?? "", motivation: motivation ?? "", gakuchika: gakuchika ?? "", strongPoints: strongPoints ?? "", weakPoints: weakPoints ?? "", other: other ?? "", category: category ?? .interview)
+        let interview = Interview(name: name ?? "", deadline: deadline ?? Date(), location: location ?? "", clothes: clothes ?? "", motivation: motivation ?? "", gakuchika: gakuchika ?? "", strongPoints: strongPoints ?? "", weakPoints: weakPoints ?? "", questions: questions ?? "", other: other ?? "", category: category ?? .interview)
 
         let realm = try! Realm()
         try! realm.write {

@@ -84,6 +84,14 @@ struct InterviewView: View {
                 }
 
                 Section(
+                    header: Text("質問したいこと")
+                        .headetTitle()
+                ) {
+                    TextEditor(text: $viewModel.questions)
+                        .input()
+                }
+
+                Section(
                     header: Text("その他")
                         .headetTitle()
                 ) {

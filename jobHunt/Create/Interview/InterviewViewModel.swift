@@ -57,6 +57,12 @@ class InterviewViewModel: ObservableObject {
         }
     }
 
+    @Published var questions = "" {
+        didSet {
+            model.questions = questions
+        }
+    }
+
     @Published var other = "" {
         didSet {
             model.other = other
