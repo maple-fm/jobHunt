@@ -27,8 +27,15 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
-                CalendarTestView(selectedDate: $selectedDate, eventsDate: viewModel.eventsDateArray)
-                    .frame(width: 400, height: 400.0, alignment: .center)
+                ZStack(alignment: .top) {
+                    CalendarTestView(selectedDate: $selectedDate, eventsDate: viewModel.eventsDateArray)
+                        .frame(width: 400, height: 400.0, alignment: .center)
+                    Image(systemName: "gearshape.fill")
+                        .frame(width: 60, height: 60, alignment: .center)
+                        .foregroundColor(.green)
+                        .padding(.leading, 310)
+                }
+
 
                 Divider()
 
@@ -65,9 +72,12 @@ struct HomeView: View {
                         ForEach(viewModel.events, id: \.id) { event in
                             if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
                                 VStack {
-                                    NavigationLink(destination: DetailView(event: event).onDisappear(){
-                                        viewModel.dismissActionSheet()
-                                    } ){
+                                    NavigationLink(
+                                        destination: DetailView(event: event)
+                                            .onDisappear(){
+                                                viewModel.dismissActionSheet()
+                                            }
+                                    ){
                                         Text(event.name)
                                             .frame(width: 350, height: 70, alignment: .center)
                                             .padding(.leading, 20)
@@ -88,7 +98,6 @@ struct HomeView: View {
 
             }
         }
-        .onAppear()
 
     }
 }
