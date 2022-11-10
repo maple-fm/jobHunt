@@ -10,56 +10,56 @@ import Combine
 import SwiftUI
 
 class ESViewModel: ObservableObject {
-    private var model = ESModel()
+    private var repository = ESRepository()
 
     @Published var name = "" {
         didSet {
-            model.name = name
+            repository.model.name = name
         }
     }
 
     @Published var deadline = Date.now {
         didSet {
-            model.deadline = deadline
+            repository.model.deadline = deadline
         }
     }
 
     @Published var motivation = "" {
         didSet {
-            model.motivation = motivation
+            repository.model.motivation = motivation
         }
     }
     @Published var gakuchika = "" {
         didSet {
-            model.gakuchika = gakuchika
+            repository.model.gakuchika = gakuchika
         }
     }
     @Published var strongPoints = "" {
         didSet {
-            model.strongPoints = strongPoints
+            repository.model.strongPoints = strongPoints
         }
     }
     @Published var weakPoints = "" {
         didSet {
-            model.weakPoints = weakPoints
+            repository.model.weakPoints = weakPoints
         }
     }
 
     @Published var other = "" {
         didSet {
-            model.other = other
+            repository.model.other = other
         }
     }
 
 
     func isValidated() -> Bool {
         // 一行の時はreturnは省略できる
-        model.isValidated()
+        repository.isValidated()
     }
 
 
     func clickButton(click: Bool) {
-        model.create()
+        repository.create()
     }
 
 
