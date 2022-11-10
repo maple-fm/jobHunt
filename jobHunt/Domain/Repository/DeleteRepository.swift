@@ -14,34 +14,51 @@ struct DeleteRepository{
 
     func deleteES(id: String) {
 
-        let targetES = realm.objects(ES.self).filter("id == %@", id)
-        print("debug: \(targetES)")
-        print("debug: \(id)")
+        let target = realm.objects(ES.self).filter("id == %@", id)
 
         try! realm.write{
-            realm.delete(targetES)
+            realm.delete(target)
         }
 
     }
 
     func deleteInterview(id: String) {
-        print(id)
 
-//        let target = realm.objects(Interview.self).filter("id == \(id)")
+        let target = realm.objects(Interview.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
+
+
     }
 
     func deleteSession(id: String) {
-        print(id)
 
-//        let target = realm.objects(Session.self).filter("id == \(id)")
+        let target = realm.objects(Session.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
     }
 
     func deleteInternship(id: String) {
-        print(id)
 
-//        let target = realm.objects(Internship.self).filter("id == \(id)")
+        let target = realm.objects(Internship.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
     }
 
+    // TODO: 削除部分だけをまとめたい
+//    private func delete<T>(target: T) {
+//
+//        print(target)
+//        try! realm.write{
+//            realm.delete(target)
+//        }
+//    }
 
 
 }
