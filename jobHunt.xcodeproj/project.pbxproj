@@ -203,6 +203,7 @@
 				F5262ADC2913AAF400B98ACE /* DeleteRepository.swift */,
 				F5262AE4291BE87D00B98ACE /* HomeRepository.swift */,
 				F5262AE7291CD88800B98ACE /* ESRepository.swift */,
+				F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -271,7 +272,6 @@
 		F5B789E128F31ECC00B4E3E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */,
 				F5C83B6D28F311FE00A01E4E /* HomeView.swift */,
 				F58BEBA929003A5E00323EFA /* HomeViewModel.swift */,
 			);

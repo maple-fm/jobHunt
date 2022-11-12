@@ -25,7 +25,6 @@ struct CalendarTestView: UIViewRepresentable {
         fsCalendar.dataSource = context.coordinator
 
         // 表示
-//        FSCalendar.appearance().backgroundColor = UIColor(red: 0, green: 0.5, blue: 0, alpha: 0.1)
         fsCalendar.locale = Locale(identifier: "ja")
         fsCalendar.scrollDirection = .horizontal //スクロールの方向
 
@@ -54,7 +53,8 @@ struct CalendarTestView: UIViewRepresentable {
 
 
     func updateUIView(_ uiView: UIView, context: Context) {
-        context.coordinator.eventsDate = eventsDate
+
+        context.coordinator.eventsDate = Array(Set(eventsDate))
         if let uiView = uiView as? FSCalendar {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 uiView.reloadData()
@@ -71,16 +71,15 @@ struct CalendarTestView: UIViewRepresentable {
     class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {
         var parent: CalendarTestView
         var eventsDate: [String] = []
-        let dateFormatter = DateFormatter()
+        let format = FormatRepository()
 
         init(_ parent: CalendarTestView) {
             self.parent = parent
         }
 
         func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-            dateFormatter.dateFormat = "yyyy年MM月dd日"
             for eventDate in eventsDate {
-                guard let eventDate = dateFormatter.date(from: eventDate)
+                guard let eventDate = format.date(string: eventDate)
                 else {return 0}
 
                 if date.compare(eventDate) == .orderedSame {

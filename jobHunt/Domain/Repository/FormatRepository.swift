@@ -9,10 +9,20 @@ import Foundation
 
 class FormatRepository {
 
-    func format(date: Date) -> String {
-        let dateFormatter = DateFormatter()
+    let dateFormatter = DateFormatter()
+
+    init() {
         dateFormatter.dateFormat = "YYYY年MM月dd日"
+    }
+
+    func format(date: Date) -> String {
+
         return dateFormatter.string(from:date)
+    }
+
+    func date(string: String) -> Date? {
+//        dateFormatter.dateFormat = "YYYY年MM月dd日"
+        return dateFormatter.date(from: string)
     }
 
 }
