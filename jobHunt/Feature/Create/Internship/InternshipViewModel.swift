@@ -10,48 +10,48 @@ import Combine
 import SwiftUI
 
 class InternshipViewModel: ObservableObject {
-    private var model = InternshipModel()
+    private var repository = InternshipRepository()
 
     @Published var name = "" {
         didSet {
-            model.name = name
+            repository.model.name = name
         }
     }
 
     @Published var deadline = Date.now {
         didSet {
-            model.deadline = deadline
+            repository.model.deadline = deadline
         }
     }
 
     @Published var location = "" {
         didSet {
-            model.location = location
+            repository.model.location = location
         }
     }
     @Published var clothes = "" {
         didSet {
-            model.clothes = clothes
+            repository.model.clothes = clothes
         }
     }
     @Published var item = "" {
         didSet {
-            model.item = item
+            repository.model.item = item
         }
     }
 
     @Published var other = "" {
         didSet {
-            model.other = other
+            repository.model.other = other
         }
     }
 
     func isValidated() -> Bool {
-        model.isValidated()
+        repository.isValidated()
     }
 
     func clickButton(click: Bool) {
-        model.create()
+        repository.create()
     }
 
 

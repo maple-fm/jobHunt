@@ -1,39 +1,41 @@
 //
-//  ESRepository.swift
+//  InterviewRepository.swift
 //  jobHunt
 //
-//  Created by 出口楓真 on 2022/11/10.
+//  Created by 出口楓真 on 2022/11/12.
 //
 
 import Foundation
 import RealmSwift
 
-// TODO: 関数が一緒ならプロトコルで保持するべき？
-struct ESRepository {
+
+struct InterviewRepository {
 
     let realm = try! Realm()
-    var model = ESModel()
-
+    var model = InterviewModel()
 
     func create() {
-        let es = ES(
+        let interview = Interview(
             name: model.name ?? "",
             deadline: model.deadline ?? Date(),
+            location: model.location ?? "",
+            clothes: model.clothes ?? "",
             motivation: model.motivation ?? "",
             gakuchika: model.gakuchika ?? "",
             strongPoints: model.strongPoints ?? "",
             weakPoints: model.weakPoints ?? "",
+            questions: model.questions ?? "",
             other: model.other ?? "",
-            category: model.category ?? .es)
+            category: model.category ?? .interview)
+
 
         try! realm.write {
-            realm.add(es)
+            realm.add(interview)
         }
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
-    // TODO: この関数を一つのファイル内にまとめたい
     func isValidated() -> Bool {
         guard
             let name = model.name

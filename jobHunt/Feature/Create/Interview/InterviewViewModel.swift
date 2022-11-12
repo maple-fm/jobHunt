@@ -10,71 +10,71 @@ import Combine
 import SwiftUI
 
 class InterviewViewModel: ObservableObject {
-    private var model = InterviewModel()
+    private var repository = InterviewRepository()
 
     @Published var name = "" {
         didSet {
-            model.name = name
+            repository.model.name = name
         }
     }
 
     @Published var deadline = Date.now {
         didSet {
-            model.deadline = deadline
+            repository.model.deadline = deadline
         }
     }
 
     @Published var location = "" {
         didSet {
-            model.location = location
+            repository.model.location = location
         }
     }
 
     @Published var clothes = "" {
         didSet {
-            model.clothes = clothes
+            repository.model.clothes = clothes
         }
     }
 
     @Published var motivation = "" {
         didSet {
-            model.motivation = motivation
+            repository.model.motivation = motivation
         }
     }
     @Published var gakuchika = "" {
         didSet {
-            model.gakuchika = gakuchika
+            repository.model.gakuchika = gakuchika
         }
     }
     @Published var strongPoints = "" {
         didSet {
-            model.strongPoints = strongPoints
+            repository.model.strongPoints = strongPoints
         }
     }
     @Published var weakPoints = "" {
         didSet {
-            model.weakPoints = weakPoints
+            repository.model.weakPoints = weakPoints
         }
     }
 
     @Published var questions = "" {
         didSet {
-            model.questions = questions
+            repository.model.questions = questions
         }
     }
 
     @Published var other = "" {
         didSet {
-            model.other = other
+            repository.model.other = other
         }
     }
 
     func isValidated() -> Bool {
-        model.isValidated()
+        repository.isValidated()
     }
 
     func clickButton(click: Bool) {
-        model.create()
+        repository.create()
     }
 
 

@@ -17,6 +17,9 @@
 		F5262AE0291A15ED00B98ACE /* ESEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262ADF291A15ED00B98ACE /* ESEditView.swift */; };
 		F5262AE5291BE87D00B98ACE /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AE4291BE87D00B98ACE /* HomeRepository.swift */; };
 		F5262AE8291CD88800B98ACE /* ESRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AE7291CD88800B98ACE /* ESRepository.swift */; };
+		F5716BC4291FB8A600B41A25 /* InterviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BC3291FB8A600B41A25 /* InterviewRepository.swift */; };
+		F5716BC6291FBD9400B41A25 /* SessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BC5291FBD9400B41A25 /* SessionRepository.swift */; };
+		F5716BC8291FBEB000B41A25 /* InternshipRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BC7291FBEB000B41A25 /* InternshipRepository.swift */; };
 		F58BEB9228F9870400323EFA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9128F9870400323EFA /* HomeModel.swift */; };
 		F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9328F988EE00323EFA /* DatePicker.swift */; };
 		F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9528FB912000323EFA /* ESViewModel.swift */; };
@@ -83,6 +86,9 @@
 		F5262ADF291A15ED00B98ACE /* ESEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEditView.swift; sourceTree = "<group>"; };
 		F5262AE4291BE87D00B98ACE /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
 		F5262AE7291CD88800B98ACE /* ESRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESRepository.swift; sourceTree = "<group>"; };
+		F5716BC3291FB8A600B41A25 /* InterviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewRepository.swift; sourceTree = "<group>"; };
+		F5716BC5291FBD9400B41A25 /* SessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRepository.swift; sourceTree = "<group>"; };
+		F5716BC7291FBEB000B41A25 /* InternshipRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipRepository.swift; sourceTree = "<group>"; };
 		F58BEB9128F9870400323EFA /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		F58BEB9328F988EE00323EFA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		F58BEB9528FB912000323EFA /* ESViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +210,9 @@
 				F5262AE4291BE87D00B98ACE /* HomeRepository.swift */,
 				F5262AE7291CD88800B98ACE /* ESRepository.swift */,
 				F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */,
+				F5716BC3291FB8A600B41A25 /* InterviewRepository.swift */,
+				F5716BC5291FBD9400B41A25 /* SessionRepository.swift */,
+				F5716BC7291FBEB000B41A25 /* InternshipRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -213,6 +222,9 @@
 			children = (
 				F58BEB9728FB924100323EFA /* ESModel.swift */,
 				F58BEB9128F9870400323EFA /* HomeModel.swift */,
+				F58BEBA728FED1CD00323EFA /* InterviewModel.swift */,
+				F58BEB9D28FDA9E300323EFA /* SessionModel.swift */,
+				F58BEBA228FED07C00323EFA /* InternshipModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,7 +243,6 @@
 			children = (
 				F5B789F628F3327C00B4E3E3 /* SessionView.swift */,
 				F58BEB9B28FDA98B00323EFA /* SessionViewModel.swift */,
-				F58BEB9D28FDA9E300323EFA /* SessionModel.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -241,7 +252,6 @@
 			children = (
 				F5B789F228F331F800B4E3E3 /* InternshipView.swift */,
 				F58BEBA028FED03800323EFA /* InternshipViewModel.swift */,
-				F58BEBA228FED07C00323EFA /* InternshipModel.swift */,
 			);
 			path = Internship;
 			sourceTree = "<group>";
@@ -251,7 +261,6 @@
 			children = (
 				F5B789F428F3325700B4E3E3 /* InterviewView.swift */,
 				F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */,
-				F58BEBA728FED1CD00323EFA /* InterviewModel.swift */,
 			);
 			path = Interview;
 			sourceTree = "<group>";
@@ -550,12 +559,15 @@
 				F58BEBA628FED14B00323EFA /* InterviewViewModel.swift in Sources */,
 				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
 				F5262AE5291BE87D00B98ACE /* HomeRepository.swift in Sources */,
+				F5716BC4291FB8A600B41A25 /* InterviewRepository.swift in Sources */,
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* Internship.swift in Sources */,
+				F5716BC6291FBD9400B41A25 /* SessionRepository.swift in Sources */,
 				F5262AD72912A9D500B98ACE /* SessionDetailView.swift in Sources */,
 				F5B789E428F320D400B4E3E3 /* AddView.swift in Sources */,
 				F58BEB9C28FDA98B00323EFA /* SessionViewModel.swift in Sources */,
 				F58BEBE8290ACBFA00323EFA /* FormatRepository.swift in Sources */,
+				F5716BC8291FBEB000B41A25 /* InternshipRepository.swift in Sources */,
 				F58BEBA328FED07C00323EFA /* InternshipModel.swift in Sources */,
 				F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */,
 				F523936629125F190000F2C0 /* ESDetailView.swift in Sources */,
