@@ -20,8 +20,13 @@ class FormatRepository {
         return dateFormatter.string(from:date)
     }
 
+    func formatTime(date: Date) -> String {
+        let format = DateFormatter()
+        format.dateFormat = "HH:mm"
+        return format.string(from: date)
+    }
+
     func date(string: String) -> Date? {
-//        dateFormatter.dateFormat = "YYYY年MM月dd日"
         return dateFormatter.date(from: string)
     }
 

@@ -25,5 +25,6 @@ class HomeRepository {
         model.internshipArray = Array(realm.objects(Internship.self).freeze())
 
         model.events = model.esArray + model.interviewArray + model.sessionArray + model.internshipArray
+        model.events.sort(by: {$0.deadline < $1.deadline})
     }
 }

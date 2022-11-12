@@ -20,7 +20,7 @@ struct HomeView: View {
         case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor)
         case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 1).cgColor)
         case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 1).cgColor)
-        case .internship: return Color(UIColor(red: 1, green: 0.962, blue: 1, alpha: 1).cgColor)
+        case .internship: return Color(UIColor(red: 1, green: 0.9, blue: 1, alpha: 1).cgColor)
         }
     }
 
@@ -78,14 +78,34 @@ struct HomeView: View {
                                                 viewModel.dismissActionSheet()
                                             }
                                     ){
-                                        Text(event.name)
-                                            .frame(width: 350, height: 70, alignment: .center)
-                                            .padding(.leading, 20)
-                                            .padding(.top, 10)
-                                            .font(.system(size: 20))
-                                            .background(bgColor(category: event.category))
-                                            .cornerRadius(50)
-                                            .foregroundColor(.black)
+                                        HStack {
+                                            Text(event.name)
+                                                .font(.body)
+                                                .padding(EdgeInsets(
+                                                    top: 0,
+                                                    leading: 40,
+                                                    bottom: 0,
+                                                    trailing: 0
+                                                ))
+
+                                            Spacer()
+
+                                            Text("\(viewModel.toTime(date: event.deadline))~")
+                                                .font(.callout)
+                                                .padding(EdgeInsets(
+                                                    top: 40,
+                                                    leading: 0,
+                                                    bottom: 15,
+                                                    trailing: 30
+                                                ))
+
+
+                                        }
+                                        .frame(width: 350, height: 70, alignment: .leading)
+                                        .background(bgColor(category: event.category))
+                                        .cornerRadius(50)
+                                        .foregroundColor(.black)
+
                                     }
                                     
                                 }

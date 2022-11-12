@@ -36,4 +36,8 @@ class HomeViewModel: ObservableObject {
     func toString(date: Date) -> String {
         return format.format(date: date)
     }
+
+    func toTime(date: Date) -> String {
+        return format.formatTime(date: date)
+    }
 }
