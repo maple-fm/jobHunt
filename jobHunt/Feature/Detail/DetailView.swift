@@ -41,7 +41,7 @@ struct DetailView: View {
                     Text("会社名")
                         .headetTitle()
                     Text(self.event.name )
-                        .TextArea()
+                        .TextArea(category: event.category)
 
                     if let es = event as? ES {
                         ESDetailView(es: es, isUpdate: isUpdate)

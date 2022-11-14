@@ -16,41 +16,42 @@ struct InterviewDetailView: View {
                 Text("開催場所")
                     .headetTitle()
                 Text(interview.location)
-                    .TextArea()
+                    .TextArea(category: interview.category)
+
             }
             Group {
                 Text("服装")
                     .headetTitle()
                 Text(interview.clothes)
-                    .TextArea()
+                    .TextArea(category: interview.category)
             }
             Group {
                 Text("志望動機")
                     .headetTitle()
                 Text(interview.motivation)
-                    .TextArea()
+                    .TextArea(category: interview.category)
                 Text("ガクチカ")
                     .headetTitle()
                 Text(interview.gakuchika)
-                    .TextArea()
+                    .TextArea(category: interview.category)
             }
             Group {
                 Text("長所")
                     .headetTitle()
                 Text(interview.strongPoints)
-                    .TextArea()
+                    .TextArea(category: interview.category)
                 Text("短所")
                     .headetTitle()
                 Text(interview.weakPoints)
-                    .TextArea()
+                    .TextArea(category: interview.category)
                 Text("質問したいこと")
                     .headetTitle()
                 Text(interview.questions)
-                    .TextArea()
+                    .TextArea(category: interview.category)
                 Text("その他")
                     .headetTitle()
                 Text(interview.other)
-                    .TextArea()
+                    .TextArea(category: interview.category)
             }
 
 

@@ -16,26 +16,26 @@ struct SessionDetailView: View {
                 Text("開催場所")
                     .headetTitle()
                 Text(session.location)
-                    .TextArea()
+                    .TextArea(category: session.category)
                 Text("服装")
                     .headetTitle()
                 Text(session.clothes)
-                    .TextArea()
+                    .TextArea(category: session.category)
             }
 
             Group {
                 Text("持ち物")
                     .headetTitle()
                 Text(session.item)
-                    .TextArea()
+                    .TextArea(category: session.category)
                 Text("質問したいこと")
                     .headetTitle()
                 Text(session.questions)
-                    .TextArea()
+                    .TextArea(category: session.category)
                 Text("その他")
                     .headetTitle()
                 Text(session.other)
-                    .TextArea()
+                    .TextArea(category: session.category)
 
             }
         }

@@ -16,19 +16,19 @@ struct InternshipDetailView: View {
             Text("開催場所")
                 .headetTitle()
             Text(internship.location)
-                .TextArea()
+                .TextArea(category: internship.category)
             Text("服装")
                 .headetTitle()
             Text(internship.clothes)
-                .TextArea()
+                .TextArea(category: internship.category)
             Text("持ち物")
                 .headetTitle()
             Text(internship.item)
-                .TextArea()
+                .TextArea(category: internship.category)
             Text("その他")
                 .headetTitle()
             Text(internship.other)
-                .TextArea()
+                .TextArea(category: internship.category)
             
         }
     }

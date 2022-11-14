@@ -18,26 +18,29 @@ struct ESDetailView: View {
                 ESEditView(es: self.es)
 
             } else {
-                Text("志望動機")
-                    .headetTitle()
-                Text(es.motivation)
-                    .TextArea()
+                Group {
+                    Text("志望動機")
+                        .headetTitle()
+                    Text(es.motivation)
+                        .TextArea(category: es.category)
+                }
+
                 Text("ガクチカ")
                     .headetTitle()
                 Text(es.gakuchika)
-                    .TextArea()
+                    .TextArea(category: es.category)
                 Text("長所")
                     .headetTitle()
                 Text(es.strongPoints)
-                    .TextArea()
+                    .TextArea(category: es.category)
                 Text("短所")
                     .headetTitle()
                 Text(es.weakPoints)
-                    .TextArea()
+                    .TextArea(category: es.category)
                 Text("その他")
                     .headetTitle()
                 Text(es.other)
-                    .TextArea()
+                    .TextArea(category: es.category)
             }
 
         }
