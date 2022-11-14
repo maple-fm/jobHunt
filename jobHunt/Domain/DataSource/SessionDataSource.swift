@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class Session: Object, Entry {
+class SessionDataSource: Object {
     let uuid = UUID()
 
     @Persisted var id: String
