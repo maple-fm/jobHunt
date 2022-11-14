@@ -12,52 +12,56 @@ import SwiftUI
 class SessionViewModel: ObservableObject {
     private var repository = SessionRepository()
 
-    @Published var name = "" {
-        didSet {
-            repository.model.name = name
-        }
-    }
+    @State name: String = ""
+    @State deadline: Date = Date.now
 
-    @Published var deadline = Date.now {
-        didSet {
-            repository.model.deadline = deadline
-        }
-    }
+    // @Published var name = "" {
+    //     didSet {
+    //         repository.model.name = name
+    //     }
+    // }
 
-    @Published var location = "" {
-        didSet {
-            repository.model.location = location
-        }
-    }
-    @Published var clothes = "" {
-        didSet {
-            repository.model.clothes = clothes
-        }
-    }
-    @Published var item = "" {
-        didSet {
-            repository.model.item = item
-        }
-    }
-    @Published var questions = "" {
-        didSet {
-            repository.model.questions = questions
-        }
-    }
+    // @Published var deadline = Date.now {
+    //     didSet {
+    //         repository.model.deadline = deadline
+    //     }
+    // }
 
-    @Published var other = "" {
-        didSet {
-            repository.model.other = other
-        }
-    }
+    // @Published var location = "" {
+    //     didSet {
+    //         repository.model.location = location
+    //     }
+    // }
+    // @Published var clothes = "" {
+    //     didSet {
+    //         repository.model.clothes = clothes
+    //     }
+    // }
+    // @Published var item = "" {
+    //     didSet {
+    //         repository.model.item = item
+    //     }
+    // }
+    // @Published var questions = "" {
+    //     didSet {
+    //         repository.model.questions = questions
+    //     }
+    // }
+
+    // @Published var other = "" {
+    //     didSet {
+    //         repository.model.other = other
+    //     }
+    // }
 
     func isValidated() -> Bool {
         repository.isValidated()
     }
 
     func clickButton(click: Bool) {
-        repository.create()
+        repository.saveNewSession(
+            name: name,
+            deadline: deadline,
+        )
     }
-
-
 }

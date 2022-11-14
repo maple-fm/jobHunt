@@ -25,7 +25,8 @@ class HomeViewModel: ObservableObject {
     }
 
     private func assignEvents() {
-        events = repository.model.events
+        session = sessionRepository.getSessions()
+        // events = repository.model.events
     }
 
     func dismissActionSheet() {

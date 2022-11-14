@@ -11,10 +11,19 @@ import RealmSwift
 struct SessionRepository {
 
     let realm = try! Realm()
-    var model = SessionModel()
+    // var model = SessionModel()
 
-    func create() {
-        let session = Session(
+    func saveNewSession(
+        var name: String
+        var deadline: Date?
+        var location: String?
+        var clothes: String?
+        var item: String?
+        var questions: String?
+        var other: String?
+        var category: EventName?
+    ) {
+        let datasource = SessionDataSource(
             name: model.name ?? "",
             deadline: model.deadline ?? Date(),
             location: model.location ?? "",
@@ -25,9 +34,19 @@ struct SessionRepository {
             category: model.category ?? .session)
 
         try! realm.write {
-            realm.add(session)
+            realm.add(datasource)
         }
+    }
 
+    func getSessions() -> [SessionModel] {
+        let datasources = Array(realm.objects(SessionDataSource.self).freeze())
+        
+        return datasources.map { datasource in
+            SessionModel(
+                name: datasource.name,
+                deadline: datasource.deadline
+            )
+        }
     }
 
     func isValidated() -> Bool {
