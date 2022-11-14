@@ -8,6 +8,7 @@
 import Foundation
 import RealmSwift
 
+// やっていることはDataSource
 class Session: Object, Entry {
     let uuid = UUID()
 
