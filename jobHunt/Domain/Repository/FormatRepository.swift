@@ -15,7 +15,7 @@ class FormatRepository {
         dateFormatter.dateFormat = "YYYY年MM月dd日"
     }
 
-    func format(date: Date) -> String {
+    func formatDate(date: Date) -> String {
 
         return dateFormatter.string(from:date)
     }
@@ -26,6 +26,7 @@ class FormatRepository {
         return format.string(from: date)
     }
 
+    // TODO: オーバーライドした方がいいのか
     func date(string: String) -> Date? {
         return dateFormatter.date(from: string)
     }

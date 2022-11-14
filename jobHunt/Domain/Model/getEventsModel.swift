@@ -1,5 +1,5 @@
 //
-//  HomeModel.swift
+//  getEventsModel.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/10/14.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeModel {
+class getEventsModel {
 
     var esArray: [ES] = []
     var interviewArray: [Interview] = []

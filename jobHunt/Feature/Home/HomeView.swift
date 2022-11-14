@@ -63,7 +63,7 @@ struct HomeView: View {
                         trailing: 15)
                     )
                     .sheet(isPresented: $add, onDismiss: viewModel.dismissActionSheet) {
-                        addEvent()
+                        CreateView()
                     }
                 }
 

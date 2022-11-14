@@ -1,5 +1,5 @@
 //
-//  AddView.swift
+//  CreateView.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/10/10.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct addEvent: View {
+struct CreateView: View {
 
     @State var event: EventName = .es
     @State private var canCreate = false
@@ -67,7 +67,7 @@ struct addEvent: View {
 
 struct addEvent_Previews: PreviewProvider {
     static var previews: some View {
-        addEvent()
+        CreateView()
     }
 }
 

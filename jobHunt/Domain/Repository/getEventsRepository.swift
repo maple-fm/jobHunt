@@ -1,5 +1,5 @@
 //
-//  HomeRepository.swift
+//  getEventsRepository.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/11/09.
@@ -8,8 +8,8 @@
 import Foundation
 import RealmSwift
 
-class HomeRepository {
-    let model = HomeModel()
+class getEventsRepository {
+    let model = getEventsModel()
 
     init() {
         getEvents()

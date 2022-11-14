@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    private var repository: HomeRepository
+    private var repository : getEventsRepository
     private var format = FormatRepository()
 
     @Published private(set) var events: [any Entry] = []
@@ -20,7 +20,7 @@ class HomeViewModel: ObservableObject {
     }
 
     init() {
-        repository = HomeRepository()
+        repository = getEventsRepository()
         assignEvents()
     }
 
@@ -34,7 +34,7 @@ class HomeViewModel: ObservableObject {
     }
 
     func toString(date: Date) -> String {
-        return format.format(date: date)
+        return format.formatDate(date: date)
     }
 
     func toTime(date: Date) -> String {
