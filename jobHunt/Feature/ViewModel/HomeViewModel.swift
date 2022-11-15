@@ -9,7 +9,8 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    private var repository : getEventsRepository
+
+    private var useCase = HomeUseCase()
     private var format = FormatRepository()
 
     @Published private(set) var events: [any Entry] = []
@@ -20,16 +21,15 @@ class HomeViewModel: ObservableObject {
     }
 
     init() {
-        repository = getEventsRepository()
+//        repository = getEventsRepository()
         assignEvents()
     }
 
     private func assignEvents() {
-        events = repository.model.events
+        events = useCase.getEvents()
     }
 
     func dismissActionSheet() {
-        repository.getEvents()
         assignEvents()
     }
 
