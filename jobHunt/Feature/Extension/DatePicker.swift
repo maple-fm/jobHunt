@@ -13,8 +13,6 @@ extension DatePicker {
         self
             .padding(.leading, -20)
             .labelsHidden()
-//            .scaleEffect(x:1.5, y:1.5)
             .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
-//            .datePickerStyle(.compact)
     }
 }
