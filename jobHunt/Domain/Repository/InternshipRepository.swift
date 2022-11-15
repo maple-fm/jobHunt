@@ -11,30 +11,54 @@ import RealmSwift
 struct InternshipRepository {
 
     let realm = try! Realm()
-    var model = InternshipModel()
 
-    func create() {
-        let internship = Internship(
-            name: model.name ?? "",
-            deadline: model.deadline ?? Date(),
-            location: model.location ?? "",
-            clothes: model.clothes ?? "",
-            item: model.item ?? "",
-            other: model.other ?? "",
-            category: model.category ?? .internship)
+    func saveNewInternship(
+        name: String,
+        deadline: Date,
+        location: String?,
+        clothes: String?,
+        item: String?,
+        other: String?,
+        category: EventName
+    ) {
+        let datasource = InternshipDataSource(
+            name: name,
+            deadline: deadline,
+            location: location ?? "",
+            clothes: clothes ?? "",
+            item: item ?? "",
+            other: other ?? "",
+            category: category)
 
 
         try! realm.write {
-            realm.add(internship)
+            realm.add(datasource)
         }
     }
 
-    func isValidated() -> Bool {
-        guard
-            let name = model.name
-        else{ return false }
-        let isValidName = !name.isEmpty
+    func getInternshipArrays() -> [InternshipModel] {
+        let datasources = Array(realm.objects(InternshipDataSource.self).freeze())
 
-        return isValidName
+        return datasources.map { datasource in
+            InternshipModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                location: datasource.location,
+                clothes: datasource.clothes,
+                item: datasource.item,
+                other: datasource.other,
+                category: datasource.category
+            )
+        }
+    }
+
+    func deleteInternship(id: String) {
+
+        let target = realm.objects(InternshipDataSource.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
     }
 }

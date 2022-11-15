@@ -12,34 +12,59 @@ import RealmSwift
 struct ESRepository {
 
     let realm = try! Realm()
-    var model = ESModel()
 
-
-    func create() {
-        let es = ES(
-            name: model.name ?? "",
-            deadline: model.deadline ?? Date(),
-            motivation: model.motivation ?? "",
-            gakuchika: model.gakuchika ?? "",
-            strongPoints: model.strongPoints ?? "",
-            weakPoints: model.weakPoints ?? "",
-            other: model.other ?? "",
-            category: model.category ?? .es)
+    func saveNewES(
+        name: String,
+        deadline: Date,
+        motivation: String?,
+        gakuchika: String?,
+        strongPoints: String?,
+        weakPoints: String?,
+        other: String?,
+        category: EventName
+    ) {
+        let datasource = ESDataSource(
+            name: name,
+            deadline: deadline,
+            motivation: motivation ?? "",
+            gakuchika: gakuchika ?? "",
+            strongPoints: strongPoints ?? "",
+            weakPoints: weakPoints ?? "",
+            other: other ?? "",
+            category: category)
 
         try! realm.write {
-            realm.add(es)
+            realm.add(datasource)
         }
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
-    // TODO: この関数を一つのファイル内にまとめたい
-    func isValidated() -> Bool {
-        guard
-            let name = model.name
-        else{ return false }
-        let isValidName = !name.isEmpty
+    func getESArrays() -> [ESModel] {
+        let datasources = Array(realm.objects(ESDataSource.self).freeze())
 
-        return isValidName
+        return datasources.map { datasource in
+            ESModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                motivation: datasource.motivation,
+                gakuchika: datasource.gakuchika,
+                strongPoints: datasource.strongPoints,
+                weakPoints: datasource.weakPoints,
+                other: datasource.other,
+                category: datasource.category)
+        }
     }
+
+    func deleteES(id: String) {
+
+        let target = realm.objects(ESDataSource.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
+
+    }
+
 }

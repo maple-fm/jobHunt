@@ -11,31 +11,56 @@ import RealmSwift
 struct SessionRepository {
 
     let realm = try! Realm()
-    var model = SessionModel()
 
-    func create() {
-        let session = Session(
-            name: model.name ?? "",
-            deadline: model.deadline ?? Date(),
-            location: model.location ?? "",
-            clothes: model.clothes ?? "",
-            item: model.item ?? "",
-            questions: model.questions ?? "",
-            other: model.other ?? "",
-            category: model.category ?? .session)
+    func saveNewSession(
+        name: String,
+        deadline: Date,
+        location: String?,
+        clothes: String?,
+        item: String?,
+        questions: String?,
+        other: String?,
+        category: EventName
+    ) {
+        let datasource = SessionDataSource(
+            name: name,
+            deadline: deadline,
+            location: location ?? "",
+            clothes: clothes ?? "",
+            item: item ?? "",
+            questions: questions ?? "",
+            other: other ?? "",
+            category: category)
 
         try! realm.write {
-            realm.add(session)
+            realm.add(datasource)
         }
 
     }
 
-    func isValidated() -> Bool {
-        guard
-            let name = model.name
-        else{ return false }
-        let isValidName = !name.isEmpty
+    func getSessionArrays() -> [SessionModel] {
+        let datasources = Array(realm.objects(SessionDataSource.self).freeze())
 
-        return isValidName
+        return datasources.map { datasource in
+            SessionModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                location: datasource.location,
+                clothes: datasource.clothes,
+                item: datasource.item,
+                questions: datasource.questions,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
+    func deleteSession(id: String) {
+
+        let target = realm.objects(SessionDataSource.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
     }
 }
