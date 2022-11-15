@@ -8,10 +8,11 @@
 import Foundation
 
 
-struct InterviewModel {
+struct InterviewModel: Entry {
 
-    var name: String?
-    var deadline: Date?
+    var id: String
+    var name: String
+    var deadline: Date
     var location: String?
     var clothes: String?
     var motivation: String?
@@ -20,5 +21,5 @@ struct InterviewModel {
     var weakPoints: String?
     var questions: String?
     var other: String?
-    var category: EventName?
+    var category: EventName
 }

@@ -7,16 +7,17 @@
 
 import Foundation
 
-struct SessionModel {
+struct SessionModel: Entry {
 
-    var name: String?
-    var deadline: Date?
+    var id: String
+    var name: String
+    var deadline: Date
     var location: String?
     var clothes: String?
     var item: String?
     var questions: String?
     var other: String?
-    var category: EventName?
+    var category: EventName
 
 
 }

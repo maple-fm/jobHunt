@@ -7,14 +7,16 @@
 
 import Foundation
 
-struct ESModel {
-    
-    var name: String?
-    var deadline: Date?
+struct ESModel: Entry {
+
+    var id: String
+    var name: String
+    var deadline: Date
     var motivation: String?
     var gakuchika: String?
     var strongPoints: String?
     var weakPoints: String?
     var other: String?
-    var category: EventName?
+    var category: EventName
+
 }
