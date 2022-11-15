@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SessionView: View {
 
-    @State var session = Session()
     @StateObject var viewModel = SessionViewModel()
     @Binding var click: Bool
 

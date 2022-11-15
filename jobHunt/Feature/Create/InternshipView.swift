@@ -1,5 +1,5 @@
 //
-//  InterviewView.swift
+//  InternshipView.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/10/10.
@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct InterviewView: View {
+struct InternshipView: View {
 
-    @State var interview = Interview()
-    @StateObject var viewModel = InterviewViewModel()
+    @StateObject var viewModel = InternshipViewModel()
     @Binding var click: Bool
 
     let action: () -> Void
@@ -52,42 +51,10 @@ struct InterviewView: View {
                 }
 
                 Section(
-                    header: Text("志望動機")
+                    header: Text("持ち物")
                         .headetTitle()
                 ) {
-                    TextEditor(text: $viewModel.motivation)
-                        .input()
-                }
-
-                Section(
-                    header: Text("ガクチカ")
-                        .headetTitle()
-                ) {
-                    TextEditor(text: $viewModel.gakuchika)
-                        .input()
-                }
-
-                Section(
-                    header: Text("長所")
-                        .headetTitle()
-                ) {
-                    TextEditor(text: $viewModel.strongPoints)
-                        .input()
-                }
-
-                Section(
-                    header: Text("短所")
-                        .headetTitle()
-                ) {
-                    TextEditor(text: $viewModel.weakPoints)
-                        .input()
-                }
-
-                Section(
-                    header: Text("質問したいこと")
-                        .headetTitle()
-                ) {
-                    TextEditor(text: $viewModel.questions)
+                    TextField("", text: $viewModel.item)
                         .input()
                 }
 
@@ -97,7 +64,6 @@ struct InterviewView: View {
                 ) {
                     TextEditor(text: $viewModel.other)
                         .input()
-
                 }
             }
             .scrollContentBackground(.hidden)
@@ -114,9 +80,9 @@ struct InterviewView: View {
     }
 }
 
-struct InterviewView_Previews: PreviewProvider {
+struct InternshipView_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewView(click: .constant(false)) {}
+        InternshipView(click: .constant(false)) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }
