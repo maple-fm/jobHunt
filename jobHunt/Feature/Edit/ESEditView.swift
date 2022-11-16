@@ -8,15 +8,10 @@
 import SwiftUI
 
 struct ESEditView: View {
-    let es: ES
-    @State var motivation: String = ""
-    @State var gakuchika: String = ""
-    @State var strongPoint: String = ""
-    @State var weakPoints: String = ""
-    @State var other: String = ""
-    @State private var inputText = ""
+    let es: ESModel
+    @StateObject var viewModel = EditViewModel()
 
-    init(es: ES) {
+    init(es: ESModel) {
         self.es = es
         UITextView.appearance().backgroundColor = .clear
     }
@@ -29,10 +24,10 @@ struct ESEditView: View {
             header: Text("志望動機")
                 .headetTitle()
         ) {
-            TextEditor(text: $motivation)
+            TextEditor(text: $viewModel.motivation)
                 .textArea()
                 .onAppear() {
-                    self.motivation = es.motivation
+                    viewModel.motivation = es.motivation!
                 }
         }
 
@@ -40,10 +35,10 @@ struct ESEditView: View {
             header: Text("ガクチカ")
                 .headetTitle()
         ) {
-            TextEditor(text: $gakuchika)
+            TextEditor(text: $viewModel.gakuchika)
                 .textArea()
                 .onAppear() {
-                    self.gakuchika = es.gakuchika
+                    viewModel.gakuchika = es.gakuchika!
                 }
         }
 
@@ -51,20 +46,20 @@ struct ESEditView: View {
             header: Text("長所")
                 .headetTitle()
         ) {
-            TextEditor(text: $strongPoint)
+            TextEditor(text: $viewModel.strongPoint)
                 .textArea()
                 .onAppear() {
-                    self.strongPoint = es.strongPoints
+                    viewModel.strongPoint = es.strongPoints!
                 }
         }
         Section(
             header: Text("短所")
                 .headetTitle()
         ) {
-            TextEditor(text: $weakPoints)
+            TextEditor(text: $viewModel.weakPoints)
                 .textArea()
                 .onAppear() {
-                    self.weakPoints = es.weakPoints
+                    viewModel.weakPoints = es.weakPoints!
                 }
         }
 
@@ -72,10 +67,10 @@ struct ESEditView: View {
             header: Text("その他")
                 .headetTitle()
         ) {
-            TextEditor(text: $other)
+            TextEditor(text: $viewModel.other)
                 .textArea()
                 .onAppear() {
-                    self.other = es.other
+                    viewModel.other = es.other!
                 }
             }
     }
@@ -83,6 +78,6 @@ struct ESEditView: View {
 
 struct ESEditView_Previews: PreviewProvider {
     static var previews: some View {
-        ESEditView(es: .init())
+        ESEditView(es: .init(id: "", name: "", deadline: .now, category: .es))
     }
 }
