@@ -21,6 +21,7 @@
 		F5716BCC29229BE700B41A25 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCB29229BE700B41A25 /* HomeUseCase.swift */; };
 		F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCD2923FD6000B41A25 /* CreateRepository.swift */; };
 		F5716BD02924D63D00B41A25 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCF2924D63D00B41A25 /* EditViewModel.swift */; };
+		F5716BD22924E00600B41A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BD12924E00600B41A25 /* AppDelegate.swift */; };
 		F58BEB9228F9870400323EFA /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9128F9870400323EFA /* EventsModel.swift */; };
 		F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9328F988EE00323EFA /* DatePicker.swift */; };
 		F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9528FB912000323EFA /* ESViewModel.swift */; };
@@ -91,6 +92,7 @@
 		F5716BCB29229BE700B41A25 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 		F5716BCD2923FD6000B41A25 /* CreateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRepository.swift; sourceTree = "<group>"; };
 		F5716BCF2924D63D00B41A25 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
+		F5716BD12924E00600B41A25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F58BEB9128F9870400323EFA /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
 		F58BEB9328F988EE00323EFA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		F58BEB9528FB912000323EFA /* ESViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		F5262AE1291BE56D00B98ACE /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				F5716BD32924E03B00B41A25 /* App */,
 				F5716BC92922951A00B41A25 /* ViewModel */,
 				F5B789E228F320BE00B4E3E3 /* Create */,
 				F5B789E128F31ECC00B4E3E3 /* Home */,
@@ -252,6 +255,15 @@
 				F5716BCB29229BE700B41A25 /* HomeUseCase.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		F5716BD32924E03B00B41A25 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F5716BD12924E00600B41A25 /* AppDelegate.swift */,
+				F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		F58BEBAB2902705800323EFA /* Detail */ = {
@@ -336,7 +348,6 @@
 			children = (
 				F5262AE2291BE57300B98ACE /* Domain */,
 				F5262AE1291BE56D00B98ACE /* Feature */,
-				F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */,
 				F5C83B6F28F311FF00A01E4E /* Assets.xcassets */,
 				F5C83B7128F311FF00A01E4E /* jobHunt.entitlements */,
 				F5C83B7228F311FF00A01E4E /* Preview Content */,
@@ -574,6 +585,7 @@
 				F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */,
 				F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */,
 				F5B789F128F331D300B4E3E3 /* ESView.swift in Sources */,
+				F5716BD22924E00600B41A25 /* AppDelegate.swift in Sources */,
 				F5262AE8291CD88800B98ACE /* ESRepository.swift in Sources */,
 				F5262AE0291A15ED00B98ACE /* ESEditView.swift in Sources */,
 				F5B789E928F3311A00B4E3E3 /* ESDataSource.swift in Sources */,

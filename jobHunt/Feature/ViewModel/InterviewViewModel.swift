@@ -13,16 +13,16 @@ class InterviewViewModel: ObservableObject {
     private var repository = InterviewRepository()
     private var createRepository = CreateRepository()
 
-    @State var name: String = ""
-    @State var deadline: Date = Date.now
-    @State var location: String = ""
-    @State var clothes: String = ""
-    @State var motivation: String = ""
-    @State var gakuchika: String = ""
-    @State var strongPoints: String = ""
-    @State var weakPoints: String = ""
-    @State var questions: String = ""
-    @State var other: String = ""
+    @Published var name: String = ""
+    @Published var deadline: Date = Date.now
+    @Published var location: String = ""
+    @Published var clothes: String = ""
+    @Published var motivation: String = ""
+    @Published var gakuchika: String = ""
+    @Published var strongPoints: String = ""
+    @Published var weakPoints: String = ""
+    @Published var questions: String = ""
+    @Published var other: String = ""
 
     func isValidated() -> Bool {
         createRepository.isValidated(name: name)

@@ -13,6 +13,7 @@ class ESViewModel: ObservableObject {
     private var repository = ESRepository()
     private var createRepository = CreateRepository()
 
+    // TODO: 少し挙動が変(ラグがある感じ)
     @Published var name: String = ""
     @Published var deadline: Date = Date.now
     @Published var motivation: String = ""

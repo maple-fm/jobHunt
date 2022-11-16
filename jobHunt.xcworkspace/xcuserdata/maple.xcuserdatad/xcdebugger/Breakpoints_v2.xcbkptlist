@@ -448,69 +448,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2772A3D4-3DAD-4516-9517-EAE6E92EBB67"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "jobHunt/Feature/Create/ESView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "ESView"
-            landmarkType = "14">
-            <Locations>
-               <Location
-                  uuid = "2772A3D4-3DAD-4516-9517-EAE6E92EBB67 - 356b1c3be9612af8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "property wrapper backing initializer of jobHunt.ESView.viewModel : jobHunt.ESViewModel"
-                  moduleName = "jobHunt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Create/ESView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "48">
-               </Location>
-               <Location
-                  uuid = "2772A3D4-3DAD-4516-9517-EAE6E92EBB67 - 95e333dc11842d2e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "jobHunt.ESView.viewModel.getter : jobHunt.ESViewModel"
-                  moduleName = "jobHunt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Create/ESView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "120">
-               </Location>
-               <Location
-                  uuid = "2772A3D4-3DAD-4516-9517-EAE6E92EBB67 - acf6c179304cba66"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "jobHunt.ESView.$viewModel.getter : SwiftUI.ObservedObject&lt;jobHunt.ESViewModel&gt;.Wrapper"
-                  moduleName = "jobHunt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Create/ESView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "120">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "822CFC27-1DC5-4228-9334-8B4BD1914BCC"
             shouldBeEnabled = "No"
             ignoreCount = "0"

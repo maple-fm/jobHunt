@@ -13,16 +13,16 @@ class SessionViewModel: ObservableObject {
     private var repository = SessionRepository()
     private var createRepository = CreateRepository()
 
-    @State var name: String = ""
-    @State var deadline: Date = Date.now
-    @State var location: String = ""
-    @State var clothes: String = ""
-    @State var item: String = ""
-    @State var questions: String = ""
-    @State var other: String = ""
+    @Published var name: String = ""
+    @Published var deadline: Date = Date.now
+    @Published var location: String = ""
+    @Published var clothes: String = ""
+    @Published var item: String = ""
+    @Published var questions: String = ""
+    @Published var other: String = ""
 
     func isValidated() -> Bool {
-        createRepository.isValidated(name: name)
+        createRepository.isValidated(name:name)
     }
 
     func clickButton(click: Bool) {
