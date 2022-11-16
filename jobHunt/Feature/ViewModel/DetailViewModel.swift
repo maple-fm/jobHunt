@@ -16,16 +16,16 @@ class DetailViewModel: ObservableObject {
     let internshipRepository = InternshipRepository()
 
     func delete(event: any Entry) {
-        if let es = event as? ESDataSource {
+        if let es = event as? ESModel {
             esRepository.deleteES(id: es.id)
 
-        } else if let interview = event as? InterviewDataSource {
+        } else if let interview = event as? InterviewModel {
             interviewRepository.deleteInterview(id: interview.id)
 
-        } else if let session = event as? SessionDataSource {
+        } else if let session = event as? SessionModel {
             sessionRepository.deleteSession(id: session.id)
 
-        } else if let intern = event as? InternshipDataSource {
+        } else if let intern = event as? InternshipModel {
             internshipRepository.deleteInternship(id: intern.id)
 
         }

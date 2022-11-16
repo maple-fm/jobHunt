@@ -278,8 +278,8 @@
             filePath = "jobHunt/Feature/ViewModel/ESViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "ESViewModel"
             landmarkType = "3">
             <Actions>
@@ -293,7 +293,7 @@
             </Actions>
             <Locations>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 155ed8d5ae2e9c5e"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 155ed8d5ae2e9c79"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -303,12 +303,12 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "52">
                </Location>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - dcb6497eef756bb4"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - dcb6497eef756b93"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -318,12 +318,12 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "120">
                </Location>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 2eb548d25a411ba0"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 2eb548d25a411b87"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -333,12 +333,12 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "160">
                </Location>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - d52440e1d0657fb1"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - d52440e1d0657f96"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -348,12 +348,12 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "0">
                </Location>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - e3a5bb9bd48b65a0"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - e3a5bb9bd48b6587"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -363,12 +363,12 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 78134edaae912b8b"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 78134edaae912bac"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -378,12 +378,12 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "96">
                </Location>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 1bb0f2c8a2f43787"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 1bb0f2c8a2f437a0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -393,8 +393,8 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "196">
                </Location>
                <Location
@@ -413,7 +413,7 @@
                   offsetFromSymbolStart = "56">
                </Location>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 88e64de23cbe552a"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - 88e64de23cbe550d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -423,12 +423,12 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "24">
                </Location>
                <Location
-                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - d15d534636c615dd"
+                  uuid = "381A9CA9-6DD9-4DF4-BF98-9A9AD090802D - d15d534636c615fa"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -438,8 +438,8 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/ViewModel/ESViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "208">
                </Location>
             </Locations>
@@ -506,6 +506,22 @@
                   offsetFromSymbolStart = "120">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "822CFC27-1DC5-4228-9334-8B4BD1914BCC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "jobHunt/Feature/ViewModel/DetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "delete(event:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

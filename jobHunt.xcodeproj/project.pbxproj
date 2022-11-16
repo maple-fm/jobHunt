@@ -20,6 +20,7 @@
 		F5716BC8291FBEB000B41A25 /* InternshipRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BC7291FBEB000B41A25 /* InternshipRepository.swift */; };
 		F5716BCC29229BE700B41A25 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCB29229BE700B41A25 /* HomeUseCase.swift */; };
 		F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCD2923FD6000B41A25 /* CreateRepository.swift */; };
+		F5716BD02924D63D00B41A25 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCF2924D63D00B41A25 /* EditViewModel.swift */; };
 		F58BEB9228F9870400323EFA /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9128F9870400323EFA /* EventsModel.swift */; };
 		F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9328F988EE00323EFA /* DatePicker.swift */; };
 		F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9528FB912000323EFA /* ESViewModel.swift */; };
@@ -89,6 +90,7 @@
 		F5716BC7291FBEB000B41A25 /* InternshipRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipRepository.swift; sourceTree = "<group>"; };
 		F5716BCB29229BE700B41A25 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 		F5716BCD2923FD6000B41A25 /* CreateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRepository.swift; sourceTree = "<group>"; };
+		F5716BCF2924D63D00B41A25 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		F58BEB9128F9870400323EFA /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
 		F58BEB9328F988EE00323EFA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		F58BEB9528FB912000323EFA /* ESViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESViewModel.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				F58BEB9528FB912000323EFA /* ESViewModel.swift */,
 				F58BEB9B28FDA98B00323EFA /* SessionViewModel.swift */,
 				F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */,
+				F5716BCF2924D63D00B41A25 /* EditViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5716BD02924D63D00B41A25 /* EditViewModel.swift in Sources */,
 				F58BEBA628FED14B00323EFA /* InterviewViewModel.swift in Sources */,
 				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
 				F5716BC4291FB8A600B41A25 /* InterviewRepository.swift in Sources */,
