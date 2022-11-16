@@ -8,34 +8,34 @@
 import SwiftUI
 
 struct InternshipDetailView: View {
-    let internship: Internship
+    let internship: InternshipModel
 
     var body: some View {
         VStack(alignment: .leading) {
 
             Text("開催場所")
                 .headetTitle()
-            Text(internship.location)
+            Text(internship.location!)
                 .TextArea(category: internship.category)
             Text("服装")
                 .headetTitle()
-            Text(internship.clothes)
+            Text(internship.clothes!)
                 .TextArea(category: internship.category)
             Text("持ち物")
                 .headetTitle()
-            Text(internship.item)
+            Text(internship.item!)
                 .TextArea(category: internship.category)
             Text("その他")
                 .headetTitle()
-            Text(internship.other)
+            Text(internship.other!)
                 .TextArea(category: internship.category)
             
         }
     }
 }
 
-struct InternshipDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        InternshipDetailView(internship: .init())
-    }
-}
+//struct InternshipDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InternshipDetailView(internship: .init())
+//    }
+//}

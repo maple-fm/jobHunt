@@ -8,49 +8,49 @@
 import SwiftUI
 
 struct InterviewDetailView: View {
-    let interview: Interview
+    let interview: InterviewModel
 
     var body: some View {
         VStack(alignment: .leading) {
             Group {
                 Text("開催場所")
                     .headetTitle()
-                Text(interview.location)
+                Text(interview.location!)
                     .TextArea(category: interview.category)
 
             }
             Group {
                 Text("服装")
                     .headetTitle()
-                Text(interview.clothes)
+                Text(interview.clothes!)
                     .TextArea(category: interview.category)
             }
             Group {
                 Text("志望動機")
                     .headetTitle()
-                Text(interview.motivation)
+                Text(interview.motivation!)
                     .TextArea(category: interview.category)
                 Text("ガクチカ")
                     .headetTitle()
-                Text(interview.gakuchika)
+                Text(interview.gakuchika!)
                     .TextArea(category: interview.category)
             }
             Group {
                 Text("長所")
                     .headetTitle()
-                Text(interview.strongPoints)
+                Text(interview.strongPoints!)
                     .TextArea(category: interview.category)
                 Text("短所")
                     .headetTitle()
-                Text(interview.weakPoints)
+                Text(interview.weakPoints!)
                     .TextArea(category: interview.category)
                 Text("質問したいこと")
                     .headetTitle()
-                Text(interview.questions)
+                Text(interview.questions!)
                     .TextArea(category: interview.category)
                 Text("その他")
                     .headetTitle()
-                Text(interview.other)
+                Text(interview.other!)
                     .TextArea(category: interview.category)
             }
 
@@ -60,8 +60,8 @@ struct InterviewDetailView: View {
     }
 }
 
-struct InterviewDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        InterviewDetailView(interview: .init())
-    }
-}
+//struct InterviewDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InterviewDetailView(interview: .init())
+//    }
+//}

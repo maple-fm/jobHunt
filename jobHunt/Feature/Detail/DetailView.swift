@@ -43,13 +43,13 @@ struct DetailView: View {
                     Text(self.event.name )
                         .TextArea(category: event.category)
 
-                    if let es = event as? ES {
+                    if let es = event as? ESModel {
                         ESDetailView(es: es, isUpdate: isUpdate)
-                    } else if let interview = event as? Interview {
+                    } else if let interview = event as? InterviewModel {
                         InterviewDetailView(interview: interview)
-                    } else if let session = event as? Session {
+                    } else if let session = event as? SessionModel {
                         SessionDetailView(session: session)
-                    } else if let intern = event as? Internship {
+                    } else if let intern = event as? InternshipModel {
                         InternshipDetailView(internship: intern)
                     }
                 }
