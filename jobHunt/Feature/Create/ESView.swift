@@ -28,10 +28,10 @@ struct ESView: View {
                 }
 
                 Section(
-                    header: Text("開始時間")
+                    header: Text("締切日時")
                         .headetTitle()
                 ) {
-                    DatePicker("開始時間", selection: $viewModel.deadline)
+                    DatePicker("締切日時", selection: $viewModel.deadline)
                         .PickerItem()
                 }
                 .listRowBackground(Color.clear)
