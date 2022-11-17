@@ -61,6 +61,7 @@ struct InterviewRepository {
                 gakuchika: datasource.gakuchika,
                 strongPoints: datasource.strongPoints,
                 weakPoints: datasource.weakPoints,
+                questions: datasource.questions,
                 other: datasource.other,
                 category: datasource.category)
         }
