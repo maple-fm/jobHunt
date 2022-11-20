@@ -10,7 +10,8 @@ import Combine
 import SwiftUI
 
 class SessionViewModel: ObservableObject {
-    private var repository = SessionRepository()
+
+    private var eventReprository = EventRepository()
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
@@ -26,7 +27,7 @@ class SessionViewModel: ObservableObject {
     }
 
     func clickButton(click: Bool) {
-        repository.saveNewSession(
+        eventReprository.saveNewSession(
             name: name,
             deadline: deadline,
             location: location,

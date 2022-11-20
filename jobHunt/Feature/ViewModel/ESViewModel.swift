@@ -10,7 +10,8 @@ import Combine
 import SwiftUI
 
 class ESViewModel: ObservableObject {
-    private var repository = ESRepository()
+
+    private var eventReprository = EventRepository()
     private var createRepository = CreateRepository()
 
     // TODO: 少し挙動が変(ラグがある感じ)
@@ -30,7 +31,7 @@ class ESViewModel: ObservableObject {
 
 
     func clickButton(click: Bool) {
-        repository.saveNewES(
+        eventReprository.saveNewES(
             name: name,
             deadline: deadline,
             motivation: motivation,

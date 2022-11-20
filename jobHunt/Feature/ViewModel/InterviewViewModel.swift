@@ -10,7 +10,8 @@ import Combine
 import SwiftUI
 
 class InterviewViewModel: ObservableObject {
-    private var repository = InterviewRepository()
+
+    private var eventReprository = EventRepository()
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
@@ -29,7 +30,7 @@ class InterviewViewModel: ObservableObject {
     }
 
     func clickButton(click: Bool) {
-        repository.saveNesInterview(
+        eventReprository.saveNesInterview(
             name: name,
             deadline: deadline,
             location: location,

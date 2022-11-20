@@ -10,7 +10,8 @@ import Combine
 import SwiftUI
 
 class InternshipViewModel: ObservableObject {
-    private var repository = InternshipRepository()
+
+    private var eventReprository = EventRepository()
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
@@ -25,7 +26,7 @@ class InternshipViewModel: ObservableObject {
     }
 
     func clickButton(click: Bool) {
-        repository.saveNewInternship(
+        eventReprository.saveNewInternship(
             name: name,
             deadline: deadline,
             location: location,
