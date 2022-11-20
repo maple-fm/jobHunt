@@ -43,4 +43,27 @@ class InterviewDataSource: Object{
         self.init(name: "", deadline: Date.now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
     }
 
+    func write(datasource: InterviewDataSource) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(datasource)
+        }
+    }
+
+    func read() -> [InterviewDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(InterviewDataSource.self).freeze())
+
+        return objectArray
+    }
+
+    func delete(id: String) {
+        let realm = try! Realm()
+        let target = realm.objects(InterviewDataSource.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
+    }
+
 }

@@ -36,4 +36,27 @@ class InternshipDataSource: Object{
         self.init(name: "", deadline: Date.now, location: "", clothes: "", item: "", other: "", category: .internship)
     }
 
+    func write(datasource: InternshipDataSource) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(datasource)
+        }
+    }
+
+    func read() -> [InternshipDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(InternshipDataSource.self).freeze())
+
+        return objectArray
+    }
+
+    func delete(id: String) {
+        let realm = try! Realm()
+        let target = realm.objects(InternshipDataSource.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
+    }
+
 }

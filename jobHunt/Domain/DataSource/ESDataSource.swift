@@ -38,4 +38,30 @@ class ESDataSource: Object {
         self.init(name: "", deadline: Date.now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
     }
 
+    func write(datasource: ESDataSource) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(datasource)
+        }
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
+
+    func read() -> [ESDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(ESDataSource.self).freeze())
+
+        return objectArray
+    }
+
+    func delete(id: String) {
+        let realm = try! Realm()
+        let target = realm.objects(ESDataSource.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
+    }
+
+
+
 }

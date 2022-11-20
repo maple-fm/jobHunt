@@ -8,7 +8,6 @@
 import Foundation
 import RealmSwift
 
-// やっていることはDataSource
 class SessionDataSource: Object{
 
     @Persisted var id: String
@@ -36,6 +35,29 @@ class SessionDataSource: Object{
 
     convenience override init() {
         self.init(name: "", deadline: Date.now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
+    }
+
+    func write(datasource: SessionDataSource) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(datasource)
+        }
+    }
+
+    func read() -> [SessionDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(SessionDataSource.self).freeze())
+
+        return objectArray
+    }
+
+    func delete(id: String) {
+        let realm = try! Realm()
+        let target = realm.objects(SessionDataSource.self).filter("id == %@", id)
+
+        try! realm.write{
+            realm.delete(target)
+        }
     }
 
 }
