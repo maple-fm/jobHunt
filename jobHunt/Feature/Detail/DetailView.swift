@@ -62,6 +62,9 @@ struct DetailView: View {
                 Button(action: {
                     if isUpdate {
                         // TODO: 編集機能、保存機能
+
+//                        editViewModel.clickUpdate(click: isUpdate)
+                        
                         isUpdate.toggle()
                     } else {
                         dismiss()

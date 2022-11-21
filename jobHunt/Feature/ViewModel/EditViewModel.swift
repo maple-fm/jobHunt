@@ -9,9 +9,15 @@ import Foundation
 
 class EditViewModel: ObservableObject {
 
+    private var repository = EventRepository()
+
     @Published var motivation: String = ""
     @Published var gakuchika: String = ""
-    @Published var strongPoint: String = ""
+    @Published var strongPoints: String = ""
     @Published var weakPoints: String = ""
     @Published var other: String = ""
+
+    func clickUpdate() {
+        
+    }
 }
