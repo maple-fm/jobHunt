@@ -14,15 +14,10 @@
 		F5262AD92912AB1100B98ACE /* InternshipDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */; };
 		F5262ADB2913AA6900B98ACE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */; };
 		F5262AE0291A15ED00B98ACE /* ESEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262ADF291A15ED00B98ACE /* ESEditView.swift */; };
-		F5262AE8291CD88800B98ACE /* ESRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AE7291CD88800B98ACE /* ESRepository.swift */; };
-		F5716BC4291FB8A600B41A25 /* InterviewRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BC3291FB8A600B41A25 /* InterviewRepository.swift */; };
-		F5716BC6291FBD9400B41A25 /* SessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BC5291FBD9400B41A25 /* SessionRepository.swift */; };
-		F5716BC8291FBEB000B41A25 /* InternshipRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BC7291FBEB000B41A25 /* InternshipRepository.swift */; };
-		F5716BCC29229BE700B41A25 /* HomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCB29229BE700B41A25 /* HomeUseCase.swift */; };
 		F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCD2923FD6000B41A25 /* CreateRepository.swift */; };
 		F5716BD02924D63D00B41A25 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCF2924D63D00B41A25 /* EditViewModel.swift */; };
 		F5716BD22924E00600B41A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BD12924E00600B41A25 /* AppDelegate.swift */; };
-		F58BEB9228F9870400323EFA /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9128F9870400323EFA /* EventsModel.swift */; };
+		F5716BD5292672F200B41A25 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BD4292672F200B41A25 /* EventRepository.swift */; };
 		F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9328F988EE00323EFA /* DatePicker.swift */; };
 		F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9528FB912000323EFA /* ESViewModel.swift */; };
 		F58BEB9828FB924100323EFA /* ESModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9728FB924100323EFA /* ESModel.swift */; };
@@ -85,15 +80,10 @@
 		F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipDetailView.swift; sourceTree = "<group>"; };
 		F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F5262ADF291A15ED00B98ACE /* ESEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEditView.swift; sourceTree = "<group>"; };
-		F5262AE7291CD88800B98ACE /* ESRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESRepository.swift; sourceTree = "<group>"; };
-		F5716BC3291FB8A600B41A25 /* InterviewRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewRepository.swift; sourceTree = "<group>"; };
-		F5716BC5291FBD9400B41A25 /* SessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRepository.swift; sourceTree = "<group>"; };
-		F5716BC7291FBEB000B41A25 /* InternshipRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipRepository.swift; sourceTree = "<group>"; };
-		F5716BCB29229BE700B41A25 /* HomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCase.swift; sourceTree = "<group>"; };
 		F5716BCD2923FD6000B41A25 /* CreateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRepository.swift; sourceTree = "<group>"; };
 		F5716BCF2924D63D00B41A25 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		F5716BD12924E00600B41A25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F58BEB9128F9870400323EFA /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
+		F5716BD4292672F200B41A25 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
 		F58BEB9328F988EE00323EFA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		F58BEB9528FB912000323EFA /* ESViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESViewModel.swift; sourceTree = "<group>"; };
 		F58BEB9728FB924100323EFA /* ESModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESModel.swift; sourceTree = "<group>"; };
@@ -201,7 +191,6 @@
 		F5262AE2291BE57300B98ACE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				F5716BCA29229BD600B41A25 /* UseCase */,
 				F5262AE6291BFD0C00B98ACE /* Model */,
 				F5262AE3291BE60500B98ACE /* Repository */,
 				F5B789E528F3210E00B4E3E3 /* DataSource */,
@@ -214,11 +203,8 @@
 			children = (
 				F58BEBE7290ACBFA00323EFA /* FormatRepository.swift */,
 				F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */,
-				F5262AE7291CD88800B98ACE /* ESRepository.swift */,
-				F5716BC3291FB8A600B41A25 /* InterviewRepository.swift */,
-				F5716BC5291FBD9400B41A25 /* SessionRepository.swift */,
-				F5716BC7291FBEB000B41A25 /* InternshipRepository.swift */,
 				F5716BCD2923FD6000B41A25 /* CreateRepository.swift */,
+				F5716BD4292672F200B41A25 /* EventRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -226,7 +212,7 @@
 		F5262AE6291BFD0C00B98ACE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F58BEB9128F9870400323EFA /* EventsModel.swift */,
+				F5B789E628F3212500B4E3E3 /* Event.swift */,
 				F58BEB9728FB924100323EFA /* ESModel.swift */,
 				F58BEBA728FED1CD00323EFA /* InterviewModel.swift */,
 				F58BEB9D28FDA9E300323EFA /* SessionModel.swift */,
@@ -247,14 +233,6 @@
 				F5716BCF2924D63D00B41A25 /* EditViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		F5716BCA29229BD600B41A25 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				F5716BCB29229BE700B41A25 /* HomeUseCase.swift */,
-			);
-			path = UseCase;
 			sourceTree = "<group>";
 		};
 		F5716BD32924E03B00B41A25 /* App */ = {
@@ -301,7 +279,6 @@
 		F5B789E528F3210E00B4E3E3 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
-				F5B789E628F3212500B4E3E3 /* Event.swift */,
 				F5B789E828F3311A00B4E3E3 /* ESDataSource.swift */,
 				F5B789EA28F3315500B4E3E3 /* InternshipDataSource.swift */,
 				F5B789EC28F3318900B4E3E3 /* InterviewDataSource.swift */,
@@ -556,16 +533,14 @@
 			files = (
 				F5716BD02924D63D00B41A25 /* EditViewModel.swift in Sources */,
 				F58BEBA628FED14B00323EFA /* InterviewViewModel.swift in Sources */,
+				F5716BD5292672F200B41A25 /* EventRepository.swift in Sources */,
 				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
-				F5716BC4291FB8A600B41A25 /* InterviewRepository.swift in Sources */,
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* InternshipDataSource.swift in Sources */,
-				F5716BC6291FBD9400B41A25 /* SessionRepository.swift in Sources */,
 				F5262AD72912A9D500B98ACE /* SessionDetailView.swift in Sources */,
 				F5B789E428F320D400B4E3E3 /* CreateView.swift in Sources */,
 				F58BEB9C28FDA98B00323EFA /* SessionViewModel.swift in Sources */,
 				F58BEBE8290ACBFA00323EFA /* FormatRepository.swift in Sources */,
-				F5716BC8291FBEB000B41A25 /* InternshipRepository.swift in Sources */,
 				F58BEBA328FED07C00323EFA /* InternshipModel.swift in Sources */,
 				F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */,
 				F523936629125F190000F2C0 /* ESDetailView.swift in Sources */,
@@ -579,18 +554,15 @@
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
 				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
-				F58BEB9228F9870400323EFA /* EventsModel.swift in Sources */,
 				F58BEBAD2902706C00323EFA /* DetailView.swift in Sources */,
 				F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */,
 				F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */,
 				F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */,
 				F5B789F128F331D300B4E3E3 /* ESView.swift in Sources */,
 				F5716BD22924E00600B41A25 /* AppDelegate.swift in Sources */,
-				F5262AE8291CD88800B98ACE /* ESRepository.swift in Sources */,
 				F5262AE0291A15ED00B98ACE /* ESEditView.swift in Sources */,
 				F5B789E928F3311A00B4E3E3 /* ESDataSource.swift in Sources */,
 				F5B789ED28F3318900B4E3E3 /* InterviewDataSource.swift in Sources */,
-				F5716BCC29229BE700B41A25 /* HomeUseCase.swift in Sources */,
 				F5B789F528F3325700B4E3E3 /* InterviewView.swift in Sources */,
 				F5262AD92912AB1100B98ACE /* InternshipDetailView.swift in Sources */,
 				F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */,

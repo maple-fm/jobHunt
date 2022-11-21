@@ -15,28 +15,40 @@ struct SessionDetailView: View {
             Group {
                 Text("開催場所")
                     .headetTitle()
-                Text(session.location!)
-                    .TextArea(category: session.category)
+                if let location = session.location {
+                    Text(location)
+                        .TextArea(category: session.category)
+                }
+
                 Text("服装")
                     .headetTitle()
-                Text(session.clothes!)
-                    .TextArea(category: session.category)
+                if let clothes = session.clothes {
+                    Text(clothes)
+                        .TextArea(category: session.category)
+                }
             }
 
             Group {
                 Text("持ち物")
                     .headetTitle()
-                Text(session.item!)
-                    .TextArea(category: session.category)
+                if let item = session.item {
+                    Text(item)
+                        .TextArea(category: session.category)
+                }
+
                 Text("質問したいこと")
                     .headetTitle()
-                Text(session.questions!)
-                    .TextArea(category: session.category)
+                if let questions = session.questions {
+                    Text(questions)
+                        .TextArea(category: session.category)
+                }
+
                 Text("その他")
                     .headetTitle()
-                Text(session.other!)
-                    .TextArea(category: session.category)
-
+                if let other = session.other {
+                    Text(other)
+                        .TextArea(category: session.category)
+                }
             }
         }
     }

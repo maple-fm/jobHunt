@@ -15,48 +15,63 @@ struct InterviewDetailView: View {
             Group {
                 Text("開催場所")
                     .headetTitle()
-                Text(interview.location!)
-                    .TextArea(category: interview.category)
+                if let location = interview.location {
+                    Text(location)
+                        .TextArea(category: interview.category)
+                }
 
-            }
-            Group {
                 Text("服装")
                     .headetTitle()
-                Text(interview.clothes!)
-                    .TextArea(category: interview.category)
-            }
-            Group {
+                if let clothes = interview.clothes {
+                    Text(clothes)
+                        .TextArea(category: interview.category)
+                }
+
                 Text("志望動機")
                     .headetTitle()
-                Text(interview.motivation!)
-                    .TextArea(category: interview.category)
+                if let motivation = interview.motivation {
+                    Text(motivation)
+                        .TextArea(category: interview.category)
+                }
+
                 Text("ガクチカ")
                     .headetTitle()
-                Text(interview.gakuchika!)
-                    .TextArea(category: interview.category)
+                if let gakuchika = interview.gakuchika {
+                    Text(gakuchika)
+                        .TextArea(category: interview.category)
+                }
             }
+
             Group {
                 Text("長所")
                     .headetTitle()
-                Text(interview.strongPoints!)
-                    .TextArea(category: interview.category)
+                if let strongPoints = interview.strongPoints {
+                    Text(strongPoints)
+                        .TextArea(category: interview.category)
+                }
+
                 Text("短所")
                     .headetTitle()
-                Text(interview.weakPoints!)
-                    .TextArea(category: interview.category)
+                if let weakPoints = interview.weakPoints {
+                    Text(weakPoints)
+                        .TextArea(category: interview.category)
+                }
+
                 Text("質問したいこと")
                     .headetTitle()
-                Text(interview.questions!)
-                    .TextArea(category: interview.category)
+                if let questions = interview.questions {
+                    Text(questions)
+                        .TextArea(category: interview.category)
+                }
+
                 Text("その他")
                     .headetTitle()
-                Text(interview.other!)
-                    .TextArea(category: interview.category)
+                if let other = interview.other {
+                    Text(other)
+                        .TextArea(category: interview.category)
+                }
             }
-
-
         }
-
     }
 }
 

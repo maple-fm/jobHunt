@@ -15,20 +15,32 @@ struct InternshipDetailView: View {
 
             Text("開催場所")
                 .headetTitle()
-            Text(internship.location!)
-                .TextArea(category: internship.category)
+            if let location = internship.location {
+                Text(location)
+                    .TextArea(category: internship.category)
+            }
+
             Text("服装")
                 .headetTitle()
-            Text(internship.clothes!)
-                .TextArea(category: internship.category)
+            if let clothes = internship.clothes {
+                Text(clothes)
+                    .TextArea(category: internship.category)
+            }
+
             Text("持ち物")
                 .headetTitle()
-            Text(internship.item!)
-                .TextArea(category: internship.category)
+            if let item = internship.item {
+                Text(item)
+                    .TextArea(category: internship.category)
+            }
+
             Text("その他")
                 .headetTitle()
-            Text(internship.other!)
-                .TextArea(category: internship.category)
+            if let other = internship.other {
+                Text(other)
+                    .TextArea(category: internship.category)
+            }
+
             
         }
     }

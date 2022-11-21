@@ -11,7 +11,6 @@ struct ESDetailView: View {
     let es: ESModel
     var isUpdate: Bool
 
-    // TODO: 強制アンラップしていいのか
     var body: some View {
         VStack(alignment: .leading)  {
             // TODO: 編集画面に変更する
@@ -22,28 +21,42 @@ struct ESDetailView: View {
                 Group {
                     Text("志望動機")
                         .headetTitle()
-                    Text(es.motivation!)
-                        .TextArea(category: es.category)
+                    if let motivation = es.motivation {
+                        Text(motivation)
+                            .TextArea(category: es.category)
+                    }
+
+                    Text("ガクチカ")
+                        .headetTitle()
+                    if let gakuchika = es.gakuchika {
+                        Text(gakuchika)
+                            .TextArea(category: es.category)
+                    }
                 }
 
-                Text("ガクチカ")
-                    .headetTitle()
-                Text(es.gakuchika!)
-                    .TextArea(category: es.category)
-                Text("長所")
-                    .headetTitle()
-                Text(es.strongPoints!)
-                    .TextArea(category: es.category)
-                Text("短所")
-                    .headetTitle()
-                Text(es.weakPoints!)
-                    .TextArea(category: es.category)
-                Text("その他")
-                    .headetTitle()
-                Text(es.other!)
-                    .TextArea(category: es.category)
-            }
+                Group {
+                    Text("長所")
+                        .headetTitle()
+                    if let strongPoints = es.strongPoints {
+                        Text(strongPoints)
+                            .TextArea(category: es.category)
+                    }
 
+                    Text("短所")
+                        .headetTitle()
+                    if let weakPoints = es.weakPoints {
+                        Text(weakPoints)
+                            .TextArea(category: es.category)
+                    }
+
+                    Text("その他")
+                        .headetTitle()
+                    if let other = es.other {
+                        Text(other)
+                            .TextArea(category: es.category)
+                    }
+                }
+            }
         }
     }
 }
