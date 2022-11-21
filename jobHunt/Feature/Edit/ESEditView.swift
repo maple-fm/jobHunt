@@ -27,7 +27,9 @@ struct ESEditView: View {
             TextEditor(text: $viewModel.motivation)
                 .textArea()
                 .onAppear() {
-                    viewModel.motivation = es.motivation!
+                    if let motivation = es.motivation {
+                        viewModel.motivation = motivation
+                    }
                 }
         }
 
@@ -38,7 +40,9 @@ struct ESEditView: View {
             TextEditor(text: $viewModel.gakuchika)
                 .textArea()
                 .onAppear() {
-                    viewModel.gakuchika = es.gakuchika!
+                    if let gakuchika = es.gakuchika {
+                        viewModel.gakuchika = gakuchika
+                    }
                 }
         }
 
@@ -46,10 +50,13 @@ struct ESEditView: View {
             header: Text("長所")
                 .headetTitle()
         ) {
-            TextEditor(text: $viewModel.strongPoint)
+            TextEditor(text: $viewModel.strongPoints)
                 .textArea()
                 .onAppear() {
-                    viewModel.strongPoint = es.strongPoints!
+                    if let strongPoints = es.strongPoints {
+                        viewModel.strongPoints = strongPoints
+                    }
+
                 }
         }
         Section(
@@ -59,7 +66,9 @@ struct ESEditView: View {
             TextEditor(text: $viewModel.weakPoints)
                 .textArea()
                 .onAppear() {
-                    viewModel.weakPoints = es.weakPoints!
+                    if let weakPoints = es.weakPoints {
+                        viewModel.weakPoints = weakPoints
+                    }
                 }
         }
 
@@ -70,9 +79,11 @@ struct ESEditView: View {
             TextEditor(text: $viewModel.other)
                 .textArea()
                 .onAppear() {
-                    viewModel.other = es.other!
+                    if let other = es.other {
+                        viewModel.other = other
+                    }
                 }
-            }
+        }
     }
 }
 
