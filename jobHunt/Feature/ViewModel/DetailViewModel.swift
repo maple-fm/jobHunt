@@ -24,8 +24,6 @@ class DetailViewModel: ObservableObject {
 
         } else if let intern = event as? InternshipModel {
             eventRepository.deleteInternship(id: intern.id)
-
         }
-
     }
 }

@@ -43,7 +43,7 @@ class ESDataSource: Object {
         try! realm.write {
             realm.add(datasource)
         }
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
     func read() -> [ESDataSource] {
@@ -62,6 +62,19 @@ class ESDataSource: Object {
         }
     }
 
+    func edit(model: ESModel) {
+        let realm = try! Realm()
+        guard
+            let target = realm.objects(ESDataSource.self).filter("id == %@", model.id).first
+        else { return }
 
-
+        try! realm.write {
+            target.name = model.name
+            target.motivation = model.motivation ?? ""
+            target.gakuchika = model.gakuchika ?? ""
+            target.strongPoints = model.strongPoints ?? ""
+            target.weakPoints = model.weakPoints ?? ""
+            target.other = model.other ?? ""
+        }
+    }
 }

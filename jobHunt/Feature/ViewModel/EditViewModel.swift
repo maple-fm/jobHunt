@@ -11,13 +11,23 @@ class EditViewModel: ObservableObject {
 
     private var repository = EventRepository()
 
+    @Published var name: String = ""
     @Published var motivation: String = ""
     @Published var gakuchika: String = ""
     @Published var strongPoints: String = ""
     @Published var weakPoints: String = ""
     @Published var other: String = ""
 
-    func clickUpdate() {
-        
+    func clickUpdate(id: String) {
+        repository.editES(
+            id: id,
+            name: self.name,
+            motivation: self.motivation,
+            gakuchika: self.gakuchika,
+            strongPoints: self.strongPoints,
+            weakPoints: self.weakPoints,
+            other: other
+        )
+
     }
 }

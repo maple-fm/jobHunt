@@ -19,6 +19,12 @@ struct ESDetailView: View {
 
             } else {
                 Group {
+
+                    Text("会社名")
+                        .headetTitle()
+                    Text(es.name)
+                        .TextArea(category: es.category)
+
                     Text("志望動機")
                         .headetTitle()
                     if let motivation = es.motivation {

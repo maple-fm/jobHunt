@@ -38,11 +38,6 @@ struct DetailView: View {
                         .font(.system(size: 35, weight: .black))
                         .padding(.vertical, 30)
 
-                    Text("会社名")
-                        .headetTitle()
-                    Text(self.event.name )
-                        .TextArea(category: event.category)
-
                     if let es = event as? ESModel {
                         ESDetailView(es: es, isUpdate: isUpdate)
                     } else if let interview = event as? InterviewModel {
@@ -62,8 +57,6 @@ struct DetailView: View {
                 Button(action: {
                     if isUpdate {
                         // TODO: 編集機能、保存機能
-
-//                        editViewModel.clickUpdate(click: isUpdate)
                         
                         isUpdate.toggle()
                     } else {

@@ -207,4 +207,27 @@ struct EventRepository {
     func deleteInternship(id: String) {
         InternshipDataSource().delete(id: id)
     }
+
+    func editES(
+        id: String,
+        name: String,
+        motivation: String?,
+        gakuchika: String?,
+        strongPoints: String?,
+        weakPoints: String?,
+        other: String?
+    ) {
+
+        ESDataSource().edit(model:ESModel(
+            id: id,
+            name: name,
+            deadline: Date.now,
+            motivation: motivation,
+            gakuchika: gakuchika,
+            strongPoints: strongPoints,
+            weakPoints: weakPoints,
+            other: other,
+            category: .es
+        ))
+    }
 }
