@@ -74,7 +74,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "14A9AB05-2A75-48B9-A515-7BECB04AE132"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             filePath = "jobHunt/Domain/Repository/EventRepository.swift"

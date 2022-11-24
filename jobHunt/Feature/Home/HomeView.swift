@@ -9,11 +9,10 @@ import SwiftUI
 
 
 struct HomeView: View {
+
     @State var selectedDate = Date()
     @State private var add = false
     @ObservedObject var viewModel = HomeViewModel()
-
-    var formatSelectedDate: String = ""
 
     func bgColor(category: EventName) -> Color {
         switch category {
@@ -28,12 +27,18 @@ struct HomeView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 ZStack(alignment: .top) {
-                    CalendarTestView(selectedDate: $selectedDate, eventsDate: viewModel.eventsDateArray)
+                    CalendarTestView(selectedDate: $selectedDate,
+                                     eventsDate: viewModel.eventsDateArray)
                         .frame(width: 400, height: 400.0, alignment: .center)
-                    Image(systemName: "gearshape.fill")
-                        .frame(width: 60, height: 60, alignment: .center)
-                        .foregroundColor(.green)
-                        .padding(.leading, 310)
+                    NavigationLink(
+                        destination: SettingView()
+                    ) {
+                        Image(systemName: "gearshape.fill")
+                            .frame(width: 60, height: 60, alignment: .center)
+                            .foregroundColor(.green)
+                            .padding(.leading, 310)
+                    }
+
                 }
 
 
