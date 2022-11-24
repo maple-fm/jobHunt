@@ -17,11 +17,9 @@ struct ESView: View {
     var body: some View {
         VStack {
             Form {
-                
                 Section(
                     header: Text("会社名")
                         .headetTitle()
-
                 ) {
                     TextField("会社名", text: $viewModel.name)
                         .input()
@@ -36,8 +34,6 @@ struct ESView: View {
                 }
                 .listRowBackground(Color.clear)
 
-
-
                 Section(
                     header: Text("志望動機")
                         .headetTitle()
@@ -45,7 +41,6 @@ struct ESView: View {
                     TextEditor( text: $viewModel.motivation)
                         .input()
                 }
-
 
                 Section(
                     header: Text("ガクチカ")
@@ -80,8 +75,6 @@ struct ESView: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
-
         }
         .onChange(of: click) {
             // clickが変更したときだけ実行される
@@ -89,9 +82,7 @@ struct ESView: View {
                 viewModel.clickButton(click: $0)
                 action()
             }
-
         }
-
     }
 }
 
@@ -99,6 +90,5 @@ struct EntrysheetView_Previews: PreviewProvider {
     static var previews: some View {
         ESView(click: .constant(false)) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
-
     }
 }

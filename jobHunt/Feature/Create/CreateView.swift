@@ -19,7 +19,7 @@ struct CreateView: View {
             Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor)
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                ScrollView(.horizontal) {
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(EventName.allCases, id: \.self) { (eventName) in
                             Button(action: {
@@ -44,6 +44,7 @@ struct CreateView: View {
                             ))
                         }
                     }
+                    
                 }
 
             event.eventView(click: $canCreate) {

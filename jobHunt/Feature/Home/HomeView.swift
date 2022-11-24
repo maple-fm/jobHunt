@@ -73,7 +73,7 @@ struct HomeView: View {
                 }
 
                 ZStack {
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         ForEach(viewModel.events, id: \.id) { event in
                             if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
                                 VStack {
@@ -103,8 +103,6 @@ struct HomeView: View {
                                                     bottom: 15,
                                                     trailing: 30
                                                 ))
-
-
                                         }
                                         .frame(width: 350, height: 70, alignment: .leading)
                                         .background(bgColor(category: event.category))
