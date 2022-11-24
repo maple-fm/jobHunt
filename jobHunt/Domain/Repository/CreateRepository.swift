@@ -8,7 +8,7 @@
 import Foundation
 
 struct CreateRepository {
-    // TODO: この関数を一つのファイル内にまとめたい
+    
     func isValidated(name: String?) -> Bool {
         guard
             let name = name
