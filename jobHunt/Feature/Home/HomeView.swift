@@ -34,10 +34,11 @@ struct HomeView: View {
                         destination: SettingView()
                     ) {
                         Image(systemName: "gearshape.fill")
-                            .frame(width: 60, height: 60, alignment: .center)
-                            .foregroundColor(.green)
-                            .padding(.leading, 310)
+
                     }
+                    .frame(width: 60, height: 60, alignment: .center)
+                        .foregroundColor(.green)
+                        .padding(.leading, 310)
 
                 }
 

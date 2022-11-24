@@ -35,7 +35,6 @@ struct CalendarTestView: UIViewRepresentable {
 
         // 曜日表示のカスタマイズ
         fsCalendar.appearance.weekdayTextColor = .gray
-        fsCalendar.appearance.titleWeekendColor = .red
 
         // カレンダー日付表示のカスタマイズ
         fsCalendar.appearance.todayColor = UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1) //本日の選択カラー
@@ -51,7 +50,6 @@ struct CalendarTestView: UIViewRepresentable {
         return fsCalendar
     }
 
-
     func updateUIView(_ uiView: UIView, context: Context) {
 
         context.coordinator.eventsDate = Array(Set(eventsDate))
@@ -63,18 +61,59 @@ struct CalendarTestView: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator{
-
         return Coordinator(self)
     }
 
-
-    class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {
+    class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
         var parent: CalendarTestView
         var eventsDate: [String] = []
         let format = FormatRepository()
 
         init(_ parent: CalendarTestView) {
             self.parent = parent
+        }
+
+        func judgeHoliday(_ date: Date) -> Bool {
+            //祝日判定用のカレンダークラスのインスタンス
+            let tmpCalendar = Calendar(identifier: .gregorian)
+            // 祝日判定を行う日にちの年、月、日を取得
+            let year = tmpCalendar.component(.year, from: date)
+            let month = tmpCalendar.component(.month, from: date)
+            let day = tmpCalendar.component(.day, from: date)
+
+            // CalculateCalendarLogic()：祝日判定のインスタンスの生成
+            let holiday = CalculateCalendarLogic()
+
+            return holiday.judgeJapaneseHoliday(year: year, month: month, day: day)
+        }
+
+        func getDay(_ date:Date) -> (Int,Int,Int){
+            let tmpCalendar = Calendar(identifier: .gregorian)
+            let year = tmpCalendar.component(.year, from: date)
+            let month = tmpCalendar.component(.month, from: date)
+            let day = tmpCalendar.component(.day, from: date)
+            return (year,month,day)
+        }
+
+        func getWeekIdx(_ date: Date) -> Int{
+            let tmpCalendar = Calendar(identifier: .gregorian)
+            return tmpCalendar.component(.weekday, from: date)
+        }
+
+        func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+            //祝日判定をする（祝日は赤色で表示する）
+            if self.judgeHoliday(date){
+                return UIColor(red: 1, green: 0.354, blue: 0.354, alpha: 1)
+            }
+            //土日の判定を行う（土曜日は青色、日曜日は赤色で表示する）
+            let weekday = self.getWeekIdx(date)
+            if weekday == 1 {   //日曜日
+                return UIColor(red: 1, green: 0.354, blue: 0.354, alpha: 1)
+            }
+            else if weekday == 7 {  //土曜日
+                return UIColor(red: 0.271, green: 0.475, blue: 1, alpha: 1)
+            }
+            return nil
         }
 
         func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
@@ -93,5 +132,6 @@ struct CalendarTestView: UIViewRepresentable {
         func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
             parent.selectedDate = date
         }
+
     }
 }
