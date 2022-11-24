@@ -13,6 +13,11 @@ struct InterviewDetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Group {
+                Text("会社名")
+                    .headetTitle()
+                Text(interview.name)
+                    .TextArea(category: interview.category)
+
                 Text("開催場所")
                     .headetTitle()
                 if let location = interview.location {

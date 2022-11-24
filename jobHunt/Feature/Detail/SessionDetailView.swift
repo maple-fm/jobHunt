@@ -13,6 +13,11 @@ struct SessionDetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Group {
+                Text("会社名")
+                    .headetTitle()
+                Text(session.name)
+                    .TextArea(category: session.category)
+
                 Text("開催場所")
                     .headetTitle()
                 if let location = session.location {

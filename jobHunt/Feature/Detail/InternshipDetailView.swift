@@ -13,6 +13,11 @@ struct InternshipDetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
 
+            Text("会社名")
+                .headetTitle()
+            Text(internship.name)
+                .TextArea(category: internship.category)
+
             Text("開催場所")
                 .headetTitle()
             if let location = internship.location {

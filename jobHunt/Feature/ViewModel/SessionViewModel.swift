@@ -35,7 +35,7 @@ class SessionViewModel: ObservableObject {
             item: item,
             questions: questions,
             other: other,
-            category: .internship)
+            category: .session)
     }
 
 
