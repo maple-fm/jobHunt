@@ -32,7 +32,6 @@ struct InterviewView: View {
                     DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
                 }
-                .listRowBackground(Color.clear)
 
                 Section(
                     header: Text("開催場所")
