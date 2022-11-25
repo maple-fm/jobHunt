@@ -25,12 +25,17 @@ struct ESDetailView: View {
                     Text(es.name)
                         .TextArea(category: es.category)
 
-                    Text("志望動機")
-                        .headetTitle()
                     if let motivation = es.motivation {
-                        Text(motivation)
-                            .TextArea(category: es.category)
+                        Section(
+                            header: Text("志望動機")
+                                .headetTitle(),
+                            footer: Text("\(motivation.count)count")
+                        ) {
+                            Text(motivation)
+                                .TextArea(category: es.category)
+                        }
                     }
+
 
                     Text("ガクチカ")
                         .headetTitle()

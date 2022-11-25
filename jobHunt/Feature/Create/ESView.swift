@@ -31,20 +31,23 @@ struct ESView: View {
                 ) {
                     DatePicker("締切日時", selection: $viewModel.deadline)
                         .PickerItem()
+                        
                 }
-                .listRowBackground(Color.clear)
 
                 Section(
                     header: Text("志望動機")
-                        .headetTitle()
+                        .headetTitle(),
+                    footer: Text("\(viewModel.motivation.count)count")
                 ) {
                     TextEditor( text: $viewModel.motivation)
                         .input()
                 }
 
+
                 Section(
                     header: Text("ガクチカ")
-                        .headetTitle()
+                        .headetTitle(),
+                    footer: Text("\(viewModel.gakuchika.count)count")
                 ) {
                     TextEditor(text: $viewModel.gakuchika)
                         .input()
@@ -52,7 +55,8 @@ struct ESView: View {
 
                 Section(
                     header: Text("長所")
-                        .headetTitle()
+                        .headetTitle(),
+                    footer: Text("\(viewModel.strongPoints.count)count")
                 ) {
                     TextEditor(text: $viewModel.strongPoints)
                         .input()
@@ -60,7 +64,8 @@ struct ESView: View {
 
                 Section(
                     header: Text("短所")
-                        .headetTitle()
+                        .headetTitle(),
+                    footer: Text("\(viewModel.weakPoints.count)count")
                 ) {
                     TextEditor(text: $viewModel.weakPoints)
                         .input()
