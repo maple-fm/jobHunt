@@ -172,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				F5262ADF291A15ED00B98ACE /* ESEditView.swift */,
+				F5716BCF2924D63D00B41A25 /* EditViewModel.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -180,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				F5716BD32924E03B00B41A25 /* App */,
-				F5716BC92922951A00B41A25 /* ViewModel */,
 				F5B789E228F320BE00B4E3E3 /* Create */,
 				F5B789E128F31ECC00B4E3E3 /* Home */,
 				F5262ADE291A15D700B98ACE /* Edit */,
@@ -227,13 +227,10 @@
 		F5716BC92922951A00B41A25 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F58BEBA929003A5E00323EFA /* HomeViewModel.swift */,
 				F58BEBA528FED14B00323EFA /* InterviewViewModel.swift */,
 				F58BEBA028FED03800323EFA /* InternshipViewModel.swift */,
 				F58BEB9528FB912000323EFA /* ESViewModel.swift */,
 				F58BEB9B28FDA98B00323EFA /* SessionViewModel.swift */,
-				F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */,
-				F5716BCF2924D63D00B41A25 /* EditViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -250,6 +247,7 @@
 		F58BEBAB2902705800323EFA /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */,
 				F58BEBAC2902706C00323EFA /* DetailView.swift */,
 				F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */,
 				F5239367291260B00000F2C0 /* InterviewDetailView.swift */,
@@ -262,6 +260,7 @@
 		F5B789E128F31ECC00B4E3E3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F58BEBA929003A5E00323EFA /* HomeViewModel.swift */,
 				F5C83B6D28F311FE00A01E4E /* HomeView.swift */,
 			);
 			path = Home;
@@ -270,6 +269,7 @@
 		F5B789E228F320BE00B4E3E3 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				F5716BC92922951A00B41A25 /* ViewModel */,
 				F5B789E328F320D400B4E3E3 /* CreateView.swift */,
 				F5B789F028F331D300B4E3E3 /* ESView.swift */,
 				F5B789F428F3325700B4E3E3 /* InterviewView.swift */,

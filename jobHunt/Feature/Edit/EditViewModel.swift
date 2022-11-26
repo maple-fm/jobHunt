@@ -28,6 +28,6 @@ class EditViewModel: ObservableObject {
             weakPoints: self.weakPoints,
             other: other
         )
-
     }
+
 }
