@@ -47,9 +47,9 @@ struct CreateView: View {
                     
                 }
 
-            event.eventView(click: $canCreate) {
-                dismiss()
-            }
+                event.eventView(click: $canCreate) {
+                    dismiss()
+                }
 
                 Button(action: {
                     canCreate.toggle()

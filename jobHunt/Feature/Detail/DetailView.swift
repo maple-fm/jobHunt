@@ -15,15 +15,6 @@ struct DetailView: View {
     @Environment(\.dismiss) var dismiss
 
     @ObservedObject var viewModel = DetailViewModel()
-    
-    func bgColor(category: EventName) -> Color {
-        switch category {
-        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
-        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
-        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 0.5).cgColor)
-        case .internship: return Color(UIColor(red: 1, green: 0.962, blue: 1, alpha: 1).cgColor)
-        }
-    }
 
     var body: some View {
 
@@ -38,14 +29,23 @@ struct DetailView: View {
                         .font(.system(size: 35, weight: .black))
                         .padding(.vertical, 30)
 
-                    if let es = event as? ESModel {
-                        ESDetailView(es: es, isUpdate: isUpdate)
-                    } else if let interview = event as? InterviewModel {
-                        InterviewDetailView(interview: interview)
-                    } else if let session = event as? SessionModel {
-                        SessionDetailView(session: session)
-                    } else if let intern = event as? InternshipModel {
-                        InternshipDetailView(internship: intern)
+                    switch event.category {
+                    case .es:
+                        if let es = event as? ESModel {
+                            ESDetailView(id: es.id, isUpdated: isUpdate)
+                        }
+                    case .interview:
+                        if let interview = event as? InterviewModel {
+                           InterviewDetailView(interview: interview)
+                       }
+                    case.session:
+                        if let session = event as? SessionModel {
+                           SessionDetailView(session: session)
+                       }
+                    case.internship:
+                        if let intern = event as? InternshipModel {
+                           InternshipDetailView(internship: intern)
+                       }
                     }
                 }
             }
@@ -57,12 +57,10 @@ struct DetailView: View {
                 Button(action: {
                     if isUpdate {
                         // TODO: 編集機能、保存機能
-                        
                         isUpdate.toggle()
                     } else {
                         dismiss()
                     }
-
                 }) {
                     if isUpdate {
                         Text("完了")
@@ -76,10 +74,7 @@ struct DetailView: View {
                         }
                         .foregroundColor(.green)
                     }
-
                 }
-
-
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
@@ -110,17 +105,22 @@ struct DetailView: View {
                         secondaryButton: .destructive(
                             Text("削除"),
                             action: {
-                                // TODO: 削除機能を実行
-
                                 viewModel.delete(event: event)
-
-                                // TODO: HomeViewに戻れない
                                 dismiss()
                             }
                         )
                     )
                 }
             }
+        }
+    }
+
+    func bgColor(category: EventName) -> Color {
+        switch category {
+        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
+        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
+        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 0.5).cgColor)
+        case .internship: return Color(UIColor(red: 1, green: 0.962, blue: 1, alpha: 1).cgColor)
         }
     }
 }
