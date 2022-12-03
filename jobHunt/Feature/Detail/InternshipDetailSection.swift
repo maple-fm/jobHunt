@@ -1,5 +1,5 @@
 //
-//  InternshipDetailView.swift
+//  InternshipDetailSection.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/11/02.
@@ -53,6 +53,6 @@ struct InternshipDetailSection: View {
 
 //struct InternshipDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        InternshipDetailView(internship: .init())
+//        InternshipDetailSection(internship: .init())
 //    }
 //}

@@ -1,5 +1,5 @@
 //
-//  SessionDetailView.swift
+//  SessionDetailSection.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/11/02.
@@ -61,6 +61,6 @@ struct SessionDetailSection: View {
 
 struct SessionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionDetailView(session: .init(id: "", name: "", deadline: .now, category: .session))
+        SessionDetailSection(session: .init(id: "", name: "", deadline: .now, category: .session))
     }
 }

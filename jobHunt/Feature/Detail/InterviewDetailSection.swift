@@ -1,5 +1,5 @@
 //
-//  InterviewDetailView.swift
+//  InterviewDetailSection.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/11/02.
@@ -82,6 +82,6 @@ struct InterviewDetailSection: View {
 
 //struct InterviewDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        InterviewDetailView(interview: .init())
+//        InterviewDetailSection(interview: .init())
 //    }
 //}
