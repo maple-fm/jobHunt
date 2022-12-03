@@ -21,15 +21,11 @@ class HomeViewModel: ObservableObject {
     }
 
     init() {
-        assignEvents()
+        onUpdated()
     }
 
-    private func assignEvents() {
+    func onUpdated() {
         events = repository.getEvents()
-    }
-
-    func dismissActionSheet() {
-        assignEvents()
     }
 
     func toString(date: Date) -> String {
@@ -39,4 +35,5 @@ class HomeViewModel: ObservableObject {
     func toTime(date: Date) -> String {
         return format.formatTime(date: date)
     }
+
 }

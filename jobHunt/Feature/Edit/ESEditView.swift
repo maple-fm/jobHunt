@@ -28,7 +28,6 @@ struct ESEditView: View {
                     .textArea()
                     .onAppear() {
                         viewModel.name = es.name
-
                     }
             }
 

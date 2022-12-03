@@ -26,4 +26,9 @@ class DetailViewModel: ObservableObject {
             eventRepository.deleteInternship(id: intern.id)
         }
     }
+
+    func getESArray(id: String) -> ESModel {
+        eventRepository.getESArray(id: id).first!
+    }
+    
 }

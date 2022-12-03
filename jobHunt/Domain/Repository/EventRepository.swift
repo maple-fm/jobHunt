@@ -138,6 +138,23 @@ struct EventRepository {
         }
     }
 
+    func getESArray(id: String) -> [ESModel] {
+        let datasources = ESDataSource().readOne(id: id)
+
+        return datasources.map { datasource in
+            ESModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                motivation: datasource.motivation,
+                gakuchika: datasource.gakuchika,
+                strongPoints: datasource.strongPoints,
+                weakPoints: datasource.weakPoints,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
     func getInterviewArrays() -> [InterviewModel] {
         let datasources = InterviewDataSource().read()
 

@@ -80,8 +80,8 @@
             filePath = "jobHunt/Domain/Repository/EventRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "editES(id:name:motivation:gakuchika:strongPoints:weakPoints:other:)"
             landmarkType = "7">
             <Actions>

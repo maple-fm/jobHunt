@@ -68,7 +68,7 @@ struct HomeView: View {
                         bottom: 0,
                         trailing: 15)
                     )
-                    .sheet(isPresented: $add, onDismiss: viewModel.dismissActionSheet) {
+                    .sheet(isPresented: $add, onDismiss: viewModel.onUpdated) {
                         CreateView()
                     }
                 }
@@ -81,7 +81,7 @@ struct HomeView: View {
                                     NavigationLink(
                                         destination: DetailView(event: event)
                                             .onDisappear(){
-                                                viewModel.dismissActionSheet()
+                                                viewModel.onUpdated()
                                             }
                                     ){
                                         HStack {

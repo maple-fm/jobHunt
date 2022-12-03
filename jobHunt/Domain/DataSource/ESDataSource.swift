@@ -53,6 +53,13 @@ class ESDataSource: Object {
         return objectArray
     }
 
+    func readOne(id: String) -> [ESDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(ESDataSource.self).filter("id == %@", id).freeze())
+
+        return objectArray
+    }
+
     func delete(id: String) {
         let realm = try! Realm()
         let target = realm.objects(ESDataSource.self).filter("id == %@", id)

@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct ESDetailView: View {
-    let es: ESModel
-    var isUpdate: Bool
+    var id: String
+    var isUpdated: Bool
+    var viewModel = DetailViewModel()
+    var es: ESModel {
+        get {
+            return viewModel.getESArray(id: self.id)
+        }
+    }
+
+
+    init(id: String, isUpdated: Bool) {
+        self.id = id
+        self.isUpdated = isUpdated
+    }
 
     var body: some View {
         VStack(alignment: .leading)  {
             // TODO: 編集画面に変更する
-            if isUpdate {
+            if isUpdated {
                 ESEditView(es: self.es)
 
             } else {
@@ -22,49 +34,53 @@ struct ESDetailView: View {
 
                     Text("会社名")
                         .headetTitle()
-                    Text(es.name)
-                        .TextArea(category: es.category)
+                    Text(self.es.name)
+                        .TextArea(category: self.es.category)
 
-                    if let motivation = es.motivation {
+                    if let motivation = self.es.motivation {
                         Section(
                             header: Text("志望動機")
                                 .headetTitle(),
-                            footer: Text("\(motivation.count)count")
+                            footer:Text("\(motivation.count)count")
+                                .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                                .font(.system(size: 15))
+                                .padding(.leading, 11)
+                                .padding(.bottom, 5)
                         ) {
                             Text(motivation)
-                                .TextArea(category: es.category)
+                                .TextArea(category: self.es.category)
                         }
                     }
 
 
                     Text("ガクチカ")
                         .headetTitle()
-                    if let gakuchika = es.gakuchika {
+                    if let gakuchika = self.es.gakuchika {
                         Text(gakuchika)
-                            .TextArea(category: es.category)
+                            .TextArea(category: self.es.category)
                     }
                 }
 
                 Group {
                     Text("長所")
                         .headetTitle()
-                    if let strongPoints = es.strongPoints {
+                    if let strongPoints = self.es.strongPoints {
                         Text(strongPoints)
-                            .TextArea(category: es.category)
+                            .TextArea(category: self.es.category)
                     }
 
                     Text("短所")
                         .headetTitle()
-                    if let weakPoints = es.weakPoints {
+                    if let weakPoints = self.es.weakPoints {
                         Text(weakPoints)
-                            .TextArea(category: es.category)
+                            .TextArea(category: self.es.category)
                     }
 
                     Text("その他")
                         .headetTitle()
-                    if let other = es.other {
+                    if let other = self.es.other {
                         Text(other)
-                            .TextArea(category: es.category)
+                            .TextArea(category: self.es.category)
                     }
                 }
             }
