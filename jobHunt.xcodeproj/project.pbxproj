@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B44F1BEA60D89BBBD84D202B /* Pods_jobHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2C90ACBB90DC8CBB62A91D /* Pods_jobHunt.framework */; };
-		F523936629125F190000F2C0 /* ESDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523936529125F190000F2C0 /* ESDetailView.swift */; };
-		F5239368291260B00000F2C0 /* InterviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5239367291260B00000F2C0 /* InterviewDetailView.swift */; };
-		F5262AD72912A9D500B98ACE /* SessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD62912A9D500B98ACE /* SessionDetailView.swift */; };
-		F5262AD92912AB1100B98ACE /* InternshipDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */; };
+		F523936629125F190000F2C0 /* ESDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523936529125F190000F2C0 /* ESDetailSection.swift */; };
+		F5239368291260B00000F2C0 /* InterviewDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5239367291260B00000F2C0 /* InterviewDetailSection.swift */; };
+		F5262AD72912A9D500B98ACE /* SessionDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD62912A9D500B98ACE /* SessionDetailSection.swift */; };
+		F5262AD92912AB1100B98ACE /* InternshipDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD82912AB1100B98ACE /* InternshipDetailSection.swift */; };
 		F5262ADB2913AA6900B98ACE /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */; };
 		F5262AE0291A15ED00B98ACE /* ESEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262ADF291A15ED00B98ACE /* ESEditView.swift */; };
 		F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCD2923FD6000B41A25 /* CreateRepository.swift */; };
@@ -75,10 +75,10 @@
 		35F4ED617C7B83A5C622BAC6 /* Pods-jobHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobHunt.debug.xcconfig"; path = "Target Support Files/Pods-jobHunt/Pods-jobHunt.debug.xcconfig"; sourceTree = "<group>"; };
 		36ED71507D6C45A887754D36 /* Pods-jobHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobHunt.release.xcconfig"; path = "Target Support Files/Pods-jobHunt/Pods-jobHunt.release.xcconfig"; sourceTree = "<group>"; };
 		5E2C90ACBB90DC8CBB62A91D /* Pods_jobHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jobHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F523936529125F190000F2C0 /* ESDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESDetailView.swift; sourceTree = "<group>"; };
-		F5239367291260B00000F2C0 /* InterviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewDetailView.swift; sourceTree = "<group>"; };
-		F5262AD62912A9D500B98ACE /* SessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailView.swift; sourceTree = "<group>"; };
-		F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipDetailView.swift; sourceTree = "<group>"; };
+		F523936529125F190000F2C0 /* ESDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESDetailSection.swift; sourceTree = "<group>"; };
+		F5239367291260B00000F2C0 /* InterviewDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewDetailSection.swift; sourceTree = "<group>"; };
+		F5262AD62912A9D500B98ACE /* SessionDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailSection.swift; sourceTree = "<group>"; };
+		F5262AD82912AB1100B98ACE /* InternshipDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipDetailSection.swift; sourceTree = "<group>"; };
 		F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		F5262ADF291A15ED00B98ACE /* ESEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESEditView.swift; sourceTree = "<group>"; };
 		F5716BCD2923FD6000B41A25 /* CreateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRepository.swift; sourceTree = "<group>"; };
@@ -249,10 +249,10 @@
 			children = (
 				F5262ADA2913AA6900B98ACE /* DetailViewModel.swift */,
 				F58BEBAC2902706C00323EFA /* DetailView.swift */,
-				F5262AD82912AB1100B98ACE /* InternshipDetailView.swift */,
-				F5239367291260B00000F2C0 /* InterviewDetailView.swift */,
-				F5262AD62912A9D500B98ACE /* SessionDetailView.swift */,
-				F523936529125F190000F2C0 /* ESDetailView.swift */,
+				F5262AD82912AB1100B98ACE /* InternshipDetailSection.swift */,
+				F5239367291260B00000F2C0 /* InterviewDetailSection.swift */,
+				F5262AD62912A9D500B98ACE /* SessionDetailSection.swift */,
+				F523936529125F190000F2C0 /* ESDetailSection.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -540,19 +540,19 @@
 				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* InternshipDataSource.swift in Sources */,
-				F5262AD72912A9D500B98ACE /* SessionDetailView.swift in Sources */,
+				F5262AD72912A9D500B98ACE /* SessionDetailSection.swift in Sources */,
 				F5B789E428F320D400B4E3E3 /* CreateView.swift in Sources */,
 				F58BEB9C28FDA98B00323EFA /* SessionViewModel.swift in Sources */,
 				F58BEBE8290ACBFA00323EFA /* FormatRepository.swift in Sources */,
 				F58BEBA328FED07C00323EFA /* InternshipModel.swift in Sources */,
 				F5B78A0428F337F500B4E3E3 /* TextField.swift in Sources */,
-				F523936629125F190000F2C0 /* ESDetailView.swift in Sources */,
+				F523936629125F190000F2C0 /* ESDetailSection.swift in Sources */,
 				F58BEB9E28FDA9E300323EFA /* SessionModel.swift in Sources */,
 				F58BEB9828FB924100323EFA /* ESModel.swift in Sources */,
 				F58BEBAA29003A5E00323EFA /* HomeViewModel.swift in Sources */,
 				F58BEB9628FB912000323EFA /* ESViewModel.swift in Sources */,
 				F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */,
-				F5239368291260B00000F2C0 /* InterviewDetailView.swift in Sources */,
+				F5239368291260B00000F2C0 /* InterviewDetailSection.swift in Sources */,
 				F5262ADB2913AA6900B98ACE /* DetailViewModel.swift in Sources */,
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
 				F5A9C437292FAAC5001402FE /* SettingView.swift in Sources */,
@@ -568,7 +568,7 @@
 				F5B789E928F3311A00B4E3E3 /* ESDataSource.swift in Sources */,
 				F5B789ED28F3318900B4E3E3 /* InterviewDataSource.swift in Sources */,
 				F5B789F528F3325700B4E3E3 /* InterviewView.swift in Sources */,
-				F5262AD92912AB1100B98ACE /* InternshipDetailView.swift in Sources */,
+				F5262AD92912AB1100B98ACE /* InternshipDetailSection.swift in Sources */,
 				F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */,
 				F5B789EF28F3319E00B4E3E3 /* SessionDataSource.swift in Sources */,
 				F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */,

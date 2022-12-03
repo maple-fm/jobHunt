@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SessionDetailView: View {
+struct SessionDetailSection: View {
     let session: SessionModel
 
     var body: some View {

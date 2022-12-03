@@ -32,19 +32,19 @@ struct DetailView: View {
                     switch event.category {
                     case .es:
                         if let es = event as? ESModel {
-                            ESDetailView(id: es.id, isUpdated: isUpdate)
+                            ESDetailSection(id: es.id, isUpdated: isUpdate)
                         }
                     case .interview:
                         if let interview = event as? InterviewModel {
-                           InterviewDetailView(interview: interview)
+                           InterviewDetailSection(interview: interview)
                        }
                     case.session:
                         if let session = event as? SessionModel {
-                           SessionDetailView(session: session)
+                           SessionDetailSection(session: session)
                        }
                     case.internship:
                         if let intern = event as? InternshipModel {
-                           InternshipDetailView(internship: intern)
+                           InternshipDetailSection(internship: intern)
                        }
                     }
                 }

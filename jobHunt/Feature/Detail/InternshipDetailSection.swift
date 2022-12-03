@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InternshipDetailView: View {
+struct InternshipDetailSection: View {
     let internship: InternshipModel
 
     var body: some View {
