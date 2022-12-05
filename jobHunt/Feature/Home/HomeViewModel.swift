@@ -10,15 +10,15 @@ import Combine
 
 class HomeViewModel: ObservableObject {
 
-    private var repository = EventRepository()
-    private var format = FormatRepository()
-
     @Published private(set) var events: [any Entry] = []
     var eventsDateArray: [String] {
         events.map {
             toString(date: $0.deadline)
         }
     }
+    private var repository = EventRepository()
+    private var format = FormatRepository()
+
 
     init() {
         onUpdated()

@@ -29,24 +29,47 @@ struct DetailView: View {
                         .font(.system(size: 35, weight: .black))
                         .padding(.vertical, 30)
 
-                    switch event.category {
-                    case .es:
-                        if let es = event as? ESModel {
-                            ESDetailSection(id: es.id, isUpdated: isUpdate)
+                    if isUpdate {
+                        switch event.category {
+                        case .es:
+                            if let es = event as? ESModel {
+                                ESEditSection(es: es)
+                            }
+                        case .interview:
+                            if let interview = event as? InterviewModel {
+                               InterviewEditSection()
+                           }
+                        case.session:
+                            if let session = event as? SessionModel {
+                               SessionEditSection()
+                           }
+                        case.internship:
+                            if let intern = event as? InternshipModel {
+                               InternshipEditSection()
+                           }
                         }
-                    case .interview:
-                        if let interview = event as? InterviewModel {
-                           InterviewDetailSection(interview: interview)
-                       }
-                    case.session:
-                        if let session = event as? SessionModel {
-                           SessionDetailSection(session: session)
-                       }
-                    case.internship:
-                        if let intern = event as? InternshipModel {
-                           InternshipDetailSection(internship: intern)
-                       }
+
+                    } else {
+                        switch event.category {
+                        case .es:
+                            if let es = event as? ESModel {
+                                ESDetailSection(id: es.id) 
+                            }
+                        case .interview:
+                            if let interview = event as? InterviewModel {
+                               InterviewDetailSection(interview: interview)
+                           }
+                        case.session:
+                            if let session = event as? SessionModel {
+                               SessionDetailSection(session: session)
+                           }
+                        case.internship:
+                            if let intern = event as? InternshipModel {
+                               InternshipDetailSection(internship: intern)
+                           }
+                        }
                     }
+
                 }
             }
             .padding(.horizontal, 25)

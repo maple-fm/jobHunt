@@ -1,5 +1,5 @@
 //
-//  ESEditView.swift
+//  ESEditSection.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/11/08.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ESEditView: View {
+struct ESEditSection: View {
     let es: ESModel
     @StateObject var viewModel = EditViewModel()
 
@@ -104,6 +104,6 @@ struct ESEditView: View {
 
 struct ESEditView_Previews: PreviewProvider {
     static var previews: some View {
-        ESEditView(es: .init(id: "", name: "", deadline: .now, category: .es))
+        ESEditSection(es: .init(id: "", name: "", deadline: .now, category: .es))
     }
 }
