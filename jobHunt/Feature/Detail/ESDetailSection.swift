@@ -9,80 +9,68 @@ import SwiftUI
 
 struct ESDetailSection: View {
     var id: String
-    var isUpdated: Bool
     var viewModel = DetailViewModel()
-    var es: ESModel {
-        get {
-            return viewModel.getESArray(id: self.id)
-        }
-    }
+    var es: ESModel
 
-
-    init(id: String, isUpdated: Bool) {
+    init(id: String) {
         self.id = id
-        self.isUpdated = isUpdated
+        self.es = viewModel.getESArray(id: id)
     }
+
 
     var body: some View {
-        VStack(alignment: .leading)  {
-            // TODO: 編集画面に変更する
-            if isUpdated {
-                ESEditView(es: self.es)
+        // TODO: 編集画面に変更する
+        Group {
 
-            } else {
-                Group {
+            Text("会社名")
+                .headetTitle()
+            Text(self.es.name)
+                .TextArea(category: self.es.category)
 
-                    Text("会社名")
-                        .headetTitle()
-                    Text(self.es.name)
+            if let motivation = self.es.motivation {
+                Section(
+                    header: Text("志望動機")
+                        .headetTitle(),
+                    footer:Text("\(motivation.count)count")
+                        .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                        .font(.system(size: 15))
+                        .padding(.leading, 11)
+                        .padding(.bottom, 5)
+                ) {
+                    Text(motivation)
                         .TextArea(category: self.es.category)
-
-                    if let motivation = self.es.motivation {
-                        Section(
-                            header: Text("志望動機")
-                                .headetTitle(),
-                            footer:Text("\(motivation.count)count")
-                                .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
-                                .font(.system(size: 15))
-                                .padding(.leading, 11)
-                                .padding(.bottom, 5)
-                        ) {
-                            Text(motivation)
-                                .TextArea(category: self.es.category)
-                        }
-                    }
-
-
-                    Text("ガクチカ")
-                        .headetTitle()
-                    if let gakuchika = self.es.gakuchika {
-                        Text(gakuchika)
-                            .TextArea(category: self.es.category)
-                    }
                 }
+            }
 
-                Group {
-                    Text("長所")
-                        .headetTitle()
-                    if let strongPoints = self.es.strongPoints {
-                        Text(strongPoints)
-                            .TextArea(category: self.es.category)
-                    }
 
-                    Text("短所")
-                        .headetTitle()
-                    if let weakPoints = self.es.weakPoints {
-                        Text(weakPoints)
-                            .TextArea(category: self.es.category)
-                    }
+            Text("ガクチカ")
+                .headetTitle()
+            if let gakuchika = self.es.gakuchika {
+                Text(gakuchika)
+                    .TextArea(category: self.es.category)
+            }
+        }
 
-                    Text("その他")
-                        .headetTitle()
-                    if let other = self.es.other {
-                        Text(other)
-                            .TextArea(category: self.es.category)
-                    }
-                }
+        Group {
+            Text("長所")
+                .headetTitle()
+            if let strongPoints = self.es.strongPoints {
+                Text(strongPoints)
+                    .TextArea(category: self.es.category)
+            }
+
+            Text("短所")
+                .headetTitle()
+            if let weakPoints = self.es.weakPoints {
+                Text(weakPoints)
+                    .TextArea(category: self.es.category)
+            }
+
+            Text("その他")
+                .headetTitle()
+            if let other = self.es.other {
+                Text(other)
+                    .TextArea(category: self.es.category)
             }
         }
     }
