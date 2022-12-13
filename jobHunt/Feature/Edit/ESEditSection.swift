@@ -19,7 +19,7 @@ struct ESEditSection: View {
     // TODO: 元々データない項目に追加で編集できるようにしたい
     //  onAppearが良くない？
     var body: some View {
-        Group {
+        VStack {
             Section(
                 header: Text("会社名")
                     .headetTitle()
@@ -97,7 +97,7 @@ struct ESEditSection: View {
             }
         }
         .onDisappear(perform: {
-            viewModel.clickUpdate(id: es.id)
+            viewModel.clickUpdateofES(id: es.id)
         })
     }
 }

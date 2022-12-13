@@ -37,6 +37,7 @@ class InterviewDataSource: Object{
         self.questions = questions
         self.other = other
         self.category = category
+
     }
 
     convenience override init() {
@@ -70,6 +71,24 @@ class InterviewDataSource: Object{
 
         try! realm.write{
             realm.delete(target)
+        }
+    }
+
+    func edit(model: InterviewModel) {
+        let realm = try! Realm()
+        guard
+            let target = realm.objects(InterviewDataSource.self).filter("id == %@", model.id).first
+        else { return }
+
+        try! realm.write {
+            target.name = model.name
+            target.location = model.location ?? ""
+            target.clothes = model.clothes ?? ""
+            target.motivation = model.motivation ?? ""
+            target.gakuchika = model.gakuchika ?? ""
+            target.strongPoints = model.strongPoints ?? ""
+            target.weakPoints = model.weakPoints ?? ""
+            target.other = model.other ?? ""
         }
     }
 

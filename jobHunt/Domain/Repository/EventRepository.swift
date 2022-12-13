@@ -266,4 +266,31 @@ struct EventRepository {
             category: .es
         ))
     }
+
+    func editInterview(
+        id: String,
+        name: String,
+        location: String,
+        clothes: String,
+        motivation: String?,
+        gakuchika: String?,
+        strongPoints: String?,
+        weakPoints: String?,
+        other: String?
+    ) {
+
+        InterviewDataSource().edit(model:InterviewModel(
+            id: id,
+            name: name,
+            deadline: Date.now,
+            location: location,
+            clothes: clothes,
+            motivation: motivation,
+            gakuchika: gakuchika,
+            strongPoints: strongPoints,
+            weakPoints: weakPoints,
+            other: other,
+            category: .es
+        ))
+    }
 }
