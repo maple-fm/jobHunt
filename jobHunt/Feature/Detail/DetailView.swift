@@ -9,70 +9,45 @@ import SwiftUI
 
 struct DetailView: View {
 
-    var event: any Entry
+    var eventId: String
+    @State var event: any Entry
     @State private var isUpdate = false
     @State private var isDelete = false
     @Environment(\.dismiss) var dismiss
 
     @ObservedObject var viewModel = DetailViewModel()
+    public var onEdit: (() -> Void)?
 
     var body: some View {
-
         ZStack {
-            bgColor(category: event.category)
-                .edgesIgnoringSafeArea(.all)
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading) {
-
-                    Text(self.event.category.rawValue )
-                        .frame(alignment: .center)
-                        .font(.system(size: 35, weight: .black))
-                        .padding(.vertical, 30)
-
-                    if isUpdate {
-                        switch event.category {
-                        case .es:
-                            if let es = event as? ESModel {
-                                ESEditSection(es: es)
-                            }
-                        case .interview:
-                            if let interview = event as? InterviewModel {
-                               InterviewEditSection()
-                           }
-                        case.session:
-                            if let session = event as? SessionModel {
-                               SessionEditSection()
-                           }
-                        case.internship:
-                            if let intern = event as? InternshipModel {
-                               InternshipEditSection()
-                           }
-                        }
-
+            switch event.category {
+                case .es:
+                    if let es = event as? ESModel {
+                        ESContent(event: es)
                     } else {
-                        switch event.category {
-                        case .es:
-                            if let es = event as? ESModel {
-                                ESDetailSection(id: es.id) 
+                        Text("No event")
+                            .onAppear {
+                                self.event = self.viewModel.getESArray(id: eventId)
                             }
-                        case .interview:
-                            if let interview = event as? InterviewModel {
-                               InterviewDetailSection(interview: interview)
-                           }
-                        case.session:
-                            if let session = event as? SessionModel {
-                               SessionDetailSection(session: session)
-                           }
-                        case.internship:
-                            if let intern = event as? InternshipModel {
-                               InternshipDetailSection(internship: intern)
-                           }
-                        }
                     }
-
-                }
+                case .interview:
+                    if let interview = event as? InterviewModel {
+                       InterviewContent(event: interview)
+                   } else {
+                       Text("No event")
+                           .onAppear {
+                               self.event = self.viewModel.getInterviewArray(id: eventId)
+                           }
+                   }
+                case.session:
+                    if let session = event as? SessionModel {
+                       SessionEditSection()
+                   }
+                case.internship:
+                    if let intern = event as? InternshipModel {
+                       InternshipEditSection()
+                   }
             }
-            .padding(.horizontal, 25)
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -136,7 +111,69 @@ struct DetailView: View {
                 }
             }
         }
+
     }
+
+    func ESContent(event: ESModel) -> some View {
+        ZStack {
+            bgColor(category: event.category)
+                .edgesIgnoringSafeArea(.all)
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading) {
+
+                    Text(event.category.rawValue )
+                        .frame(alignment: .center)
+                        .font(.system(size: 35, weight: .black))
+                        .padding(.vertical, 30)
+
+                    if isUpdate {
+                        ESEditSection(es: event)
+                            .onDisappear() {
+                                self.event = self.viewModel.getESArray(id: eventId)
+                            }
+                    } else {
+                        ESDetailSection(es: event)
+                            .onDisappear() {
+                                self.event = self.viewModel.getESArray(id: eventId)
+                            }
+                    }
+
+                }
+            }
+            .padding(.horizontal, 25)
+        }
+    }
+
+    func InterviewContent(event: InterviewModel) -> some View {
+        ZStack {
+            bgColor(category: event.category)
+                .edgesIgnoringSafeArea(.all)
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading) {
+
+                    Text(event.category.rawValue )
+                        .frame(alignment: .center)
+                        .font(.system(size: 35, weight: .black))
+                        .padding(.vertical, 30)
+
+                    if isUpdate {
+                        InterviewEditSection(interview: event)
+                            .onDisappear() {
+                                self.event = self.viewModel.getInterviewArray(id: eventId)
+                            }
+                    } else {
+                        InterviewDetailSection(interview: event)
+                            .onDisappear() {
+                                self.event = self.viewModel.getInterviewArray(id: eventId)
+                            }
+                    }
+
+                }
+            }
+            .padding(.horizontal, 25)
+        }
+    }
+
 
     func bgColor(category: EventName) -> Color {
         switch category {

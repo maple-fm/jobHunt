@@ -155,6 +155,25 @@ struct EventRepository {
         }
     }
 
+    func getInterviewArray(id: String) -> [InterviewModel] {
+        let datasources = InterviewDataSource().readOne(id: id)
+
+        return datasources.map { datasource in
+            InterviewModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                location: datasource.location,
+                clothes: datasource.clothes,
+                motivation: datasource.motivation,
+                gakuchika: datasource.gakuchika,
+                strongPoints: datasource.strongPoints,
+                weakPoints: datasource.weakPoints,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
     func getInterviewArrays() -> [InterviewModel] {
         let datasources = InterviewDataSource().read()
 

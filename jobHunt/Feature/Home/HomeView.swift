@@ -79,7 +79,12 @@ struct HomeView: View {
                             if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
                                 VStack {
                                     NavigationLink(
-                                        destination: DetailView(event: event)
+                                        destination: DetailView(
+                                            eventId: event.id,
+                                            event: event,
+                                            onEdit: {
+                                                viewModel.onUpdated()
+                                            })
                                             .onDisappear(){
                                                 viewModel.onUpdated()
                                             }

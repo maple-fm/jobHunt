@@ -8,15 +8,9 @@
 import SwiftUI
 
 struct ESDetailSection: View {
-    var id: String
+    
     var viewModel = DetailViewModel()
     var es: ESModel
-
-    init(id: String) {
-        self.id = id
-        self.es = viewModel.getESArray(id: id)
-    }
-
 
     var body: some View {
         // TODO: 編集画面に変更する

@@ -43,7 +43,7 @@ class ESDataSource: Object {
         try! realm.write {
             realm.add(datasource)
         }
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
 
     func read() -> [ESDataSource] {

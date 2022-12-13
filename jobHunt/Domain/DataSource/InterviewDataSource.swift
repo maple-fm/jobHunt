@@ -50,6 +50,13 @@ class InterviewDataSource: Object{
         }
     }
 
+    func readOne(id: String) -> [InterviewDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(InterviewDataSource.self).filter("id == %@", id).freeze())
+
+        return objectArray
+    }
+
     func read() -> [InterviewDataSource] {
         let realm = try! Realm()
         let objectArray = Array(realm.objects(InterviewDataSource.self).freeze())

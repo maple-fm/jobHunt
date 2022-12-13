@@ -28,7 +28,11 @@ class DetailViewModel: ObservableObject {
     }
 
     func getESArray(id: String) -> ESModel {
-        eventRepository.getESArray(id: id).first!
+        eventRepository.getESArray(id: id).first ?? ESModel(id: UUID().uuidString, name: "", deadline: Date.now, category: .es)
+    }
+
+    func getInterviewArray(id: String) -> InterviewModel {
+        eventRepository.getInterviewArray(id: id).first ?? InterviewModel(id: UUID().uuidString, name: "", deadline: Date.now, category: .interview)
     }
     
 }
