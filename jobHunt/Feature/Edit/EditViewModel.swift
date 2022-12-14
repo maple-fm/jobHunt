@@ -19,6 +19,7 @@ class EditViewModel: ObservableObject {
     @Published var strongPoints: String = ""
     @Published var weakPoints: String = ""
     @Published var item: String = ""
+    @Published var questions: String = ""
     @Published var other: String = ""
 
     func clickUpdateOfES(id: String) {
@@ -54,6 +55,18 @@ class EditViewModel: ObservableObject {
             location: self.location,
             clothes: self.clothes,
             item: self.item,
+            other: self.other
+        )
+    }
+
+    func clickUpdateOfSession(id: String) {
+        repository.editSession(
+            id: id,
+            name: self.name,
+            location: self.location,
+            clothes: self.clothes,
+            item: self.item,
+            questions: self.questions,
             other: self.other
         )
     }

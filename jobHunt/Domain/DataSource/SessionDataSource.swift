@@ -51,12 +51,35 @@ class SessionDataSource: Object{
         return objectArray
     }
 
+    func readOne(id: String) -> [SessionDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(SessionDataSource.self).filter("id == %@", id).freeze())
+
+        return objectArray
+    }
+
     func delete(id: String) {
         let realm = try! Realm()
         let target = realm.objects(SessionDataSource.self).filter("id == %@", id)
 
         try! realm.write{
             realm.delete(target)
+        }
+    }
+
+    func edit(model: SessionModel) {
+        let realm = try! Realm()
+        guard
+            let target = realm.objects(SessionDataSource.self).filter("id == %@", model.id).first
+        else { return }
+
+        try! realm.write {
+            target.name = model.name
+            target.location = model.location ?? ""
+            target.clothes = model.clothes ?? ""
+            target.item = model.item ?? ""
+            target.questions = model.questions ?? ""
+            target.other = model.other ?? ""
         }
     }
 

@@ -188,6 +188,21 @@ struct EventRepository {
         }
     }
 
+    func getSessionArray(id: String) -> [SessionModel] {
+        let datasources = SessionDataSource().readOne(id: id)
+
+        return datasources.map { datasource in
+            SessionModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                item: datasource.item,
+                questions: datasource.questions,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
     func getInterviewArrays() -> [InterviewModel] {
         let datasources = InterviewDataSource().read()
 
@@ -311,9 +326,9 @@ struct EventRepository {
     func editInternship(
         id: String,
         name: String,
-        location: String,
-        clothes: String,
-        item: String,
+        location: String?,
+        clothes: String?,
+        item: String?,
         other: String?
     ) {
 
@@ -324,6 +339,29 @@ struct EventRepository {
             location: location,
             clothes: clothes,
             item: item,
+            other: other,
+            category: .internship
+        ))
+    }
+
+    func editSession(
+        id: String,
+        name: String,
+        location: String?,
+        clothes: String?,
+        item: String?,
+        questions: String?,
+        other: String?
+    ) {
+
+        SessionDataSource().edit(model: SessionModel(
+            id: id,
+            name: name,
+            deadline: Date.now,
+            location: location,
+            clothes: clothes,
+            item: item,
+            questions: questions,
             other: other,
             category: .internship
         ))

@@ -20,6 +20,8 @@ struct DetailView: View {
 
     var body: some View {
         ZStack {
+            bgColor(category: event.category)
+                .edgesIgnoringSafeArea(.all)
             switch event.category {
                 case .es:
                     if let es = event as? ESModel {
@@ -31,7 +33,7 @@ struct DetailView: View {
                    }
                 case.session:
                     if let session = event as? SessionModel {
-                       SessionEditSection()
+                        SessionContent(event: session)
                    }
                 case.internship:
                     if let intern = event as? InternshipModel {
@@ -105,81 +107,92 @@ struct DetailView: View {
     }
 
     func ESContent(event: ESModel) -> some View {
-        ZStack {
-            bgColor(category: event.category)
-                .edgesIgnoringSafeArea(.all)
-            ScrollView(.vertical, showsIndicators: false) {
-                Text(event.category.rawValue )
-                    .frame(alignment: .center)
-                    .font(.system(size: 35, weight: .black))
-                    .padding(.vertical, 30)
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(event.category.rawValue )
+                .frame(alignment: .center)
+                .font(.system(size: 35, weight: .black))
+                .padding(.vertical, 30)
 
-                if isUpdate {
-                    ESEditSection(es: event)
-                        .onDisappear() {
-                            self.event = self.viewModel.getESArray(id: eventId)
-                        }
-                } else {
-                    ESDetailSection(es: event)
-                        .onDisappear() {
-                            self.event = self.viewModel.getESArray(id: eventId)
-                        }
-                }
+            if isUpdate {
+                ESEditSection(es: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getESArray(id: eventId)
+                    }
+            } else {
+                ESDetailSection(es: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getESArray(id: eventId)
+                    }
             }
-            .padding(.horizontal, 25)
         }
+        .padding(.horizontal, 25)
     }
 
     func InterviewContent(event: InterviewModel) -> some View {
-        ZStack {
-            bgColor(category: event.category)
-                .edgesIgnoringSafeArea(.all)
-            ScrollView(.vertical, showsIndicators: false) {
-                Text(event.category.rawValue )
-                    .frame(alignment: .center)
-                    .font(.system(size: 35, weight: .black))
-                    .padding(.vertical, 30)
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(event.category.rawValue )
+                .frame(alignment: .center)
+                .font(.system(size: 35, weight: .black))
+                .padding(.vertical, 30)
 
-                if isUpdate {
-                    InterviewEditSection(interview: event)
-                        .onDisappear() {
-                            self.event = self.viewModel.getInterviewArray(id: eventId)
-                        }
-                } else {
-                    InterviewDetailSection(interview: event)
-                        .onDisappear() {
-                            self.event = self.viewModel.getInterviewArray(id: eventId)
-                        }
-                }
+            if isUpdate {
+                InterviewEditSection(interview: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getInterviewArray(id: eventId)
+                    }
+            } else {
+                InterviewDetailSection(interview: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getInterviewArray(id: eventId)
+                    }
             }
-            .padding(.horizontal, 25)
         }
+        .padding(.horizontal, 25)
     }
 
     func InternshipContent(event: InternshipModel) -> some View {
-        ZStack {
-            bgColor(category: event.category)
-                .edgesIgnoringSafeArea(.all)
-            ScrollView(.vertical, showsIndicators: false) {
-                Text(event.category.rawValue )
-                    .frame(alignment: .center)
-                    .font(.system(size: 35, weight: .black))
-                    .padding(.vertical, 30)
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(event.category.rawValue )
+                .frame(alignment: .center)
+                .font(.system(size: 35, weight: .black))
+                .padding(.vertical, 30)
 
-                if isUpdate {
-                    InternshipEditSection(intern: event)
-                        .onDisappear() {
-                            self.event = self.viewModel.getInternshipArray(id: eventId)
-                        }
-                } else {
-                    InternshipDetailSection(intern: event)
-                        .onDisappear() {
-                            self.event = self.viewModel.getInternshipArray(id: eventId)
-                        }
-                }
+            if isUpdate {
+                InternshipEditSection(intern: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getInternshipArray(id: eventId)
+                    }
+            } else {
+                InternshipDetailSection(intern: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getInternshipArray(id: eventId)
+                    }
             }
-            .padding(.horizontal, 25)
         }
+        .padding(.horizontal, 25)
+
+    }
+
+    func SessionContent(event: SessionModel) -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(event.category.rawValue )
+                .frame(alignment: .center)
+                .font(.system(size: 35, weight: .black))
+                .padding(.vertical, 30)
+
+            if isUpdate {
+                SessionEditSection(session: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getSessionpArray(id: eventId)
+                    }
+            } else {
+                SessionDetailSection(session: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getSessionpArray(id: eventId)
+                    }
+            }
+        }
+        .padding(.horizontal, 25)
     }
 
 
