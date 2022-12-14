@@ -8,46 +8,49 @@
 import SwiftUI
 
 struct InternshipDetailSection: View {
-    let internship: InternshipModel
+
+    let intern: InternshipModel
 
     var body: some View {
         VStack(alignment: .leading) {
+            Group {
+                Text("会社名")
+                    .headetTitle()
+                Text(intern.name)
+                    .TextArea(category: intern.category)
 
-            Text("会社名")
-                .headetTitle()
-            Text(internship.name)
-                .TextArea(category: internship.category)
+                Text("開催場所")
+                    .headetTitle()
+                if let location = intern.location {
+                    Text(location)
+                        .TextArea(category: intern.category)
+                } else {
+                    Text("nil")
+                }
 
-            Text("開催場所")
-                .headetTitle()
-            if let location = internship.location {
-                Text(location)
-                    .TextArea(category: internship.category)
+                Text("服装")
+                    .headetTitle()
+                if let clothes = intern.clothes {
+                    Text(clothes)
+                        .TextArea(category: intern.category)
+                }
+
+                Text("持ち物")
+                    .headetTitle()
+                if let item = intern.item {
+                    Text(item)
+                        .TextArea(category: intern.category)
+                }
+
+                Text("その他")
+                    .headetTitle()
+                if let other = intern.other {
+                    Text(other)
+                        .TextArea(category: intern.category)
+                }
             }
-
-            Text("服装")
-                .headetTitle()
-            if let clothes = internship.clothes {
-                Text(clothes)
-                    .TextArea(category: internship.category)
-            }
-
-            Text("持ち物")
-                .headetTitle()
-            if let item = internship.item {
-                Text(item)
-                    .TextArea(category: internship.category)
-            }
-
-            Text("その他")
-                .headetTitle()
-            if let other = internship.other {
-                Text(other)
-                    .TextArea(category: internship.category)
-            }
-
-            
         }
+
     }
 }
 

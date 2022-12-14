@@ -34,5 +34,9 @@ class DetailViewModel: ObservableObject {
     func getInterviewArray(id: String) -> InterviewModel {
         eventRepository.getInterviewArray(id: id).first ?? InterviewModel(id: UUID().uuidString, name: "", deadline: Date.now, category: .interview)
     }
+
+    func getInternshipArray(id: String) -> InternshipModel {
+        eventRepository.getInternshipArray(id: id).first ?? InternshipModel(id: UUID().uuidString, name: "", deadline: Date.now, category: .internship)
+    }
     
 }

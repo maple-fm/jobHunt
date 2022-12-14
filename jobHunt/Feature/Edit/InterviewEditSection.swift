@@ -18,7 +18,7 @@ struct InterviewEditSection: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Group {
                 Section(
                     header: Text("会社名")
@@ -127,7 +127,7 @@ struct InterviewEditSection: View {
             }
         }
         .onDisappear(perform: {
-            viewModel.clickUpdateofInterview(id: interview.id)
+            viewModel.clickUpdateOfInterview(id: interview.id)
         })
     }
 }

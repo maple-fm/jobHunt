@@ -174,6 +174,20 @@ struct EventRepository {
         }
     }
 
+    func getInternshipArray(id: String) -> [InternshipModel] {
+        let datasources = InternshipDataSource().readOne(id: id)
+
+        return datasources.map { datasource in
+            InternshipModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                item: datasource.item,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
     func getInterviewArrays() -> [InterviewModel] {
         let datasources = InterviewDataSource().read()
 
@@ -270,8 +284,8 @@ struct EventRepository {
     func editInterview(
         id: String,
         name: String,
-        location: String,
-        clothes: String,
+        location: String?,
+        clothes: String?,
         motivation: String?,
         gakuchika: String?,
         strongPoints: String?,
@@ -290,7 +304,28 @@ struct EventRepository {
             strongPoints: strongPoints,
             weakPoints: weakPoints,
             other: other,
-            category: .es
+            category: .interview
+        ))
+    }
+
+    func editInternship(
+        id: String,
+        name: String,
+        location: String,
+        clothes: String,
+        item: String,
+        other: String?
+    ) {
+
+        InternshipDataSource().edit(model: InternshipModel(
+            id: id,
+            name: name,
+            deadline: Date.now,
+            location: location,
+            clothes: clothes,
+            item: item,
+            other: other,
+            category: .internship
         ))
     }
 }

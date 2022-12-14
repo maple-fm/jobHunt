@@ -24,20 +24,10 @@ struct DetailView: View {
                 case .es:
                     if let es = event as? ESModel {
                         ESContent(event: es)
-                    } else {
-                        Text("No event")
-                            .onAppear {
-                                self.event = self.viewModel.getESArray(id: eventId)
-                            }
                     }
                 case .interview:
                     if let interview = event as? InterviewModel {
                        InterviewContent(event: interview)
-                   } else {
-                       Text("No event")
-                           .onAppear {
-                               self.event = self.viewModel.getInterviewArray(id: eventId)
-                           }
                    }
                 case.session:
                     if let session = event as? SessionModel {
@@ -45,7 +35,7 @@ struct DetailView: View {
                    }
                 case.internship:
                     if let intern = event as? InternshipModel {
-                       InternshipEditSection()
+                        InternshipContent(event: intern)
                    }
             }
         }
@@ -119,25 +109,21 @@ struct DetailView: View {
             bgColor(category: event.category)
                 .edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading) {
+                Text(event.category.rawValue )
+                    .frame(alignment: .center)
+                    .font(.system(size: 35, weight: .black))
+                    .padding(.vertical, 30)
 
-                    Text(event.category.rawValue )
-                        .frame(alignment: .center)
-                        .font(.system(size: 35, weight: .black))
-                        .padding(.vertical, 30)
-
-                    if isUpdate {
-                        ESEditSection(es: event)
-                            .onDisappear() {
-                                self.event = self.viewModel.getESArray(id: eventId)
-                            }
-                    } else {
-                        ESDetailSection(es: event)
-                            .onDisappear() {
-                                self.event = self.viewModel.getESArray(id: eventId)
-                            }
-                    }
-
+                if isUpdate {
+                    ESEditSection(es: event)
+                        .onDisappear() {
+                            self.event = self.viewModel.getESArray(id: eventId)
+                        }
+                } else {
+                    ESDetailSection(es: event)
+                        .onDisappear() {
+                            self.event = self.viewModel.getESArray(id: eventId)
+                        }
                 }
             }
             .padding(.horizontal, 25)
@@ -149,25 +135,47 @@ struct DetailView: View {
             bgColor(category: event.category)
                 .edgesIgnoringSafeArea(.all)
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading) {
+                Text(event.category.rawValue )
+                    .frame(alignment: .center)
+                    .font(.system(size: 35, weight: .black))
+                    .padding(.vertical, 30)
 
-                    Text(event.category.rawValue )
-                        .frame(alignment: .center)
-                        .font(.system(size: 35, weight: .black))
-                        .padding(.vertical, 30)
+                if isUpdate {
+                    InterviewEditSection(interview: event)
+                        .onDisappear() {
+                            self.event = self.viewModel.getInterviewArray(id: eventId)
+                        }
+                } else {
+                    InterviewDetailSection(interview: event)
+                        .onDisappear() {
+                            self.event = self.viewModel.getInterviewArray(id: eventId)
+                        }
+                }
+            }
+            .padding(.horizontal, 25)
+        }
+    }
 
-                    if isUpdate {
-                        InterviewEditSection(interview: event)
-                            .onDisappear() {
-                                self.event = self.viewModel.getInterviewArray(id: eventId)
-                            }
-                    } else {
-                        InterviewDetailSection(interview: event)
-                            .onDisappear() {
-                                self.event = self.viewModel.getInterviewArray(id: eventId)
-                            }
-                    }
+    func InternshipContent(event: InternshipModel) -> some View {
+        ZStack {
+            bgColor(category: event.category)
+                .edgesIgnoringSafeArea(.all)
+            ScrollView(.vertical, showsIndicators: false) {
+                Text(event.category.rawValue )
+                    .frame(alignment: .center)
+                    .font(.system(size: 35, weight: .black))
+                    .padding(.vertical, 30)
 
+                if isUpdate {
+                    InternshipEditSection(intern: event)
+                        .onDisappear() {
+                            self.event = self.viewModel.getInternshipArray(id: eventId)
+                        }
+                } else {
+                    InternshipDetailSection(intern: event)
+                        .onDisappear() {
+                            self.event = self.viewModel.getInternshipArray(id: eventId)
+                        }
                 }
             }
             .padding(.horizontal, 25)

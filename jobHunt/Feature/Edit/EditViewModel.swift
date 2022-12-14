@@ -18,9 +18,10 @@ class EditViewModel: ObservableObject {
     @Published var gakuchika: String = ""
     @Published var strongPoints: String = ""
     @Published var weakPoints: String = ""
+    @Published var item: String = ""
     @Published var other: String = ""
 
-    func clickUpdateofES(id: String) {
+    func clickUpdateOfES(id: String) {
         repository.editES(
             id: id,
             name: self.name,
@@ -28,11 +29,11 @@ class EditViewModel: ObservableObject {
             gakuchika: self.gakuchika,
             strongPoints: self.strongPoints,
             weakPoints: self.weakPoints,
-            other: other
+            other: self.other
         )
     }
 
-    func clickUpdateofInterview(id: String) {
+    func clickUpdateOfInterview(id: String) {
         repository.editInterview(
             id: id,
             name: self.name,
@@ -42,7 +43,18 @@ class EditViewModel: ObservableObject {
             gakuchika: self.gakuchika,
             strongPoints: self.strongPoints,
             weakPoints: self.weakPoints,
-            other: other
+            other: self.other
+        )
+    }
+
+    func clickUpdateOfInternship(id: String) {
+        repository.editInternship(
+            id: id,
+            name: self.name,
+            location: self.location,
+            clothes: self.clothes,
+            item: self.item,
+            other: self.other
         )
     }
 
