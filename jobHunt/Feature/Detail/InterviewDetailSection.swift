@@ -1,5 +1,5 @@
 //
-//  InterviewDetailView.swift
+//  InterviewDetailSection.swift
 //  jobHunt
 //
 //  Created by 出口楓真 on 2022/11/02.
@@ -7,12 +7,17 @@
 
 import SwiftUI
 
-struct InterviewDetailView: View {
+struct InterviewDetailSection: View {
     let interview: InterviewModel
 
     var body: some View {
         VStack(alignment: .leading) {
             Group {
+                Text("会社名")
+                    .headetTitle()
+                Text(interview.name)
+                    .TextArea(category: interview.category)
+
                 Text("開催場所")
                     .headetTitle()
                 if let location = interview.location {
@@ -77,6 +82,6 @@ struct InterviewDetailView: View {
 
 //struct InterviewDetailView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        InterviewDetailView(interview: .init())
+//        InterviewDetailSection(interview: .init())
 //    }
 //}

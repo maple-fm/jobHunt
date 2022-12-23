@@ -138,6 +138,71 @@ struct EventRepository {
         }
     }
 
+    func getESArray(id: String) -> [ESModel] {
+        let datasources = ESDataSource().readOne(id: id)
+
+        return datasources.map { datasource in
+            ESModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                motivation: datasource.motivation,
+                gakuchika: datasource.gakuchika,
+                strongPoints: datasource.strongPoints,
+                weakPoints: datasource.weakPoints,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
+    func getInterviewArray(id: String) -> [InterviewModel] {
+        let datasources = InterviewDataSource().readOne(id: id)
+
+        return datasources.map { datasource in
+            InterviewModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                location: datasource.location,
+                clothes: datasource.clothes,
+                motivation: datasource.motivation,
+                gakuchika: datasource.gakuchika,
+                strongPoints: datasource.strongPoints,
+                weakPoints: datasource.weakPoints,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
+    func getInternshipArray(id: String) -> [InternshipModel] {
+        let datasources = InternshipDataSource().readOne(id: id)
+
+        return datasources.map { datasource in
+            InternshipModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                item: datasource.item,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
+    func getSessionArray(id: String) -> [SessionModel] {
+        let datasources = SessionDataSource().readOne(id: id)
+
+        return datasources.map { datasource in
+            SessionModel(
+                id: datasource.id,
+                name: datasource.name,
+                deadline: datasource.deadline,
+                item: datasource.item,
+                questions: datasource.questions,
+                other: datasource.other,
+                category: datasource.category)
+        }
+    }
+
     func getInterviewArrays() -> [InterviewModel] {
         let datasources = InterviewDataSource().read()
 
@@ -206,5 +271,99 @@ struct EventRepository {
 
     func deleteInternship(id: String) {
         InternshipDataSource().delete(id: id)
+    }
+
+    func editES(
+        id: String,
+        name: String,
+        motivation: String?,
+        gakuchika: String?,
+        strongPoints: String?,
+        weakPoints: String?,
+        other: String?
+    ) {
+
+        ESDataSource().edit(model:ESModel(
+            id: id,
+            name: name,
+            deadline: Date.now,
+            motivation: motivation,
+            gakuchika: gakuchika,
+            strongPoints: strongPoints,
+            weakPoints: weakPoints,
+            other: other,
+            category: .es
+        ))
+    }
+
+    func editInterview(
+        id: String,
+        name: String,
+        location: String?,
+        clothes: String?,
+        motivation: String?,
+        gakuchika: String?,
+        strongPoints: String?,
+        weakPoints: String?,
+        other: String?
+    ) {
+
+        InterviewDataSource().edit(model:InterviewModel(
+            id: id,
+            name: name,
+            deadline: Date.now,
+            location: location,
+            clothes: clothes,
+            motivation: motivation,
+            gakuchika: gakuchika,
+            strongPoints: strongPoints,
+            weakPoints: weakPoints,
+            other: other,
+            category: .interview
+        ))
+    }
+
+    func editInternship(
+        id: String,
+        name: String,
+        location: String?,
+        clothes: String?,
+        item: String?,
+        other: String?
+    ) {
+
+        InternshipDataSource().edit(model: InternshipModel(
+            id: id,
+            name: name,
+            deadline: Date.now,
+            location: location,
+            clothes: clothes,
+            item: item,
+            other: other,
+            category: .internship
+        ))
+    }
+
+    func editSession(
+        id: String,
+        name: String,
+        location: String?,
+        clothes: String?,
+        item: String?,
+        questions: String?,
+        other: String?
+    ) {
+
+        SessionDataSource().edit(model: SessionModel(
+            id: id,
+            name: name,
+            deadline: Date.now,
+            location: location,
+            clothes: clothes,
+            item: item,
+            questions: questions,
+            other: other,
+            category: .internship
+        ))
     }
 }

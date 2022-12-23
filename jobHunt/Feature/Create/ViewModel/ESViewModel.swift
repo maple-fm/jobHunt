@@ -14,7 +14,6 @@ class ESViewModel: ObservableObject {
     private var eventReprository = EventRepository()
     private var createRepository = CreateRepository()
 
-    // TODO: 少し挙動が変(ラグがある感じ)
     @Published var name: String = ""
     @Published var deadline: Date = Date.now
     @Published var motivation: String = ""
@@ -25,7 +24,6 @@ class ESViewModel: ObservableObject {
 
 
     func isValidated() -> Bool {
-        // 一行の時はreturnは省略できる
         createRepository.isValidated(name: name)
     }
 

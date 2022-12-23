@@ -14,5 +14,6 @@ extension DatePicker {
             .padding(.leading, -20)
             .labelsHidden()
             .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
+            .listRowBackground(Color.clear)
     }
 }

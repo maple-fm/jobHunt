@@ -9,11 +9,10 @@ import SwiftUI
 
 
 struct HomeView: View {
+
     @State var selectedDate = Date()
     @State private var add = false
     @ObservedObject var viewModel = HomeViewModel()
-
-    var formatSelectedDate: String = ""
 
     func bgColor(category: EventName) -> Color {
         switch category {
@@ -28,12 +27,19 @@ struct HomeView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 ZStack(alignment: .top) {
-                    CalendarTestView(selectedDate: $selectedDate, eventsDate: viewModel.eventsDateArray)
+                    CalendarTestView(selectedDate: $selectedDate,
+                                     eventsDate: viewModel.eventsDateArray)
                         .frame(width: 400, height: 400.0, alignment: .center)
-                    Image(systemName: "gearshape.fill")
-                        .frame(width: 60, height: 60, alignment: .center)
+                    NavigationLink(
+                        destination: SettingView()
+                    ) {
+                        Image(systemName: "gearshape.fill")
+
+                    }
+                    .frame(width: 60, height: 60, alignment: .center)
                         .foregroundColor(.green)
                         .padding(.leading, 310)
+
                 }
 
 
@@ -62,20 +68,25 @@ struct HomeView: View {
                         bottom: 0,
                         trailing: 15)
                     )
-                    .sheet(isPresented: $add, onDismiss: viewModel.dismissActionSheet) {
+                    .sheet(isPresented: $add, onDismiss: viewModel.onUpdated) {
                         CreateView()
                     }
                 }
 
                 ZStack {
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         ForEach(viewModel.events, id: \.id) { event in
                             if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
                                 VStack {
                                     NavigationLink(
-                                        destination: DetailView(event: event)
+                                        destination: DetailView(
+                                            eventId: event.id,
+                                            event: event,
+                                            onEdit: {
+                                                viewModel.onUpdated()
+                                            })
                                             .onDisappear(){
-                                                viewModel.dismissActionSheet()
+                                                viewModel.onUpdated()
                                             }
                                     ){
                                         HStack {
@@ -98,8 +109,6 @@ struct HomeView: View {
                                                     bottom: 15,
                                                     trailing: 30
                                                 ))
-
-
                                         }
                                         .frame(width: 350, height: 70, alignment: .leading)
                                         .background(bgColor(category: event.category))

@@ -53,6 +53,13 @@ class ESDataSource: Object {
         return objectArray
     }
 
+    func readOne(id: String) -> [ESDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(ESDataSource.self).filter("id == %@", id).freeze())
+
+        return objectArray
+    }
+
     func delete(id: String) {
         let realm = try! Realm()
         let target = realm.objects(ESDataSource.self).filter("id == %@", id)
@@ -62,6 +69,19 @@ class ESDataSource: Object {
         }
     }
 
+    func edit(model: ESModel) {
+        let realm = try! Realm()
+        guard
+            let target = realm.objects(ESDataSource.self).filter("id == %@", model.id).first
+        else { return }
 
-
+        try! realm.write {
+            target.name = model.name
+            target.motivation = model.motivation ?? ""
+            target.gakuchika = model.gakuchika ?? ""
+            target.strongPoints = model.strongPoints ?? ""
+            target.weakPoints = model.weakPoints ?? ""
+            target.other = model.other ?? ""
+        }
+    }
 }

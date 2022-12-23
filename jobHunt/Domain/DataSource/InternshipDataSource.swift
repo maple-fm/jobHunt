@@ -50,12 +50,34 @@ class InternshipDataSource: Object{
         return objectArray
     }
 
+    func readOne(id: String) -> [InternshipDataSource] {
+        let realm = try! Realm()
+        let objectArray = Array(realm.objects(InternshipDataSource.self).filter("id == %@", id).freeze())
+
+        return objectArray
+    }
+
     func delete(id: String) {
         let realm = try! Realm()
         let target = realm.objects(InternshipDataSource.self).filter("id == %@", id)
 
         try! realm.write{
             realm.delete(target)
+        }
+    }
+
+    func edit(model: InternshipModel) {
+        let realm = try! Realm()
+        guard
+            let target = realm.objects(InternshipDataSource.self).filter("id == %@", model.id).first
+        else { return }
+
+        try! realm.write {
+            target.name = model.name
+            target.location = model.location ?? ""
+            target.clothes = model.clothes ?? ""
+            target.item = model.item ?? ""
+            target.other = model.other ?? ""
         }
     }
 

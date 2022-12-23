@@ -32,7 +32,6 @@ struct InterviewView: View {
                     DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
                 }
-                .listRowBackground(Color.clear)
 
                 Section(
                     header: Text("開催場所")
@@ -96,11 +95,9 @@ struct InterviewView: View {
                 ) {
                     TextEditor(text: $viewModel.other)
                         .input()
-
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
         }
         .onChange(of: click) {
             // clickが変更したときだけ実行される
@@ -108,7 +105,6 @@ struct InterviewView: View {
                 viewModel.clickButton(click: $0)
                 action()
             }
-
         }
     }
 }

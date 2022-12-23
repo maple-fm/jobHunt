@@ -9,52 +9,37 @@ import SwiftUI
 
 struct DetailView: View {
 
-    var event: any Entry
+    var eventId: String
+    @State var event: any Entry
     @State private var isUpdate = false
     @State private var isDelete = false
     @Environment(\.dismiss) var dismiss
 
     @ObservedObject var viewModel = DetailViewModel()
-    
-    func bgColor(category: EventName) -> Color {
-        switch category {
-        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
-        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
-        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 0.5).cgColor)
-        case .internship: return Color(UIColor(red: 1, green: 0.962, blue: 1, alpha: 1).cgColor)
-        }
-    }
+    public var onEdit: (() -> Void)?
 
     var body: some View {
-
         ZStack {
             bgColor(category: event.category)
                 .edgesIgnoringSafeArea(.all)
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading) {
-
-                    Text(self.event.category.rawValue )
-                        .frame(alignment: .center)
-                        .font(.system(size: 35, weight: .black))
-                        .padding(.vertical, 30)
-
-                    Text("会社名")
-                        .headetTitle()
-                    Text(self.event.name )
-                        .TextArea(category: event.category)
-
+            switch event.category {
+                case .es:
                     if let es = event as? ESModel {
-                        ESDetailView(es: es, isUpdate: isUpdate)
-                    } else if let interview = event as? InterviewModel {
-                        InterviewDetailView(interview: interview)
-                    } else if let session = event as? SessionModel {
-                        SessionDetailView(session: session)
-                    } else if let intern = event as? InternshipModel {
-                        InternshipDetailView(internship: intern)
+                        ESContent(event: es)
                     }
-                }
+                case .interview:
+                    if let interview = event as? InterviewModel {
+                       InterviewContent(event: interview)
+                   }
+                case.session:
+                    if let session = event as? SessionModel {
+                        SessionContent(event: session)
+                   }
+                case.internship:
+                    if let intern = event as? InternshipModel {
+                        InternshipContent(event: intern)
+                   }
             }
-            .padding(.horizontal, 25)
         }
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -62,14 +47,10 @@ struct DetailView: View {
                 Button(action: {
                     if isUpdate {
                         // TODO: 編集機能、保存機能
-
-//                        editViewModel.clickUpdate(click: isUpdate)
-                        
                         isUpdate.toggle()
                     } else {
                         dismiss()
                     }
-
                 }) {
                     if isUpdate {
                         Text("完了")
@@ -83,10 +64,7 @@ struct DetailView: View {
                         }
                         .foregroundColor(.green)
                     }
-
                 }
-
-
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
@@ -117,17 +95,113 @@ struct DetailView: View {
                         secondaryButton: .destructive(
                             Text("削除"),
                             action: {
-                                // TODO: 削除機能を実行
-
                                 viewModel.delete(event: event)
-
-                                // TODO: HomeViewに戻れない
                                 dismiss()
                             }
                         )
                     )
                 }
             }
+        }
+
+    }
+
+    func ESContent(event: ESModel) -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(event.category.rawValue )
+                .frame(alignment: .center)
+                .font(.system(size: 35, weight: .black))
+                .padding(.vertical, 30)
+
+            if isUpdate {
+                ESEditSection(es: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getESArray(id: eventId)
+                    }
+            } else {
+                ESDetailSection(es: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getESArray(id: eventId)
+                    }
+            }
+        }
+        .padding(.horizontal, 25)
+    }
+
+    func InterviewContent(event: InterviewModel) -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(event.category.rawValue )
+                .frame(alignment: .center)
+                .font(.system(size: 35, weight: .black))
+                .padding(.vertical, 30)
+
+            if isUpdate {
+                InterviewEditSection(interview: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getInterviewArray(id: eventId)
+                    }
+            } else {
+                InterviewDetailSection(interview: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getInterviewArray(id: eventId)
+                    }
+            }
+        }
+        .padding(.horizontal, 25)
+    }
+
+    func InternshipContent(event: InternshipModel) -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(event.category.rawValue )
+                .frame(alignment: .center)
+                .font(.system(size: 35, weight: .black))
+                .padding(.vertical, 30)
+
+            if isUpdate {
+                InternshipEditSection(intern: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getInternshipArray(id: eventId)
+                    }
+            } else {
+                InternshipDetailSection(intern: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getInternshipArray(id: eventId)
+                    }
+            }
+        }
+        .padding(.horizontal, 25)
+
+    }
+
+    func SessionContent(event: SessionModel) -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            Text(event.category.rawValue )
+                .frame(alignment: .center)
+                .font(.system(size: 35, weight: .black))
+                .padding(.vertical, 30)
+
+            if isUpdate {
+                SessionEditSection(session: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getSessionpArray(id: eventId)
+                    }
+            } else {
+                SessionDetailSection(session: event)
+                    .onDisappear() {
+                        self.event = self.viewModel.getSessionpArray(id: eventId)
+                    }
+            }
+        }
+        .padding(.horizontal, 25)
+    }
+
+
+    func bgColor(category: EventName) -> Color {
+        switch category {
+        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
+        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
+        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 0.5).cgColor)
+        case .internship: return Color(UIColor(red: 1, green: 0.962, blue: 1, alpha: 1).cgColor)
         }
     }
 }

@@ -17,11 +17,9 @@ struct ESView: View {
     var body: some View {
         VStack {
             Form {
-                
                 Section(
                     header: Text("会社名")
                         .headetTitle()
-
                 ) {
                     TextField("会社名", text: $viewModel.name)
                         .input()
@@ -33,14 +31,13 @@ struct ESView: View {
                 ) {
                     DatePicker("締切日時", selection: $viewModel.deadline)
                         .PickerItem()
+                        
                 }
-                .listRowBackground(Color.clear)
-
-
 
                 Section(
                     header: Text("志望動機")
-                        .headetTitle()
+                        .headetTitle(),
+                    footer: Text("\(viewModel.motivation.count)count")
                 ) {
                     TextEditor( text: $viewModel.motivation)
                         .input()
@@ -49,7 +46,8 @@ struct ESView: View {
 
                 Section(
                     header: Text("ガクチカ")
-                        .headetTitle()
+                        .headetTitle(),
+                    footer: Text("\(viewModel.gakuchika.count)count")
                 ) {
                     TextEditor(text: $viewModel.gakuchika)
                         .input()
@@ -57,7 +55,8 @@ struct ESView: View {
 
                 Section(
                     header: Text("長所")
-                        .headetTitle()
+                        .headetTitle(),
+                    footer: Text("\(viewModel.strongPoints.count)count")
                 ) {
                     TextEditor(text: $viewModel.strongPoints)
                         .input()
@@ -65,7 +64,8 @@ struct ESView: View {
 
                 Section(
                     header: Text("短所")
-                        .headetTitle()
+                        .headetTitle(),
+                    footer: Text("\(viewModel.weakPoints.count)count")
                 ) {
                     TextEditor(text: $viewModel.weakPoints)
                         .input()
@@ -80,8 +80,6 @@ struct ESView: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
-
         }
         .onChange(of: click) {
             // clickが変更したときだけ実行される
@@ -89,9 +87,7 @@ struct ESView: View {
                 viewModel.clickButton(click: $0)
                 action()
             }
-
         }
-
     }
 }
 
@@ -99,6 +95,5 @@ struct EntrysheetView_Previews: PreviewProvider {
     static var previews: some View {
         ESView(click: .constant(false)) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
-
     }
 }
