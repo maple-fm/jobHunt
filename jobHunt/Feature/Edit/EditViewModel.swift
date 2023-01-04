@@ -44,6 +44,7 @@ class EditViewModel: ObservableObject {
             gakuchika: self.gakuchika,
             strongPoints: self.strongPoints,
             weakPoints: self.weakPoints,
+            questions: self.questions,
             other: self.other
         )
     }

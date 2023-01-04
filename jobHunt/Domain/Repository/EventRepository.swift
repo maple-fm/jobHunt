@@ -169,6 +169,7 @@ struct EventRepository {
                 gakuchika: datasource.gakuchika,
                 strongPoints: datasource.strongPoints,
                 weakPoints: datasource.weakPoints,
+                questions: datasource.questions,
                 other: datasource.other,
                 category: datasource.category)
         }
@@ -182,6 +183,8 @@ struct EventRepository {
                 id: datasource.id,
                 name: datasource.name,
                 deadline: datasource.deadline,
+                location: datasource.location,
+                clothes: datasource.clothes,
                 item: datasource.item,
                 other: datasource.other,
                 category: datasource.category)
@@ -196,6 +199,8 @@ struct EventRepository {
                 id: datasource.id,
                 name: datasource.name,
                 deadline: datasource.deadline,
+                location: datasource.location,
+                clothes: datasource.clothes,
                 item: datasource.item,
                 questions: datasource.questions,
                 other: datasource.other,
@@ -305,6 +310,7 @@ struct EventRepository {
         gakuchika: String?,
         strongPoints: String?,
         weakPoints: String?,
+        questions: String?,
         other: String?
     ) {
 
@@ -318,6 +324,7 @@ struct EventRepository {
             gakuchika: gakuchika,
             strongPoints: strongPoints,
             weakPoints: weakPoints,
+            questions: questions,
             other: other,
             category: .interview
         ))

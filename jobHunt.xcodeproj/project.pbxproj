@@ -55,6 +55,7 @@
 		F5C83B8828F311FF00A01E4E /* jobHuntUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B8728F311FF00A01E4E /* jobHuntUITests.swift */; };
 		F5C83B8A28F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B8928F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift */; };
 		F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */; };
+		F5FAEDCF2960EDA200E64997 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FAEDCE2960EDA200E64997 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		F5C83B8728F311FF00A01E4E /* jobHuntUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobHuntUITests.swift; sourceTree = "<group>"; };
 		F5C83B8928F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobHuntUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTestView.swift; sourceTree = "<group>"; };
+		F5FAEDCE2960EDA200E64997 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +308,7 @@
 				F5B78A0528F3380800B4E3E3 /* Text.swift */,
 				F5B78A0728F3382200B4E3E3 /* Image.swift */,
 				F58BEB9328F988EE00323EFA /* DatePicker.swift */,
+				F5FAEDCE2960EDA200E64997 /* Color.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
 				F58BEBAD2902706C00323EFA /* DetailView.swift in Sources */,
 				F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */,
+				F5FAEDCF2960EDA200E64997 /* Color.swift in Sources */,
 				F58BEBA828FED1CD00323EFA /* InterviewModel.swift in Sources */,
 				F5B789F328F331F800B4E3E3 /* InternshipView.swift in Sources */,
 				F5B789F128F331D300B4E3E3 /* ESView.swift in Sources */,

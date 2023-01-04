@@ -19,4 +19,16 @@ struct ESModel: Entry {
     var other: String?
     var category: EventName
 
+    init(id: String, name: String, deadline: Date, motivation: String?, gakuchika: String?, strongPoints: String?, weakPoints: String?, other: String?, category: EventName) {
+        self.id = id
+        self.name = name
+        self.deadline = deadline
+        self.motivation = motivation
+        self.gakuchika = gakuchika
+        self.strongPoints = strongPoints
+        self.weakPoints = weakPoints
+        self.other = other
+        self.category = category
+    }
+
 }

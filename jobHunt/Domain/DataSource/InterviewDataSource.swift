@@ -88,6 +88,7 @@ class InterviewDataSource: Object{
             target.gakuchika = model.gakuchika ?? ""
             target.strongPoints = model.strongPoints ?? ""
             target.weakPoints = model.weakPoints ?? ""
+            target.questions = model.questions ?? ""
             target.other = model.other ?? ""
         }
     }

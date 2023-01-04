@@ -16,7 +16,7 @@ struct CreateView: View {
 
     var body: some View {
         ZStack {
-            Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor)
+            Color(UIColor(200, 255, 200, 100).cgColor)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 ScrollView(.horizontal, showsIndicators: false) {

@@ -110,6 +110,19 @@ struct InterviewEditSection: View {
                             }
                         }
                 }
+
+                Section(
+                    header: Text("質問したいこと")
+                        .headetTitle()
+                ) {
+                    TextEditor(text: $viewModel.questions)
+                        .textArea(interview.category)
+                        .onAppear() {
+                            if let questions = interview.questions {
+                                viewModel.questions = questions
+                            }
+                        }
+                }
             }
 
 
