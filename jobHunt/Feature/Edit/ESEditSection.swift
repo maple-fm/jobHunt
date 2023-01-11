@@ -25,7 +25,7 @@ struct ESEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.name)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         viewModel.name = es.name
                     }
@@ -36,7 +36,7 @@ struct ESEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.motivation)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let motivation = es.motivation {
                             viewModel.motivation = motivation
@@ -49,7 +49,7 @@ struct ESEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.gakuchika)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let gakuchika = es.gakuchika {
                             viewModel.gakuchika = gakuchika
@@ -62,7 +62,7 @@ struct ESEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.strongPoints)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let strongPoints = es.strongPoints {
                             viewModel.strongPoints = strongPoints
@@ -75,7 +75,7 @@ struct ESEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.weakPoints)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let weakPoints = es.weakPoints {
                             viewModel.weakPoints = weakPoints
@@ -88,7 +88,7 @@ struct ESEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.other)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let other = es.other {
                             viewModel.other = other
@@ -104,6 +104,6 @@ struct ESEditSection: View {
 
 struct ESEditView_Previews: PreviewProvider {
     static var previews: some View {
-        ESEditSection(es: .init(id: "", name: "", deadline: .now, category: .es))
+        ESEditSection(es: .init(id: "", name: "", deadline: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
     }
 }

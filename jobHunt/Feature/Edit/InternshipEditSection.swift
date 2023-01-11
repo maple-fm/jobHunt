@@ -25,7 +25,7 @@ struct InternshipEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.name)
-                        .textArea()
+                        .textArea(intern.category)
                         .onAppear() {
                             viewModel.name = intern.name
                         }
@@ -36,7 +36,7 @@ struct InternshipEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.location)
-                        .textArea()
+                        .textArea(intern.category)
                         .onAppear() {
                             if let location = intern.location {
                                 viewModel.location = location
@@ -49,7 +49,7 @@ struct InternshipEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.clothes)
-                        .textArea()
+                        .textArea(intern.category)
                         .onAppear() {
                             if let clothes = intern.clothes {
                                 viewModel.clothes = clothes
@@ -64,7 +64,7 @@ struct InternshipEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.item)
-                        .textArea()
+                        .textArea(intern.category)
                         .onAppear() {
                             if let item = intern.item {
                                 viewModel.item = item
@@ -77,7 +77,7 @@ struct InternshipEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.other)
-                        .textArea()
+                        .textArea(intern.category)
                         .onAppear() {
                             if let other = intern.other {
                                 viewModel.other = other

@@ -20,7 +20,7 @@ struct DetailView: View {
 
     var body: some View {
         ZStack {
-            bgColor(category: event.category)
+            CustomColor().bgColor(event.category)
                 .edgesIgnoringSafeArea(.all)
             switch event.category {
                 case .es:
@@ -55,14 +55,14 @@ struct DetailView: View {
                     if isUpdate {
                         Text("完了")
                             .padding(.leading, 10)
-                            .foregroundColor(.green)
+                            .foregroundColor(.black)
                     } else {
                         HStack {
                             Image(systemName: "chevron.backward")
                                 .font(.system(size: 17, weight: .medium))
                             Text("カレンダー")
                         }
-                        .foregroundColor(.green)
+                        .foregroundColor(.black)
                     }
                 }
             }
@@ -85,7 +85,7 @@ struct DetailView: View {
 
                 }
                 .padding(.trailing, 10)
-                .foregroundColor(.green)
+                .foregroundColor(.black)
                 .alert(isPresented: $isDelete) {
                     Alert(
                         title: Text("本当に削除しますか"),
@@ -196,14 +196,7 @@ struct DetailView: View {
     }
 
 
-    func bgColor(category: EventName) -> Color {
-        switch category {
-        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
-        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 0.5).cgColor)
-        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 0.5).cgColor)
-        case .internship: return Color(UIColor(red: 1, green: 0.962, blue: 1, alpha: 1).cgColor)
-        }
-    }
+    
 }
 
 //struct DetailView_Previews: PreviewProvider {
