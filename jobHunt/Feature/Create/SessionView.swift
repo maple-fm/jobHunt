@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SessionView: View {
 
-    @StateObject var viewModel = SessionViewModel()
+    @StateObject var viewModel: SessionViewModel
     @Binding var click: Bool
 
     let action: () -> Void
@@ -85,9 +85,9 @@ struct SessionView: View {
     }
 }
 
-struct SessionView_Previews: PreviewProvider {
-    static var previews: some View {
-        SessionView(click: .constant(false)) {}
-            .environment(\.locale, Locale(identifier: "ja_JP"))
-    }
-}
+//struct SessionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SessionView(click: .constant(false)) {}
+//            .environment(\.locale, Locale(identifier: "ja_JP"))
+//    }
+//}

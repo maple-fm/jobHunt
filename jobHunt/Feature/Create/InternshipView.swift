@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InternshipView: View {
 
-    @StateObject var viewModel = InternshipViewModel()
+    @StateObject var viewModel: InternshipViewModel
     @Binding var click: Bool
 
     let action: () -> Void
@@ -77,9 +77,9 @@ struct InternshipView: View {
     }
 }
 
-struct InternshipView_Previews: PreviewProvider {
-    static var previews: some View {
-        InternshipView(click: .constant(false)) {}
-            .environment(\.locale, Locale(identifier: "ja_JP"))
-    }
-}
+//struct InternshipView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InternshipView(click: .constant(false)) {}
+//            .environment(\.locale, Locale(identifier: "ja_JP"))
+//    }
+//}

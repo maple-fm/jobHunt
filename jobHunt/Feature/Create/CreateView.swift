@@ -11,6 +11,7 @@ struct CreateView: View {
 
     @State var event: EventName = .es
     @State private var canCreate = false
+    @Binding var selectedDate: Date
     @Environment(\.dismiss) var dismiss
 
 
@@ -47,7 +48,7 @@ struct CreateView: View {
                     
                 }
 
-                event.eventView(click: $canCreate) {
+                event.eventView(selectedDate: selectedDate, click: $canCreate) {
                     dismiss()
                 }
 
@@ -66,19 +67,22 @@ struct CreateView: View {
 }
 
 
-struct addEvent_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateView()
-    }
-}
+//struct CreateEvent_Previews: PreviewProvider {
+//
+//    @State var dated = Date.now
+//    static var previews: some View {
+//        let dated = Date.now // 外側のスコープで$datedを宣言する
+//        CreateView(selectedDate: Binding(projectedValue: $dated))
+//    }
+//}
 
 extension EventName {
-    func eventView(click: Binding<Bool>, action: @escaping () -> Void) -> some View {
+    func eventView(selectedDate: Date, click: Binding<Bool>, action: @escaping () -> Void) -> some View {
         switch self {
-        case .es : return AnyView(ESView(click: click , action: action))
-        case .interview : return AnyView(InterviewView(click: click, action: action))
-        case .session : return AnyView(SessionView(click: click , action: action))
-        case .internship : return AnyView(InternshipView(click: click, action: action))
+        case .es : return AnyView(ESView(viewModel: ESViewModel(deadline: selectedDate), click: click , action: action))
+        case .interview : return AnyView(InterviewView(viewModel: InterviewViewModel(deadline: selectedDate), click: click, action: action))
+        case .session : return AnyView(SessionView(viewModel: SessionViewModel(deadline: selectedDate), click: click , action: action))
+        case .internship : return AnyView(InternshipView(viewModel: InternshipViewModel(deadline: selectedDate), click: click, action: action))
         }
     }
 }

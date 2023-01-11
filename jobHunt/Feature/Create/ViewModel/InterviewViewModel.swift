@@ -15,7 +15,7 @@ class InterviewViewModel: ObservableObject {
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
-    @Published var deadline: Date = Date.now
+    @Published var deadline: Date
     @Published var location: String = ""
     @Published var clothes: String = ""
     @Published var motivation: String = ""
@@ -24,6 +24,10 @@ class InterviewViewModel: ObservableObject {
     @Published var weakPoints: String = ""
     @Published var questions: String = ""
     @Published var other: String = ""
+
+    init(deadline: Date) {
+        self.deadline = deadline
+    }
 
     func isValidated() -> Bool {
         createRepository.isValidated(name: name)

@@ -15,12 +15,16 @@ class ESViewModel: ObservableObject {
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
-    @Published var deadline: Date = Date.now
+    @Published var deadline: Date
     @Published var motivation: String = ""
     @Published var gakuchika: String = ""
     @Published var strongPoints: String = ""
     @Published var weakPoints: String = ""
     @Published var other: String = ""
+
+    init(deadline: Date) {
+        self.deadline = deadline
+    }
 
 
     func isValidated() -> Bool {

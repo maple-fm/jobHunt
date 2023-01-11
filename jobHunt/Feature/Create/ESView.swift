@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ESView: View {
 
-    @StateObject var viewModel = ESViewModel()
+    @StateObject var viewModel: ESViewModel
     @Binding var click: Bool
 
     let action: () -> Void // クロージャ
@@ -31,7 +31,6 @@ struct ESView: View {
                 ) {
                     DatePicker("締切日時", selection: $viewModel.deadline)
                         .PickerItem()
-                        
                 }
 
                 Section(
@@ -91,9 +90,9 @@ struct ESView: View {
     }
 }
 
-struct EntrysheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        ESView(click: .constant(false)) {}
-            .environment(\.locale, Locale(identifier: "ja_JP"))
-    }
-}
+//struct EntrysheetView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ESView(click: .constant(false)) {}
+//            .environment(\.locale, Locale(identifier: "ja_JP"))
+//    }
+//}

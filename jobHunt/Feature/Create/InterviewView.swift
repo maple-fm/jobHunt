@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InterviewView: View {
 
-    @StateObject var viewModel = InterviewViewModel()
+    @StateObject var viewModel: InterviewViewModel
     @Binding var click: Bool
 
     let action: () -> Void
@@ -109,9 +109,9 @@ struct InterviewView: View {
     }
 }
 
-struct InterviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        InterviewView(click: .constant(false)) {}
-            .environment(\.locale, Locale(identifier: "ja_JP"))
-    }
-}
+//struct InterviewView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InterviewView(click: .constant(false)) {}
+//            .environment(\.locale, Locale(identifier: "ja_JP"))
+//    }
+//}
