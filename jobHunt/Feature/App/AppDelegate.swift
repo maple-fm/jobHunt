@@ -10,16 +10,42 @@ import UIKit
 
 // コピペしただけ
 // https://tech.amefure.com/swift-notification
-class AppDelegate: NSObject, UIApplicationDelegate{
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
                 print("許可されました！")
+                UNUserNotificationCenter.current().delegate = self
             }else{
                 print("拒否されました...")
             }
         }
         return true
+    }
+
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([[.banner, .list, .sound]])
+    }
+}
+
+public func notification() async {
+    do {
+        let content = UNMutableNotificationContent()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: true)
+        //通知内容
+        content.title = "今日の就活"
+        content.body = "ここは通知の説明部分に表示されるよ"
+        content.sound = UNNotificationSound.default
+        content.badge = 1
+        //通知リクエストを作成
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        try await UNUserNotificationCenter.current().add(request)
+    } catch {
+        print(error)
     }
 }
