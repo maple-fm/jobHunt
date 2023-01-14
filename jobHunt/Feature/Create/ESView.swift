@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ESView: View {
 
-    @StateObject var viewModel: ESViewModel
+    @StateObject var viewModel = ESViewModel()
     @Binding var click: Bool
-
+    @State var deadline: Date
     let action: () -> Void // クロージャ
 
     var body: some View {
@@ -29,7 +29,7 @@ struct ESView: View {
                     header: Text("締切日時")
                         .headetTitle()
                 ) {
-                    DatePicker("締切日時", selection: $viewModel.deadline)
+                    DatePicker("締切日時", selection: $deadline)
                         .PickerItem()
                 }
 
@@ -83,16 +83,18 @@ struct ESView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(click: $0)
+                viewModel.clickButton(click: $0, deadline: deadline)
                 action()
             }
         }
+
     }
 }
 
-//struct EntrysheetView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ESView(click: .constant(false)) {}
-//            .environment(\.locale, Locale(identifier: "ja_JP"))
-//    }
-//}
+struct EntrysheetView_Previews: PreviewProvider {
+    static var previews: some View {
+        let date = Date()
+        return ESView(click: .constant(false), deadline: date) {}
+            .environment(\.locale, Locale(identifier: "ja_JP"))
+    }
+}

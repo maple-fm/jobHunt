@@ -67,22 +67,21 @@ struct CreateView: View {
 }
 
 
-//struct CreateEvent_Previews: PreviewProvider {
-//
-//    @State var dated = Date.now
-//    static var previews: some View {
-//        let dated = Date.now // 外側のスコープで$datedを宣言する
-//        CreateView(selectedDate: Binding(projectedValue: $dated))
-//    }
-//}
+struct CreateEvent_Previews: PreviewProvider {
 
-extension EventName {
+    static var previews: some View {
+        let date = Date() // 外側のスコープで$datedを宣言する
+        return CreateView(selectedDate: .constant(date))
+    }
+}
+
+private extension EventName {
     func eventView(selectedDate: Date, click: Binding<Bool>, action: @escaping () -> Void) -> some View {
         switch self {
-        case .es : return AnyView(ESView(viewModel: ESViewModel(deadline: selectedDate), click: click , action: action))
-        case .interview : return AnyView(InterviewView(viewModel: InterviewViewModel(deadline: selectedDate), click: click, action: action))
-        case .session : return AnyView(SessionView(viewModel: SessionViewModel(deadline: selectedDate), click: click , action: action))
-        case .internship : return AnyView(InternshipView(viewModel: InternshipViewModel(deadline: selectedDate), click: click, action: action))
+        case .es : return AnyView(ESView(click: click, deadline: selectedDate , action: action))
+        case .interview : return AnyView(InterviewView(click: click, deadline: selectedDate, action: action))
+        case .session : return AnyView(SessionView(click: click, deadline: selectedDate , action: action))
+        case .internship : return AnyView(InternshipView(click: click, deadline: selectedDate, action: action))
         }
     }
 }

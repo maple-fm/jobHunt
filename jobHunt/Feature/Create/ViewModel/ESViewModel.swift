@@ -15,16 +15,11 @@ class ESViewModel: ObservableObject {
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
-    @Published var deadline: Date
     @Published var motivation: String = ""
     @Published var gakuchika: String = ""
     @Published var strongPoints: String = ""
     @Published var weakPoints: String = ""
     @Published var other: String = ""
-
-    init(deadline: Date) {
-        self.deadline = deadline
-    }
 
 
     func isValidated() -> Bool {
@@ -32,7 +27,7 @@ class ESViewModel: ObservableObject {
     }
 
 
-    func clickButton(click: Bool) {
+    func clickButton(click: Bool, deadline: Date) {
         eventReprository.saveNewES(
             name: name,
             deadline: deadline,

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct InternshipView: View {
 
-    @StateObject var viewModel: InternshipViewModel
+    @StateObject var viewModel = InternshipViewModel()
     @Binding var click: Bool
+    @State var deadline: Date
 
     let action: () -> Void
 
@@ -29,7 +30,7 @@ struct InternshipView: View {
                     header: Text("開始時間")
                         .headetTitle()
                 ) {
-                    DatePicker("開始時間", selection: $viewModel.deadline)
+                    DatePicker("開始時間", selection: $deadline)
                         .PickerItem()
                 }
 
@@ -70,16 +71,17 @@ struct InternshipView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(click: $0)
+                viewModel.clickButton(click: $0, deadline: deadline)
                 action()
             }
         }
     }
 }
 
-//struct InternshipView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InternshipView(click: .constant(false)) {}
-//            .environment(\.locale, Locale(identifier: "ja_JP"))
-//    }
-//}
+struct InternshipView_Previews: PreviewProvider {
+    static var previews: some View {
+        let date = Date()
+        return InternshipView(click: .constant(false), deadline: date) {}
+            .environment(\.locale, Locale(identifier: "ja_JP"))
+    }
+}
