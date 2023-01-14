@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EventRepository {
+class EventRepository {
 
     func getEvents() -> [any Entry] {
 
