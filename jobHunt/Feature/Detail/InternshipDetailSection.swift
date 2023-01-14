@@ -54,8 +54,8 @@ struct InternshipDetailSection: View {
     }
 }
 
-//struct InternshipDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InternshipDetailSection(internship: .init())
-//    }
-//}
+struct InternshipDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        InternshipDetailSection(intern: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", other: "", category: .internship))
+    }
+}

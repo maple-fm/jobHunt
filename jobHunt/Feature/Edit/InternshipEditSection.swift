@@ -91,9 +91,9 @@ struct InternshipEditSection: View {
         })
     }
 }
-//
-//struct InternshipEditSection_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InternshipEditSection()
-//    }
-//}
+
+struct InternshipEditSection_Previews: PreviewProvider {
+    static var previews: some View {
+        InternshipEditSection(intern: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", other: "", category: .internship))
+    }
+}

@@ -105,8 +105,8 @@ struct SessionEditSection: View {
     }
 }
 
-//struct SessionEditSection_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SessionEditSection()
-//    }
-//}
+struct SessionEditSection_Previews: PreviewProvider {
+    static var previews: some View {
+        SessionEditSection(session: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
+    }
+}

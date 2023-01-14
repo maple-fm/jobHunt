@@ -199,8 +199,8 @@ struct DetailView: View {
     
 }
 
-//struct DetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailView(event: any as! Entry)
-//    }
-//}
+struct DetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailView(eventId: "", event: ESModel(id: "", name: "", deadline: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
+    }
+}
