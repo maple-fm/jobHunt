@@ -33,7 +33,12 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("志望動機")
-                    .headetTitle()
+                    .headetTitle(),
+                footer:Text("\(viewModel.motivation.count)count")
+                    .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
             ) {
                 TextEditor(text: $viewModel.motivation)
                     .textArea(es.category)
@@ -46,7 +51,12 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("ガクチカ")
-                    .headetTitle()
+                    .headetTitle(),
+                footer: Text("\(viewModel.gakuchika.count)count")
+                    .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
             ) {
                 TextEditor(text: $viewModel.gakuchika)
                     .textArea(es.category)
@@ -59,7 +69,12 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("長所")
-                    .headetTitle()
+                    .headetTitle(),
+                footer: Text("\(viewModel.strongPoints.count)count")
+                    .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
             ) {
                 TextEditor(text: $viewModel.strongPoints)
                     .textArea(es.category)
@@ -72,7 +87,12 @@ struct ESEditSection: View {
             }
             Section(
                 header: Text("短所")
-                    .headetTitle()
+                    .headetTitle(),
+                footer: Text("\(viewModel.weakPoints.count)count")
+                    .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
             ) {
                 TextEditor(text: $viewModel.weakPoints)
                     .textArea(es.category)

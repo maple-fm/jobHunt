@@ -35,27 +35,51 @@ struct ESDetailSection: View {
                 }
 
 
-                Text("ガクチカ")
-                    .headetTitle()
                 if let gakuchika = self.es.gakuchika {
-                    Text(gakuchika)
-                        .TextArea(category: self.es.category)
+                    Section (
+                        header: Text("ガクチカ")
+                            .headetTitle(),
+                        footer: Text("\(gakuchika.count)count")
+                            .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                            .font(.system(size: 15))
+                            .padding(.leading, 11)
+                            .padding(.bottom, 5)
+                    ) {
+                        Text(gakuchika)
+                            .TextArea(category: self.es.category)
+                    }
                 }
             }
 
             Group {
-                Text("長所")
-                    .headetTitle()
                 if let strongPoints = self.es.strongPoints {
-                    Text(strongPoints)
-                        .TextArea(category: self.es.category)
+                    Section (
+                        header: Text("長所")
+                            .headetTitle(),
+                        footer: Text("\(strongPoints.count)count")
+                            .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                            .font(.system(size: 15))
+                            .padding(.leading, 11)
+                            .padding(.bottom, 5)
+                    ) {
+                        Text(strongPoints)
+                            .TextArea(category: self.es.category)
+                    }
                 }
 
-                Text("短所")
-                    .headetTitle()
                 if let weakPoints = self.es.weakPoints {
-                    Text(weakPoints)
-                        .TextArea(category: self.es.category)
+                    Section(
+                        header: Text("短所")
+                            .headetTitle(),
+                        footer: Text("\(weakPoints.count)count")
+                            .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                            .font(.system(size: 15))
+                            .padding(.leading, 11)
+                            .padding(.bottom, 5)
+                    ) {
+                        Text(weakPoints)
+                            .TextArea(category: self.es.category)
+                    }
                 }
 
                 Text("その他")
