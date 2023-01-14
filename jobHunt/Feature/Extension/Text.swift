@@ -21,7 +21,7 @@ extension Text {
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(.black)
-            .background(CustomColor().bgColor(category))
+            .background(category.bgColor)
             .cornerRadius(14)
     }
 }

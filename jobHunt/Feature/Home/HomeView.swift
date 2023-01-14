@@ -101,7 +101,7 @@ struct HomeView: View {
                                                 ))
                                         }
                                         .frame(width: 350, height: 70, alignment: .leading)
-                                        .background(CustomColor().bgColor(event.category))
+                                        .background(event.category.bgColor)
                                         .cornerRadius(50)
                                         .foregroundColor(.black)
 

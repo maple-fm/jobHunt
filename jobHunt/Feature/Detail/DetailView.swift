@@ -20,7 +20,7 @@ struct DetailView: View {
 
     var body: some View {
         ZStack {
-            CustomColor().bgColor(event.category)
+            event.category.bgColor
                 .edgesIgnoringSafeArea(.all)
             switch event.category {
                 case .es:

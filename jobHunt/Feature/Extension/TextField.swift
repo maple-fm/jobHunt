@@ -28,7 +28,7 @@ extension TextEditor {
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(.black)
-            .background(CustomColor().bgColor(category))
+            .background(category.bgColor)
             .cornerRadius(14)
             .scrollContentBackground(Visibility.hidden)
 

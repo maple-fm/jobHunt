@@ -30,34 +30,7 @@ extension UIColor {
 
 struct CustomColor {
 
-    func baseColor(_ category: EventName) -> Color {
-        switch category {
-        case .es : return Color(UIColor(176, 245, 188, 100).cgColor)
-        case .interview : return Color(UIColor(255, 246, 167, 100).cgColor)
-        case .session: return Color(UIColor(189, 250, 255, 100).cgColor)
-        case .internship: return Color(UIColor(255, 158, 151, 100).cgColor)
-        }
-    }
-
-    func bgColor(_ category: EventName) -> Color {
-        switch category {
-        case .es : return Color(UIColor(174, 223, 149, 100).cgColor)
-        case .interview : return Color(UIColor(226, 232, 151, 100).cgColor)
-        case .session: return Color(UIColor(172, 208, 232, 100).cgColor)
-        case .internship: return Color(UIColor(255, 177, 150, 100).cgColor)
-        }
-    }
-
     func inputColor() -> Color {
         return Color(UIColor(174, 223, 149, 100).cgColor)
     }
-
-//    func bgColor(category: EventName) -> Color {
-//        switch category {
-//        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor)
-//        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 1).cgColor)
-//        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 1).cgColor)
-//        case .internship: return Color(UIColor(red: 1, green: 0.9, blue: 1, alpha: 1).cgColor)
-//        }
-//    }
 }
