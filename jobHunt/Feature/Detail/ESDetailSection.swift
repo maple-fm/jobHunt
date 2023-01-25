@@ -17,9 +17,9 @@ struct ESDetailSection: View {
                 Text("会社名")
                     .headetTitle()
                 Text(self.es.name)
-                    .TextArea(category: self.es.category)
+                    .TextArea(es.category)
 
-                if let motivation = self.es.motivation {
+                if let motivation = es.motivation {
                     Section(
                         header: Text("志望動機")
                             .headetTitle(),
@@ -30,12 +30,12 @@ struct ESDetailSection: View {
                             .padding(.bottom, 5)
                     ) {
                         Text(motivation)
-                            .TextArea(category: self.es.category)
+                            .TextArea(es.category)
                     }
                 }
 
 
-                if let gakuchika = self.es.gakuchika {
+                if let gakuchika = es.gakuchika {
                     Section (
                         header: Text("ガクチカ")
                             .headetTitle(),
@@ -46,13 +46,13 @@ struct ESDetailSection: View {
                             .padding(.bottom, 5)
                     ) {
                         Text(gakuchika)
-                            .TextArea(category: self.es.category)
+                            .TextArea(es.category)
                     }
                 }
             }
 
             Group {
-                if let strongPoints = self.es.strongPoints {
+                if let strongPoints = es.strongPoints {
                     Section (
                         header: Text("長所")
                             .headetTitle(),
@@ -63,11 +63,11 @@ struct ESDetailSection: View {
                             .padding(.bottom, 5)
                     ) {
                         Text(strongPoints)
-                            .TextArea(category: self.es.category)
+                            .TextArea(es.category)
                     }
                 }
 
-                if let weakPoints = self.es.weakPoints {
+                if let weakPoints = es.weakPoints {
                     Section(
                         header: Text("短所")
                             .headetTitle(),
@@ -78,15 +78,15 @@ struct ESDetailSection: View {
                             .padding(.bottom, 5)
                     ) {
                         Text(weakPoints)
-                            .TextArea(category: self.es.category)
+                            .TextArea(es.category)
                     }
                 }
 
                 Text("その他")
                     .headetTitle()
-                if let other = self.es.other {
+                if let other = es.other {
                     Text(other)
-                        .TextArea(category: self.es.category)
+                        .TextArea(es.category)
                 }
             }
         }

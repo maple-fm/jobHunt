@@ -15,13 +15,13 @@ extension Text {
             .padding(.bottom, 5)
     }
 
-    func TextArea(category: EventName) -> some View {
+    func TextArea(_ category: EventName) -> some View {
         self
             .fixedSize(horizontal: false, vertical: true)
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(.black)
-            .background(category.bgColor)
+            .background(category.baseColor)
             .cornerRadius(14)
     }
 }
