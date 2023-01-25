@@ -31,6 +31,6 @@ extension UIColor {
 struct CustomColor {
 
     func inputColor() -> Color {
-        return Color(UIColor(174, 223, 149, 100).cgColor)
+        return Color(UIColor(named: "input")!.cgColor)
     }
 }
