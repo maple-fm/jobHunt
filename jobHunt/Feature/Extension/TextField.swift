@@ -11,7 +11,7 @@ import SwiftUI
 extension TextField {
     func input() -> some View {
         self
-            .listRowBackground(CustomColor().inputColor())
+            .listRowBackground(Color(UIColor(named: "form")!.cgColor))
     }
 }
 
@@ -19,7 +19,7 @@ extension TextEditor {
 
     func input() -> some View {
         self
-            .listRowBackground(CustomColor().inputColor())
+            .listRowBackground(Color(UIColor(named: "form")!.cgColor))
     }
 
     func textArea(_ category: EventName) -> some View {

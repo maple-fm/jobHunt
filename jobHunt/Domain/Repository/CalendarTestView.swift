@@ -37,12 +37,27 @@ struct CalendarTestView: UIViewRepresentable {
         fsCalendar.appearance.weekdayTextColor = .gray
 
         // カレンダー日付表示のカスタマイズ
+        fsCalendar.appearance.titleDefaultColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+            // ダークモードの場合
+            if traitCollection.userInterfaceStyle == .dark {
+                return .white
+            } else {
+                return .black
+            }
+        }
         fsCalendar.appearance.todayColor = UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1) //本日の選択カラー
         fsCalendar.appearance.titleTodayColor = .black //本日のテキストカラー
 
         fsCalendar.appearance.selectionColor = .clear //選択した日付のカラー
         fsCalendar.appearance.borderSelectionColor = UIColor(red: 0.019, green: 0.75, blue: 0.223, alpha: 1) //選択した日付のボーダーカラー
-        fsCalendar.appearance.titleSelectionColor = .black //選択した日付のテキストカラー
+        fsCalendar.appearance.titleSelectionColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+            // ダークモードの場合
+            if traitCollection.userInterfaceStyle == .dark {
+                return .white
+            } else {
+                return .black
+            }
+        }  //選択した日付のテキストカラー
 
         fsCalendar.appearance.eventDefaultColor = UIColor(red: 0.019, green: 0.75, blue: 0.223, alpha: 1) // ドットカラー
         fsCalendar.appearance.eventSelectionColor = UIColor(red: 0.019, green: 0.75, blue: 0.223, alpha: 1) // 選択時のドットカラー
