@@ -18,21 +18,20 @@ struct HomeView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 ZStack(alignment: .top) {
+
                     CalendarTestView(selectedDate: $selectedDate,
                                      eventsDate: viewModel.eventsDateArray)
                         .frame(width: 400, height: 400.0, alignment: .center)
+
                     NavigationLink(
                         destination: SettingView()
                     ) {
                         Image(systemName: "gearshape.fill")
-
                     }
                     .frame(width: 60, height: 60, alignment: .center)
                         .foregroundColor(.green)
                         .padding(.leading, 310)
-
                 }
-
 
                 Divider()
 
@@ -112,12 +111,9 @@ struct HomeView: View {
                         }
                         .padding(.leading, 15)
                     }
-
                 }
-
             }
         }
-
     }
 }
 
