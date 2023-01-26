@@ -17,6 +17,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
                 print("許可されました！")
+                notification()
                 UNUserNotificationCenter.current().delegate = self
             }else{
                 print("拒否されました...")
@@ -33,10 +34,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
 }
 
-public func notification() async {
+private func notification() {
     do {
         let content = UNMutableNotificationContent()
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: true)
+        let date = DateComponents(hour:9)
+        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
         //通知内容
         content.title = "今日の就活"
         content.body = "ここは通知の説明部分に表示されるよ"
@@ -44,7 +46,7 @@ public func notification() async {
         content.badge = 1
         //通知リクエストを作成
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        try await UNUserNotificationCenter.current().add(request)
+        UNUserNotificationCenter.current().add(request)
     } catch {
         print(error)
     }
