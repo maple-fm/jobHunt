@@ -15,7 +15,6 @@ class InterviewViewModel: ObservableObject {
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
-    @Published var deadline: Date = Date.now
     @Published var location: String = ""
     @Published var clothes: String = ""
     @Published var motivation: String = ""
@@ -29,7 +28,7 @@ class InterviewViewModel: ObservableObject {
         createRepository.isValidated(name: name)
     }
 
-    func clickButton(click: Bool) {
+    func clickButton(click: Bool, deadline: Date) {
         eventReprository.saveNesInterview(
             name: name,
             deadline: deadline,

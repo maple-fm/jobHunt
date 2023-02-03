@@ -11,9 +11,8 @@ import SwiftUI
 extension DatePicker {
     func PickerItem() -> some View {
         self
-            .padding(.leading, -20)
+            .padding(.leading, -10)
             .labelsHidden()
-            .background(Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor))
             .listRowBackground(Color.clear)
     }
 }

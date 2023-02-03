@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftUI
 
 protocol Entry: Identifiable {
 
@@ -21,5 +22,17 @@ enum EventName: String, CaseIterable, PersistableEnum {
     case interview = "面接/面談"
     case session = "説明会"
     case internship = "インターンシップ"
+}
+
+extension EventName {
+
+    var bgColor: Color {
+        switch self {
+        case .es : return Color(UIColor(named: "esBg")!.cgColor)
+        case .interview : return Color(UIColor(named: "interviewBg")!.cgColor)
+        case .session: return Color(UIColor(named: "sessionBg")!.cgColor)
+        case .internship: return Color(UIColor(named: "internBg")!.cgColor)
+        }
+    }
 }
 

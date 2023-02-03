@@ -14,34 +14,24 @@ struct HomeView: View {
     @State private var add = false
     @ObservedObject var viewModel = HomeViewModel()
 
-    func bgColor(category: EventName) -> Color {
-        switch category {
-        case .es : return Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor)
-        case .interview : return Color(UIColor(red: 1, green: 0.962, blue: 0.733, alpha: 1).cgColor)
-        case .session: return Color(UIColor(red: 0.69, green: 0.962, blue: 1, alpha: 1).cgColor)
-        case .internship: return Color(UIColor(red: 1, green: 0.9, blue: 1, alpha: 1).cgColor)
-        }
-    }
-
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 ZStack(alignment: .top) {
+
                     CalendarTestView(selectedDate: $selectedDate,
                                      eventsDate: viewModel.eventsDateArray)
                         .frame(width: 400, height: 400.0, alignment: .center)
+
                     NavigationLink(
                         destination: SettingView()
                     ) {
                         Image(systemName: "gearshape.fill")
-
                     }
                     .frame(width: 60, height: 60, alignment: .center)
                         .foregroundColor(.green)
                         .padding(.leading, 310)
-
                 }
-
 
                 Divider()
 
@@ -56,7 +46,6 @@ struct HomeView: View {
                         self.add.toggle()
                     }) {
                         Image(systemName: "plus.circle.fill")
-
                             .font(.system(size: 45))
                             .frame(width: 40, height: 40)
                             .foregroundColor(.green)
@@ -69,7 +58,7 @@ struct HomeView: View {
                         trailing: 15)
                     )
                     .sheet(isPresented: $add, onDismiss: viewModel.onUpdated) {
-                        CreateView()
+                        CreateView(selectedDate: $selectedDate)
                     }
                 }
 
@@ -111,7 +100,7 @@ struct HomeView: View {
                                                 ))
                                         }
                                         .frame(width: 350, height: 70, alignment: .leading)
-                                        .background(bgColor(category: event.category))
+                                        .background(event.category.bgColor)
                                         .cornerRadius(50)
                                         .foregroundColor(.black)
 
@@ -122,12 +111,9 @@ struct HomeView: View {
                         }
                         .padding(.leading, 15)
                     }
-
                 }
-
             }
         }
-
     }
 }
 

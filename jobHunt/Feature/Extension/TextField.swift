@@ -11,25 +11,23 @@ import SwiftUI
 extension TextField {
     func input() -> some View {
         self
-            .listRowBackground(Color(UIColor(red: 0, green: 0.35, blue: 0.1, alpha: 0.1).cgColor))
+            .listRowBackground(Color(UIColor(named: "form")!.cgColor))
     }
-
-
 }
 
 extension TextEditor {
+
     func input() -> some View {
         self
-            .listRowBackground(Color(UIColor(red: 0, green: 0.35, blue: 0.1, alpha: 0.1).cgColor))
+            .listRowBackground(Color(UIColor(named: "form")!.cgColor))
     }
 
-    func textArea() -> some View {
+    func textArea(_ category: EventName) -> some View {
         self
-            .fixedSize(horizontal: false, vertical: true)
             .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, minHeight: 70, alignment: .leading)
             .foregroundColor(.black)
-            .background(Color(UIColor(red: 0.75, green: 0.889, blue: 0.75, alpha: 1).cgColor))
+            .background(Color(UIColor(named: "form")!.cgColor))
             .cornerRadius(14)
             .scrollContentBackground(Visibility.hidden)
 

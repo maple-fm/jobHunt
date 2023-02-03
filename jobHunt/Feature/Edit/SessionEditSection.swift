@@ -25,7 +25,7 @@ struct SessionEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.name)
-                        .textArea()
+                        .textArea(session.category)
                         .onAppear() {
                             viewModel.name = session.name
                         }
@@ -36,7 +36,7 @@ struct SessionEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.location)
-                        .textArea()
+                        .textArea(session.category)
                         .onAppear() {
                             if let location = session.location {
                                 viewModel.location = location
@@ -49,7 +49,7 @@ struct SessionEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.clothes)
-                        .textArea()
+                        .textArea(session.category)
                         .onAppear() {
                             if let clothes = session.clothes {
                                 viewModel.clothes = clothes
@@ -64,7 +64,7 @@ struct SessionEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.item)
-                        .textArea()
+                        .textArea(session.category)
                         .onAppear() {
                             if let item = session.item {
                                 viewModel.item = item
@@ -77,7 +77,7 @@ struct SessionEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.questions)
-                        .textArea()
+                        .textArea(session.category)
                         .onAppear() {
                             if let questions = session.questions {
                                 viewModel.questions = questions
@@ -90,7 +90,7 @@ struct SessionEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.other)
-                        .textArea()
+                        .textArea(session.category)
                         .onAppear() {
                             if let other = session.other {
                                 viewModel.other = other
@@ -105,8 +105,8 @@ struct SessionEditSection: View {
     }
 }
 
-//struct SessionEditSection_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SessionEditSection()
-//    }
-//}
+struct SessionEditSection_Previews: PreviewProvider {
+    static var previews: some View {
+        SessionEditSection(session: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
+    }
+}

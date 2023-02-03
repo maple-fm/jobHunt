@@ -16,34 +16,34 @@ struct InterviewDetailSection: View {
                 Text("会社名")
                     .headetTitle()
                 Text(interview.name)
-                    .TextArea(category: interview.category)
+                    .TextArea(interview.category)
 
                 Text("開催場所")
                     .headetTitle()
                 if let location = interview.location {
                     Text(location)
-                        .TextArea(category: interview.category)
+                        .TextArea(interview.category)
                 }
 
                 Text("服装")
                     .headetTitle()
                 if let clothes = interview.clothes {
                     Text(clothes)
-                        .TextArea(category: interview.category)
+                        .TextArea(interview.category)
                 }
 
                 Text("志望動機")
                     .headetTitle()
                 if let motivation = interview.motivation {
                     Text(motivation)
-                        .TextArea(category: interview.category)
+                        .TextArea(interview.category)
                 }
 
                 Text("ガクチカ")
                     .headetTitle()
                 if let gakuchika = interview.gakuchika {
                     Text(gakuchika)
-                        .TextArea(category: interview.category)
+                        .TextArea(interview.category)
                 }
             }
 
@@ -52,36 +52,36 @@ struct InterviewDetailSection: View {
                     .headetTitle()
                 if let strongPoints = interview.strongPoints {
                     Text(strongPoints)
-                        .TextArea(category: interview.category)
+                        .TextArea(interview.category)
                 }
 
                 Text("短所")
                     .headetTitle()
                 if let weakPoints = interview.weakPoints {
                     Text(weakPoints)
-                        .TextArea(category: interview.category)
+                        .TextArea(interview.category)
                 }
 
                 Text("質問したいこと")
                     .headetTitle()
                 if let questions = interview.questions {
                     Text(questions)
-                        .TextArea(category: interview.category)
+                        .TextArea(interview.category)
                 }
 
                 Text("その他")
                     .headetTitle()
                 if let other = interview.other {
                     Text(other)
-                        .TextArea(category: interview.category)
+                        .TextArea(interview.category)
                 }
             }
         }
     }
 }
 
-//struct InterviewDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InterviewDetailSection(interview: .init())
-//    }
-//}
+struct InterviewDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        InterviewDetailSection(interview: .init(id: "", name: "", deadline: .now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview ))
+    }
+}

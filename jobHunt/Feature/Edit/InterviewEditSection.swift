@@ -25,7 +25,7 @@ struct InterviewEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.name)
-                        .textArea()
+                        .textArea(interview.category)
                         .onAppear() {
                             viewModel.name = interview.name
                         }
@@ -36,7 +36,7 @@ struct InterviewEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.location)
-                        .textArea()
+                        .textArea(interview.category)
                         .onAppear() {
                             if let location = interview.location {
                                 viewModel.location = location
@@ -49,7 +49,7 @@ struct InterviewEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.clothes)
-                        .textArea()
+                        .textArea(interview.category)
                         .onAppear() {
                             if let clothes = interview.clothes {
                                 viewModel.clothes = clothes
@@ -64,7 +64,7 @@ struct InterviewEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.motivation)
-                        .textArea()
+                        .textArea(interview.category)
                         .onAppear() {
                             if let motivation = interview.motivation {
                                 viewModel.motivation = motivation
@@ -77,7 +77,7 @@ struct InterviewEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.gakuchika)
-                        .textArea()
+                        .textArea(interview.category)
                         .onAppear() {
                             if let gakuchika = interview.gakuchika {
                                 viewModel.gakuchika = gakuchika
@@ -90,7 +90,7 @@ struct InterviewEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.strongPoints)
-                        .textArea()
+                        .textArea(interview.category)
                         .onAppear() {
                             if let strongPoints = interview.strongPoints {
                                 viewModel.strongPoints = strongPoints
@@ -103,10 +103,23 @@ struct InterviewEditSection: View {
                         .headetTitle()
                 ) {
                     TextEditor(text: $viewModel.weakPoints)
-                        .textArea()
+                        .textArea(interview.category)
                         .onAppear() {
                             if let weakPoints = interview.weakPoints {
                                 viewModel.weakPoints = weakPoints
+                            }
+                        }
+                }
+
+                Section(
+                    header: Text("質問したいこと")
+                        .headetTitle()
+                ) {
+                    TextEditor(text: $viewModel.questions)
+                        .textArea(interview.category)
+                        .onAppear() {
+                            if let questions = interview.questions {
+                                viewModel.questions = questions
                             }
                         }
                 }
@@ -118,7 +131,7 @@ struct InterviewEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.other)
-                    .textArea()
+                    .textArea(interview.category)
                     .onAppear() {
                         if let other = interview.other {
                             viewModel.other = other
@@ -132,8 +145,8 @@ struct InterviewEditSection: View {
     }
 }
 
-//struct InterviewEditSection_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InterviewEditSection()
-//    }
-//}
+struct InterviewEditSection_Previews: PreviewProvider {
+    static var previews: some View {
+        InterviewEditSection(interview: .init(id: "", name: "", deadline: .now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
+    }
+}

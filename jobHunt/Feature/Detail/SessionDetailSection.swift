@@ -16,20 +16,20 @@ struct SessionDetailSection: View {
                 Text("会社名")
                     .headetTitle()
                 Text(session.name)
-                    .TextArea(category: session.category)
+                    .TextArea(session.category)
 
                 Text("開催場所")
                     .headetTitle()
                 if let location = session.location {
                     Text(location)
-                        .TextArea(category: session.category)
+                        .TextArea(session.category)
                 }
 
                 Text("服装")
                     .headetTitle()
                 if let clothes = session.clothes {
                     Text(clothes)
-                        .TextArea(category: session.category)
+                        .TextArea(session.category)
                 }
             }
 
@@ -38,21 +38,21 @@ struct SessionDetailSection: View {
                     .headetTitle()
                 if let item = session.item {
                     Text(item)
-                        .TextArea(category: session.category)
+                        .TextArea(session.category)
                 }
 
                 Text("質問したいこと")
                     .headetTitle()
                 if let questions = session.questions {
                     Text(questions)
-                        .TextArea(category: session.category)
+                        .TextArea(session.category)
                 }
 
                 Text("その他")
                     .headetTitle()
                 if let other = session.other {
                     Text(other)
-                        .TextArea(category: session.category)
+                        .TextArea(session.category)
                 }
             }
         }
@@ -61,6 +61,6 @@ struct SessionDetailSection: View {
 
 struct SessionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionDetailSection(session: .init(id: "", name: "", deadline: .now, category: .session))
+        SessionDetailSection(session: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
     }
 }

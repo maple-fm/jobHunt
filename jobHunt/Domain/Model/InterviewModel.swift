@@ -22,4 +22,19 @@ struct InterviewModel: Entry {
     var questions: String?
     var other: String?
     var category: EventName
+
+    init(id: String, name: String, deadline: Date, location: String?, clothes: String?, motivation: String?, gakuchika: String?, strongPoints: String?, weakPoints: String?, questions: String?, other: String?, category: EventName) {
+        self.id = id
+        self.name = name
+        self.deadline = deadline
+        self.location = location
+        self.clothes = clothes
+        self.motivation = motivation
+        self.gakuchika = gakuchika
+        self.strongPoints = strongPoints
+        self.weakPoints = weakPoints
+        self.questions = questions
+        self.other = other
+        self.category = category
+    }
 }

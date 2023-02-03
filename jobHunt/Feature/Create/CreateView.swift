@@ -11,12 +11,13 @@ struct CreateView: View {
 
     @State var event: EventName = .es
     @State private var canCreate = false
+    @Binding var selectedDate: Date
     @Environment(\.dismiss) var dismiss
 
 
     var body: some View {
         ZStack {
-            Color(UIColor(red: 0.922, green: 1, blue: 0.921, alpha: 1).cgColor)
+            Color(UIColor(200, 255, 200, 100).cgColor)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -47,7 +48,7 @@ struct CreateView: View {
                     
                 }
 
-                event.eventView(click: $canCreate) {
+                event.eventView(selectedDate: selectedDate, click: $canCreate) {
                     dismiss()
                 }
 
@@ -66,19 +67,21 @@ struct CreateView: View {
 }
 
 
-struct addEvent_Previews: PreviewProvider {
+struct CreateEvent_Previews: PreviewProvider {
+
     static var previews: some View {
-        CreateView()
+        let date = Date() // 外側のスコープで$datedを宣言する
+        return CreateView(selectedDate: .constant(date))
     }
 }
 
-extension EventName {
-    func eventView(click: Binding<Bool>, action: @escaping () -> Void) -> some View {
+private extension EventName {
+    func eventView(selectedDate: Date, click: Binding<Bool>, action: @escaping () -> Void) -> some View {
         switch self {
-        case .es : return AnyView(ESView(click: click , action: action))
-        case .interview : return AnyView(InterviewView(click: click, action: action))
-        case .session : return AnyView(SessionView(click: click , action: action))
-        case .internship : return AnyView(InternshipView(click: click, action: action))
+        case .es : return AnyView(ESView(click: click, deadline: selectedDate , action: action))
+        case .interview : return AnyView(InterviewView(click: click, deadline: selectedDate, action: action))
+        case .session : return AnyView(SessionView(click: click, deadline: selectedDate , action: action))
+        case .internship : return AnyView(InternshipView(click: click, deadline: selectedDate, action: action))
         }
     }
 }

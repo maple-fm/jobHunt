@@ -25,7 +25,7 @@ struct ESEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.name)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         viewModel.name = es.name
                     }
@@ -33,10 +33,15 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("志望動機")
-                    .headetTitle()
+                    .headetTitle(),
+                footer:Text("\(viewModel.motivation.count)count")
+                    .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
             ) {
                 TextEditor(text: $viewModel.motivation)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let motivation = es.motivation {
                             viewModel.motivation = motivation
@@ -46,10 +51,15 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("ガクチカ")
-                    .headetTitle()
+                    .headetTitle(),
+                footer: Text("\(viewModel.gakuchika.count)count")
+                    .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
             ) {
                 TextEditor(text: $viewModel.gakuchika)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let gakuchika = es.gakuchika {
                             viewModel.gakuchika = gakuchika
@@ -59,10 +69,15 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("長所")
-                    .headetTitle()
+                    .headetTitle(),
+                footer: Text("\(viewModel.strongPoints.count)count")
+                    .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
             ) {
                 TextEditor(text: $viewModel.strongPoints)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let strongPoints = es.strongPoints {
                             viewModel.strongPoints = strongPoints
@@ -72,10 +87,15 @@ struct ESEditSection: View {
             }
             Section(
                 header: Text("短所")
-                    .headetTitle()
+                    .headetTitle(),
+                footer: Text("\(viewModel.weakPoints.count)count")
+                    .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
             ) {
                 TextEditor(text: $viewModel.weakPoints)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let weakPoints = es.weakPoints {
                             viewModel.weakPoints = weakPoints
@@ -88,7 +108,7 @@ struct ESEditSection: View {
                     .headetTitle()
             ) {
                 TextEditor(text: $viewModel.other)
-                    .textArea()
+                    .textArea(es.category)
                     .onAppear() {
                         if let other = es.other {
                             viewModel.other = other
@@ -104,6 +124,6 @@ struct ESEditSection: View {
 
 struct ESEditView_Previews: PreviewProvider {
     static var previews: some View {
-        ESEditSection(es: .init(id: "", name: "", deadline: .now, category: .es))
+        ESEditSection(es: .init(id: "", name: "", deadline: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
     }
 }

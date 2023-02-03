@@ -17,13 +17,13 @@ struct InternshipDetailSection: View {
                 Text("会社名")
                     .headetTitle()
                 Text(intern.name)
-                    .TextArea(category: intern.category)
+                    .TextArea(intern.category)
 
                 Text("開催場所")
                     .headetTitle()
                 if let location = intern.location {
                     Text(location)
-                        .TextArea(category: intern.category)
+                        .TextArea(intern.category)
                 } else {
                     Text("nil")
                 }
@@ -32,21 +32,21 @@ struct InternshipDetailSection: View {
                     .headetTitle()
                 if let clothes = intern.clothes {
                     Text(clothes)
-                        .TextArea(category: intern.category)
+                        .TextArea(intern.category)
                 }
 
                 Text("持ち物")
                     .headetTitle()
                 if let item = intern.item {
                     Text(item)
-                        .TextArea(category: intern.category)
+                        .TextArea(intern.category)
                 }
 
                 Text("その他")
                     .headetTitle()
                 if let other = intern.other {
                     Text(other)
-                        .TextArea(category: intern.category)
+                        .TextArea(intern.category)
                 }
             }
         }
@@ -54,8 +54,8 @@ struct InternshipDetailSection: View {
     }
 }
 
-//struct InternshipDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        InternshipDetailSection(internship: .init())
-//    }
-//}
+struct InternshipDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        InternshipDetailSection(intern: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", other: "", category: .internship))
+    }
+}

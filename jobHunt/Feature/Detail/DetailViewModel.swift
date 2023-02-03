@@ -28,19 +28,19 @@ class DetailViewModel: ObservableObject {
     }
 
     func getESArray(id: String) -> ESModel {
-        eventRepository.getESArray(id: id).first ?? ESModel(id: UUID().uuidString, name: "", deadline: Date.now, category: .es)
+        eventRepository.getESArray(id: id).first ?? ESModel(id: UUID().uuidString, name: "", deadline: Date.now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
     }
 
     func getInterviewArray(id: String) -> InterviewModel {
-        eventRepository.getInterviewArray(id: id).first ?? InterviewModel(id: UUID().uuidString, name: "", deadline: Date.now, category: .interview)
+        eventRepository.getInterviewArray(id: id).first ?? InterviewModel(id: UUID().uuidString, name: "", deadline: Date.now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
     }
 
     func getInternshipArray(id: String) -> InternshipModel {
-        eventRepository.getInternshipArray(id: id).first ?? InternshipModel(id: UUID().uuidString, name: "", deadline: Date.now, category: .internship)
+        eventRepository.getInternshipArray(id: id).first ?? InternshipModel(id: UUID().uuidString, name: "", deadline: Date.now, location: "", clothes: "", item: "", other: "", category: .internship)
     }
 
     func getSessionpArray(id: String) -> SessionModel {
-        eventRepository.getSessionArray(id: id).first ?? SessionModel(id: UUID().uuidString, name: "", deadline: Date.now, category: .session)
+        eventRepository.getSessionArray(id: id).first ?? SessionModel(id: UUID().uuidString, name: "", deadline: Date.now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
     }
     
 }

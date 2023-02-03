@@ -15,18 +15,18 @@ class SessionViewModel: ObservableObject {
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
-    @Published var deadline: Date = Date.now
     @Published var location: String = ""
     @Published var clothes: String = ""
     @Published var item: String = ""
     @Published var questions: String = ""
     @Published var other: String = ""
 
+
     func isValidated() -> Bool {
         createRepository.isValidated(name:name)
     }
 
-    func clickButton(click: Bool) {
+    func clickButton(click: Bool, deadline: Date) {
         eventReprository.saveNewSession(
             name: name,
             deadline: deadline,
