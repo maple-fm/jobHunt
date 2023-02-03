@@ -27,7 +27,7 @@ extension TextEditor {
             .padding()
             .frame(maxWidth: .infinity, minHeight: 70, alignment: .leading)
             .foregroundColor(.black)
-            .background(category.baseColor)
+            .background(Color(UIColor(named: "form")!.cgColor))
             .cornerRadius(14)
             .scrollContentBackground(Visibility.hidden)
 

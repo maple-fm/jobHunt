@@ -25,14 +25,6 @@ enum EventName: String, CaseIterable, PersistableEnum {
 }
 
 extension EventName {
-    var baseColor: Color {
-        switch self {
-        case .es : return Color(UIColor(named: "esInput")!.cgColor)
-        case .interview : return Color(UIColor(named: "interviewInput")!.cgColor)
-        case .session: return Color(UIColor(named: "sessionInput")!.cgColor)
-        case .internship: return Color(UIColor(named: "internInput")!.cgColor)
-        }
-    }
 
     var bgColor: Color {
         switch self {

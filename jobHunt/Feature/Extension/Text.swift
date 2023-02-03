@@ -21,7 +21,7 @@ extension Text {
             .padding()
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(.black)
-            .background(category.baseColor)
+            .background(Color(UIColor(named: "form")!.cgColor))
             .cornerRadius(14)
     }
 }
