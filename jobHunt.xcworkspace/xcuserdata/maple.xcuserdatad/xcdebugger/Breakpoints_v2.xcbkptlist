@@ -73,120 +73,22 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0685E9BD-A13F-4F73-A3D3-216295346B4A"
-            shouldBeEnabled = "No"
+            uuid = "739C43A3-16AB-476E-87F1-4BFEBC0DEF69"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
-            filePath = "jobHunt/Domain/Repository/EventRepository.swift"
+            filePath = "jobHunt/Feature/App/jobHuntApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "editInternship(id:name:location:clothes:item:other:)"
-            landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
-                  <ActionContent
-                     message = "location: @location@"
-                     conveyanceType = "0">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "984082AE-0806-4703-A152-69352C7B6922"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "jobHunt/Domain/DataSource/InternshipDataSource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "edit(model:)"
-            landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
-                  <ActionContent
-                     message = "edit location: @model.location@"
-                     conveyanceType = "0">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F3D6B6F4-4397-4D02-8563-C02F0930172C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "jobHunt/Feature/Detail/InternshipDetailSection.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "body"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "F3D6B6F4-4397-4D02-8563-C02F0930172C - d06f8cea20e75d0e"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0, SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.Group&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0, SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in jobHunt.InternshipDetailSection.body.getter : some"
-                  moduleName = "jobHunt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Detail/InternshipDetailSection.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "2032">
-               </Location>
-               <Location
-                  uuid = "F3D6B6F4-4397-4D02-8563-C02F0930172C - d06f8cea20e75d0e"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0, SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.Group&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, SwiftUI._ConditionalContent&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0, SwiftUI.Text&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;, &lt;&lt;opaque return type of SwiftUI.Text.headetTitle() -&gt; some&gt;&gt;.0, Swift.Optional&lt;&lt;&lt;opaque return type of SwiftUI.Text.TextArea(category: jobHunt.EventName) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in jobHunt.InternshipDetailSection.body.getter : some"
-                  moduleName = "jobHunt"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Detail/InternshipDetailSection.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "2912">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C8C8910E-5D78-40DD-A1FA-51F1891FFEF1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "jobHunt/Feature/App/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "notification()"
-            landmarkType = "9">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Log">
                   <ActionContent
-                     message = "count: @numberOfEvent@"
+                     message = "&#x30db;&#x30fc;&#x30e0;&#x753b;&#x9762;&#x304c;&#x547c;&#x3070;&#x308c;&#x305f;"
                      conveyanceType = "0">
                   </ActionContent>
                </BreakpointActionProxy>
@@ -196,33 +98,42 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BC3F9D60-9F9E-4869-BA33-DF916DB60D6D"
-            shouldBeEnabled = "No"
+            uuid = "D1AB3212-9F0D-4772-8C2A-5DB071DF87D0"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "jobHunt/Feature/App/AppDelegate.swift"
+            continueAfterRunningActions = "Yes"
+            filePath = "jobHunt/Feature/Home/HomeView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "&#x30ab;&#x30ec;&#x30f3;&#x30c0;&#x30fc;&#x8868;&#x793a;"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EA5D947F-758B-4BB8-AE34-6C91B5823B98"
+            uuid = "80B63C5A-C524-4B68-BF24-B16268A86B3A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "jobHunt/Feature/App/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "notification()"
-            landmarkType = "9">
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "userNotificationCenter(_:willPresent:withCompletionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

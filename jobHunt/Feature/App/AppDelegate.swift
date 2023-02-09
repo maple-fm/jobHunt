@@ -13,12 +13,16 @@ import UIKit
 class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
 
+        let repository = EventRepository()
+        let format = FormatRepository()
+        let numberOfEvent = repository.getEvents().filter { format.formatDate(date: $0.deadline) == format.formatDate(date: .now) }.count
+
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
                 print("許可されました！")
                 center.removeAllPendingNotificationRequests()
-                notification()
+                notification(numberOfEvent)
                 UNUserNotificationCenter.current().delegate = self
             }else{
                 print("拒否されました...")
@@ -35,17 +39,15 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
     }
 }
 
-private func notification() {
-    let repository = EventRepository()
-    let format = FormatRepository()
-    let numberOfEvent = repository.getEvents().filter { format.formatDate(date: $0.deadline) == format.formatDate(date: .now) }.count
+private func notification(_ numberOfEvent: Int) {
+
     var message: String = ""
 
     do {
         let content = UNMutableNotificationContent()
-        let date = DateComponents(hour:9)
+//        let date = DateComponents(hour:9)
 //        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
 
         if numberOfEvent == 0 {
             message = "今日の就活はおやすみ!しっかり休んでね!"
@@ -58,8 +60,7 @@ private func notification() {
 
 
         //通知内容
-        content.title = "今日の就活"
-        // TODO: 文章要検討
+        content.title = "JobHunt"
         content.body = message
         content.sound = UNNotificationSound.default
         content.badge = 1
