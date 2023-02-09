@@ -22,6 +22,7 @@ struct jobHuntApp: App {
                 .onChange(of: scenePhase) { phase in
                     switch phase {
                     case .active:
+                        UIApplication.shared.applicationIconBadgeNumber = 0
                         print("画面が開いた")
                     case .inactive:
 
