@@ -73,31 +73,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "739C43A3-16AB-476E-87F1-4BFEBC0DEF69"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "jobHunt/Feature/App/jobHuntApp.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
-                  <ActionContent
-                     message = "&#x30db;&#x30fc;&#x30e0;&#x753b;&#x9762;&#x304c;&#x547c;&#x3070;&#x308c;&#x305f;"
-                     conveyanceType = "0">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D1AB3212-9F0D-4772-8C2A-5DB071DF87D0"
             shouldBeEnabled = "No"
             ignoreCount = "0"

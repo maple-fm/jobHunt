@@ -22,11 +22,10 @@ struct jobHuntApp: App {
                 .onChange(of: scenePhase) { phase in
                     switch phase {
                     case .active:
+                        // アイコンバッジをリセット
                         UIApplication.shared.applicationIconBadgeNumber = 0
                         print("画面が開いた")
                     case .inactive:
-
-
                         let numberOfEvent = repository.getEvents().filter { format.formatDate(date: $0.deadline) == format.formatDate(date: .now) }.count
                         
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
@@ -47,9 +46,8 @@ struct jobHuntApp: App {
 
         do {
             let content = UNMutableNotificationContent()
-    //        let date = DateComponents(hour:9)
-    //        let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+            let date = DateComponents(hour:9)
+            let trigger = UNCalendarNotificationTrigger.init(dateMatching: date, repeats: true)
 
             if numberOfEvent == 0 {
                 message = "今日の就活はおやすみ!しっかり休んでね!"
