@@ -24,15 +24,11 @@ struct jobHuntApp: App {
                     case .active:
                         // アイコンバッジをリセット
                         UIApplication.shared.applicationIconBadgeNumber = 0
-                        print("画面が開いた")
                     case .inactive:
                         let numberOfEvent = repository.getEvents().filter { format.formatDate(date: $0.deadline) == format.formatDate(date: .now) }.count
                         
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                         notification(numberOfEvent)
-                        print("画面が閉じた")
-                    case .background:
-                        print("いつ呼ばれてる")
 
                     @unknown default: break
                     }
