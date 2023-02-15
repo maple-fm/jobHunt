@@ -37,6 +37,7 @@ struct ESView: View {
                     header: Text("志望動機")
                         .headetTitle(),
                     footer: Text("\(viewModel.motivation.count)count")
+                        .foregroundColor(.black)
                 ) {
                     TextEditor( text: $viewModel.motivation)
                         .input()
@@ -47,6 +48,7 @@ struct ESView: View {
                     header: Text("ガクチカ")
                         .headetTitle(),
                     footer: Text("\(viewModel.gakuchika.count)count")
+                        .foregroundColor(.black)
                 ) {
                     TextEditor(text: $viewModel.gakuchika)
                         .input()
