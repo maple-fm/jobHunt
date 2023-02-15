@@ -14,5 +14,7 @@ extension DatePicker {
             .padding(.leading, -10)
             .labelsHidden()
             .listRowBackground(Color.clear)
+            .colorInvert()
+            .colorMultiply(.black)
     }
 }
