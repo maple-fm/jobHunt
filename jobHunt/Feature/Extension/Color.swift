@@ -33,4 +33,6 @@ struct CustomColor {
     func inputColor() -> Color {
         return Color(UIColor(named: "input")!.cgColor)
     }
+
+
 }
