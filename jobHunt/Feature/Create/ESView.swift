@@ -58,6 +58,7 @@ struct ESView: View {
                     header: Text("長所")
                         .headetTitle(),
                     footer: Text("\(viewModel.strongPoints.count)count")
+                        .foregroundColor(.black)
                 ) {
                     TextEditor(text: $viewModel.strongPoints)
                         .input()
@@ -67,6 +68,7 @@ struct ESView: View {
                     header: Text("短所")
                         .headetTitle(),
                     footer: Text("\(viewModel.weakPoints.count)count")
+                        .foregroundColor(.black)
                 ) {
                     TextEditor(text: $viewModel.weakPoints)
                         .input()
