@@ -17,6 +17,7 @@
 		F52DBAD8293C880400C0DAA6 /* InterviewEditSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52DBAD7293C880400C0DAA6 /* InterviewEditSection.swift */; };
 		F52DBADA293C881A00C0DAA6 /* InternshipEditSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52DBAD9293C881A00C0DAA6 /* InternshipEditSection.swift */; };
 		F52DBADC293C882D00C0DAA6 /* SessionEditSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52DBADB293C882D00C0DAA6 /* SessionEditSection.swift */; };
+		F54EC1D4299E70B0009319D1 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54EC1D3299E70B0009319D1 /* EventList.swift */; };
 		F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCD2923FD6000B41A25 /* CreateRepository.swift */; };
 		F5716BD02924D63D00B41A25 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCF2924D63D00B41A25 /* EditViewModel.swift */; };
 		F5716BD22924E00600B41A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BD12924E00600B41A25 /* AppDelegate.swift */; };
@@ -88,6 +89,7 @@
 		F52DBAD7293C880400C0DAA6 /* InterviewEditSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewEditSection.swift; sourceTree = "<group>"; };
 		F52DBAD9293C881A00C0DAA6 /* InternshipEditSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternshipEditSection.swift; sourceTree = "<group>"; };
 		F52DBADB293C882D00C0DAA6 /* SessionEditSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditSection.swift; sourceTree = "<group>"; };
+		F54EC1D3299E70B0009319D1 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		F5716BCD2923FD6000B41A25 /* CreateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRepository.swift; sourceTree = "<group>"; };
 		F5716BCF2924D63D00B41A25 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		F5716BD12924E00600B41A25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			children = (
 				F58BEBA929003A5E00323EFA /* HomeViewModel.swift */,
 				F5C83B6D28F311FE00A01E4E /* HomeView.swift */,
+				F54EC1D3299E70B0009319D1 /* EventList.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
 				F5A9C437292FAAC5001402FE /* SettingView.swift in Sources */,
 				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
+				F54EC1D4299E70B0009319D1 /* EventList.swift in Sources */,
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
 				F58BEBAD2902706C00323EFA /* DetailView.swift in Sources */,
 				F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */,
