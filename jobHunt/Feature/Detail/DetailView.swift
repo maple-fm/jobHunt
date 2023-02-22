@@ -112,6 +112,7 @@ struct DetailView: View {
                 .frame(alignment: .center)
                 .font(.system(size: 35, weight: .black))
                 .padding(.vertical, 30)
+                .foregroundColor(.black)
 
             if isUpdate {
                 ESEditSection(es: event)
@@ -134,6 +135,7 @@ struct DetailView: View {
                 .frame(alignment: .center)
                 .font(.system(size: 35, weight: .black))
                 .padding(.vertical, 30)
+                .foregroundColor(.black)
 
             if isUpdate {
                 InterviewEditSection(interview: event)
@@ -156,6 +158,7 @@ struct DetailView: View {
                 .frame(alignment: .center)
                 .font(.system(size: 35, weight: .black))
                 .padding(.vertical, 30)
+                .foregroundColor(.black)
 
             if isUpdate {
                 InternshipEditSection(intern: event)
@@ -179,6 +182,7 @@ struct DetailView: View {
                 .frame(alignment: .center)
                 .font(.system(size: 35, weight: .black))
                 .padding(.vertical, 30)
+                .foregroundColor(.black)
 
             if isUpdate {
                 SessionEditSection(session: event)

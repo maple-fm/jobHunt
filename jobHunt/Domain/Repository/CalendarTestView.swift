@@ -15,7 +15,8 @@ struct CalendarTestView: UIViewRepresentable {
 
     @Binding var selectedDate: Date
     let eventsDate: [String]
-    
+    let today: Date
+
     func makeUIView(context: Context) -> UIView {
 
         typealias UIViewType = FSCalendar
@@ -45,7 +46,7 @@ struct CalendarTestView: UIViewRepresentable {
                 return .black
             }
         }
-        fsCalendar.appearance.todayColor = UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1) //本日の選択カラー
+        fsCalendar.appearance.todayColor = UIColor(named: "esBg") //本日の選択カラー
         fsCalendar.appearance.titleTodayColor = .black //本日のテキストカラー
 
         fsCalendar.appearance.selectionColor = .clear //選択した日付のカラー
@@ -71,6 +72,7 @@ struct CalendarTestView: UIViewRepresentable {
         if let uiView = uiView as? FSCalendar {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 uiView.reloadData()
+                uiView.today = today
             }
         }
     }

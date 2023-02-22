@@ -13,12 +13,11 @@ struct SettingView: View {
         Form {
             List {
                 Section(header: Text("お問い合わせ")) {
-                    //TODO: URLをgoogleフォームに変更する
-                    if let url = URL(string: "https://ios-docs.dev") {
+                    if let url = URL(string: "https://forms.gle/EN7WjkSiQG3fDwx87") {
                         Link("お問い合わせ", destination: url)
                     }
 
-                    if let url = URL(string: "https://github.com/maple-fm/ios-engineer-codecheck") {
+                    if let url = URL(string: "https://forms.gle/3WRnS3bJ6J4BHj1V6") {
                         Link("バグ報告", destination: url)
                     }
                 }

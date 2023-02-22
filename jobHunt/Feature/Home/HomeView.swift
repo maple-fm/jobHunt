@@ -10,7 +10,9 @@ import SwiftUI
 
 struct HomeView: View {
 
+    @Environment(\.scenePhase) private var scenePhase
     @State var selectedDate = Date()
+    @State var today = Date.now
     @State private var add = false
     @ObservedObject var viewModel = HomeViewModel()
 
@@ -20,8 +22,17 @@ struct HomeView: View {
                 ZStack(alignment: .top) {
 
                     CalendarTestView(selectedDate: $selectedDate,
-                                     eventsDate: viewModel.eventsDateArray)
+                                     eventsDate: viewModel.eventsDateArray,
+                                     today: today)
                         .frame(width: 400, height: 400.0, alignment: .center)
+                        .onChange(of: scenePhase) { phase in
+                            switch phase {
+                            case .inactive:
+                                self.today = Date.now
+
+                            @unknown default: break
+                            }
+                        }
 
                     NavigationLink(
                         destination: SettingView()
@@ -29,8 +40,8 @@ struct HomeView: View {
                         Image(systemName: "gearshape.fill")
                     }
                     .frame(width: 60, height: 60, alignment: .center)
-                        .foregroundColor(.green)
-                        .padding(.leading, 310)
+                    .foregroundColor(.green)
+                    .padding(.leading, 310)
                 }
 
                 Divider()
@@ -62,56 +73,7 @@ struct HomeView: View {
                     }
                 }
 
-                ZStack {
-                    ScrollView(showsIndicators: false) {
-                        ForEach(viewModel.events, id: \.id) { event in
-                            if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
-                                VStack {
-                                    NavigationLink(
-                                        destination: DetailView(
-                                            eventId: event.id,
-                                            event: event,
-                                            onEdit: {
-                                                viewModel.onUpdated()
-                                            })
-                                            .onDisappear(){
-                                                viewModel.onUpdated()
-                                            }
-                                    ){
-                                        HStack {
-                                            Text(event.name)
-                                                .font(.body)
-                                                .padding(EdgeInsets(
-                                                    top: 0,
-                                                    leading: 40,
-                                                    bottom: 0,
-                                                    trailing: 0
-                                                ))
-
-                                            Spacer()
-
-                                            Text("\(viewModel.toTime(date: event.deadline))~")
-                                                .font(.callout)
-                                                .padding(EdgeInsets(
-                                                    top: 40,
-                                                    leading: 0,
-                                                    bottom: 15,
-                                                    trailing: 30
-                                                ))
-                                        }
-                                        .frame(width: 350, height: 70, alignment: .leading)
-                                        .background(event.category.bgColor)
-                                        .cornerRadius(50)
-                                        .foregroundColor(.black)
-
-                                    }
-                                    
-                                }
-                            }
-                        }
-                        .padding(.leading, 15)
-                    }
-                }
+                EventList(viewModel: viewModel, selectedDate: selectedDate)
             }
         }
     }

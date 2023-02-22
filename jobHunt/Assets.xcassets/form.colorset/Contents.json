@@ -4,7 +4,7 @@
       "color" : {
         "color-space" : "srgb",
         "components" : {
-          "alpha" : "0.036",
+          "alpha" : "0.040",
           "blue" : "0",
           "green" : "0",
           "red" : "0"
@@ -20,8 +20,13 @@
         }
       ],
       "color" : {
-        "platform" : "osx",
-        "reference" : "tertiaryLabelColor"
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "0.080",
+          "blue" : "0.000",
+          "green" : "0.002",
+          "red" : "0.000"
+        }
       },
       "idiom" : "universal"
     }

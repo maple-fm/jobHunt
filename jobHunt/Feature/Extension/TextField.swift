@@ -12,6 +12,7 @@ extension TextField {
     func input() -> some View {
         self
             .listRowBackground(Color(UIColor(named: "form")!.cgColor))
+            .foregroundColor(.black)
     }
 }
 
@@ -20,6 +21,7 @@ extension TextEditor {
     func input() -> some View {
         self
             .listRowBackground(Color(UIColor(named: "form")!.cgColor))
+            .foregroundColor(.black)
     }
 
     func textArea(_ category: EventName) -> some View {

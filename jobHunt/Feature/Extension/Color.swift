@@ -25,12 +25,4 @@ extension UIColor {
         self.init(red: rgba[0], green: rgba[1], blue: rgba[2], alpha: rgba[3])
     }
 
-
-}
-
-struct CustomColor {
-
-    func inputColor() -> Color {
-        return Color(UIColor(named: "input")!.cgColor)
-    }
 }

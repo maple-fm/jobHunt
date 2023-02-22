@@ -33,8 +33,8 @@ struct CreateView: View {
                             .frame(width: 200, height: 70)
                             .background(
                                 event == eventName
-                                ? Color(UIColor(red: 0.69, green: 0.962, blue: 0.733, alpha: 1).cgColor)
-                                : Color(UIColor(red: 0.918, green: 0.95, blue: 0.923, alpha: 1).cgColor)
+                                ? Color(UIColor(named: "selectedColor")!.cgColor)
+                                : Color(UIColor(named: "NotSelected")!.cgColor)
                             )
                             .cornerRadius(50)
                             .padding(EdgeInsets(

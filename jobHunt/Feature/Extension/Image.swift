@@ -12,6 +12,6 @@ extension Image {
         self
             .font(.system(size: 60))
             .frame(width: 60, height: 60, alignment: .center)
-            .foregroundColor(.green)
+            .foregroundColor(Color(UIColor(named: "CreateButton")!))
     }
 }

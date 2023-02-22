@@ -24,7 +24,7 @@ struct ESDetailSection: View {
                         header: Text("志望動機")
                             .headetTitle(),
                         footer:Text("\(motivation.count)count")
-                            .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                            .foregroundColor(.black)
                             .font(.system(size: 15))
                             .padding(.leading, 11)
                             .padding(.bottom, 5)
@@ -40,7 +40,7 @@ struct ESDetailSection: View {
                         header: Text("ガクチカ")
                             .headetTitle(),
                         footer: Text("\(gakuchika.count)count")
-                            .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                            .foregroundColor(.black)
                             .font(.system(size: 15))
                             .padding(.leading, 11)
                             .padding(.bottom, 5)
@@ -57,7 +57,7 @@ struct ESDetailSection: View {
                         header: Text("長所")
                             .headetTitle(),
                         footer: Text("\(strongPoints.count)count")
-                            .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                            .foregroundColor(.black)
                             .font(.system(size: 15))
                             .padding(.leading, 11)
                             .padding(.bottom, 5)
@@ -72,7 +72,7 @@ struct ESDetailSection: View {
                         header: Text("短所")
                             .headetTitle(),
                         footer: Text("\(weakPoints.count)count")
-                            .foregroundColor(Color(UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)))
+                            .foregroundColor(.black)
                             .font(.system(size: 15))
                             .padding(.leading, 11)
                             .padding(.bottom, 5)
