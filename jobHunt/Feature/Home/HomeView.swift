@@ -10,7 +10,9 @@ import SwiftUI
 
 struct HomeView: View {
 
+    @Environment(\.scenePhase) private var scenePhase
     @State var selectedDate = Date()
+    @State var today = Date.now
     @State private var add = false
     @ObservedObject var viewModel = HomeViewModel()
 
@@ -20,8 +22,17 @@ struct HomeView: View {
                 ZStack(alignment: .top) {
 
                     CalendarTestView(selectedDate: $selectedDate,
-                                     eventsDate: viewModel.eventsDateArray)
+                                     eventsDate: viewModel.eventsDateArray,
+                                     today: today)
                         .frame(width: 400, height: 400.0, alignment: .center)
+                        .onChange(of: scenePhase) { phase in
+                            switch phase {
+                            case .inactive:
+                                self.today = Date.now
+
+                            @unknown default: break
+                            }
+                        }
 
                     NavigationLink(
                         destination: SettingView()

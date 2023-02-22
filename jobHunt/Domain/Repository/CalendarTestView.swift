@@ -15,7 +15,8 @@ struct CalendarTestView: UIViewRepresentable {
 
     @Binding var selectedDate: Date
     let eventsDate: [String]
-    
+    let today: Date
+
     func makeUIView(context: Context) -> UIView {
 
         typealias UIViewType = FSCalendar
@@ -71,6 +72,7 @@ struct CalendarTestView: UIViewRepresentable {
         if let uiView = uiView as? FSCalendar {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 uiView.reloadData()
+                uiView.today = today
             }
         }
     }
