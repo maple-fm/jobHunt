@@ -30,8 +30,8 @@ struct jobHuntApp: App {
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                         notification(numberOfEvent)
 
-                    case .background:
-                        <#code#>
+                    case .background: break
+                        
                     @unknown default: break
                     }
                 }

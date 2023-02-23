@@ -31,9 +31,9 @@ struct HomeView: View {
                                 self.today = Date.now
 
                             case .background:
-                                <#code#>
+                                break
                             case .active:
-                                <#code#>
+                                break
                             @unknown default: break
                             }
                         }
