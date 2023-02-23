@@ -23,7 +23,8 @@ struct SettingView: View {
                 }
 
                 Section(header: Text("その他")) {
-                    Text("このアプリについて")
+                    NavigationLink("このアプリについて", destination: PrivacyAndTerms())
+
                 }
             }
             .navigationTitle("設定")
@@ -49,5 +50,24 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         SettingView()
+    }
+}
+
+struct PrivacyAndTerms: View {
+    var body: some View {
+        Form {
+            List {
+                Section(header: Text("")) {
+                    if let url = URL(string: "https://maple-fm.github.io/jobHunt-privacy/Terms.html") {
+                        Link("利用規約", destination: url)
+                    }
+
+                    if let url = URL(string: "https://maple-fm.github.io/jobHunt-privacy/privacy.html") {
+                        Link("プライバシーポリシー", destination: url)
+                    }
+                }
+
+            }
+        }
     }
 }
