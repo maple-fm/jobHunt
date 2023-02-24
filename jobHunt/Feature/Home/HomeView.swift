@@ -42,10 +42,10 @@ struct HomeView: View {
                         destination: SettingView()
                     ) {
                         Image(systemName: "gearshape.fill")
-                            .frame(width: 30, height: 30, alignment: .center)
+                            .frame(width: 35, height: 35, alignment: .center)
                     }
                     .foregroundColor(.green)
-                    .padding(.vertical, 5)
+                    .padding(.vertical, 8)
                     .padding(.leading, 310)
                 }
 
