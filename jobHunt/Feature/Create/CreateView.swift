@@ -22,6 +22,9 @@ struct CreateView: View {
             Color(UIColor(named: "CreateScreen")!)
                 .edgesIgnoringSafeArea(.all)
             VStack {
+                Divider()
+                    .offset(y: 83)
+
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(EventName.allCases, id: \.self) { (eventName) in
@@ -51,6 +54,7 @@ struct CreateView: View {
                                     .offset(x: swipeRight ? -160 : 0, y:0)
 
                             }
+
                         }
                     }
                     
