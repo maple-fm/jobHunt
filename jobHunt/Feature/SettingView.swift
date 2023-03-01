@@ -38,7 +38,7 @@ struct SettingView: View {
                     HStack {
                         Image(systemName: "chevron.backward")
                             .font(.system(size: 17, weight: .medium))
-                        Text("戻る")
+                        Text("カレンダー")
                     }
                 }
             }
