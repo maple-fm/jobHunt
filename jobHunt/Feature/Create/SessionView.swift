@@ -22,7 +22,7 @@ struct SessionView: View {
                     header: Text("会社名")
                         .headetTitle()
                 ) {
-                    TextField("会社名", text: $viewModel.name)
+                    TextField("", text: $viewModel.name)
                         .input()
                 }
 
