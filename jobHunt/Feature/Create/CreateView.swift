@@ -17,32 +17,32 @@ struct CreateView: View {
 
     var body: some View {
         ZStack {
-            Color(UIColor(200, 255, 200, 100).cgColor)
+            Color(UIColor(named: "CreateScreen")!)
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(EventName.allCases, id: \.self) { (eventName) in
-                            Button(action: {
-                                event = eventName
-                            }) {
-                                Text(eventName.rawValue).tag(eventName)
-                                    .padding()
-                                    .foregroundColor(.black)
+                            VStack(spacing: 0) {
+                                Button(action: {
+                                    event = eventName
+                                }) {
+                                    Text(eventName.rawValue).tag(eventName)
+                                        .foregroundColor(event == eventName
+                                                         ? Color(.black)
+                                                         : Color(.gray))
+
+                                }
+                                .frame(width: 150, height: 50)
+                                .padding(.top, 20)
+
+                                Rectangle()
+                                    .foregroundColor(event == eventName
+                                                     ? Color(UIColor(named: "selectedColor")!.cgColor)
+                                                     : Color(UIColor(named: "NotSelected")!.cgColor))
+                                    .frame(width: 120, height: 5)
+                                    .cornerRadius(20)
                             }
-                            .frame(width: 200, height: 70)
-                            .background(
-                                event == eventName
-                                ? Color(UIColor(named: "selectedColor")!.cgColor)
-                                : Color(UIColor(named: "NotSelected")!.cgColor)
-                            )
-                            .cornerRadius(50)
-                            .padding(EdgeInsets(
-                                top:15,
-                                leading: 5,
-                                bottom: 15,
-                                trailing: 5
-                            ))
                         }
                     }
                     
@@ -51,6 +51,39 @@ struct CreateView: View {
                 event.eventView(selectedDate: selectedDate, click: $canCreate) {
                     dismiss()
                 }
+                .gesture(DragGesture(minimumDistance: 5)
+                    .onChanged{ value in
+                        print("現在位置: ", value.location)
+
+                    }
+                    .onEnded { value in
+                        // スワイプが完了した時の処理
+                        print("移動距離: ", value.translation.width)
+                        if value.translation.width < 0 {
+                            switch event {
+                            case .es:
+                                event = .interview
+                            case .interview:
+                                event = .session
+                            case .session:
+                                event = .internship
+                            case .internship:
+                                break
+                            }
+                        } else {
+                            switch event {
+                            case .es:
+                                break
+                            case .interview:
+                                event = .es
+                            case .session:
+                                event = .interview
+                            case .internship:
+                                event = .session
+                            }
+                        }
+                    }
+                )
 
                 Button(action: {
                     canCreate.toggle()
