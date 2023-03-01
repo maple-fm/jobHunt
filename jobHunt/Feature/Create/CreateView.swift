@@ -11,6 +11,8 @@ struct CreateView: View {
 
     @State var event: EventName = .es
     @State private var canCreate = false
+    @State var swipeRight = false
+    @State var swipeLeft = false
     @Binding var selectedDate: Date
     @Environment(\.dismiss) var dismiss
 
@@ -31,6 +33,9 @@ struct CreateView: View {
                                         .foregroundColor(event == eventName
                                                          ? Color(.black)
                                                          : Color(.gray))
+                                        .font(event == eventName
+                                              ? .headline
+                                              : .body)
 
                                 }
                                 .frame(width: 150, height: 50)
@@ -39,9 +44,12 @@ struct CreateView: View {
                                 Rectangle()
                                     .foregroundColor(event == eventName
                                                      ? Color(UIColor(named: "selectedColor")!.cgColor)
-                                                     : Color(UIColor(named: "NotSelected")!.cgColor))
+                                                     : .clear)
                                     .frame(width: 120, height: 5)
                                     .cornerRadius(20)
+                                    .offset(x: swipeLeft  ? 160 : 0, y:0)
+                                    .offset(x: swipeRight ? -160 : 0, y:0)
+
                             }
                         }
                     }
@@ -52,14 +60,19 @@ struct CreateView: View {
                     dismiss()
                 }
                 .gesture(DragGesture(minimumDistance: 5)
-                    .onChanged{ value in
-                        print("現在位置: ", value.location)
-
+                    .onChanged { value in
+                        withAnimation {
+                            if value.translation.width < -80  && event != .internship {
+                                swipeLeft = true
+                            } else if value.translation.width > 80 && event != .es {
+                                swipeRight = true
+                            }
+                        }
                     }
                     .onEnded { value in
                         // スワイプが完了した時の処理
-                        print("移動距離: ", value.translation.width)
-                        if value.translation.width < 0 {
+                        if swipeLeft {
+                            swipeLeft = false
                             switch event {
                             case .es:
                                 event = .interview
@@ -70,7 +83,8 @@ struct CreateView: View {
                             case .internship:
                                 break
                             }
-                        } else {
+                        } else if swipeRight {
+                            swipeRight = false
                             switch event {
                             case .es:
                                 break
