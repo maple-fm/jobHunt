@@ -29,8 +29,12 @@ struct CreateView: View {
                     HStack {
                         ForEach(EventName.allCases, id: \.self) { (eventName) in
                             VStack(spacing: 0) {
+                                
                                 Button(action: {
-                                    event = eventName
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                                        event = eventName
+                                    }
+
                                 }) {
                                     Text(eventName.rawValue).tag(eventName)
                                         .foregroundColor(event == eventName
@@ -108,11 +112,9 @@ struct CreateView: View {
                 }) {
                     Image(systemName: "checkmark.circle.fill")
                         .ImageItem()
-                        
                 }
 
             }
-
         }
     }
 }
