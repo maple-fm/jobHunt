@@ -103,6 +103,15 @@ struct DetailView: View {
                 }
             }
         }
+        .gesture(DragGesture(minimumDistance: 5)
+            .onChanged { value in
+                withAnimation {
+                    if value.translation.width > 100 {
+                        dismiss()
+                    }
+                }
+            }
+        )
 
     }
 
