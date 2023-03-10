@@ -10,6 +10,7 @@ import SwiftUI
 struct InternshipDetailSection: View {
 
     let intern: InternshipModel
+    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,6 +19,14 @@ struct InternshipDetailSection: View {
                     .headetTitle()
                 Text(intern.name)
                     .TextArea(intern.category)
+
+                Text("開始時間")
+                    .headetTitle()
+                Text(viewModel.toTime(date: intern.deadline))
+                    .TextArea(intern.category)
+            }
+
+            Group {
 
                 Text("開催場所")
                     .headetTitle()

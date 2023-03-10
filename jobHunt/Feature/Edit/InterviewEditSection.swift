@@ -32,6 +32,18 @@ struct InterviewEditSection: View {
                 }
 
                 Section(
+                    header: Text("開始時間")
+                        .headetTitle()
+                ) {
+                    DatePicker("開始時間", selection: $viewModel.deadline)
+                        .PickerItem()
+                        .onAppear() {
+                            viewModel.deadline = interview.deadline
+                        }
+                        .padding(.leading, 25)
+                }
+
+                Section(
                     header: Text("開催場所")
                         .headetTitle()
                 ) {

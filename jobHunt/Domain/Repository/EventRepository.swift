@@ -281,6 +281,7 @@ class EventRepository {
     func editES(
         id: String,
         name: String,
+        deadline: Date,
         motivation: String?,
         gakuchika: String?,
         strongPoints: String?,
@@ -291,7 +292,7 @@ class EventRepository {
         ESDataSource().edit(model:ESModel(
             id: id,
             name: name,
-            deadline: Date.now,
+            deadline: deadline,
             motivation: motivation,
             gakuchika: gakuchika,
             strongPoints: strongPoints,
@@ -304,6 +305,7 @@ class EventRepository {
     func editInterview(
         id: String,
         name: String,
+        deadline: Date,
         location: String?,
         clothes: String?,
         motivation: String?,
@@ -317,7 +319,7 @@ class EventRepository {
         InterviewDataSource().edit(model:InterviewModel(
             id: id,
             name: name,
-            deadline: Date.now,
+            deadline: deadline,
             location: location,
             clothes: clothes,
             motivation: motivation,
@@ -333,6 +335,7 @@ class EventRepository {
     func editInternship(
         id: String,
         name: String,
+        deadline: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -342,7 +345,7 @@ class EventRepository {
         InternshipDataSource().edit(model: InternshipModel(
             id: id,
             name: name,
-            deadline: Date.now,
+            deadline: deadline,
             location: location,
             clothes: clothes,
             item: item,
@@ -354,6 +357,7 @@ class EventRepository {
     func editSession(
         id: String,
         name: String,
+        deadline: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -364,7 +368,7 @@ class EventRepository {
         SessionDataSource().edit(model: SessionModel(
             id: id,
             name: name,
-            deadline: Date.now,
+            deadline: deadline,
             location: location,
             clothes: clothes,
             item: item,

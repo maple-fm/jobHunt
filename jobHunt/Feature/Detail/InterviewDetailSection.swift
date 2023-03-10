@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct InterviewDetailSection: View {
+    
     let interview: InterviewModel
+    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,6 +19,14 @@ struct InterviewDetailSection: View {
                     .headetTitle()
                 Text(interview.name)
                     .TextArea(interview.category)
+
+                Text("開始時間")
+                    .headetTitle()
+                Text(viewModel.toTime(date: interview.deadline))
+                    .TextArea(interview.category)
+            }
+
+            Group {
 
                 Text("開催場所")
                     .headetTitle()

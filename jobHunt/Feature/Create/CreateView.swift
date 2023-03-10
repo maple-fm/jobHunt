@@ -47,6 +47,7 @@ struct CreateView: View {
                                 }
                                 .frame(width: 150, height: 50)
                                 .padding(.top, 20)
+//                                .buttonStyle(.disabled)
 
                                 Rectangle()
                                     .foregroundColor(event == eventName
@@ -118,6 +119,11 @@ struct CreateView: View {
         }
     }
 }
+
+
+//private extension EventName {
+//    func goTo
+//}
 
 
 struct CreateEvent_Previews: PreviewProvider {

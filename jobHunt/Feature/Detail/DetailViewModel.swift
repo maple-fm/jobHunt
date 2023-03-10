@@ -11,6 +11,7 @@ import SwiftUI
 class DetailViewModel: ObservableObject {
 
     private var eventRepository = EventRepository()
+    private var format = FormatRepository()
 
     func delete(event: any Entry) {
         if let es = event as? ESModel {
@@ -41,6 +42,10 @@ class DetailViewModel: ObservableObject {
 
     func getSessionpArray(id: String) -> SessionModel {
         eventRepository.getSessionArray(id: id).first ?? SessionModel(id: UUID().uuidString, name: "", deadline: Date.now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
+    }
+
+    func toTime(date: Date) -> String {
+        return format.formatTime(date: date)
     }
     
 }

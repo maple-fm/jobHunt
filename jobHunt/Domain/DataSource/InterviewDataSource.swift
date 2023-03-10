@@ -82,6 +82,7 @@ class InterviewDataSource: Object{
 
         try! realm.write {
             target.name = model.name
+            target.deadline = model.deadline
             target.location = model.location ?? ""
             target.clothes = model.clothes ?? ""
             target.motivation = model.motivation ?? ""

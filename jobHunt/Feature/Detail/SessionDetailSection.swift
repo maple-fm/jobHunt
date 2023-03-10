@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SessionDetailSection: View {
+    
     let session: SessionModel
+    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,6 +19,14 @@ struct SessionDetailSection: View {
                     .headetTitle()
                 Text(session.name)
                     .TextArea(session.category)
+
+                Text("開始時間")
+                    .headetTitle()
+                Text(viewModel.toTime(date: session.deadline))
+                    .TextArea(session.category)
+            }
+
+            Group {
 
                 Text("開催場所")
                     .headetTitle()
