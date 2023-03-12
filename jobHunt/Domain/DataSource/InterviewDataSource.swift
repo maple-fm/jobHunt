@@ -13,6 +13,7 @@ class InterviewDataSource: Object{
     @Persisted var id: String
     @Persisted var name: String
     @Persisted var deadline: Date
+    @Persisted var flow: Flow
     @Persisted var location: String
     @Persisted var clothes: String
     @Persisted var motivation: String
@@ -23,11 +24,12 @@ class InterviewDataSource: Object{
     @Persisted var other: String
     @Persisted var category: EventName
 
-    init(name: String, deadline: Date, location: String, clothes: String, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, questions: String, other: String, category: EventName) {
+    init(name: String, deadline: Date, flow: Flow, location: String, clothes: String, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, questions: String, other: String, category: EventName) {
         
         self.id = UUID().uuidString
         self.name = name
         self.deadline = deadline
+        self.flow = flow
         self.location = location
         self.clothes = clothes
         self.motivation = motivation
@@ -41,7 +43,7 @@ class InterviewDataSource: Object{
     }
 
     convenience override init() {
-        self.init(name: "", deadline: Date.now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
+        self.init(name: "", deadline: Date.now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
     }
 
     func write(datasource: InterviewDataSource) {

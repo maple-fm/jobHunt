@@ -18,20 +18,39 @@ struct InterviewView: View {
     var body: some View {
         VStack {
             Form {
-                Section(
-                    header: Text("会社名")
-                        .headetTitle()
-                ) {
-                    TextField("", text: $viewModel.name)
-                        .input()
-                }
 
-                Section(
-                    header: Text("開始時間")
-                        .headetTitle()
-                ) {
-                    DatePicker("開始時間", selection: $deadline)
-                        .PickerItem()
+                Group {
+                    Section(
+                        header: Text("会社名")
+                            .headetTitle()
+                    ) {
+                        TextField("", text: $viewModel.name)
+                            .input()
+                    }
+
+                    Section(
+                        header: Text("開始時間")
+                            .headetTitle()
+                    ) {
+                        DatePicker("開始時間", selection: $deadline)
+                            .PickerItem()
+                    }
+
+                    Section(
+                        header: Text("選考フロー")
+                            .headetTitle()
+                    ) {
+                        Picker("", selection: $viewModel.flow) {
+                            ForEach(Flow.allCases, id: \.self) { (value) in
+                                Text(value.rawValue).tag(value)
+
+                            }
+                        }
+                        .frame(width: 10)
+                        .listRowBackground(Color(UIColor(named: "form")!.cgColor))
+                        .foregroundColor(.black)
+                        .padding(.leading, 10)
+                    }
                 }
 
                 Section(

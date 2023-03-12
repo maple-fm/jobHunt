@@ -159,6 +159,6 @@ struct InterviewEditSection: View {
 
 struct InterviewEditSection_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewEditSection(interview: .init(id: "", name: "", deadline: .now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
+        InterviewEditSection(interview: InterviewModel())
     }
 }

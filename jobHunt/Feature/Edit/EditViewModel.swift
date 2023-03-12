@@ -13,6 +13,7 @@ class EditViewModel: ObservableObject {
 
     @Published var name: String = ""
     @Published var deadline: Date = .now
+    @Published var flow: Flow = .first
     @Published var location: String = ""
     @Published var clothes: String = ""
     @Published var motivation: String = ""
@@ -41,6 +42,7 @@ class EditViewModel: ObservableObject {
             id: id,
             name: self.name,
             deadline: self.deadline,
+            flow: self.flow,
             location: self.location,
             clothes: self.clothes,
             motivation: self.motivation,

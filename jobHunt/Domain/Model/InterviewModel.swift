@@ -6,27 +6,64 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-struct InterviewModel: Entry {
+// 面談・面接
+class InterviewModel: Object, Entry {
 
-    var id: String
-    var name: String
-    var deadline: Date
-    var location: String?
-    var clothes: String?
-    var motivation: String?
-    var gakuchika: String?
-    var strongPoints: String?
-    var weakPoints: String?
-    var questions: String?
-    var other: String?
-    var category: EventName
+    @objc dynamic var id: String
+    @objc dynamic var name: String
+    @objc dynamic var deadline: Date
+    dynamic var flow: Flow
+    @objc dynamic var location: String?
+    @objc dynamic var clothes: String?
+    @objc dynamic var motivation: String?
+    @objc dynamic var gakuchika: String?
+    @objc dynamic var strongPoints: String?
+    @objc dynamic var weakPoints: String?
+    @objc dynamic var questions: String?
+    @objc dynamic var other: String?
+    dynamic var category: EventName
 
-    init(id: String, name: String, deadline: Date, location: String?, clothes: String?, motivation: String?, gakuchika: String?, strongPoints: String?, weakPoints: String?, questions: String?, other: String?, category: EventName) {
+    required override init() {
+        self.id = ""
+        self.name = ""
+        self.deadline = Date()
+        self.flow = .first
+        self.location = ""
+        self.clothes = ""
+        self.motivation = ""
+        self.gakuchika = ""
+        self.strongPoints = ""
+        self.weakPoints = ""
+        self.questions = ""
+        self.other = ""
+        self.category = .interview
+        super.init()
+    }
+
+    convenience init(
+        id: String,
+        name: String,
+        deadline: Date,
+        flow: Flow,
+        location: String?,
+        clothes: String?,
+        motivation: String?,
+        gakuchika: String?,
+        strongPoints: String?,
+        weakPoints: String?,
+        questions: String?,
+        other: String?,
+        category: EventName
+    ) {
+
+        self.init()
         self.id = id
         self.name = name
         self.deadline = deadline
+        self.flow = flow
         self.location = location
         self.clothes = clothes
         self.motivation = motivation
@@ -37,4 +74,12 @@ struct InterviewModel: Entry {
         self.other = other
         self.category = category
     }
+}
+
+enum Flow: String, CaseIterable, PersistableEnum {
+    case first = "1次"
+    case second = "2次"
+    case third = "3次"
+    case fourth = "4次"
+    case final = "最終"
 }

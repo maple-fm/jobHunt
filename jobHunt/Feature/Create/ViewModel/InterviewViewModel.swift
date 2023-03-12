@@ -15,6 +15,7 @@ class InterviewViewModel: ObservableObject {
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
+    @Published var flow: Flow = .first
     @Published var location: String = ""
     @Published var clothes: String = ""
     @Published var motivation: String = ""
@@ -32,6 +33,7 @@ class InterviewViewModel: ObservableObject {
         eventReprository.saveNesInterview(
             name: name,
             deadline: deadline,
+            flow: flow,
             location: location,
             clothes: clothes,
             motivation: motivation,

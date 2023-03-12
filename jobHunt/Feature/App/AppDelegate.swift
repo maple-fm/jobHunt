@@ -12,17 +12,22 @@ import RealmSwift
 
 // 参考サイト：https://tech.amefure.com/swift-notification
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
 
         let config = Realm.Configuration(
                         schemaVersion: 2,
                         migrationBlock: { migration, oldSchemaVersion in
                             if oldSchemaVersion < 2 {
-                                // スキーマバージョン 1 から 2 にマイグレーションする必要がある場合の処理を実装する
+                                migration.enumerateObjects(ofType: InterviewModel.className()) { oldObject, newObject in
+                                    newObject?["flow"] = Flow.first.rawValue
+                                }
                             }
                         })
 
-       Realm.Configuration.defaultConfiguration = config
+        Realm.Configuration.defaultConfiguration = config
+        let realm = try! Realm()
+        print(realm, "Realm")
+        print(config,"Realm Version")
 
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {

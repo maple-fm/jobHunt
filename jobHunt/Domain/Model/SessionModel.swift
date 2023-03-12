@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 説明会
 struct SessionModel: Entry {
 
     var id: String
