@@ -51,15 +51,18 @@ struct InterviewEditSection: View {
                         ForEach(Flow.allCases, id: \.self) { (value) in
                             Text(value.rawValue).tag(value)
                         }
+
+
                     }
-                    .padding(.leading, 5)
-                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
-                    .foregroundColor(.black)
-                    .background(Color(UIColor(named: "form")!.cgColor))
-                    .cornerRadius(14)
                     .onAppear() {
                         viewModel.flow = interview.flow
                     }
+                    .pickerStyle(DefaultPickerStyle())
+                    .accentColor(.black)
+                    .padding(.leading, 5)
+                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
+                    .background(Color(UIColor(named: "form")!.cgColor))
+                    .cornerRadius(14)
                 }
 
                 Section(
