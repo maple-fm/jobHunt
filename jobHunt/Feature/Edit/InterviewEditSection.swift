@@ -40,7 +40,6 @@ struct InterviewEditSection: View {
                         .onAppear() {
                             viewModel.deadline = interview.deadline
                         }
-                        .padding(.leading, 25)
                 }
 
                 Section(

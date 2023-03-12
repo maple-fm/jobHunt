@@ -11,7 +11,7 @@ import SwiftUI
 extension DatePicker {
     func PickerItem() -> some View {
         self
-            .frame(width: 135, height: 50)
+            .frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
             .labelsHidden()
             .listRowBackground(Color.clear)
             .colorInvert()

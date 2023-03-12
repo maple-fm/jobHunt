@@ -38,7 +38,6 @@ struct ESEditSection: View {
                     .onAppear() {
                         viewModel.deadline = es.deadline
                     }
-                    .padding(.leading, 25)
             }
 
             Section(

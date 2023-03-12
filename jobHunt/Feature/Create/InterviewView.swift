@@ -34,6 +34,7 @@ struct InterviewView: View {
                     ) {
                         DatePicker("開始時間", selection: $deadline)
                             .PickerItem()
+                        
                     }
 
                     Section(

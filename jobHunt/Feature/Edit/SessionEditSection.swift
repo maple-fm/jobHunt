@@ -40,7 +40,6 @@ struct SessionEditSection: View {
                         .onAppear() {
                             viewModel.deadline = session.deadline
                         }
-                        .padding(.leading, 25)
                 }
 
                 Section(
