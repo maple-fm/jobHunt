@@ -26,8 +26,9 @@ extension TextEditor {
 
     func textArea(_ category: EventName) -> some View {
         self
-            .padding()
-            .frame(maxWidth: .infinity, minHeight: 70, alignment: .leading)
+            .padding(.leading, 10)
+            .padding(.vertical, 10)
+            .frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
             .foregroundColor(.black)
             .background(Color(UIColor(named: "form")!.cgColor))
             .cornerRadius(14)
