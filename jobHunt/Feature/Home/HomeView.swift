@@ -24,7 +24,7 @@ struct HomeView: View {
                     CalendarTestView(selectedDate: $selectedDate,
                                      eventsDate: viewModel.eventsDateArray,
                                      today: today)
-                        .frame(width: 400, height: 400.0, alignment: .center)
+                    .frame(maxWidth: .infinity, minHeight: 400.0, alignment: .center)
                         .onChange(of: scenePhase) { phase in
                             switch phase {
                             case .inactive:
