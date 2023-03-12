@@ -10,40 +10,23 @@ import RealmSwift
 
 
 // 面談・面接
-class InterviewModel: Object, Entry {
+class InterviewModel: Entry {
 
-    @objc dynamic var id: String
-    @objc dynamic var name: String
-    @objc dynamic var deadline: Date
-    dynamic var flow: Flow
-    @objc dynamic var location: String?
-    @objc dynamic var clothes: String?
-    @objc dynamic var motivation: String?
-    @objc dynamic var gakuchika: String?
-    @objc dynamic var strongPoints: String?
-    @objc dynamic var weakPoints: String?
-    @objc dynamic var questions: String?
-    @objc dynamic var other: String?
-    dynamic var category: EventName
+    var id: String
+    var name: String
+    var deadline: Date
+    var flow: Flow
+    var location: String?
+    var clothes: String?
+    var motivation: String?
+    var gakuchika: String?
+    var strongPoints: String?
+    var weakPoints: String?
+    var questions: String?
+    var other: String?
+    var category: EventName
 
-    required override init() {
-        self.id = ""
-        self.name = ""
-        self.deadline = Date()
-        self.flow = .first
-        self.location = ""
-        self.clothes = ""
-        self.motivation = ""
-        self.gakuchika = ""
-        self.strongPoints = ""
-        self.weakPoints = ""
-        self.questions = ""
-        self.other = ""
-        self.category = .interview
-        super.init()
-    }
-
-    convenience init(
+    init(
         id: String,
         name: String,
         deadline: Date,
@@ -58,8 +41,6 @@ class InterviewModel: Object, Entry {
         other: String?,
         category: EventName
     ) {
-
-        self.init()
         self.id = id
         self.name = name
         self.deadline = deadline

@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class InterviewDataSource: Object{
+class InterviewDataSource: Object {
 
     @Persisted var id: String
     @Persisted var name: String
@@ -85,6 +85,7 @@ class InterviewDataSource: Object{
         try! realm.write {
             target.name = model.name
             target.deadline = model.deadline
+            target.flow = model.flow
             target.location = model.location ?? ""
             target.clothes = model.clothes ?? ""
             target.motivation = model.motivation ?? ""

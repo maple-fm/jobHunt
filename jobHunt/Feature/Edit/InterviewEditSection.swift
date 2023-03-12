@@ -44,6 +44,25 @@ struct InterviewEditSection: View {
                 }
 
                 Section(
+                    header: Text("選考フロー")
+                        .headetTitle()
+                ) {
+                    Picker("", selection: $viewModel.flow) {
+                        ForEach(Flow.allCases, id: \.self) { (value) in
+                            Text(value.rawValue).tag(value)
+                        }
+                    }
+                    .padding(.leading, 5)
+                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
+                    .foregroundColor(.black)
+                    .background(Color(UIColor(named: "form")!.cgColor))
+                    .cornerRadius(14)
+                    .onAppear() {
+                        viewModel.flow = interview.flow
+                    }
+                }
+
+                Section(
                     header: Text("開催場所")
                         .headetTitle()
                 ) {
@@ -159,6 +178,6 @@ struct InterviewEditSection: View {
 
 struct InterviewEditSection_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewEditSection(interview: InterviewModel())
+        InterviewEditSection(interview: InterviewModel(id: "", name: "", deadline: Date(), flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
     }
 }

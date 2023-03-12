@@ -15,19 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
 
         let config = Realm.Configuration(
-                        schemaVersion: 2,
+                        schemaVersion: 5,
                         migrationBlock: { migration, oldSchemaVersion in
-                            if oldSchemaVersion < 2 {
-                                migration.enumerateObjects(ofType: InterviewModel.className()) { oldObject, newObject in
+                            if oldSchemaVersion < 5 {
+                                migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
                                     newObject?["flow"] = Flow.first.rawValue
                                 }
                             }
                         })
 
         Realm.Configuration.defaultConfiguration = config
-        let realm = try! Realm()
-        print(realm, "Realm")
-        print(config,"Realm Version")
 
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {

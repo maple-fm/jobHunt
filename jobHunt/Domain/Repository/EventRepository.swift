@@ -320,7 +320,6 @@ class EventRepository {
         questions: String?,
         other: String?
     ) {
-
         InterviewDataSource().edit(model:InterviewModel(
             id: id,
             name: name,

@@ -24,6 +24,11 @@ struct InterviewDetailSection: View {
                     .headetTitle()
                 Text(viewModel.toTime(date: interview.deadline))
                     .TextArea(interview.category)
+
+                Text("選考フロー")
+                    .headetTitle()
+                Text(interview.flow.rawValue)
+                    .TextArea(interview.category)
             }
 
             Group {
