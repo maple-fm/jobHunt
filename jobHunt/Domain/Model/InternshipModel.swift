@@ -7,6 +7,7 @@
 
 import Foundation
 
+// インターンシップ
 struct InternshipModel: Entry {
 
     var id: String

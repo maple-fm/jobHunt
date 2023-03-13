@@ -7,11 +7,24 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 
 // 参考サイト：https://tech.amefure.com/swift-notification
-class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
+
+        let config = Realm.Configuration(
+                        schemaVersion: 5,
+                        migrationBlock: { migration, oldSchemaVersion in
+                            if oldSchemaVersion < 5 {
+                                migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
+                                    newObject?["flow"] = Flow.first.rawValue
+                                }
+                            }
+                        })
+
+        Realm.Configuration.defaultConfiguration = config
 
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {

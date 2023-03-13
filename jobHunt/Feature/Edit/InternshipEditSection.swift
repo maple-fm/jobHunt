@@ -10,7 +10,7 @@ import SwiftUI
 struct InternshipEditSection: View {
 
     let intern: InternshipModel
-    @StateObject var viewModel = EditViewModel()
+    @StateObject private var viewModel = EditViewModel()
 
     init(intern: InternshipModel) {
         self.intern = intern
@@ -28,6 +28,17 @@ struct InternshipEditSection: View {
                         .textArea(intern.category)
                         .onAppear() {
                             viewModel.name = intern.name
+                        }
+                }
+
+                Section(
+                    header: Text("開始時間")
+                        .headetTitle()
+                ) {
+                    DatePicker("開始時間", selection: $viewModel.deadline)
+                        .PickerItem()
+                        .onAppear() {
+                            viewModel.deadline = intern.deadline
                         }
                 }
 

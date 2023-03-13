@@ -7,6 +7,7 @@
 
 import Foundation
 
+// エントリーシート
 struct ESModel: Entry {
 
     var id: String

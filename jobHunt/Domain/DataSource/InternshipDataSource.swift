@@ -74,6 +74,7 @@ class InternshipDataSource: Object{
 
         try! realm.write {
             target.name = model.name
+            target.deadline = model.deadline
             target.location = model.location ?? ""
             target.clothes = model.clothes ?? ""
             target.item = model.item ?? ""

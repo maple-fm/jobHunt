@@ -9,14 +9,13 @@ import SwiftUI
 
 struct DetailView: View {
 
-    var eventId: String
+    @Environment(\.dismiss) var dismiss
+    @ObservedObject var viewModel = DetailViewModel()
     @State var event: any Entry
     @State private var isUpdate = false
     @State private var isDelete = false
-    @Environment(\.dismiss) var dismiss
-
-    @ObservedObject var viewModel = DetailViewModel()
     public var onEdit: (() -> Void)?
+    var eventId: String
 
     var body: some View {
         ZStack {
@@ -214,6 +213,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(eventId: "", event: ESModel(id: "", name: "", deadline: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
+        DetailView(event: ESModel(id: "", name: "", deadline: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es), eventId: "")
     }
 }

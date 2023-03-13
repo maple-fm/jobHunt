@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InternshipView: View {
 
-    @StateObject var viewModel = InternshipViewModel()
+    @ObservedObject var viewModel: CreateViewModel
     @Binding var click: Bool
     @State var deadline: Date
 
@@ -71,7 +71,7 @@ struct InternshipView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(click: $0, deadline: deadline)
+                viewModel.clickButton(event: .internship, click: $0, deadline: deadline)
                 action()
             }
         }
@@ -81,7 +81,8 @@ struct InternshipView: View {
 struct InternshipView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
-        return InternshipView(click: .constant(false), deadline: date) {}
+        let viewModel = CreateViewModel()
+        return InternshipView(viewModel: viewModel, click: .constant(false), deadline: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct InterviewView: View {
 
-    @StateObject var viewModel = InterviewViewModel()
+    @ObservedObject var viewModel: CreateViewModel
     @Binding var click: Bool
     @State var deadline: Date
 
@@ -18,20 +18,40 @@ struct InterviewView: View {
     var body: some View {
         VStack {
             Form {
-                Section(
-                    header: Text("会社名")
-                        .headetTitle()
-                ) {
-                    TextField("", text: $viewModel.name)
-                        .input()
-                }
 
-                Section(
-                    header: Text("開始時間")
-                        .headetTitle()
-                ) {
-                    DatePicker("開始時間", selection: $deadline)
-                        .PickerItem()
+                Group {
+                    Section(
+                        header: Text("会社名")
+                            .headetTitle()
+                    ) {
+                        TextField("", text: $viewModel.name)
+                            .input()
+                    }
+
+                    Section(
+                        header: Text("開始時間")
+                            .headetTitle()
+                    ) {
+                        DatePicker("開始時間", selection: $deadline)
+                            .PickerItem()
+                        
+                    }
+
+                    Section(
+                        header: Text("選考フロー")
+                            .headetTitle()
+                    ) {
+                        Picker("", selection: $viewModel.flow) {
+                            ForEach(Flow.allCases, id: \.self) { (value) in
+                                Text(value.rawValue).tag(value)
+
+                            }
+                        }
+                        .frame(width: 10)
+                        .listRowBackground(Color(UIColor(named: "form")!.cgColor))
+                        .foregroundColor(.black)
+                        .padding(.leading, 10)
+                    }
                 }
 
                 Section(
@@ -103,7 +123,7 @@ struct InterviewView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(click: $0, deadline: deadline)
+                viewModel.clickButton(event: .interview, click: $0, deadline: deadline)
                 action()
             }
         }
@@ -113,7 +133,8 @@ struct InterviewView: View {
 struct InterviewView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
-        return InterviewView(click: .constant(false), deadline: date) {}
+        let viewModel = CreateViewModel()
+        return InterviewView(viewModel: viewModel, click: .constant(false), deadline: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

@@ -9,15 +9,13 @@ import SwiftUI
 
 struct ESEditSection: View {
     let es: ESModel
-    @StateObject var viewModel = EditViewModel()
+    @StateObject private var viewModel = EditViewModel()
 
     init(es: ESModel) {
         self.es = es
         UITextView.appearance().backgroundColor = .clear
     }
 
-    // TODO: 元々データない項目に追加で編集できるようにしたい
-    //  onAppearが良くない？
     var body: some View {
         VStack(alignment: .leading) {
             Section(
@@ -28,6 +26,17 @@ struct ESEditSection: View {
                     .textArea(es.category)
                     .onAppear() {
                         viewModel.name = es.name
+                    }
+            }
+
+            Section(
+                header: Text("締切日時")
+                    .headetTitle()
+            ) {
+                DatePicker("締切日時", selection: $viewModel.deadline)
+                    .PickerItem()
+                    .onAppear() {
+                        viewModel.deadline = es.deadline
                     }
             }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SessionView: View {
 
-    @StateObject var viewModel = SessionViewModel()
+    @ObservedObject var viewModel: CreateViewModel
     @Binding var click: Bool
     @State var deadline: Date
 
@@ -79,7 +79,7 @@ struct SessionView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(click: $0, deadline: deadline)
+                viewModel.clickButton(event: .session, click: $0, deadline: deadline)
                 action()
             }
         }
@@ -89,7 +89,8 @@ struct SessionView: View {
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
-        SessionView(click: .constant(false), deadline: date) {}
+        let viewModel = CreateViewModel()
+        SessionView(viewModel: viewModel, click: .constant(false), deadline: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

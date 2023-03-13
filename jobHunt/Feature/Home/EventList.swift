@@ -20,15 +20,16 @@ struct EventList: View {
                         VStack {
                             NavigationLink(
                                 destination: DetailView(
-                                    eventId: event.id,
                                     event: event,
                                     onEdit: {
 
                                         viewModel.onUpdated()
-                                    })
-                                    .onDisappear(){
-                                        viewModel.onUpdated()
-                                    }
+                                    },
+                                    eventId: event.id
+                                )
+                                .onDisappear(){
+                                    viewModel.onUpdated()
+                                }
                             ){
                                 HStack {
                                     Text(event.name)

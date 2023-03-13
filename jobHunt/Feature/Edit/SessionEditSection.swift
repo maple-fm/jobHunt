@@ -10,7 +10,7 @@ import SwiftUI
 struct SessionEditSection: View {
 
     let session: SessionModel
-    @StateObject var viewModel = EditViewModel()
+    @StateObject private var viewModel = EditViewModel()
 
     init(session: SessionModel) {
         self.session = session
@@ -28,6 +28,17 @@ struct SessionEditSection: View {
                         .textArea(session.category)
                         .onAppear() {
                             viewModel.name = session.name
+                        }
+                }
+
+                Section(
+                    header: Text("開始時間")
+                        .headetTitle()
+                ) {
+                    DatePicker("開始時間", selection: $viewModel.deadline)
+                        .PickerItem()
+                        .onAppear() {
+                            viewModel.deadline = session.deadline
                         }
                 }
 

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ESView: View {
 
-    @StateObject var viewModel = ESViewModel()
+    @ObservedObject var viewModel: CreateViewModel
     @Binding var click: Bool
     @State var deadline: Date
     let action: () -> Void // クロージャ
@@ -87,7 +87,7 @@ struct ESView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(click: $0, deadline: deadline)
+                viewModel.clickButton(event: .es, click: $0, deadline: deadline)
                 action()
             }
         }
@@ -98,7 +98,8 @@ struct ESView: View {
 struct EntrysheetView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
-        return ESView(click: .constant(false), deadline: date) {}
+        let viewModel = CreateViewModel()
+        return ESView(viewModel: viewModel, click: .constant(false), deadline: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

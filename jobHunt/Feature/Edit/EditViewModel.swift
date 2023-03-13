@@ -12,6 +12,8 @@ class EditViewModel: ObservableObject {
     private var repository = EventRepository()
 
     @Published var name: String = ""
+    @Published var deadline: Date = .now
+    @Published var flow: Flow = .first
     @Published var location: String = ""
     @Published var clothes: String = ""
     @Published var motivation: String = ""
@@ -26,6 +28,7 @@ class EditViewModel: ObservableObject {
         repository.editES(
             id: id,
             name: self.name,
+            deadline: self.deadline,
             motivation: self.motivation,
             gakuchika: self.gakuchika,
             strongPoints: self.strongPoints,
@@ -38,6 +41,8 @@ class EditViewModel: ObservableObject {
         repository.editInterview(
             id: id,
             name: self.name,
+            deadline: self.deadline,
+            flow: self.flow,
             location: self.location,
             clothes: self.clothes,
             motivation: self.motivation,
@@ -53,6 +58,7 @@ class EditViewModel: ObservableObject {
         repository.editInternship(
             id: id,
             name: self.name,
+            deadline: self.deadline,
             location: self.location,
             clothes: self.clothes,
             item: self.item,
@@ -64,6 +70,7 @@ class EditViewModel: ObservableObject {
         repository.editSession(
             id: id,
             name: self.name,
+            deadline: self.deadline,
             location: self.location,
             clothes: self.clothes,
             item: self.item,

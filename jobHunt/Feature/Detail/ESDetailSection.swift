@@ -10,6 +10,7 @@ import SwiftUI
 struct ESDetailSection: View {
     
     let es: ESModel
+    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,6 +19,14 @@ struct ESDetailSection: View {
                     .headetTitle()
                 Text(self.es.name)
                     .TextArea(es.category)
+
+                Section(
+                    header: Text("締切日時")
+                        .headetTitle()
+                ) {
+                    Text(viewModel.toTime(date: self.es.deadline))
+                        .TextArea(es.category)
+                }
 
                 if let motivation = es.motivation {
                     Section(

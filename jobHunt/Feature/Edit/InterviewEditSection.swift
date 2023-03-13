@@ -10,7 +10,7 @@ import SwiftUI
 struct InterviewEditSection: View {
 
     let interview: InterviewModel
-    @StateObject var viewModel = EditViewModel()
+    @StateObject private var viewModel = EditViewModel()
 
     init(interview: InterviewModel) {
         self.interview = interview
@@ -29,6 +29,39 @@ struct InterviewEditSection: View {
                         .onAppear() {
                             viewModel.name = interview.name
                         }
+                }
+
+                Section(
+                    header: Text("開始時間")
+                        .headetTitle()
+                ) {
+                    DatePicker("開始時間", selection: $viewModel.deadline)
+                        .PickerItem()
+                        .onAppear() {
+                            viewModel.deadline = interview.deadline
+                        }
+                }
+
+                Section(
+                    header: Text("選考フロー")
+                        .headetTitle()
+                ) {
+                    Picker("", selection: $viewModel.flow) {
+                        ForEach(Flow.allCases, id: \.self) { (value) in
+                            Text(value.rawValue).tag(value)
+                        }
+
+
+                    }
+                    .onAppear() {
+                        viewModel.flow = interview.flow
+                    }
+                    .pickerStyle(DefaultPickerStyle())
+                    .accentColor(.black)
+                    .padding(.leading, 5)
+                    .frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
+                    .background(Color(UIColor(named: "form")!.cgColor))
+                    .cornerRadius(14)
                 }
 
                 Section(
@@ -147,6 +180,6 @@ struct InterviewEditSection: View {
 
 struct InterviewEditSection_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewEditSection(interview: .init(id: "", name: "", deadline: .now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
+        InterviewEditSection(interview: InterviewModel(id: "", name: "", deadline: Date(), flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
     }
 }

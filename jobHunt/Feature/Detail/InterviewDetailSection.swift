@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct InterviewDetailSection: View {
+    
     let interview: InterviewModel
+    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,6 +19,19 @@ struct InterviewDetailSection: View {
                     .headetTitle()
                 Text(interview.name)
                     .TextArea(interview.category)
+
+                Text("開始時間")
+                    .headetTitle()
+                Text(viewModel.toTime(date: interview.deadline))
+                    .TextArea(interview.category)
+
+                Text("選考フロー")
+                    .headetTitle()
+                Text(interview.flow.rawValue)
+                    .TextArea(interview.category)
+            }
+
+            Group {
 
                 Text("開催場所")
                     .headetTitle()
@@ -82,6 +97,6 @@ struct InterviewDetailSection: View {
 
 struct InterviewDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewDetailSection(interview: .init(id: "", name: "", deadline: .now, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview ))
+        InterviewDetailSection(interview: .init(id: "", name: "", deadline: .now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview ))
     }
 }
