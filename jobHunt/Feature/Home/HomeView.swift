@@ -11,10 +11,10 @@ import SwiftUI
 struct HomeView: View {
 
     @Environment(\.scenePhase) private var scenePhase
-    @State var selectedDate = Date()
-    @State var today = Date.now
+    @State private var selectedDate = Date()
+    @State private var today = Date.now
     @State private var add = false
-    @ObservedObject var viewModel = HomeViewModel()
+    @StateObject var viewModel = HomeViewModel()
 
     var body: some View {
         NavigationView {
@@ -29,7 +29,6 @@ struct HomeView: View {
                             switch phase {
                             case .inactive:
                                 self.today = Date.now
-
                             case .background:
                                 break
                             case .active:
@@ -42,11 +41,12 @@ struct HomeView: View {
                         destination: SettingView()
                     ) {
                         Image(systemName: "gearshape.fill")
-                            .frame(width: 35, height: 35, alignment: .center)
+                            .resizable()
+                            .frame(width: 20, height: 20, alignment: .center)
                     }
                     .foregroundColor(.green)
-                    .padding(.vertical, 8)
-                    .padding(.leading, 310)
+                    .offset(x: 155, y: 12)
+
                 }
 
                 Divider()
@@ -62,7 +62,7 @@ struct HomeView: View {
                         self.add.toggle()
                     }) {
                         Image(systemName: "plus.circle.fill")
-                            .font(.system(size: 45))
+                            .resizable()
                             .frame(width: 40, height: 40)
                             .foregroundColor(.green)
                             .mask(Circle())

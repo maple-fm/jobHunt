@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ESEditSection: View {
     let es: ESModel
-    @StateObject var viewModel = EditViewModel()
+    @StateObject private var viewModel = EditViewModel()
 
     init(es: ESModel) {
         self.es = es

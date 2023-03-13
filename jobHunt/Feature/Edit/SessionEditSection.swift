@@ -10,7 +10,7 @@ import SwiftUI
 struct SessionEditSection: View {
 
     let session: SessionModel
-    @StateObject var viewModel = EditViewModel()
+    @StateObject private var viewModel = EditViewModel()
 
     init(session: SessionModel) {
         self.session = session

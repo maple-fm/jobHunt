@@ -10,7 +10,7 @@ import SwiftUI
 struct InterviewEditSection: View {
 
     let interview: InterviewModel
-    @StateObject var viewModel = EditViewModel()
+    @StateObject private var viewModel = EditViewModel()
 
     init(interview: InterviewModel) {
         self.interview = interview

@@ -10,7 +10,7 @@ import SwiftUI
 struct InternshipEditSection: View {
 
     let intern: InternshipModel
-    @StateObject var viewModel = EditViewModel()
+    @StateObject private var viewModel = EditViewModel()
 
     init(intern: InternshipModel) {
         self.intern = intern
