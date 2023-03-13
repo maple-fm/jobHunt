@@ -9,13 +9,13 @@ import SwiftUI
 
 struct CreateView: View {
 
-    @State var event: EventName = .es
-    @State private var canCreate = false
-    @State var swipeRight = false
-    @State var swipeLeft = false
-    @Binding var selectedDate: Date
     @Environment(\.dismiss) var dismiss
-
+    @Binding var selectedDate: Date
+    @State private var event: EventName = .es
+    @State private var canCreate = false
+    @State private var swipeRight = false
+    @State private var swipeLeft = false
+    @StateObject private var viewModel = CreateViewModel()
 
     var body: some View {
         ZStack {
@@ -47,7 +47,6 @@ struct CreateView: View {
                                 }
                                 .frame(width: 150, height: 50)
                                 .padding(.top, 20)
-//                                .buttonStyle(.disabled)
 
                                 Rectangle()
                                     .foregroundColor(event == eventName
@@ -65,7 +64,7 @@ struct CreateView: View {
                     
                 }
 
-                event.eventView(selectedDate: selectedDate, click: $canCreate) {
+                event.eventView(viewModel: viewModel, selectedDate: selectedDate, click: $canCreate) {
                     dismiss()
                 }
                 .gesture(DragGesture(minimumDistance: 5)
@@ -114,16 +113,10 @@ struct CreateView: View {
                     Image(systemName: "checkmark.circle.fill")
                         .ImageItem()
                 }
-
             }
         }
     }
 }
-
-
-//private extension EventName {
-//    func goTo
-//}
 
 
 struct CreateEvent_Previews: PreviewProvider {
@@ -135,12 +128,12 @@ struct CreateEvent_Previews: PreviewProvider {
 }
 
 private extension EventName {
-    func eventView(selectedDate: Date, click: Binding<Bool>, action: @escaping () -> Void) -> some View {
+    func eventView(viewModel: CreateViewModel, selectedDate: Date, click: Binding<Bool>, action: @escaping () -> Void) -> some View {
         switch self {
-        case .es : return AnyView(ESView(click: click, deadline: selectedDate , action: action))
-        case .interview : return AnyView(InterviewView(click: click, deadline: selectedDate, action: action))
-        case .session : return AnyView(SessionView(click: click, deadline: selectedDate , action: action))
-        case .internship : return AnyView(InternshipView(click: click, deadline: selectedDate, action: action))
+        case .es : return AnyView(ESView(viewModel: viewModel, click: click, deadline: selectedDate , action: action))
+        case .interview : return AnyView(InterviewView(viewModel: viewModel, click: click, deadline: selectedDate, action: action))
+        case .session : return AnyView(SessionView(viewModel: viewModel, click: click, deadline: selectedDate , action: action))
+        case .internship : return AnyView(InternshipView(viewModel: viewModel, click: click, deadline: selectedDate, action: action))
         }
     }
 }
