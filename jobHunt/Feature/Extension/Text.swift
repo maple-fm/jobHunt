@@ -10,18 +10,25 @@ import SwiftUI
 extension Text {
     func headetTitle() -> some View {
         self
-            .font(.title)
+            .font(.system(size: 18))
             .foregroundColor(.black)
-            .padding(.bottom, 5)
+            .padding(.top, 10)
     }
 
     func TextArea(_ category: EventName) -> some View {
         self
             .fixedSize(horizontal: false, vertical: true)
             .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, minHeight: 20, alignment: .leading)
             .foregroundColor(.black)
             .background(Color(UIColor(named: "form")!.cgColor))
             .cornerRadius(14)
+    }
+
+    func footer() -> some View {
+        self
+            .position(x: UIScreen.main.bounds.width - 100, y:5)
+            .foregroundColor(.black)
+
     }
 }

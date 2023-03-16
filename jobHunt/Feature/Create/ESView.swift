@@ -15,7 +15,7 @@ struct ESView: View {
     let action: () -> Void // クロージャ
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Form {
                 Section(
                     header: Text("会社名")
@@ -37,7 +37,7 @@ struct ESView: View {
                     header: Text("志望動機")
                         .headetTitle(),
                     footer: Text("\(viewModel.motivation.count)count")
-                        .foregroundColor(.black)
+                        .footer()
                 ) {
                     TextEditor( text: $viewModel.motivation)
                         .input()
@@ -48,7 +48,7 @@ struct ESView: View {
                     header: Text("ガクチカ")
                         .headetTitle(),
                     footer: Text("\(viewModel.gakuchika.count)count")
-                        .foregroundColor(.black)
+                        .footer()
                 ) {
                     TextEditor(text: $viewModel.gakuchika)
                         .input()
@@ -58,7 +58,7 @@ struct ESView: View {
                     header: Text("長所")
                         .headetTitle(),
                     footer: Text("\(viewModel.strongPoints.count)count")
-                        .foregroundColor(.black)
+                        .footer()
                 ) {
                     TextEditor(text: $viewModel.strongPoints)
                         .input()
@@ -68,7 +68,7 @@ struct ESView: View {
                     header: Text("短所")
                         .headetTitle(),
                     footer: Text("\(viewModel.weakPoints.count)count")
-                        .foregroundColor(.black)
+                        .footer()
                 ) {
                     TextEditor(text: $viewModel.weakPoints)
                         .input()
