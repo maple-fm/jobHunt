@@ -11,7 +11,7 @@ struct EventList: View {
 
     @ObservedObject var viewModel: HomeViewModel
     var selectedDate: Date
-    
+
     var body: some View {
         ZStack {
             ScrollView(showsIndicators: false) {
@@ -30,37 +30,54 @@ struct EventList: View {
                                 .onDisappear(){
                                     viewModel.onUpdated()
                                 }
-                            ){
-                                HStack {
-                                    Text(event.name)
-                                        .font(.body)
-                                        .padding(EdgeInsets(
-                                            top: 0,
-                                            leading: 40,
-                                            bottom: 0,
-                                            trailing: 0
-                                        ))
+                            ) {
+                                ZStack {
+                                    HStack {
+                                        if event.category.rawValue == "エントリーシート" {
+                                            Text("\(viewModel.toTime(date: event.deadline))〆")
+                                                .font(.system(size: 12))
+                                                .padding(EdgeInsets(
+                                                    top: 0,
+                                                    leading: 15,
+                                                    bottom: 30,
+                                                    trailing: 0
+                                                ))
+                                                .foregroundColor(Color(UIColor(named: "Text")!))
+                                        } else {
+                                            Text("\(viewModel.toTime(date: event.deadline))")
+                                                .font(.system(size: 12))
+                                                .padding(EdgeInsets(
+                                                    top: 0,
+                                                    leading: 15,
+                                                    bottom: 30,
+                                                    trailing: 12
+                                                ))
+                                                .foregroundColor(Color(UIColor(named: "Text")!))
+                                        }
 
-                                    Spacer()
+                                        Text(event.name)
+                                            .frame(maxWidth: 150, minHeight: 10, alignment: .leading)
+                                            .font(.body)
+                                            .padding(.leading, 20)
+                                            .foregroundColor(Color(UIColor(named: "Text")!))
 
-                                    Text("\(viewModel.toTime(date: event.deadline))~ ")
-                                        .font(.callout)
-                                        .padding(EdgeInsets(
-                                            top: 40,
-                                            leading: 0,
-                                            bottom: 15,
-                                            trailing: 30
-                                        ))
+                                        tag(event: event)
+                                    }
+                                    .frame(width: UIScreen.main.bounds.width-50 , height: 70, alignment: .leading)
+                                    .foregroundColor(.black)
+
+                                    Rectangle()
+                                        .foregroundColor(event.category.bgColor)
+                                        .frame(width: 10, height: 60)
+                                        .position(x: 15, y: 35)
+
                                 }
-                                .frame(width: 350, height: 70, alignment: .leading)
-                                .background(event.category.bgColor)
-                                .cornerRadius(50)
-                                .foregroundColor(.black)
+
                             }
                         }
                     }
                 }
-                .padding(.leading, 15)
+                .padding(.leading, 10)
             }
         }
     }
@@ -69,5 +86,37 @@ struct EventList: View {
 struct EventList_Previews: PreviewProvider {
     static var previews: some View {
         EventList(viewModel: HomeViewModel(), selectedDate: .now)
+    }
+}
+
+
+extension View {
+    func tag(event: any Entry) -> some View {
+
+        VStack {
+
+            if event.category == .interview {
+                if let interview = event as? InterviewModel {
+                    Text(interview.flow.rawValue)
+                        .font(.system(size: 12))
+                }
+            } else {
+                Text(event.category.rawValue)
+                    .font(.system(size: 12))
+                    .padding(.horizontal, 5)
+            }
+        }
+        .background(
+            Color(.white)
+                .cornerRadius(10)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .foregroundColor(Color(UIColor(named: "tag")!))
+
+                )
+        )
+        .position(x:80, y:20)
     }
 }
