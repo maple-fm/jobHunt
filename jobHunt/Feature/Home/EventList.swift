@@ -63,15 +63,19 @@ struct EventList: View {
 
                                         tag(event: event)
                                     }
-                                    .frame(width: UIScreen.main.bounds.width-50 , height: 70, alignment: .leading)
+                                    .frame(width: 350 , height: 70, alignment: .leading)
                                     .foregroundColor(.black)
 
                                     Rectangle()
                                         .foregroundColor(event.category.bgColor)
-                                        .frame(width: 10, height: 60)
+                                        .frame(width: 10, height: 70)
                                         .position(x: 15, y: 35)
 
                                 }
+                                .frame(width: UIScreen.main.bounds.width, height: 70, alignment: .center)
+                                .background(.white)
+                                .compositingGroup()
+                                .shadow(color: .gray.opacity(0.5), radius: 1.5, x: 10, y: 2)
 
                             }
                         }
