@@ -38,19 +38,19 @@ struct EventList: View {
                                                 .font(.system(size: 12))
                                                 .padding(EdgeInsets(
                                                     top: 0,
-                                                    leading: 15,
-                                                    bottom: 30,
+                                                    leading: 10,
+                                                    bottom: 45,
                                                     trailing: 0
                                                 ))
                                                 .foregroundColor(Color(UIColor(named: "Text")!))
                                         } else {
-                                            Text("\(viewModel.toTime(date: event.deadline))")
+                                            Text("\(viewModel.toTime(date: event.deadline))~")
                                                 .font(.system(size: 12))
                                                 .padding(EdgeInsets(
                                                     top: 0,
-                                                    leading: 15,
-                                                    bottom: 30,
-                                                    trailing: 12
+                                                    leading: 10,
+                                                    bottom: 45,
+                                                    trailing: 5
                                                 ))
                                                 .foregroundColor(Color(UIColor(named: "Text")!))
                                         }
@@ -72,8 +72,9 @@ struct EventList: View {
                                         .position(x: 15, y: 35)
 
                                 }
-                                .frame(width: UIScreen.main.bounds.width, height: 70, alignment: .center)
-                                .background(.white)
+                                .frame(width: UIScreen.main.bounds.width-10, height: 70, alignment: .center)
+                                .padding(.top, 5)
+                                .background(Color(UIColor(named: "ListBg")!))
                                 .compositingGroup()
                                 .shadow(color: .gray.opacity(0.5), radius: 1.5, x: 10, y: 2)
 
