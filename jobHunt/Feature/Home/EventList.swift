@@ -38,7 +38,7 @@ struct EventList: View {
                                                 .font(.system(size: 12))
                                                 .padding(EdgeInsets(
                                                     top: 0,
-                                                    leading: 10,
+                                                    leading: 15,
                                                     bottom: 45,
                                                     trailing: 0
                                                 ))
@@ -48,7 +48,7 @@ struct EventList: View {
                                                 .font(.system(size: 12))
                                                 .padding(EdgeInsets(
                                                     top: 0,
-                                                    leading: 10,
+                                                    leading: 15,
                                                     bottom: 45,
                                                     trailing: 5
                                                 ))
