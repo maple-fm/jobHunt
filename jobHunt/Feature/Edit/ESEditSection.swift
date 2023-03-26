@@ -44,7 +44,7 @@ struct ESEditSection: View {
                 header: Text("志望動機")
                     .headetTitle(),
                 footer:Text("\(viewModel.motivation.count)count")
-                    .foregroundColor(.black)
+                    .footer()
                     .font(.system(size: 15))
                     .padding(.leading, 11)
                     .padding(.bottom, 5)
@@ -62,7 +62,7 @@ struct ESEditSection: View {
                 header: Text("ガクチカ")
                     .headetTitle(),
                 footer: Text("\(viewModel.gakuchika.count)count")
-                    .foregroundColor(.black)
+                    .footer()
                     .font(.system(size: 15))
                     .padding(.leading, 11)
                     .padding(.bottom, 5)
@@ -80,7 +80,7 @@ struct ESEditSection: View {
                 header: Text("長所")
                     .headetTitle(),
                 footer: Text("\(viewModel.strongPoints.count)count")
-                    .foregroundColor(.black)
+                    .footer()
                     .font(.system(size: 15))
                     .padding(.leading, 11)
                     .padding(.bottom, 5)
@@ -98,7 +98,7 @@ struct ESEditSection: View {
                 header: Text("短所")
                     .headetTitle(),
                 footer: Text("\(viewModel.weakPoints.count)count")
-                    .foregroundColor(.black)
+                    .footer()
                     .font(.system(size: 15))
                     .padding(.leading, 11)
                     .padding(.bottom, 5)
@@ -124,6 +124,7 @@ struct ESEditSection: View {
                         }
                     }
             }
+
         }
         .onDisappear(perform: {
             viewModel.clickUpdateOfES(id: es.id)
