@@ -8,11 +8,17 @@
 import Foundation
 import UIKit
 import RealmSwift
+import FirebaseCore
+import GoogleMobileAds
 
 
 // 参考サイト：https://tech.amefure.com/swift-notification
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
+
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         let config = Realm.Configuration(
                         schemaVersion: 5,
@@ -43,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
             completionHandler([[.banner, .list, .sound]])
     }
+
 }
 
 

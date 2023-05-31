@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 
 struct HomeView: View {
@@ -16,9 +17,12 @@ struct HomeView: View {
     @State private var add = false
     @StateObject var viewModel = HomeViewModel()
 
+    var bannerView = AdMobBannerView()
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
+                bannerView
                 ZStack(alignment: .top) {
 
                     CalendarTestView(selectedDate: $selectedDate,
