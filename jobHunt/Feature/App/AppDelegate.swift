@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
 
         // Use Firebase library to configure APIs
-//        FirebaseApp.configure()
+
+        FirebaseApp.configure()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         let config = Realm.Configuration(
