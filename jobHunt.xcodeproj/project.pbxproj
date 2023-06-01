@@ -48,6 +48,7 @@
 		F5BBBFEF2A27830900FE169C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5BBBFEE2A27830900FE169C /* GoogleService-Info.plist */; };
 		F5BBBFF22A27839600FE169C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F5BBBFF12A27839600FE169C /* FirebaseAnalytics */; };
 		F5BBBFF72A278E1D00FE169C /* AdMobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5BBBFF62A278E1D00FE169C /* AdMobBannerView.swift */; };
+		F5BBC0022A28A01D00FE169C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5BBC0012A28A01D00FE169C /* Info.plist */; };
 		F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */; };
 		F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B6D28F311FE00A01E4E /* HomeView.swift */; };
 		F5C83B7028F311FF00A01E4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5C83B6F28F311FF00A01E4E /* Assets.xcassets */; };
@@ -119,6 +120,7 @@
 		F5B78A0728F3382200B4E3E3 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		F5BBBFEE2A27830900FE169C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F5BBBFF62A278E1D00FE169C /* AdMobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobBannerView.swift; sourceTree = "<group>"; };
+		F5BBC0012A28A01D00FE169C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../Swiftapp/jobHunt/jobHunt/Info.plist; sourceTree = "<group>"; };
 		F5C83B6828F311FE00A01E4E /* jobHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jobHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobHuntApp.swift; sourceTree = "<group>"; };
 		F5C83B6D28F311FE00A01E4E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 		F5C83B6A28F311FE00A01E4E /* jobHunt */ = {
 			isa = PBXGroup;
 			children = (
+				F5BBC0012A28A01D00FE169C /* Info.plist */,
 				F5BBBFEE2A27830900FE169C /* GoogleService-Info.plist */,
 				F5262AE2291BE57300B98ACE /* Domain */,
 				F5262AE1291BE56D00B98ACE /* Feature */,
@@ -479,6 +482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5BBC0022A28A01D00FE169C /* Info.plist in Resources */,
 				F5C83B7428F311FF00A01E4E /* Preview Assets.xcassets in Resources */,
 				F5BBBFEF2A27830900FE169C /* GoogleService-Info.plist in Resources */,
 				F5C83B7028F311FF00A01E4E /* Assets.xcassets in Resources */,
