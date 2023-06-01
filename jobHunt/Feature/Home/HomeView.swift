@@ -19,6 +19,9 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
+
+                BannerView()
+                        .frame(height: 50)
                 ZStack(alignment: .top) {
 
                     CalendarTestView(selectedDate: $selectedDate,

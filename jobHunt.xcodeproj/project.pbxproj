@@ -54,6 +54,7 @@
 		F5C83B8A28F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B8928F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift */; };
 		F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */; };
 		F5FAEDCF2960EDA200E64997 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FAEDCE2960EDA200E64997 /* Color.swift */; };
+		F5FC75B82A28C06100EF997B /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5FC75B72A28C06100EF997B /* BannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		F5C83B8928F311FF00A01E4E /* jobHuntUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jobHuntUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F5C83B9628F31D3100A01E4E /* CalendarTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTestView.swift; sourceTree = "<group>"; };
 		F5FAEDCE2960EDA200E64997 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		F5FC75B72A28C06100EF997B /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +260,7 @@
 			children = (
 				F58BEBA929003A5E00323EFA /* HomeViewModel.swift */,
 				F5C83B6D28F311FE00A01E4E /* HomeView.swift */,
+				F5FC75B72A28C06100EF997B /* BannerView.swift */,
 				F54EC1D3299E70B0009319D1 /* EventList.swift */,
 			);
 			path = Home;
@@ -547,6 +550,7 @@
 				F52DBADC293C882D00C0DAA6 /* SessionEditSection.swift in Sources */,
 				F523936629125F190000F2C0 /* ESDetailSection.swift in Sources */,
 				F58BEB9E28FDA9E300323EFA /* SessionModel.swift in Sources */,
+				F5FC75B82A28C06100EF997B /* BannerView.swift in Sources */,
 				F58BEB9828FB924100323EFA /* ESModel.swift in Sources */,
 				F58BEBAA29003A5E00323EFA /* HomeViewModel.swift in Sources */,
 				F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */,
