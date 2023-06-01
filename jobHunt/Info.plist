@@ -7,6 +7,7 @@
 		<string>ja</string>
 	</array>
 	<key>GADApplicationIdentifier</key>
+<<<<<<< HEAD
 	<string>ca-app-pub-8612407904037286~2238407996</string>
 	<key>GADIsManagerApp</key>
 	<true/>
@@ -15,5 +16,10 @@
 		<string>cstr6suwn9.skadnetwork</string>
 		<string>4fzdc2evr5.skadnetwork</string>
 	</array>
+=======
+	<string>ca-app-pub-8612407904037286/7024132134</string>
+	<key>SKAdNetworkIdentifier</key>
+	<string>cstr6suwn9.skadnetwork</string>
+>>>>>>> e1d6da9aa2ca1f56e814bf26f39e1f300489d59c
 </dict>
 </plist>
