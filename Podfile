@@ -9,6 +9,7 @@ target 'jobHunt' do
   pod 'FSCalendar'
   pod 'CalculateCalendarLogic'
   pod 'RealmSwift'
+  pod 'Google-Mobile-Ads-SDK'
 
 
 end
