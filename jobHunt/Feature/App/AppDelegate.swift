@@ -8,11 +8,14 @@
 import Foundation
 import UIKit
 import RealmSwift
+import GoogleMobileAds
 
 
 // 参考サイト：https://tech.amefure.com/swift-notification
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
+
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         let config = Realm.Configuration(
                         schemaVersion: 5,
