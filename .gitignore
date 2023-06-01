@@ -23,3 +23,4 @@ DerivedData/
 !*.xcworkspace/contents.xcworkspacedata
 ## library
 Pods/*
+GoogleService-Info

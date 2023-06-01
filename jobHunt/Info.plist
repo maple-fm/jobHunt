@@ -6,5 +6,14 @@
 	<array>
 		<string>ja</string>
 	</array>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-8612407904037286~2238407996</string>
+	<key>GADIsManagerApp</key>
+	<true/>
+	<key>SKAdNetworkIdentifier</key>
+	<array>
+		<string>cstr6suwn9.skadnetwork</string>
+		<string>4fzdc2evr5.skadnetwork</string>
+	</array>
 </dict>
 </plist>

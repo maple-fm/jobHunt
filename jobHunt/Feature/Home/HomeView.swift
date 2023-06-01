@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 
 struct HomeView: View {
@@ -16,15 +17,18 @@ struct HomeView: View {
     @State private var add = false
     @StateObject var viewModel = HomeViewModel()
 
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
+                BannerView()
+                        .frame(height: 50)
                 ZStack(alignment: .top) {
 
                     CalendarTestView(selectedDate: $selectedDate,
                                      eventsDate: viewModel.eventsDateArray,
                                      today: today)
-                    .frame(maxWidth: .infinity, minHeight: 400.0, alignment: .center)
+                    .frame(maxWidth: .infinity, minHeight: 350.0, alignment: .center)
                         .onChange(of: scenePhase) { phase in
                             switch phase {
                             case .inactive:
