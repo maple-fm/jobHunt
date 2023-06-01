@@ -25,6 +25,11 @@ struct SettingView: View {
 
                     Section(header: Text("その他")) {
                         NavigationLink("このアプリについて", destination: PrivacyAndTerms())
+                        if let url = URL(string: "https://apps.apple.com/jp/app/jobhunt-\(stringToURL(item: "就活管理カレンダー"))/id6445801905") {
+
+                            Link("このアプリを評価する", destination: url)
+                        }
+
 
                     }
                 }
@@ -59,6 +64,12 @@ struct SettingView: View {
                 .frame(height: 60)
                 .padding(.bottom, 50)
         }
+    }
+
+    private func stringToURL(item: String) -> String {
+        let urlString = item.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        print(urlString)
+        return urlString
     }
 }
 
