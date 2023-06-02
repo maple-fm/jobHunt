@@ -48,7 +48,8 @@ struct HomeView: View {
                             .frame(width: 20, height: 20, alignment: .center)
                     }
                     .foregroundColor(.green)
-                    .offset(x: 155, y: 12)
+                    .offset(x: 155, y: 5)
+                    .frame(width: 40, height: 40)
 
                 }
 
