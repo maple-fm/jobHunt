@@ -30,7 +30,7 @@ class CreateViewModel: ObservableObject {
         createRepository.isValidated(name: name)
     }
 
-    func clickButton(event: EventName, click: Bool, deadline: Date) {
+    func clickButton(event: EventName, click: Bool, start deadline: Date, end endDeadline: Date? = nil) {
         switch event {
         case .es:
             eventReprository.saveNewES(
@@ -44,9 +44,13 @@ class CreateViewModel: ObservableObject {
                 category: .es)
 
         case .interview:
+            
+            guard let endDeadline = endDeadline else { return }
+            
             eventReprository.saveNesInterview(
                 name: name,
                 deadline: deadline,
+                endDeadline: endDeadline,
                 flow: flow,
                 location: location,
                 clothes: clothes,

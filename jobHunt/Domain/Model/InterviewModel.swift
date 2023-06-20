@@ -15,6 +15,7 @@ class InterviewModel: Entry {
     var id: String
     var name: String
     var deadline: Date
+    var endDeadline: Date
     var flow: Flow
     var location: String?
     var clothes: String?
@@ -30,6 +31,7 @@ class InterviewModel: Entry {
         id: String,
         name: String,
         deadline: Date,
+        endDeadline: Date,
         flow: Flow,
         location: String?,
         clothes: String?,
@@ -44,6 +46,7 @@ class InterviewModel: Entry {
         self.id = id
         self.name = name
         self.deadline = deadline
+        self.endDeadline = endDeadline
         self.flow = flow
         self.location = location
         self.clothes = clothes

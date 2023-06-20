@@ -97,6 +97,6 @@ struct InterviewDetailSection: View {
 
 struct InterviewDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewDetailSection(interview: .init(id: "", name: "", deadline: .now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview ))
+        InterviewDetailSection(interview: .init(id: "", name: "", deadline: .now, endDeadline: .now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview ))
     }
 }

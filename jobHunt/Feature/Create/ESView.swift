@@ -87,7 +87,7 @@ struct ESView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(event: .es, click: $0, deadline: deadline)
+                viewModel.clickButton(event: .es, click: $0, start: deadline)
                 action()
             }
         }

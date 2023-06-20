@@ -79,7 +79,7 @@ struct SessionView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(event: .session, click: $0, deadline: deadline)
+                viewModel.clickButton(event: .session, click: $0, start: deadline)
                 action()
             }
         }

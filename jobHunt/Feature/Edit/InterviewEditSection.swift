@@ -180,6 +180,6 @@ struct InterviewEditSection: View {
 
 struct InterviewEditSection_Previews: PreviewProvider {
     static var previews: some View {
-        InterviewEditSection(interview: InterviewModel(id: "", name: "", deadline: Date(), flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
+        InterviewEditSection(interview: InterviewModel(id: "", name: "", deadline: Date(), endDeadline: .now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
     }
 }
