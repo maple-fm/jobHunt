@@ -41,23 +41,22 @@ using namespace realm;
 @end
 
 @implementation RLMUserSubscriptionToken {
-@public
-    std::unique_ptr<realm::Subscribable<SyncUser>::Token> _token;
+    std::shared_ptr<SyncUser> _user;
+    std::optional<realm::Subscribable<SyncUser>::Token> _token;
 }
 
-- (instancetype)initWithToken:(realm::Subscribable<SyncUser>::Token&&)token {
+- (instancetype)initWithUser:(std::shared_ptr<SyncUser>)user token:(realm::Subscribable<SyncUser>::Token&&)token {
     if (self = [super init]) {
-        _token = std::make_unique<realm::Subscribable<SyncUser>::Token>(std::move(token));
-        return self;
+        _user = std::move(user);
+        _token = std::move(token);
     }
-
-    return nil;
+    return self;
 }
 
-- (NSUInteger)value {
-    return _token->value();
+- (void)unsubscribe {
+    _token.reset();
+    _user.reset();
 }
-
 @end
 
 @implementation RLMUser
@@ -82,7 +81,7 @@ using namespace realm;
 }
 
 - (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue {
-    return [self configurationWithPartitionValue:partitionValue clientResetMode:RLMClientResetModeManual];
+    return [self configurationWithPartitionValue:partitionValue clientResetMode:RLMClientResetModeRecoverUnsyncedChanges];
 }
 
 - (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue
@@ -109,9 +108,43 @@ using namespace realm;
     return config;
 }
 
+- (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue
+                                           clientResetMode:(RLMClientResetMode)clientResetMode
+                                  manualClientResetHandler:(nullable RLMSyncErrorReportingBlock)manualClientResetHandler {
+    auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self
+                                                  partitionValue:partitionValue];
+    syncConfig.clientResetMode = clientResetMode;
+    syncConfig.manualClientResetHandler = manualClientResetHandler;
+    RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    config.syncConfiguration = syncConfig;
+    return config;
+}
+
 - (RLMRealmConfiguration *)flexibleSyncConfiguration {
     RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
     config.syncConfiguration = [[RLMSyncConfiguration alloc] initWithUser:self];
+    return config;
+}
+
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithClientResetMode:(RLMClientResetMode)clientResetMode
+                                                      notifyBeforeReset:(nullable RLMClientResetBeforeBlock)beforeResetBlock
+                                                       notifyAfterReset:(nullable RLMClientResetAfterBlock)afterResetBlock {
+    auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self];
+    RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    syncConfig.clientResetMode = clientResetMode;
+    syncConfig.beforeClientReset = beforeResetBlock;
+    syncConfig.afterClientReset = afterResetBlock;
+    config.syncConfiguration = syncConfig;
+    return config;
+}
+
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithClientResetMode:(RLMClientResetMode)clientResetMode
+                                               manualClientResetHandler:(nullable RLMSyncErrorReportingBlock)manualClientResetHandler {
+    auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self];
+    RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    syncConfig.clientResetMode = clientResetMode;
+    syncConfig.manualClientResetHandler = manualClientResetHandler;
+    config.syncConfiguration = syncConfig;
     return config;
 }
 
@@ -119,6 +152,36 @@ using namespace realm;
                                                                  rerunOnOpen:(BOOL)rerunOnOpen {
     auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self];
     RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    config.initialSubscriptions = initialSubscriptions;
+    config.rerunOnOpen = rerunOnOpen;
+    config.syncConfiguration = syncConfig;
+    return config;
+}
+
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithInitialSubscriptions:(RLMFlexibleSyncInitialSubscriptionsBlock)initialSubscriptions
+                                                                 rerunOnOpen:(BOOL)rerunOnOpen
+                                                             clientResetMode:(RLMClientResetMode)clientResetMode
+                                                           notifyBeforeReset:(nullable RLMClientResetBeforeBlock)beforeResetBlock
+                                                            notifyAfterReset:(nullable RLMClientResetAfterBlock)afterResetBlock {
+    auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self];
+    RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    syncConfig.clientResetMode = clientResetMode;
+    syncConfig.beforeClientReset = beforeResetBlock;
+    syncConfig.afterClientReset = afterResetBlock;
+    config.initialSubscriptions = initialSubscriptions;
+    config.rerunOnOpen = rerunOnOpen;
+    config.syncConfiguration = syncConfig;
+    return config;
+}
+
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithInitialSubscriptions:(RLMFlexibleSyncInitialSubscriptionsBlock)initialSubscriptions
+                                                                 rerunOnOpen:(BOOL)rerunOnOpen
+                                                             clientResetMode:(RLMClientResetMode)clientResetMode
+                                                    manualClientResetHandler:(nullable RLMSyncErrorReportingBlock)manualClientResetHandler {
+    auto syncConfig = [[RLMSyncConfiguration alloc] initWithUser:self];
+    RLMRealmConfiguration *config = [[RLMRealmConfiguration alloc] init];
+    syncConfig.clientResetMode = clientResetMode;
+    syncConfig.manualClientResetHandler = manualClientResetHandler;
     config.initialSubscriptions = initialSubscriptions;
     config.rerunOnOpen = rerunOnOpen;
     config.syncConfiguration = syncConfig;
@@ -243,7 +306,7 @@ using namespace realm;
             return completion([self customData], nil);
         }
 
-        completion(nil, RLMAppErrorToNSError(*error));
+        completion(nil, makeError(*error));
     });
 }
 
@@ -251,8 +314,8 @@ using namespace realm;
                      completion:(RLMOptionalUserBlock)completion {
     _app._realmApp->link_user(_user, credentials.appCredentials,
                    ^(std::shared_ptr<SyncUser> user, std::optional<app::AppError> error) {
-        if (error && error->error_code) {
-            return completion(nil, RLMAppErrorToNSError(*error));
+        if (error) {
+            return completion(nil, makeError(*error));
         }
 
         completion([[RLMUser alloc] initWithUser:user app:_app], nil);
@@ -278,7 +341,7 @@ using namespace realm;
 }
 
 - (RLMAPIKeyAuth *)apiKeysAuth {
-    return [[RLMAPIKeyAuth alloc] initWithApp: _app];
+    return [[RLMAPIKeyAuth alloc] initWithApp:_app];
 }
 
 - (RLMMongoClient *)mongoClientWithServiceName:(NSString *)serviceName {
@@ -298,7 +361,7 @@ using namespace realm;
                                   [completionBlock](std::optional<bson::Bson>&& response,
                                                     std::optional<app::AppError> error) {
         if (error) {
-            return completionBlock(nil, RLMAppErrorToNSError(*error));
+            return completionBlock(nil, makeError(*error));
         }
 
         completionBlock(RLMConvertBsonToRLMBSON(*response), nil);
@@ -307,8 +370,8 @@ using namespace realm;
 
 - (void)handleResponse:(std::optional<realm::app::AppError>)error
             completion:(RLMOptionalErrorBlock)completion {
-    if (error && error->error_code) {
-        return completion(RLMAppErrorToNSError(*error));
+    if (error) {
+        return completion(makeError(*error));
     }
     completion(nil);
 }
@@ -354,16 +417,11 @@ using namespace realm;
     return _user;
 }
 
-- (RLMUserSubscriptionToken *)subscribe:(RLMUserNotificationBlock) block {
-    return [[RLMUserSubscriptionToken alloc] initWithToken:_user->subscribe([block, self] (auto&) {
+- (RLMUserSubscriptionToken *)subscribe:(RLMUserNotificationBlock)block {
+    return [[RLMUserSubscriptionToken alloc] initWithUser:_user token:_user->subscribe([block, self] (auto&) {
         block(self);
     })];
 }
-
-- (void)unsubscribe:(RLMUserSubscriptionToken *)token {
-    _user->unsubscribe(*token->_token);
-}
-
 @end
 
 #pragma mark - RLMUserIdentity

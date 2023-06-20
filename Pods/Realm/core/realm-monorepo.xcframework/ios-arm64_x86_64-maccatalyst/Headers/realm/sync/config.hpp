@@ -19,16 +19,14 @@
 #ifndef REALM_SYNC_CONFIG_HPP
 #define REALM_SYNC_CONFIG_HPP
 
-#include <realm/db.hpp>
-#include <realm/util/assert.hpp>
-#include <realm/util/optional.hpp>
+#include <realm/exceptions.hpp>
 #include <realm/sync/protocol.hpp>
 
 #include <functional>
-#include <memory>
-#include <string>
 #include <map>
-#include <system_error>
+#include <memory>
+#include <optional>
+#include <string>
 #include <unordered_map>
 
 namespace realm {
@@ -47,11 +45,10 @@ using port_type = std::uint_fast16_t;
 enum class ProtocolError;
 } // namespace sync
 
-struct SyncError {
-    std::error_code error_code;
+struct SyncError : public SystemError {
+    enum class ClientResetModeAllowed { DoNotClientReset, RecoveryPermitted, RecoveryNotPermitted };
+
     bool is_fatal;
-    /// A consolidated explanation of the error, including a link to the server logs if applicable.
-    std::string message;
     // Just the minimal error message, without any log URL.
     std::string_view simple_message;
     // The URL to the associated server log if any. If not supplied by the server, this will be `empty()`.
@@ -71,8 +68,8 @@ struct SyncError {
     // that caused a compensating write and why the write was illegal.
     std::vector<sync::CompensatingWriteErrorInfo> compensating_writes_info;
 
-    SyncError(std::error_code error_code, std::string msg, bool is_fatal,
-              util::Optional<std::string> serverLog = util::none,
+    SyncError(std::error_code error_code, std::string_view msg, bool is_fatal,
+              std::optional<std::string_view> serverLog = std::nullopt,
               std::vector<sync::CompensatingWriteErrorInfo> compensating_writes = {});
 
     static constexpr const char c_original_file_path_key[] = "ORIGINAL_FILE_PATH";
@@ -130,6 +127,30 @@ enum class ClientResyncMode : unsigned char {
     RecoverOrDiscard,
 };
 
+enum class SyncClientHookEvent {
+    DownloadMessageReceived,
+    DownloadMessageIntegrated,
+    BootstrapMessageProcessed,
+    BootstrapProcessed,
+    ErrorMessageReceived,
+};
+
+enum class SyncClientHookAction {
+    NoAction,
+    EarlyReturn,
+    SuspendWithRetryableError,
+    TriggerReconnect,
+};
+
+struct SyncClientHookData {
+    SyncClientHookEvent event;
+    sync::SyncProgress progress;
+    int64_t query_version;
+    sync::DownloadBatchState batch_state;
+    size_t num_changesets;
+    const sync::ProtocolErrorInfo* error_info = nullptr;
+};
+
 struct SyncConfig {
     struct FLXSyncEnabled {
     };
@@ -147,11 +168,23 @@ struct SyncConfig {
     std::string partition_value;
     SyncSessionStopPolicy stop_policy = SyncSessionStopPolicy::AfterChangesUploaded;
     std::function<SyncSessionErrorHandler> error_handler;
+    bool flx_sync_requested = false;
+
+    // When integrating a flexible sync bootstrap, process this many bytes of changeset data in a single integration
+    // attempt. This many bytes of changesets will be uncompressed and held in memory while being applied.
+    size_t flx_bootstrap_batch_size_bytes = 1024 * 1024;
+
+    // {@
+    /// DEPRECATED - Will be removed in a future release
+    // The following parameters are only used by the default SyncSocket implementation. Custom SyncSocket
+    // implementations must handle these directly, if these features are supported.
+    util::Optional<std::string> authorization_header_name; // not used
+    std::map<std::string, std::string> custom_http_headers;
+    bool client_validate_ssl = true;
     util::Optional<std::string> ssl_trust_certificate_path;
     std::function<SSLVerifyCallback> ssl_verify_callback;
     util::Optional<ProxyConfig> proxy_config;
-    bool flx_sync_requested = false;
-    bool client_validate_ssl = true;
+    // @}
 
     // If true, upload/download waits are canceled on any sync error and not just fatal ones
     bool cancel_waits_on_nonfatal_error = false;
@@ -161,9 +194,6 @@ struct SyncConfig {
     // directly to replication, and will break horribly otherwise
     bool apply_server_changes = true;
 
-    util::Optional<std::string> authorization_header_name;
-    std::map<std::string, std::string> custom_http_headers;
-
     // The name of the directory which Realms should be backed up to following
     // a client reset in ClientResyncMode::Manual mode
     util::Optional<std::string> recovery_directory;
@@ -172,19 +202,10 @@ struct SyncConfig {
     std::function<void(std::shared_ptr<Realm> before_frozen, ThreadSafeReference after, bool did_recover)>
         notify_after_client_reset;
 
-    // Will be called after a download message is received and validated by the client but befefore it's been
-    // transformed or applied. To be used in testing only.
-    std::function<void(std::weak_ptr<SyncSession>, const sync::SyncProgress&, int64_t, sync::DownloadBatchState,
-                       size_t)>
-        on_download_message_received_hook;
-    // Will be called after each bootstrap message is added to the pending bootstrap store, but before
-    // processing a finalized bootstrap. For testing only.
-    std::function<bool(std::weak_ptr<SyncSession>, const sync::SyncProgress&, int64_t, sync::DownloadBatchState)>
-        on_bootstrap_message_processed_hook;
-    // Will be called after a download message is integrated. For testing only.
-    std::function<void(std::weak_ptr<SyncSession>, const sync::SyncProgress&, int64_t, sync::DownloadBatchState,
-                       size_t)>
-        on_download_message_integrated_hook;
+    // Used by core testing to hook into the sync client when various events occur and maybe inject
+    // errors/disconnects deterministically.
+    std::function<SyncClientHookAction(std::weak_ptr<SyncSession>, const SyncClientHookData&)>
+        on_sync_client_event_hook;
 
     bool simulate_integration_error = false;
 

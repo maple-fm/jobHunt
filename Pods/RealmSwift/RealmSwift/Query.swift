@@ -38,7 +38,7 @@ public struct StringOptions: OptionSet {
 
  With `Query` you are given the ability to create Swift style query expression that will then
  be constructed into an `NSPredicate`. The `Query` class should not be instantiated directly
- and should be only used as a paramater within a closure that takes a query expression as an argument.
+ and should be only used as a parameter within a closure that takes a query expression as an argument.
  Example:
  ```swift
  public func where(_ query: ((Query<Element>) -> Query<Element>)) -> Results<Element>
@@ -114,7 +114,7 @@ public struct Query<T> {
     private let node: QueryNode
 
     /**
-     The `Query` struct works by compunding `QueryNode`s together in a tree structure.
+     The `Query` struct works by compounding `QueryNode`s together in a tree structure.
      Each part of a query expression will be represented by one of the below static methods.
      For example in the simple expression `stringCol == 'Foo'`:
 
@@ -850,7 +850,7 @@ extension Optional: _QueryBinary where Wrapped: _Persistable, Wrapped.PersistedT
 
 // MARK: QueryNode -
 
-fileprivate indirect enum QueryNode {
+private indirect enum QueryNode {
     enum Operator: String {
         case or = "||"
         case and = "&&"
@@ -912,9 +912,9 @@ private func buildPredicate(_ root: QueryNode, subqueryCount: Int = 0) -> (Strin
             formatStr.append(prefix)
         }
         formatStr.append("(")
-        build(lhs)
+        build(lhs, isNewNode: true)
         formatStr.append(" \(op) ")
-        build(rhs)
+        build(rhs, isNewNode: true)
         formatStr.append(")")
     }
 
@@ -926,6 +926,13 @@ private func buildPredicate(_ root: QueryNode, subqueryCount: Int = 0) -> (Strin
         formatStr.append("}")
     }
 
+    func buildBool(_ node: QueryNode, isNot: Bool = false) {
+        if case let .keyPath(kp, _) = node {
+            formatStr.append(kp.joined(separator: "."))
+            formatStr.append(" == \(isNot ? "false" : "true")")
+        }
+    }
+
     func strOptions(_ options: StringOptions) -> String {
         if options == [] {
             return ""
@@ -933,17 +940,26 @@ private func buildPredicate(_ root: QueryNode, subqueryCount: Int = 0) -> (Strin
         return "[\(options.contains(.caseInsensitive) ? "c" : "")\(options.contains(.diacriticInsensitive) ? "d" : "")]"
     }
 
-    func build(_ node: QueryNode, prefix: String? = nil) {
+    func build(_ node: QueryNode, prefix: String? = nil, isNewNode: Bool = false) {
         switch node {
         case .constant(let value):
             formatStr.append("%@")
             arguments.add(value ?? NSNull())
         case .keyPath(let kp, let options):
+            if isNewNode {
+                buildBool(node)
+                return
+            }
             if options.contains(.requiresAny) {
                 formatStr.append("ANY ")
             }
             formatStr.append(kp.joined(separator: "."))
         case .not(let child):
+            if case .keyPath = child,
+               isNewNode {
+                buildBool(child, isNot: true)
+                return
+            }
             build(child, prefix: "NOT ")
         case .comparison(operator: let op, let lhs, let rhs, let options):
             switch op {
@@ -969,7 +985,7 @@ private func buildPredicate(_ root: QueryNode, subqueryCount: Int = 0) -> (Strin
             arguments.add(key)
         }
     }
-    build(root)
+    build(root, isNewNode: true)
     return (formatStr as String, (arguments as! [Any]))
 }
 

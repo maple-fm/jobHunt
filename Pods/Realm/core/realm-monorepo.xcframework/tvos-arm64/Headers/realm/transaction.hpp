@@ -58,16 +58,15 @@ public:
     void rollback() REQUIRES(!m_async_mutex);
     void end_read() REQUIRES(!m_async_mutex);
 
+    template <class O>
+    void parse_history(O& observer, DB::version_type begin, DB::version_type end);
+
     // Live transactions state changes, often taking an observer functor:
     VersionID commit_and_continue_as_read(bool commit_to_disk = true) REQUIRES(!m_async_mutex);
-    void commit_and_continue_writing();
+    VersionID commit_and_continue_writing();
     template <class O>
-    void rollback_and_continue_as_read(O* observer) REQUIRES(!m_async_mutex);
-    void rollback_and_continue_as_read() REQUIRES(!m_async_mutex)
-    {
-        _impl::NullInstructionObserver* o = nullptr;
-        rollback_and_continue_as_read(o);
-    }
+    void rollback_and_continue_as_read(O& observer) REQUIRES(!m_async_mutex);
+    void rollback_and_continue_as_read() REQUIRES(!m_async_mutex);
     template <class O>
     void advance_read(O* observer, VersionID target_version = VersionID());
     void advance_read(VersionID target_version = VersionID())
@@ -122,7 +121,6 @@ public:
     }
 
     void upgrade_file_format(int target_file_format_version);
-    void check_consistency() REQUIRES(!m_async_mutex);
 
     /// Task oriented/async interface for continuous transactions.
     // true if this transaction already holds the write mutex
@@ -180,7 +178,7 @@ private:
     }
 
     template <class O>
-    bool internal_advance_read(O* observer, VersionID target_version, _impl::History&, bool);
+    bool internal_advance_read(O* observer, VersionID target_version, _impl::History&, bool) REQUIRES(!db->m_mutex);
     void set_transact_stage(DB::TransactStage stage) noexcept;
     void do_end_read() noexcept REQUIRES(!m_async_mutex);
     void initialize_replication();
@@ -188,6 +186,9 @@ private:
     void replicate(Transaction* dest, Replication& repl) const;
     void complete_async_commit();
     void acquire_write_lock() REQUIRES(!m_async_mutex);
+
+    void cow_outliers(std::vector<size_t>& progress, size_t evac_limit, size_t work_limit);
+    void close_read_with_lock() REQUIRES(!m_async_mutex, db->m_mutex);
 
     DBRef db;
     mutable std::unique_ptr<_impl::History> m_history_read;
@@ -202,6 +203,7 @@ private:
     util::CheckedMutex m_async_mutex;
     std::condition_variable m_async_cv GUARDED_BY(m_async_mutex);
     AsyncState m_async_stage GUARDED_BY(m_async_mutex) = AsyncState::Idle;
+    std::chrono::steady_clock::time_point m_request_time_point;
     bool m_waiting_for_write_lock GUARDED_BY(m_async_mutex) = false;
     bool m_waiting_for_sync GUARDED_BY(m_async_mutex) = false;
 
@@ -334,24 +336,28 @@ template <class O>
 inline void Transaction::advance_read(O* observer, VersionID version_id)
 {
     if (m_transact_stage != DB::transact_Reading)
-        throw LogicError(LogicError::wrong_transact_state);
+        throw WrongTransactionState("Not a read transaction");
 
     // It is an error if the new version precedes the currently bound one.
     if (version_id.version < m_read_lock.m_version)
-        throw LogicError(LogicError::bad_version);
+        throw IllegalOperation("Requesting an older version when advancing");
 
     auto hist = get_history(); // Throws
     if (!hist)
-        throw LogicError(LogicError::no_history);
+        throw IllegalOperation("No transaction log when advancing");
 
+    auto old_version = m_read_lock.m_version;
     internal_advance_read(observer, version_id, *hist, false); // Throws
+    if (db->m_logger) {
+        db->m_logger->log(util::Logger::Level::trace, "Advance read: %1 -> %2", old_version, m_read_lock.m_version);
+    }
 }
 
 template <class O>
 inline bool Transaction::promote_to_write(O* observer, bool nonblocking)
 {
     if (m_transact_stage != DB::transact_Reading)
-        throw LogicError(LogicError::wrong_transact_state);
+        throw WrongTransactionState("Not a read transaction");
 
     if (!holds_write_mutex()) {
         if (nonblocking) {
@@ -361,13 +367,20 @@ inline bool Transaction::promote_to_write(O* observer, bool nonblocking)
             }
         }
         else {
+            auto t1 = std::chrono::steady_clock::now();
             acquire_write_lock(); // Throws
+            if (db->m_logger) {
+                auto t2 = std::chrono::steady_clock::now();
+                db->m_logger->log(util::Logger::Level::trace, "Acquired write lock in %1 us",
+                                  std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count());
+            }
         }
     }
+    auto old_version = m_read_lock.m_version;
     try {
         Replication* repl = db->get_replication();
         if (!repl)
-            throw LogicError(LogicError::no_history);
+            throw IllegalOperation("No transaction log when promoting to write");
 
         VersionID version = VersionID(); // Latest
         m_history = repl->_get_history_write();
@@ -391,35 +404,41 @@ inline bool Transaction::promote_to_write(O* observer, bool nonblocking)
         throw;
     }
 
+    if (db->m_logger) {
+        db->m_logger->log(util::Logger::Level::trace, "Promote to write: %1 -> %2", old_version,
+                          m_read_lock.m_version);
+    }
+
     set_transact_stage(DB::transact_Writing);
     return true;
 }
 
 template <class O>
-inline void Transaction::rollback_and_continue_as_read(O* observer)
+inline void Transaction::rollback_and_continue_as_read(O& observer)
 {
     if (m_transact_stage != DB::transact_Writing)
-        throw LogicError(LogicError::wrong_transact_state);
+        throw WrongTransactionState("Not a write transaction");
+    Replication* repl = db->get_replication();
+    if (!repl)
+        throw IllegalOperation("No transaction log when rolling back");
+
+    BinaryData uncommitted_changes = repl->get_uncommitted_changes();
+    if (uncommitted_changes.size()) {
+        util::SimpleInputStream in(uncommitted_changes);
+        _impl::parse_transact_log(in, observer); // Throws
+    }
+
+    rollback_and_continue_as_read();
+}
+
+inline void Transaction::rollback_and_continue_as_read()
+{
+    if (m_transact_stage != DB::transact_Writing)
+        throw WrongTransactionState("Not a write transaction");
 
     Replication* repl = db->get_replication();
     if (!repl)
-        throw LogicError(LogicError::no_history);
-
-    BinaryData uncommitted_changes = repl->get_uncommitted_changes();
-
-    // Possible optimization: We are currently creating two transaction log parsers, one here,
-    // and one in advance_transact(). That is wasteful as the parser creation is
-    // expensive.
-    util::SimpleInputStream in(uncommitted_changes);
-    _impl::TransactLogParser parser; // Throws
-    _impl::TransactReverser reverser;
-    parser.parse(in, reverser); // Throws
-
-    if (observer && uncommitted_changes.size()) {
-        _impl::ReversedNoCopyInputStream reversed_in(reverser);
-        parser.parse(reversed_in, *observer); // Throws
-        observer->parse_complete();           // Throws
-    }
+        throw IllegalOperation("No transaction log when rolling back");
 
     // Mark all managed space (beyond the attached file) as free.
     db->reset_free_space_tracking(); // Throws
@@ -428,13 +447,17 @@ inline void Transaction::rollback_and_continue_as_read(O* observer)
     ref_type top_ref = m_read_lock.m_top_ref;
     size_t file_size = m_read_lock.m_file_size;
 
-    _impl::ReversedNoCopyInputStream reversed_in(reverser);
+    // since we had the write lock, we already have the latest encrypted pages in memory
     m_alloc.update_reader_view(file_size); // Throws
     update_allocator_wrappers(false);
-    advance_transact(top_ref, reversed_in, false); // Throws
+    advance_transact(top_ref, nullptr, false); // Throws
 
     if (!holds_write_mutex())
         db->end_write_on_correct_thread();
+
+    if (db->m_logger) {
+        db->m_logger->log(util::Logger::Level::trace, "Rollback");
+    }
 
     m_history = nullptr;
     set_transact_stage(DB::transact_Reading);
@@ -443,8 +466,7 @@ inline void Transaction::rollback_and_continue_as_read(O* observer)
 template <class O>
 inline bool Transaction::internal_advance_read(O* observer, VersionID version_id, _impl::History& hist, bool writable)
 {
-    DB::ReadLockInfo new_read_lock;
-    db->grab_read_lock(new_read_lock, version_id); // Throws
+    DB::ReadLockInfo new_read_lock = db->grab_read_lock(DB::ReadLockInfo::Live, version_id); // Throws
     REALM_ASSERT(new_read_lock.m_version >= m_read_lock.m_version);
     if (new_read_lock.m_version == m_read_lock.m_version) {
         db->release_read_lock(new_read_lock);
@@ -471,10 +493,8 @@ inline bool Transaction::internal_advance_read(O* observer, VersionID version_id
     if (observer) {
         // This has to happen in the context of the originally bound snapshot
         // and while the read transaction is still in a fully functional state.
-        _impl::TransactLogParser parser;
         _impl::ChangesetInputStream in(hist, old_version, new_version);
-        parser.parse(in, *observer); // Throws
-        observer->parse_complete();  // Throws
+        _impl::parse_transact_log(in, *observer); // Throws
     }
 
     // The old read lock must be retained for as long as the change history is
@@ -487,12 +507,24 @@ inline bool Transaction::internal_advance_read(O* observer, VersionID version_id
     // part of the Realm state, then it would not have been necessary to retain
     // the old read lock beyond this point.
     _impl::ChangesetInputStream in(hist, old_version, new_version);
-    advance_transact(new_top_ref, in, writable); // Throws
+    advance_transact(new_top_ref, &in, writable); // Throws
     g.release();
     db->release_read_lock(m_read_lock);
     m_read_lock = new_read_lock;
 
     return true; // _impl::History::update_early_from_top_ref() was called
+}
+
+template <class O>
+void Transaction::parse_history(O& observer, DB::version_type begin, DB::version_type end)
+{
+    REALM_ASSERT(m_transact_stage != DB::transact_Ready);
+    REALM_ASSERT(end <= m_read_lock.m_version);
+    auto hist = get_history(); // Throws
+    REALM_ASSERT(hist);
+    hist->ensure_updated(m_read_lock.m_version);
+    _impl::ChangesetInputStream in(*hist, begin, end);
+    _impl::parse_transact_log(in, observer); // Throws
 }
 
 } // namespace realm

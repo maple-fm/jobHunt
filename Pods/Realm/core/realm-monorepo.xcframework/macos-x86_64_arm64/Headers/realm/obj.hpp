@@ -29,7 +29,7 @@
 
 namespace realm {
 
-class TableClusterTree;
+class ClusterTree;
 class Replication;
 class TableView;
 class CollectionBase;
@@ -130,8 +130,6 @@ public:
 
     /// Check if the object is still alive
     bool is_valid() const noexcept;
-    /// Will throw if object is not valid
-    void check_valid() const;
     /// Delete object from table. Object is invalid afterwards.
     void remove();
     /// Invalidate
@@ -232,6 +230,10 @@ public:
     // new object and link it. (To Be Implemented)
     Obj clear_linked_object(ColKey col_key);
     Obj& set_any(ColKey col_key, Mixed value, bool is_default = false);
+    Obj& set_any(StringData col_name, Mixed value, bool is_default = false)
+    {
+        return set_any(get_column_key(col_name), value, is_default);
+    }
 
     template <typename U>
     Obj& set(StringData col_name, U value, bool is_default = false)
@@ -310,6 +312,7 @@ public:
     template <typename U>
     SetPtr<U> get_set_ptr(ColKey col_key) const;
     LnkSet get_linkset(ColKey col_key) const;
+    LnkSet get_linkset(StringData col_name) const;
     LnkSetPtr get_linkset_ptr(ColKey col_key) const;
     SetBasePtr get_setbase_ptr(ColKey col_key) const;
     Dictionary get_dictionary(ColKey col_key) const;
@@ -337,7 +340,7 @@ private:
     friend class TableView;
     template <class, class>
     friend class Collection;
-    template <class, class>
+    template <class>
     friend class CollectionBaseImpl;
     template <class>
     friend class Lst;
@@ -373,7 +376,7 @@ private:
     template <class T>
     bool do_is_null(ColKey::Idx col_ndx) const;
 
-    const TableClusterTree* get_tree_top() const;
+    const ClusterTree* get_tree_top() const;
     ColKey get_column_key(StringData col_name) const;
     ColKey get_primary_key_column() const;
     TableKey get_table_key() const;
