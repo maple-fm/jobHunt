@@ -9,10 +9,11 @@ import Foundation
 
 // インターンシップ
 struct InternshipModel: Entry {
-
+    
     var id: String
     var name: String
     var deadline: Date
+    var endDeadline: Date?
     var location: String?
     var clothes: String?
     var item: String?

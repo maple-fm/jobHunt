@@ -9,10 +9,11 @@ import Foundation
 
 // エントリーシート
 struct ESModel: Entry {
-
+    
     var id: String
     var name: String
     var deadline: Date
+    var endDeadline: Date?
     var motivation: String?
     var gakuchika: String?
     var strongPoints: String?

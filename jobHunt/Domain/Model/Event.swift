@@ -14,6 +14,7 @@ protocol Entry: Identifiable {
     var id: String { get }
     var name: String { get }
     var deadline: Date { get }
+    var endDeadline: Date? { get }
     var category: EventName { get }
 }
 

@@ -9,10 +9,11 @@ import Foundation
 
 // 説明会
 struct SessionModel: Entry {
-
+    
     var id: String
     var name: String
     var deadline: Date
+    var endDeadline: Date?
     var location: String?
     var clothes: String?
     var item: String?

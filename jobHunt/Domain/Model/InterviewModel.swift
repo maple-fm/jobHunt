@@ -15,7 +15,7 @@ class InterviewModel: Entry {
     var id: String
     var name: String
     var deadline: Date
-    var endDeadline: Date
+    var endDeadline: Date?
     var flow: Flow
     var location: String?
     var clothes: String?
