@@ -44,15 +44,31 @@ struct EventList: View {
                                                 ))
                                                 .foregroundColor(Color(UIColor(named: "Text")!))
                                         } else {
-                                            Text("\(viewModel.toTime(date: event.deadline))~")
-                                                .font(.system(size: 12))
-                                                .padding(EdgeInsets(
-                                                    top: 0,
-                                                    leading: 15,
-                                                    bottom: 45,
-                                                    trailing: 5
-                                                ))
-                                                .foregroundColor(Color(UIColor(named: "Text")!))
+                                            if let end = event.endDeadline {
+                                                VStack(alignment: .leading, spacing: 25) {
+                                                    Text("\(viewModel.toTime(date: event.deadline))~")
+                                                        .font(.system(size: 12))
+                                                        .foregroundColor(Color(UIColor(named: "Text")!))
+                                                    
+
+                                                        Text("\(viewModel.toTime(date: end))")
+                                                            .font(.system(size: 12))
+                                                    
+                                                }
+                                                .padding(.leading, 10)
+                                            } else {
+                                                Text("\(viewModel.toTime(date: event.deadline))~")
+                                                    .font(.system(size: 12))
+                                                    .padding(EdgeInsets(
+                                                        top: 0,
+                                                        leading: 15,
+                                                        bottom: 45,
+                                                        trailing: 5
+                                                    ))
+                                                    .foregroundColor(Color(UIColor(named: "Text")!))
+                                            }
+                                            
+                                            
                                         }
 
                                         Text(event.name)

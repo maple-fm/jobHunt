@@ -30,7 +30,7 @@ class InterviewDataSource: Object {
         self.id = UUID().uuidString
         self.name = name
         self.deadline = deadline
-        self.deadline = endDeadline
+        self.endDeadline = endDeadline
         self.flow = flow
         self.location = location
         self.clothes = clothes

@@ -7,153 +7,387 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "69C1EADE-8016-49D4-8A4D-D1E8BCFF426D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "jobHunt/Feature/Home/CalendarTestView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "updateUIView(_:context:)"
-            landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
-                  <ActionContent
-                     message = "updateView"
-                     conveyanceType = "0">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A6CC34D4-28D4-42AD-86C3-30B82543A6AA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "jobHunt/Feature/Home/CalendarTestView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "calendar(_:didSelect:at:)"
-            landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
-                  <ActionContent
-                     message = "select = @date@"
-                     conveyanceType = "0">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "11827FF6-BBE2-41F0-85B0-918777CC06FC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "jobHunt/Domain/Repository/Event.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "Entry"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "352D4A9D-533F-46A8-979E-33F080F62363"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "jobHunt/Feature/Home/HomeView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9733A375-84DF-4A7D-AE96-99FEEC1358F5"
+            uuid = "67343582-31EF-4D6B-9514-978D506344FA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
-            filePath = "jobHunt/Feature/App/jobHuntApp.swift"
+            filePath = "jobHunt/Feature/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "onUpdated()"
+            landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Log">
                   <ActionContent
-                     message = "&#x4ef6;&#x6570;&#xff1a;@numberOfEvent@"
+                     message = "events @events@"
                      conveyanceType = "0">
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
             <Locations>
                <Location
-                  uuid = "9733A375-84DF-4A7D-AE96-99FEEC1358F5 - fc28f17abd0456bc"
+                  uuid = "67343582-31EF-4D6B-9514-978D506344FA - 52e87861476491b1"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftUI.ScenePhase) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0 in jobHunt.jobHuntApp.body.getter : some"
+                  symbolName = "jobHunt.HomeViewModel.onUpdated() -&gt; ()"
                   moduleName = "jobHunt"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/App/jobHuntApp.swift"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Home/HomeViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "712">
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "136">
                </Location>
                <Location
-                  uuid = "9733A375-84DF-4A7D-AE96-99FEEC1358F5 - fc28f17abd0456bc"
+                  uuid = "67343582-31EF-4D6B-9514-978D506344FA - 52e87861476491d6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftUI.ScenePhase) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0 in jobHunt.jobHuntApp.body.getter : some"
+                  symbolName = "jobHunt.HomeViewModel.onUpdated() -&gt; ()"
                   moduleName = "jobHunt"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/App/jobHuntApp.swift"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Home/HomeViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "772">
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "680E3AEF-CA7A-4A61-ACB2-D3D5A8E2A654"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "jobHunt/Domain/Repository/EventRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "saveInterview(name:deadline:endDeadline:flow:location:clothes:motivation:gakuchika:strongPoints:weakPoints:questions:other:category:)"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "end: @endDeadline@"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  uuid = "680E3AEF-CA7A-4A61-ACB2-D3D5A8E2A654 - aff3425b2351229e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.EventRepository.saveInterview(name: Swift.String, deadline: Foundation.Date, endDeadline: Foundation.Date, flow: jobHunt.Flow, location: Swift.Optional&lt;Swift.String&gt;, clothes: Swift.Optional&lt;Swift.String&gt;, motivation: Swift.Optional&lt;Swift.String&gt;, gakuchika: Swift.Optional&lt;Swift.String&gt;, strongPoints: Swift.Optional&lt;Swift.String&gt;, weakPoints: Swift.Optional&lt;Swift.String&gt;, questions: Swift.Optional&lt;Swift.String&gt;, other: Swift.Optional&lt;Swift.String&gt;, category: jobHunt.EventName) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/Repository/EventRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "548">
                </Location>
                <Location
-                  uuid = "9733A375-84DF-4A7D-AE96-99FEEC1358F5 - fc28f17abd0456bc"
+                  uuid = "680E3AEF-CA7A-4A61-ACB2-D3D5A8E2A654 - aff3425b2351237d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftUI.ScenePhase) -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.onChange&lt;&#x3c4;_0_0 where &#x3c4;_1_0: Swift.Equatable&gt;(of: &#x3c4;_1_0, perform: (&#x3c4;_1_0) -&gt; ()) -&gt; some&gt;&gt;.0 in jobHunt.jobHuntApp.body.getter : some"
+                  symbolName = "jobHunt.EventRepository.saveInterview(name: Swift.String, deadline: Foundation.Date, endDeadline: Foundation.Date, flow: jobHunt.Flow, location: Swift.Optional&lt;Swift.String&gt;, clothes: Swift.Optional&lt;Swift.String&gt;, motivation: Swift.Optional&lt;Swift.String&gt;, gakuchika: Swift.Optional&lt;Swift.String&gt;, strongPoints: Swift.Optional&lt;Swift.String&gt;, weakPoints: Swift.Optional&lt;Swift.String&gt;, questions: Swift.Optional&lt;Swift.String&gt;, other: Swift.Optional&lt;Swift.String&gt;, category: jobHunt.EventName) -&gt; ()"
                   moduleName = "jobHunt"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/App/jobHuntApp.swift"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/Repository/EventRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "692">
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "548">
+               </Location>
+               <Location
+                  uuid = "680E3AEF-CA7A-4A61-ACB2-D3D5A8E2A654 - aff3425b2351237d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.EventRepository.saveInterview(name: Swift.String, deadline: Foundation.Date, endDeadline: Foundation.Date, flow: jobHunt.Flow, location: Swift.Optional&lt;Swift.String&gt;, clothes: Swift.Optional&lt;Swift.String&gt;, motivation: Swift.Optional&lt;Swift.String&gt;, gakuchika: Swift.Optional&lt;Swift.String&gt;, strongPoints: Swift.Optional&lt;Swift.String&gt;, weakPoints: Swift.Optional&lt;Swift.String&gt;, questions: Swift.Optional&lt;Swift.String&gt;, other: Swift.Optional&lt;Swift.String&gt;, category: jobHunt.EventName) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/Repository/EventRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "592">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3E2C076-3903-473F-A9F1-C0F72C7F252F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "jobHunt/Domain/DataSource/InterviewDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "write(datasource:)"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "@datasource@"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  uuid = "E3E2C076-3903-473F-A9F1-C0F72C7F252F - 545beb4035b42402"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.InterviewDataSource.write(datasource: jobHunt.InterviewDataSource) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/DataSource/InterviewDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "E3E2C076-3903-473F-A9F1-C0F72C7F252F - 545beb4035b42402"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.InterviewDataSource.write(datasource: jobHunt.InterviewDataSource) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/DataSource/InterviewDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "E3E2C076-3903-473F-A9F1-C0F72C7F252F - 545beb4035b42402"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.InterviewDataSource.write(datasource: jobHunt.InterviewDataSource) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/DataSource/InterviewDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99BF49B0-1A6D-433C-914A-AB208CF95B3B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "jobHunt/Domain/DataSource/InterviewDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "read()"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "array: @objectArray.self@"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  uuid = "99BF49B0-1A6D-433C-914A-AB208CF95B3B - a0972c0b76d6e181"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.InterviewDataSource.read() -&gt; Swift.Array&lt;jobHunt.InterviewDataSource&gt;"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/DataSource/InterviewDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "99BF49B0-1A6D-433C-914A-AB208CF95B3B - a0972c0b76d6e1a0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.InterviewDataSource.read() -&gt; Swift.Array&lt;jobHunt.InterviewDataSource&gt;"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/DataSource/InterviewDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "232">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A34D1DF-28DB-45BA-81CA-80F4BCB05C22"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "Yes"
+            filePath = "jobHunt/Domain/Repository/EventRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
+            landmarkName = "getInterviewArrays()"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "datasource: @datasource.endDeadline@"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D78EBE13-A6B1-46A6-BA1A-CF3FA1E2AAEC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "jobHunt/Domain/DataSource/InterviewDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "write(datasource:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D78EBE13-A6B1-46A6-BA1A-CF3FA1E2AAEC - 545beb4035b42586"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.InterviewDataSource.write(datasource: jobHunt.InterviewDataSource) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/DataSource/InterviewDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "D78EBE13-A6B1-46A6-BA1A-CF3FA1E2AAEC - 545beb4035b425e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.InterviewDataSource.write(datasource: jobHunt.InterviewDataSource) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/DataSource/InterviewDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "240">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9EAD9E51-8419-42E5-8452-1FE5E501E2AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "jobHunt/Feature/Create/CreateViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "clickButton(event:click:start:end:)"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Log">
+                  <ActionContent
+                     message = "deadline: @deadline@, end: @endDeadline@"
+                     conveyanceType = "0">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
+            <Locations>
+               <Location
+                  uuid = "9EAD9E51-8419-42E5-8452-1FE5E501E2AD - 8907bb327a37a832"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.CreateViewModel.clickButton(event: jobHunt.EventName, click: Swift.Bool, start: Foundation.Date, end: Swift.Optional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Create/CreateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "1420">
+               </Location>
+               <Location
+                  uuid = "9EAD9E51-8419-42E5-8452-1FE5E501E2AD - 8907bb327a37a832"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "jobHunt.CreateViewModel.clickButton(event: jobHunt.EventName, click: Swift.Bool, start: Foundation.Date, end: Swift.Optional&lt;Foundation.Date&gt;) -&gt; ()"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Feature/Create/CreateViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "1480">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -47,7 +47,7 @@ class CreateViewModel: ObservableObject {
             
             guard let endDeadline = endDeadline else { return }
             
-            eventReprository.saveNesInterview(
+            eventReprository.saveInterview(
                 name: name,
                 deadline: deadline,
                 endDeadline: endDeadline,

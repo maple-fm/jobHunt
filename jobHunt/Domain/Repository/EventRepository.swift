@@ -46,7 +46,7 @@ class EventRepository {
         datasource.write(datasource: datasource)
     }
 
-    func saveNesInterview(
+    func saveInterview(
         name: String,
         deadline: Date,
         endDeadline: Date,
@@ -61,6 +61,7 @@ class EventRepository {
         other: String?,
         category: EventName
     ) {
+
         let datasource = InterviewDataSource(
             name: name,
             deadline: deadline,
