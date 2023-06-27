@@ -18,14 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         let config = Realm.Configuration(
-                        schemaVersion: 6,
+                        schemaVersion: 7,
                         migrationBlock: { migration, oldSchemaVersion in
                             if oldSchemaVersion < 5 {
                                 migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
                                     newObject?["flow"] = Flow.first.rawValue
                                 }
                             }
-                            if oldSchemaVersion < 6 {
+                            if oldSchemaVersion < 7 {
                                 migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
                                     newObject?["endDeadline"] = oldObject.self
                                 }
