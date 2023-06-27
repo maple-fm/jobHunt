@@ -16,12 +16,12 @@ struct SessionDetailSection: View {
         VStack(alignment: .leading) {
             Group {
                 Text("会社名")
-                    .headetTitle()
+                    .sectionTitle()
                 Text(session.name)
                     .TextArea(session.category)
 
                 Text("開始時間")
-                    .headetTitle()
+                    .sectionTitle()
                 Text(viewModel.toTime(date: session.deadline))
                     .TextArea(session.category)
             }
@@ -29,14 +29,14 @@ struct SessionDetailSection: View {
             Group {
 
                 Text("開催場所")
-                    .headetTitle()
+                    .sectionTitle()
                 if let location = session.location {
                     Text(location)
                         .TextArea(session.category)
                 }
 
                 Text("服装")
-                    .headetTitle()
+                    .sectionTitle()
                 if let clothes = session.clothes {
                     Text(clothes)
                         .TextArea(session.category)
@@ -45,21 +45,21 @@ struct SessionDetailSection: View {
 
             Group {
                 Text("持ち物")
-                    .headetTitle()
+                    .sectionTitle()
                 if let item = session.item {
                     Text(item)
                         .TextArea(session.category)
                 }
 
                 Text("質問したいこと")
-                    .headetTitle()
+                    .sectionTitle()
                 if let questions = session.questions {
                     Text(questions)
                         .TextArea(session.category)
                 }
 
                 Text("その他")
-                    .headetTitle()
+                    .sectionTitle()
                 if let other = session.other {
                     Text(other)
                         .TextArea(session.category)

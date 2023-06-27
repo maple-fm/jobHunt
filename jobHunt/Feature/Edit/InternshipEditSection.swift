@@ -22,7 +22,7 @@ struct InternshipEditSection: View {
             Group {
                 Section(
                     header: Text("会社名")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.name)
                         .textArea(intern.category)
@@ -33,7 +33,7 @@ struct InternshipEditSection: View {
 
                 Section(
                     header: Text("開始時間")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
@@ -44,7 +44,7 @@ struct InternshipEditSection: View {
 
                 Section(
                     header: Text("開催場所")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.location)
                         .textArea(intern.category)
@@ -57,7 +57,7 @@ struct InternshipEditSection: View {
 
                 Section(
                     header: Text("服装")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.clothes)
                         .textArea(intern.category)
@@ -72,7 +72,7 @@ struct InternshipEditSection: View {
             Group {
                 Section(
                     header: Text("持ち物")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.item)
                         .textArea(intern.category)
@@ -85,7 +85,7 @@ struct InternshipEditSection: View {
 
                 Section(
                     header: Text("その他")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.other)
                         .textArea(intern.category)

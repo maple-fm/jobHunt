@@ -16,17 +16,17 @@ struct InterviewDetailSection: View {
         VStack(alignment: .leading) {
             Group {
                 Text("会社名")
-                    .headetTitle()
+                    .sectionTitle()
                 Text(interview.name)
                     .TextArea(interview.category)
 
                 Text("開始時間")
-                    .headetTitle()
+                    .sectionTitle()
                 Text(viewModel.toTime(date: interview.deadline))
                     .TextArea(interview.category)
 
                 Text("選考フロー")
-                    .headetTitle()
+                    .sectionTitle()
                 Text(interview.flow.rawValue)
                     .TextArea(interview.category)
             }
@@ -34,28 +34,28 @@ struct InterviewDetailSection: View {
             Group {
 
                 Text("開催場所")
-                    .headetTitle()
+                    .sectionTitle()
                 if let location = interview.location {
                     Text(location)
                         .TextArea(interview.category)
                 }
 
                 Text("服装")
-                    .headetTitle()
+                    .sectionTitle()
                 if let clothes = interview.clothes {
                     Text(clothes)
                         .TextArea(interview.category)
                 }
 
                 Text("志望動機")
-                    .headetTitle()
+                    .sectionTitle()
                 if let motivation = interview.motivation {
                     Text(motivation)
                         .TextArea(interview.category)
                 }
 
                 Text("ガクチカ")
-                    .headetTitle()
+                    .sectionTitle()
                 if let gakuchika = interview.gakuchika {
                     Text(gakuchika)
                         .TextArea(interview.category)
@@ -64,28 +64,28 @@ struct InterviewDetailSection: View {
 
             Group {
                 Text("長所")
-                    .headetTitle()
+                    .sectionTitle()
                 if let strongPoints = interview.strongPoints {
                     Text(strongPoints)
                         .TextArea(interview.category)
                 }
 
                 Text("短所")
-                    .headetTitle()
+                    .sectionTitle()
                 if let weakPoints = interview.weakPoints {
                     Text(weakPoints)
                         .TextArea(interview.category)
                 }
 
                 Text("質問したいこと")
-                    .headetTitle()
+                    .sectionTitle()
                 if let questions = interview.questions {
                     Text(questions)
                         .TextArea(interview.category)
                 }
 
                 Text("その他")
-                    .headetTitle()
+                    .sectionTitle()
                 if let other = interview.other {
                     Text(other)
                         .TextArea(interview.category)

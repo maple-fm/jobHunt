@@ -16,12 +16,12 @@ struct InternshipDetailSection: View {
         VStack(alignment: .leading) {
             Group {
                 Text("会社名")
-                    .headetTitle()
+                    .sectionTitle()
                 Text(intern.name)
                     .TextArea(intern.category)
 
                 Text("開始時間")
-                    .headetTitle()
+                    .sectionTitle()
                 Text(viewModel.toTime(date: intern.deadline))
                     .TextArea(intern.category)
             }
@@ -29,7 +29,7 @@ struct InternshipDetailSection: View {
             Group {
 
                 Text("開催場所")
-                    .headetTitle()
+                    .sectionTitle()
                 if let location = intern.location {
                     Text(location)
                         .TextArea(intern.category)
@@ -38,21 +38,21 @@ struct InternshipDetailSection: View {
                 }
 
                 Text("服装")
-                    .headetTitle()
+                    .sectionTitle()
                 if let clothes = intern.clothes {
                     Text(clothes)
                         .TextArea(intern.category)
                 }
 
                 Text("持ち物")
-                    .headetTitle()
+                    .sectionTitle()
                 if let item = intern.item {
                     Text(item)
                         .TextArea(intern.category)
                 }
 
                 Text("その他")
-                    .headetTitle()
+                    .sectionTitle()
                 if let other = intern.other {
                     Text(other)
                         .TextArea(intern.category)

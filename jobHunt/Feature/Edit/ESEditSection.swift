@@ -20,7 +20,7 @@ struct ESEditSection: View {
         VStack(alignment: .leading) {
             Section(
                 header: Text("会社名")
-                    .headetTitle()
+                    .sectionTitle()
             ) {
                 TextEditor(text: $viewModel.name)
                     .textArea(es.category)
@@ -31,7 +31,7 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("締切日時")
-                    .headetTitle()
+                    .sectionTitle()
             ) {
                 DatePicker("締切日時", selection: $viewModel.deadline)
                     .PickerItem()
@@ -42,7 +42,7 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("志望動機")
-                    .headetTitle(),
+                    .sectionTitle(),
                 footer:Text("\(viewModel.motivation.count)count")
                     .footer()
                     .font(.system(size: 15))
@@ -60,7 +60,7 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("ガクチカ")
-                    .headetTitle(),
+                    .sectionTitle(),
                 footer: Text("\(viewModel.gakuchika.count)count")
                     .footer()
                     .font(.system(size: 15))
@@ -78,7 +78,7 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("長所")
-                    .headetTitle(),
+                    .sectionTitle(),
                 footer: Text("\(viewModel.strongPoints.count)count")
                     .footer()
                     .font(.system(size: 15))
@@ -96,7 +96,7 @@ struct ESEditSection: View {
             }
             Section(
                 header: Text("短所")
-                    .headetTitle(),
+                    .sectionTitle(),
                 footer: Text("\(viewModel.weakPoints.count)count")
                     .footer()
                     .font(.system(size: 15))
@@ -114,7 +114,7 @@ struct ESEditSection: View {
 
             Section(
                 header: Text("その他")
-                    .headetTitle()
+                    .sectionTitle()
             ) {
                 TextEditor(text: $viewModel.other)
                     .textArea(es.category)

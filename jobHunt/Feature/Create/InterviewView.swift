@@ -23,7 +23,7 @@ struct InterviewView: View {
                 Group {
                     Section(
                         header: Text("会社名")
-                            .headetTitle()
+                            .sectionTitle()
                     ) {
                         TextField("", text: $viewModel.name)
                             .input()
@@ -31,7 +31,7 @@ struct InterviewView: View {
 
                     Section(
                         header: Text("開始時間")
-                            .headetTitle()
+                            .sectionTitle()
                     ) {
                         DatePicker("開始時間", selection: $deadline)
                             .PickerItem()
@@ -40,7 +40,7 @@ struct InterviewView: View {
                     
                     Section(
                         header: Text("終了時間")
-                            .headetTitle()
+                            .sectionTitle()
                     ) {
                         DatePicker("終了時間", selection: $endDeadline)
                             .PickerItem()
@@ -48,7 +48,7 @@ struct InterviewView: View {
 
                     Section(
                         header: Text("選考フロー")
-                            .headetTitle()
+                            .sectionTitle()
                     ) {
                         Picker("", selection: $viewModel.flow) {
                             ForEach(Flow.allCases, id: \.self) { (value) in
@@ -65,7 +65,7 @@ struct InterviewView: View {
 
                 Section(
                     header: Text("開催場所")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextField("", text: $viewModel.location)
                         .input()
@@ -73,7 +73,7 @@ struct InterviewView: View {
 
                 Section(
                     header: Text("服装")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextField("", text: $viewModel.clothes)
                         .input()
@@ -81,7 +81,7 @@ struct InterviewView: View {
 
                 Section(
                     header: Text("志望動機")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.motivation)
                         .input()
@@ -89,7 +89,7 @@ struct InterviewView: View {
 
                 Section(
                     header: Text("ガクチカ")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.gakuchika)
                         .input()
@@ -97,7 +97,7 @@ struct InterviewView: View {
 
                 Section(
                     header: Text("長所")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.strongPoints)
                         .input()
@@ -105,7 +105,7 @@ struct InterviewView: View {
 
                 Section(
                     header: Text("短所")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.weakPoints)
                         .input()
@@ -113,7 +113,7 @@ struct InterviewView: View {
 
                 Section(
                     header: Text("質問したいこと")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.questions)
                         .input()
@@ -121,7 +121,7 @@ struct InterviewView: View {
 
                 Section(
                     header: Text("その他")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.other)
                         .input()

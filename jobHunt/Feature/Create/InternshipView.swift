@@ -20,7 +20,7 @@ struct InternshipView: View {
             Form {
                 Section(
                     header: Text("会社名")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextField("", text: $viewModel.name)
                         .input()
@@ -28,7 +28,7 @@ struct InternshipView: View {
 
                 Section(
                     header: Text("開始時間")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     DatePicker("開始時間", selection: $deadline)
                         .PickerItem()
@@ -36,7 +36,7 @@ struct InternshipView: View {
 
                 Section(
                     header: Text("開催場所")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextField("", text: $viewModel.location)
                         .input()
@@ -44,7 +44,7 @@ struct InternshipView: View {
 
                 Section(
                     header: Text("服装")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextField("", text: $viewModel.clothes)
                         .input()
@@ -52,7 +52,7 @@ struct InternshipView: View {
 
                 Section(
                     header: Text("持ち物")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextField("", text: $viewModel.item)
                         .input()
@@ -60,7 +60,7 @@ struct InternshipView: View {
 
                 Section(
                     header: Text("その他")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.other)
                         .input()

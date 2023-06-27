@@ -16,13 +16,13 @@ struct ESDetailSection: View {
         VStack(alignment: .leading) {
             Group {
                 Text("会社名")
-                    .headetTitle()
+                    .sectionTitle()
                 Text(self.es.name)
                     .TextArea(es.category)
 
                 Section(
                     header: Text("締切日時")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     Text(viewModel.toTime(date: self.es.deadline))
                         .TextArea(es.category)
@@ -31,7 +31,7 @@ struct ESDetailSection: View {
                 if let motivation = es.motivation {
                     Section(
                         header: Text("志望動機")
-                            .headetTitle(),
+                            .sectionTitle(),
                         footer:Text("\(motivation.count)count")
                             .footer()
                             .font(.system(size: 15))
@@ -47,7 +47,7 @@ struct ESDetailSection: View {
                 if let gakuchika = es.gakuchika {
                     Section (
                         header: Text("ガクチカ")
-                            .headetTitle(),
+                            .sectionTitle(),
                         footer: Text("\(gakuchika.count)count")
                             .footer()
                             .font(.system(size: 15))
@@ -64,7 +64,7 @@ struct ESDetailSection: View {
                 if let strongPoints = es.strongPoints {
                     Section (
                         header: Text("長所")
-                            .headetTitle(),
+                            .sectionTitle(),
                         footer: Text("\(strongPoints.count)count")
                             .footer()
                             .font(.system(size: 15))
@@ -79,7 +79,7 @@ struct ESDetailSection: View {
                 if let weakPoints = es.weakPoints {
                     Section(
                         header: Text("短所")
-                            .headetTitle(),
+                            .sectionTitle(),
                         footer: Text("\(weakPoints.count)count")
                             .footer()
                             .font(.system(size: 15))
@@ -92,7 +92,7 @@ struct ESDetailSection: View {
                 }
 
                 Text("その他")
-                    .headetTitle()
+                    .sectionTitle()
                 if let other = es.other {
                     Text(other)
                         .TextArea(es.category)

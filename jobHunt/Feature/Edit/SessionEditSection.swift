@@ -22,7 +22,7 @@ struct SessionEditSection: View {
             Group {
                 Section(
                     header: Text("会社名")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.name)
                         .textArea(session.category)
@@ -33,7 +33,7 @@ struct SessionEditSection: View {
 
                 Section(
                     header: Text("開始時間")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
@@ -44,7 +44,7 @@ struct SessionEditSection: View {
 
                 Section(
                     header: Text("開催場所")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.location)
                         .textArea(session.category)
@@ -57,7 +57,7 @@ struct SessionEditSection: View {
 
                 Section(
                     header: Text("服装")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.clothes)
                         .textArea(session.category)
@@ -72,7 +72,7 @@ struct SessionEditSection: View {
             Group {
                 Section(
                     header: Text("持ち物")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.item)
                         .textArea(session.category)
@@ -85,7 +85,7 @@ struct SessionEditSection: View {
 
                 Section(
                     header: Text("質問したいこと")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.questions)
                         .textArea(session.category)
@@ -98,7 +98,7 @@ struct SessionEditSection: View {
 
                 Section(
                     header: Text("その他")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.other)
                         .textArea(session.category)

@@ -8,7 +8,7 @@ import Foundation
 import SwiftUI
 
 extension Text {
-    func headetTitle() -> some View {
+    func sectionTitle() -> some View {
         self
             .font(.system(size: 18))
             .foregroundColor(.black)

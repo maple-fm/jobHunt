@@ -19,7 +19,7 @@ struct ESView: View {
             Form {
                 Section(
                     header: Text("会社名")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextField("", text: $viewModel.name)
                         .input()
@@ -27,7 +27,7 @@ struct ESView: View {
 
                 Section(
                     header: Text("締切日時")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     DatePicker("締切日時", selection: $deadline)
                         .PickerItem()
@@ -35,7 +35,7 @@ struct ESView: View {
 
                 Section(
                     header: Text("志望動機")
-                        .headetTitle(),
+                        .sectionTitle(),
                     footer: Text("\(viewModel.motivation.count)count")
                         .footer()
                 ) {
@@ -46,7 +46,7 @@ struct ESView: View {
 
                 Section(
                     header: Text("ガクチカ")
-                        .headetTitle(),
+                        .sectionTitle(),
                     footer: Text("\(viewModel.gakuchika.count)count")
                         .footer()
                 ) {
@@ -56,7 +56,7 @@ struct ESView: View {
 
                 Section(
                     header: Text("長所")
-                        .headetTitle(),
+                        .sectionTitle(),
                     footer: Text("\(viewModel.strongPoints.count)count")
                         .footer()
                 ) {
@@ -66,7 +66,7 @@ struct ESView: View {
 
                 Section(
                     header: Text("短所")
-                        .headetTitle(),
+                        .sectionTitle(),
                     footer: Text("\(viewModel.weakPoints.count)count")
                         .footer()
                 ) {
@@ -76,7 +76,7 @@ struct ESView: View {
 
                 Section(
                     header: Text("その他")
-                        .headetTitle()
+                        .sectionTitle()
                 ) {
                     TextEditor(text: $viewModel.other)
                         .input()
