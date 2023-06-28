@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B44F1BEA60D89BBBD84D202B /* Pods_jobHunt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2C90ACBB90DC8CBB62A91D /* Pods_jobHunt.framework */; };
+		F50FBEB12A4BF8EF00767718 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FBEB02A4BF8EF00767718 /* View+Extension.swift */; };
 		F523936629125F190000F2C0 /* ESDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523936529125F190000F2C0 /* ESDetailSection.swift */; };
 		F5239368291260B00000F2C0 /* InterviewDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5239367291260B00000F2C0 /* InterviewDetailSection.swift */; };
 		F5262AD72912A9D500B98ACE /* SessionDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5262AD62912A9D500B98ACE /* SessionDetailSection.swift */; };
@@ -78,6 +79,7 @@
 		35F4ED617C7B83A5C622BAC6 /* Pods-jobHunt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobHunt.debug.xcconfig"; path = "Target Support Files/Pods-jobHunt/Pods-jobHunt.debug.xcconfig"; sourceTree = "<group>"; };
 		36ED71507D6C45A887754D36 /* Pods-jobHunt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jobHunt.release.xcconfig"; path = "Target Support Files/Pods-jobHunt/Pods-jobHunt.release.xcconfig"; sourceTree = "<group>"; };
 		5E2C90ACBB90DC8CBB62A91D /* Pods_jobHunt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jobHunt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50FBEB02A4BF8EF00767718 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		F523936529125F190000F2C0 /* ESDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESDetailSection.swift; sourceTree = "<group>"; };
 		F5239367291260B00000F2C0 /* InterviewDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewDetailSection.swift; sourceTree = "<group>"; };
 		F5262AD62912A9D500B98ACE /* SessionDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailSection.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				F5B78A0728F3382200B4E3E3 /* Image.swift */,
 				F58BEB9328F988EE00323EFA /* DatePicker.swift */,
 				F5FAEDCE2960EDA200E64997 /* Color.swift */,
+				F50FBEB02A4BF8EF00767718 /* View+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				F58BEBAA29003A5E00323EFA /* HomeViewModel.swift in Sources */,
 				F5C83B6E28F311FE00A01E4E /* HomeView.swift in Sources */,
 				F5239368291260B00000F2C0 /* InterviewDetailSection.swift in Sources */,
+				F50FBEB12A4BF8EF00767718 /* View+Extension.swift in Sources */,
 				F5262ADB2913AA6900B98ACE /* DetailViewModel.swift in Sources */,
 				F5C83B6C28F311FE00A01E4E /* jobHuntApp.swift in Sources */,
 				F5A9C437292FAAC5001402FE /* SettingView.swift in Sources */,

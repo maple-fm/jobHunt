@@ -15,81 +15,48 @@ struct InterviewDetailSection: View {
     var body: some View {
         VStack(alignment: .leading) {
             Group {
-                Text("会社名")
-                    .sectionTitle()
-                Text(interview.name)
-                    .TextArea(interview.category)
+                textView(title: "会社名", value: interview.name, category: interview.category)
 
-                Text("開始時間")
-                    .sectionTitle()
-                Text(viewModel.toTime(date: interview.eventTime))
-                    .TextArea(interview.category)
+                textView(title: "開始時間", value: viewModel.toTime(date: interview.eventTime), category: interview.category)
 
-                Text("選考フロー")
-                    .sectionTitle()
-                Text(interview.flow.rawValue)
-                    .TextArea(interview.category)
+                textView(title: "選考フロー", value: interview.flow.rawValue, category: interview.category)
             }
 
             Group {
-
-                Text("開催場所")
-                    .sectionTitle()
+                
                 if let location = interview.location {
-                    Text(location)
-                        .TextArea(interview.category)
+                    textView(title: "開催場所", value: location, category: interview.category)
                 }
-
-                Text("服装")
-                    .sectionTitle()
+                
                 if let clothes = interview.clothes {
-                    Text(clothes)
-                        .TextArea(interview.category)
+                    textView(title: "服装", value: clothes, category: interview.category)
                 }
-
-                Text("志望動機")
-                    .sectionTitle()
+                
                 if let motivation = interview.motivation {
-                    Text(motivation)
-                        .TextArea(interview.category)
+                    textView(title: "志望動機", value: motivation, category: interview.category)
                 }
-
-                Text("ガクチカ")
-                    .sectionTitle()
+                
                 if let gakuchika = interview.gakuchika {
-                    Text(gakuchika)
-                        .TextArea(interview.category)
+                    textView(title: "ガクチカ", value: gakuchika, category: interview.category)
                 }
-            }
-
-            Group {
-                Text("長所")
-                    .sectionTitle()
+                
+                
                 if let strongPoints = interview.strongPoints {
-                    Text(strongPoints)
-                        .TextArea(interview.category)
+                    textView(title: "長所", value: strongPoints, category: interview.category)
                 }
-
-                Text("短所")
-                    .sectionTitle()
+                
                 if let weakPoints = interview.weakPoints {
-                    Text(weakPoints)
-                        .TextArea(interview.category)
+                    textView(title: "短所", value: weakPoints, category: interview.category)
                 }
-
-                Text("質問したいこと")
-                    .sectionTitle()
+                
                 if let questions = interview.questions {
-                    Text(questions)
-                        .TextArea(interview.category)
+                    textView(title: "質問したいこと", value: questions, category: interview.category)
+                }
+                
+                if let other = interview.other {
+                    textView(title: "その他", value: other, category: interview.category)
                 }
 
-                Text("その他")
-                    .sectionTitle()
-                if let other = interview.other {
-                    Text(other)
-                        .TextArea(interview.category)
-                }
             }
         }
     }
