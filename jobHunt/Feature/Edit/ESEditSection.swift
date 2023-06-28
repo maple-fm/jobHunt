@@ -36,7 +36,7 @@ struct ESEditSection: View {
                 DatePicker("締切日時", selection: $viewModel.deadline)
                     .PickerItem()
                     .onAppear() {
-                        viewModel.deadline = es.deadline
+                        viewModel.deadline = es.eventTime
                     }
             }
 

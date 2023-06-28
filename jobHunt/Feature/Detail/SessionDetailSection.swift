@@ -22,7 +22,7 @@ struct SessionDetailSection: View {
 
                 Text("開始時間")
                     .sectionTitle()
-                Text(viewModel.toTime(date: session.deadline))
+                Text(viewModel.toTime(date: session.eventTime))
                     .TextArea(session.category)
             }
 

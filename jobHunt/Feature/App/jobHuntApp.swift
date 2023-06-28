@@ -25,7 +25,7 @@ struct jobHuntApp: App {
                         // アイコンバッジをリセット
                         UIApplication.shared.applicationIconBadgeNumber = 0
                     case .inactive:
-                        let numberOfEvent = repository.getEvents().filter { format.formatDate(date: $0.deadline) == format.formatDate(date: .now) }.count
+                        let numberOfEvent = repository.getEvents().filter { format.formatDate(date: $0.eventTime) == format.formatDate(date: .now) }.count
                         
                         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                         notification(numberOfEvent)

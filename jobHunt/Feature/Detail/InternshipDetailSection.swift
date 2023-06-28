@@ -22,7 +22,7 @@ struct InternshipDetailSection: View {
 
                 Text("開始時間")
                     .sectionTitle()
-                Text(viewModel.toTime(date: intern.deadline))
+                Text(viewModel.toTime(date: intern.eventTime))
                     .TextArea(intern.category)
             }
 

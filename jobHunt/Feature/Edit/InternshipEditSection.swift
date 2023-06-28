@@ -38,7 +38,7 @@ struct InternshipEditSection: View {
                     DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
                         .onAppear() {
-                            viewModel.deadline = intern.deadline
+                            viewModel.deadline = intern.eventTime
                         }
                 }
 

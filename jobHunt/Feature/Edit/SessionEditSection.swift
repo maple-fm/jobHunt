@@ -38,7 +38,7 @@ struct SessionEditSection: View {
                     DatePicker("開始時間", selection: $viewModel.deadline)
                         .PickerItem()
                         .onAppear() {
-                            viewModel.deadline = session.deadline
+                            viewModel.deadline = session.eventTime
                         }
                 }
 

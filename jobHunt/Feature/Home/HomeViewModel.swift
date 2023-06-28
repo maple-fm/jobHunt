@@ -13,7 +13,7 @@ class HomeViewModel: ObservableObject {
     @Published private(set) var events: [any Entry] = []
     var eventsDateArray: [String] {
         events.map {
-            toString(date: $0.deadline)
+            toString(date: $0.eventTime)
         }
     }
     private var repository = EventRepository()

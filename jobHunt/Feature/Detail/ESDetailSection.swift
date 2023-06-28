@@ -24,7 +24,7 @@ struct ESDetailSection: View {
                     header: Text("締切日時")
                         .sectionTitle()
                 ) {
-                    Text(viewModel.toTime(date: self.es.deadline))
+                    Text(viewModel.toTime(date: self.es.eventTime))
                         .TextArea(es.category)
                 }
 

@@ -18,7 +18,7 @@ class EventRepository {
         let internshipArray = self.getInternshipArrays()
 
         events = esArray + interviewArray + sessionArray + internshipArray
-        events.sort(by: {$0.deadline < $1.deadline})
+        events.sort(by: {$0.eventTime < $1.eventTime})
 
         return events
     }

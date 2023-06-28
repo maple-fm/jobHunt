@@ -12,8 +12,8 @@ struct ESModel: Entry {
     
     var id: String
     var name: String
-    var deadline: Date
-    var endDeadline: Date?
+    var eventTime: Date
+    var endTime: Date?
     var motivation: String?
     var gakuchika: String?
     var strongPoints: String?
@@ -24,7 +24,7 @@ struct ESModel: Entry {
     init(id: String, name: String, deadline: Date, motivation: String?, gakuchika: String?, strongPoints: String?, weakPoints: String?, other: String?, category: EventName) {
         self.id = id
         self.name = name
-        self.deadline = deadline
+        self.eventTime = deadline
         self.motivation = motivation
         self.gakuchika = gakuchika
         self.strongPoints = strongPoints

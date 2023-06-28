@@ -75,7 +75,7 @@ class SessionDataSource: Object{
 
         try! realm.write {
             target.name = model.name
-            target.deadline = model.deadline
+            target.deadline = model.eventTime
             target.location = model.location ?? ""
             target.clothes = model.clothes ?? ""
             target.item = model.item ?? ""

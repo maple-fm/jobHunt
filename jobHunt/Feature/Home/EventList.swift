@@ -16,7 +16,7 @@ struct EventList: View {
         ZStack {
             ScrollView(showsIndicators: false) {
                 ForEach(viewModel.events, id: \.id) { event in
-                    if viewModel.toString(date:event.deadline) == viewModel.toString(date: selectedDate) {
+                    if viewModel.toString(date:event.eventTime) == viewModel.toString(date: selectedDate) {
                         VStack {
                             NavigationLink(
                                 destination: DetailView(
@@ -34,7 +34,7 @@ struct EventList: View {
                                 ZStack {
                                     HStack {
                                         if event.category.rawValue == "エントリーシート" {
-                                            Text("\(viewModel.toTime(date: event.deadline))〆")
+                                            Text("\(viewModel.toTime(date: event.eventTime))〆")
                                                 .font(.system(size: 12))
                                                 .padding(EdgeInsets(
                                                     top: 0,
@@ -44,9 +44,9 @@ struct EventList: View {
                                                 ))
                                                 .foregroundColor(Color(UIColor(named: "Text")!))
                                         } else {
-                                            if let end = event.endDeadline {
+                                            if let end = event.endTime {
                                                 VStack(alignment: .leading, spacing: 25) {
-                                                    Text("\(viewModel.toTime(date: event.deadline))~")
+                                                    Text("\(viewModel.toTime(date: event.eventTime))~")
                                                         .font(.system(size: 12))
                                                         .foregroundColor(Color(UIColor(named: "Text")!))
                                                     
@@ -57,7 +57,7 @@ struct EventList: View {
                                                 }
                                                 .padding(.leading, 10)
                                             } else {
-                                                Text("\(viewModel.toTime(date: event.deadline))~")
+                                                Text("\(viewModel.toTime(date: event.eventTime))~")
                                                     .font(.system(size: 12))
                                                     .padding(EdgeInsets(
                                                         top: 0,

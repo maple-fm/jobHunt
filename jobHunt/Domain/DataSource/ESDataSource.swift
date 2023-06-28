@@ -77,7 +77,7 @@ class ESDataSource: Object {
 
         try! realm.write {
             target.name = model.name
-            target.deadline = model.deadline
+            target.deadline = model.eventTime
             target.motivation = model.motivation ?? ""
             target.gakuchika = model.gakuchika ?? ""
             target.strongPoints = model.strongPoints ?? ""

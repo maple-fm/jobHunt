@@ -22,7 +22,7 @@ struct InterviewDetailSection: View {
 
                 Text("開始時間")
                     .sectionTitle()
-                Text(viewModel.toTime(date: interview.deadline))
+                Text(viewModel.toTime(date: interview.eventTime))
                     .TextArea(interview.category)
 
                 Text("選考フロー")

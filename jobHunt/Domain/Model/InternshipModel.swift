@@ -12,8 +12,8 @@ struct InternshipModel: Entry {
     
     var id: String
     var name: String
-    var deadline: Date
-    var endDeadline: Date?
+    var eventTime: Date
+    var endTime: Date?
     var location: String?
     var clothes: String?
     var item: String?
@@ -23,7 +23,7 @@ struct InternshipModel: Entry {
     init(id: String, name: String, deadline: Date, location: String?, clothes: String?, item: String?, other: String?, category: EventName) {
         self.id = id
         self.name = name
-        self.deadline = deadline
+        self.eventTime = deadline
         self.location = location
         self.clothes = clothes
         self.item = item

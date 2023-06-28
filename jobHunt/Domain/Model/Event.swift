@@ -13,8 +13,8 @@ protocol Entry: Identifiable {
 
     var id: String { get }
     var name: String { get }
-    var deadline: Date { get }
-    var endDeadline: Date? { get }
+    var eventTime: Date { get }
+    var endTime: Date? { get }
     var category: EventName { get }
 }
 
