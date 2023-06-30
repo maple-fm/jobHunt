@@ -19,9 +19,9 @@ struct InterviewDetailSection: View {
 
                 textView(title: "開始時間", value: viewModel.toTime(date: interview.eventTime), category: interview.category)
                 
-//                if let end = interview.endTime {
-//                    textView(title: "終了時間", value: viewModel.toTime(date: interview.endTime), category: interview.eventTime)
-//                }
+                if let end = interview.endTime {
+                    textView(title: "終了時間", value: viewModel.toTime(date: end), category: interview.category)
+                }
 
                 textView(title: "選考フロー", value: interview.flow.rawValue, category: interview.category)
             }
