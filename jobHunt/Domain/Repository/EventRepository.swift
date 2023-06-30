@@ -25,7 +25,7 @@ class EventRepository {
 
     func saveNewES(
         name: String,
-        deadline: Date,
+        start eventTime: Date,
         motivation: String?,
         gakuchika: String?,
         strongPoints: String?,
@@ -35,7 +35,7 @@ class EventRepository {
     ) {
         let datasource = ESDataSource(
             name: name,
-            deadline: deadline,
+            start: eventTime,
             motivation: motivation ?? "",
             gakuchika: gakuchika ?? "",
             strongPoints: strongPoints ?? "",
@@ -48,8 +48,8 @@ class EventRepository {
 
     func saveInterview(
         name: String,
-        deadline: Date,
-        endDeadline: Date,
+        start eventTime: Date,
+        end endTime: Date,
         flow: Flow,
         location: String?,
         clothes: String?,
@@ -64,8 +64,8 @@ class EventRepository {
 
         let datasource = InterviewDataSource(
             name: name,
-            deadline: deadline,
-            endDeadline: endDeadline,
+            start: eventTime,
+            end: endTime,
             flow: flow,
             location: location ?? "",
             clothes: clothes ?? "",
@@ -82,7 +82,7 @@ class EventRepository {
 
     func saveNewSession(
         name: String,
-        deadline: Date,
+        start eventTime: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -92,7 +92,7 @@ class EventRepository {
     ) {
         let datasource = SessionDataSource(
             name: name,
-            deadline: deadline,
+            start: eventTime,
             location: location ?? "",
             clothes: clothes ?? "",
             item: item ?? "",
@@ -106,7 +106,7 @@ class EventRepository {
 
     func saveNewInternship(
         name: String,
-        deadline: Date,
+        start eventTime: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -115,7 +115,7 @@ class EventRepository {
     ) {
         let datasource = InternshipDataSource(
             name: name,
-            deadline: deadline,
+            start: eventTime,
             location: location ?? "",
             clothes: clothes ?? "",
             item: item ?? "",
@@ -133,7 +133,7 @@ class EventRepository {
             ESModel(
                 id: datasource.id,
                 name: datasource.name,
-                deadline: datasource.deadline,
+                start: datasource.eventTime,
                 motivation: datasource.motivation,
                 gakuchika: datasource.gakuchika,
                 strongPoints: datasource.strongPoints,
@@ -150,7 +150,7 @@ class EventRepository {
             ESModel(
                 id: datasource.id,
                 name: datasource.name,
-                deadline: datasource.deadline,
+                start: datasource.eventTime,
                 motivation: datasource.motivation,
                 gakuchika: datasource.gakuchika,
                 strongPoints: datasource.strongPoints,
@@ -167,8 +167,8 @@ class EventRepository {
             InterviewModel(
                 id: datasource.id,
                 name: datasource.name,
-                deadline: datasource.deadline,
-                endDeadline: datasource.endDeadline,
+                start: datasource.eventTime,
+                end: datasource.endTime,
                 flow: datasource.flow,
                 location: datasource.location,
                 clothes: datasource.clothes,
@@ -189,7 +189,7 @@ class EventRepository {
             InternshipModel(
                 id: datasource.id,
                 name: datasource.name,
-                deadline: datasource.deadline,
+                start: datasource.eventTime,
                 location: datasource.location,
                 clothes: datasource.clothes,
                 item: datasource.item,
@@ -205,7 +205,7 @@ class EventRepository {
             SessionModel(
                 id: datasource.id,
                 name: datasource.name,
-                deadline: datasource.deadline,
+                start: datasource.eventTime,
                 location: datasource.location,
                 clothes: datasource.clothes,
                 item: datasource.item,
@@ -222,8 +222,8 @@ class EventRepository {
             InterviewModel(
                 id: datasource.id,
                 name: datasource.name,
-                deadline: datasource.deadline,
-                endDeadline: datasource.endDeadline,
+                start: datasource.eventTime,
+                end: datasource.endTime,
                 flow: datasource.flow,
                 location: datasource.location,
                 clothes: datasource.clothes,
@@ -244,7 +244,7 @@ class EventRepository {
             SessionModel(
                 id: datasource.id,
                 name: datasource.name,
-                deadline: datasource.deadline,
+                start: datasource.eventTime,
                 location: datasource.location,
                 clothes: datasource.clothes,
                 item: datasource.item,
@@ -261,7 +261,7 @@ class EventRepository {
             InternshipModel(
                 id: datasource.id,
                 name: datasource.name,
-                deadline: datasource.deadline,
+                start: datasource.eventTime,
                 location: datasource.location,
                 clothes: datasource.clothes,
                 item: datasource.item,
@@ -290,7 +290,7 @@ class EventRepository {
     func editES(
         id: String,
         name: String,
-        deadline: Date,
+        start eventTime: Date,
         motivation: String?,
         gakuchika: String?,
         strongPoints: String?,
@@ -301,7 +301,7 @@ class EventRepository {
         ESDataSource().edit(model:ESModel(
             id: id,
             name: name,
-            deadline: deadline,
+            start: eventTime,
             motivation: motivation,
             gakuchika: gakuchika,
             strongPoints: strongPoints,
@@ -314,8 +314,8 @@ class EventRepository {
     func editInterview(
         id: String,
         name: String,
-        deadline: Date,
-        endDeadline: Date,
+        start eventTime: Date,
+        end endTime: Date,
         flow: Flow,
         location: String?,
         clothes: String?,
@@ -329,8 +329,8 @@ class EventRepository {
         InterviewDataSource().edit(model:InterviewModel(
             id: id,
             name: name,
-            deadline: deadline,
-            endDeadline: endDeadline,
+            start: eventTime,
+            end: endTime,
             flow: flow,
             location: location,
             clothes: clothes,
@@ -347,7 +347,7 @@ class EventRepository {
     func editInternship(
         id: String,
         name: String,
-        deadline: Date,
+        start eventTime: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -357,7 +357,7 @@ class EventRepository {
         InternshipDataSource().edit(model: InternshipModel(
             id: id,
             name: name,
-            deadline: deadline,
+            start: eventTime,
             location: location,
             clothes: clothes,
             item: item,
@@ -369,7 +369,7 @@ class EventRepository {
     func editSession(
         id: String,
         name: String,
-        deadline: Date,
+        start eventTime: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -380,7 +380,7 @@ class EventRepository {
         SessionDataSource().edit(model: SessionModel(
             id: id,
             name: name,
-            deadline: deadline,
+            start: eventTime,
             location: location,
             clothes: clothes,
             item: item,

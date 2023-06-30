@@ -30,12 +30,12 @@ class CreateViewModel: ObservableObject {
         createRepository.isValidated(name: name)
     }
 
-    func clickButton(event: EventName, click: Bool, start deadline: Date, end endDeadline: Date? = nil) {
+    func clickButton(event: EventName, click: Bool, start eventTime: Date, end endTime: Date? = nil) {
         switch event {
         case .es:
             eventReprository.saveNewES(
                 name: name,
-                deadline: deadline,
+                start: eventTime,
                 motivation: motivation,
                 gakuchika: gakuchika,
                 strongPoints: strongPoints,
@@ -45,12 +45,12 @@ class CreateViewModel: ObservableObject {
 
         case .interview:
             
-            guard let endDeadline = endDeadline else { return }
+            guard let endTime = endTime else { return }
             
             eventReprository.saveInterview(
                 name: name,
-                deadline: deadline,
-                endDeadline: endDeadline,
+                start: eventTime,
+                end: endTime,
                 flow: flow,
                 location: location,
                 clothes: clothes,
@@ -65,7 +65,7 @@ class CreateViewModel: ObservableObject {
         case .session:
             eventReprository.saveNewSession(
                 name: name,
-                deadline: deadline,
+                start: eventTime,
                 location: location,
                 clothes: clothes,
                 item: item,
@@ -76,7 +76,7 @@ class CreateViewModel: ObservableObject {
         case .internship:
             eventReprository.saveNewInternship(
                 name: name,
-                deadline: deadline,
+                start: eventTime,
                 location: location,
                 clothes: clothes,
                 item: item,

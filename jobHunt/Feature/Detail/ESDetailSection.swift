@@ -50,6 +50,6 @@ struct ESDetailSection: View {
 
 struct ESDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ESDetailSection(es: ESModel(id: "", name: "", deadline: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
+        ESDetailSection(es: ESModel(id: "", name: "", start: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
     }
 }

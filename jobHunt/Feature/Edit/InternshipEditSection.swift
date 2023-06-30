@@ -35,10 +35,10 @@ struct InternshipEditSection: View {
                     header: Text("開始時間")
                         .sectionTitle()
                 ) {
-                    DatePicker("開始時間", selection: $viewModel.deadline)
+                    DatePicker("開始時間", selection: $viewModel.eventTime)
                         .PickerItem()
                         .onAppear() {
-                            viewModel.deadline = intern.eventTime
+                            viewModel.eventTime = intern.eventTime
                         }
                 }
 
@@ -105,6 +105,6 @@ struct InternshipEditSection: View {
 
 struct InternshipEditSection_Previews: PreviewProvider {
     static var previews: some View {
-        InternshipEditSection(intern: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", other: "", category: .internship))
+        InternshipEditSection(intern: .init(id: "", name: "", start: .now, location: "", clothes: "", item: "", other: "", category: .internship))
     }
 }

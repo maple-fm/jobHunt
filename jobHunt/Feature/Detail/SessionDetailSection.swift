@@ -50,6 +50,6 @@ struct SessionDetailSection: View {
 
 struct SessionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionDetailSection(session: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
+        SessionDetailSection(session: .init(id: "", name: "", start: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
     }
 }

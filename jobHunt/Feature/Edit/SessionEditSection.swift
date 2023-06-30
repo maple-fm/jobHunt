@@ -35,10 +35,10 @@ struct SessionEditSection: View {
                     header: Text("開始時間")
                         .sectionTitle()
                 ) {
-                    DatePicker("開始時間", selection: $viewModel.deadline)
+                    DatePicker("開始時間", selection: $viewModel.eventTime)
                         .PickerItem()
                         .onAppear() {
-                            viewModel.deadline = session.eventTime
+                            viewModel.eventTime = session.eventTime
                         }
                 }
 
@@ -118,6 +118,6 @@ struct SessionEditSection: View {
 
 struct SessionEditSection_Previews: PreviewProvider {
     static var previews: some View {
-        SessionEditSection(session: .init(id: "", name: "", deadline: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
+        SessionEditSection(session: .init(id: "", name: "", start: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
     }
 }

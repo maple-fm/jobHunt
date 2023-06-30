@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         let config = Realm.Configuration(
-                        schemaVersion: 7,
+                        schemaVersion: 8,
                         migrationBlock: { migration, oldSchemaVersion in
                             if oldSchemaVersion < 5 {
                                 migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
@@ -26,9 +26,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 }
                             }
                             if oldSchemaVersion < 7 {
+                                
                                 migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
-                                    newObject?["endDeadline"] = oldObject.self
+                                    newObject?["endTime"] = oldObject.self
                                 }
+                            }
+                            
+                            if oldSchemaVersion < 8 {
+                                migration.renameProperty(onType: ESDataSource.className(), from: "deadline", to: "eventTime")
+                                migration.renameProperty(onType: InterviewDataSource.className(), from: "deadline", to: "eventTime")
+                                migration.renameProperty(onType: InterviewDataSource.className(), from: "endDeadline", to: "endTime")
+                                migration.renameProperty(onType: SessionDataSource.className(), from: "deadline", to: "eventTime")
+                                migration.renameProperty(onType: InternshipDataSource.className(), from: "deadline", to: "eventTime")
                             }
                         })
 

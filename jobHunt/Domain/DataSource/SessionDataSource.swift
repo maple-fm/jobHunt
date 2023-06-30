@@ -12,7 +12,7 @@ class SessionDataSource: Object{
 
     @Persisted var id: String
     @Persisted var name: String
-    @Persisted var deadline: Date
+    @Persisted var eventTime: Date
     @Persisted var location: String
     @Persisted var clothes: String
     @Persisted var item: String
@@ -20,11 +20,11 @@ class SessionDataSource: Object{
     @Persisted var other: String
     @Persisted var category: EventName
 
-    init(name: String, deadline: Date, location: String, clothes: String, item: String, questions: String, other: String, category: EventName) {
+    init(name: String, start eventTime: Date, location: String, clothes: String, item: String, questions: String, other: String, category: EventName) {
 
         self.id = UUID().uuidString
         self.name = name
-        self.deadline = deadline
+        self.eventTime = eventTime
         self.location = location
         self.clothes = clothes
         self.item = item
@@ -34,7 +34,7 @@ class SessionDataSource: Object{
     }
 
     convenience override init() {
-        self.init(name: "", deadline: Date.now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
+        self.init(name: "", start: Date.now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
     }
 
     func write(datasource: SessionDataSource) {
@@ -75,7 +75,7 @@ class SessionDataSource: Object{
 
         try! realm.write {
             target.name = model.name
-            target.deadline = model.eventTime
+            target.eventTime = model.eventTime
             target.location = model.location ?? ""
             target.clothes = model.clothes ?? ""
             target.item = model.item ?? ""

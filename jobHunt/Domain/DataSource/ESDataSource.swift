@@ -12,7 +12,7 @@ class ESDataSource: Object {
     
     @Persisted var id: String
     @Persisted var name: String
-    @Persisted var deadline: Date
+    @Persisted var eventTime: Date
     @Persisted var motivation: String
     @Persisted var gakuchika: String
     @Persisted var strongPoints: String
@@ -20,11 +20,11 @@ class ESDataSource: Object {
     @Persisted var other: String
     @Persisted var category: EventName
 
-    init(name: String, deadline: Date, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, other: String, category: EventName) {
+    init(name: String, start eventTime: Date, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, other: String, category: EventName) {
 
         self.id = UUID().uuidString
         self.name = name
-        self.deadline = deadline
+        self.eventTime = eventTime
         self.motivation = motivation
         self.gakuchika = gakuchika
         self.strongPoints = strongPoints
@@ -35,7 +35,7 @@ class ESDataSource: Object {
     }
 
     convenience override init() {
-        self.init(name: "", deadline: Date.now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
+        self.init(name: "", start: Date.now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
     }
 
     func write(datasource: ESDataSource) {
@@ -77,7 +77,7 @@ class ESDataSource: Object {
 
         try! realm.write {
             target.name = model.name
-            target.deadline = model.eventTime
+            target.eventTime = model.eventTime
             target.motivation = model.motivation ?? ""
             target.gakuchika = model.gakuchika ?? ""
             target.strongPoints = model.strongPoints ?? ""

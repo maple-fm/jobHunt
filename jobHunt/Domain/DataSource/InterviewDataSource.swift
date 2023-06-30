@@ -12,8 +12,8 @@ class InterviewDataSource: Object {
 
     @Persisted var id: String
     @Persisted var name: String
-    @Persisted var deadline: Date
-    @Persisted var endDeadline: Date
+    @Persisted var eventTime: Date
+    @Persisted var endTime: Date
     @Persisted var flow: Flow
     @Persisted var location: String
     @Persisted var clothes: String
@@ -25,12 +25,12 @@ class InterviewDataSource: Object {
     @Persisted var other: String
     @Persisted var category: EventName
 
-    init(name: String, deadline: Date, endDeadline: Date, flow: Flow, location: String, clothes: String, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, questions: String, other: String, category: EventName) {
+    init(name: String, start eventTime: Date, end endTime: Date, flow: Flow, location: String, clothes: String, motivation: String, gakuchika: String, strongPoints: String, weakPoints: String, questions: String, other: String, category: EventName) {
         
         self.id = UUID().uuidString
         self.name = name
-        self.deadline = deadline
-        self.endDeadline = endDeadline
+        self.eventTime = eventTime
+        self.endTime = endTime
         self.flow = flow
         self.location = location
         self.clothes = clothes
@@ -45,7 +45,7 @@ class InterviewDataSource: Object {
     }
 
     convenience override init() {
-        self.init(name: "", deadline: Date.now, endDeadline: Date.now + 1, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
+        self.init(name: "", start: Date.now, end: Date.now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
     }
 
     func write(datasource: InterviewDataSource) {
@@ -86,8 +86,8 @@ class InterviewDataSource: Object {
 
         try! realm.write {
             target.name = model.name
-            target.deadline = model.eventTime
-            target.endDeadline = model.endTime ?? model.eventTime
+            target.eventTime = model.eventTime
+            target.endTime = model.endTime ?? model.eventTime
             target.flow = model.flow
             target.location = model.location ?? ""
             target.clothes = model.clothes ?? ""

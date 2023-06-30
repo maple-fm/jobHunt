@@ -21,10 +21,10 @@ struct SessionModel: Entry {
     var other: String?
     var category: EventName
 
-    init(id: String, name: String, deadline: Date, location: String?, clothes: String?, item: String?, questions: String?, other: String?, category: EventName) {
+    init(id: String, name: String, start eventTime: Date, location: String?, clothes: String?, item: String?, questions: String?, other: String?, category: EventName) {
         self.id = id
         self.name = name
-        self.eventTime = deadline
+        self.eventTime = eventTime
         self.location = location
         self.clothes = clothes
         self.item = item

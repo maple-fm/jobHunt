@@ -30,8 +30,8 @@ class InterviewModel: Entry {
     init(
         id: String,
         name: String,
-        deadline: Date,
-        endDeadline: Date,
+        start eventTime: Date,
+        end endTime: Date,
         flow: Flow,
         location: String?,
         clothes: String?,
@@ -45,8 +45,8 @@ class InterviewModel: Entry {
     ) {
         self.id = id
         self.name = name
-        self.eventTime = deadline
-        self.endTime = endDeadline
+        self.eventTime = eventTime
+        self.endTime = endTime
         self.flow = flow
         self.location = location
         self.clothes = clothes

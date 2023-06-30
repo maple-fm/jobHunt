@@ -33,10 +33,10 @@ struct ESEditSection: View {
                 header: Text("締切日時")
                     .sectionTitle()
             ) {
-                DatePicker("締切日時", selection: $viewModel.deadline)
+                DatePicker("締切日時", selection: $viewModel.eventTime)
                     .PickerItem()
                     .onAppear() {
-                        viewModel.deadline = es.eventTime
+                        viewModel.eventTime = es.eventTime
                     }
             }
 
@@ -134,6 +134,6 @@ struct ESEditSection: View {
 
 struct ESEditView_Previews: PreviewProvider {
     static var previews: some View {
-        ESEditSection(es: .init(id: "", name: "", deadline: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
+        ESEditSection(es: .init(id: "", name: "", start: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
     }
 }
