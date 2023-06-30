@@ -56,10 +56,10 @@ struct InterviewView: View {
 
                             }
                         }
-                        .frame(width: 10)
+                        .frame(width: 100, alignment: .leading)
                         .listRowBackground(Color(UIColor(named: "form")!.cgColor))
                         .foregroundColor(.black)
-                        .padding(.leading, 10)
+                        .padding(.trailing, 320)
                     }
                 }
 
