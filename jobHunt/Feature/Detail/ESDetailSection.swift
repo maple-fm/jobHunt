@@ -13,89 +13,34 @@ struct ESDetailSection: View {
     let viewModel = DetailViewModel()
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Group {
-                Text("会社名")
-                    .sectionTitle()
-                Text(self.es.name)
-                    .TextArea(es.category)
-
-                Section(
-                    header: Text("締切日時")
-                        .sectionTitle()
-                ) {
-                    Text(viewModel.toTime(date: self.es.eventTime))
-                        .TextArea(es.category)
-                }
+                
+                textView(title: "会社名", value: self.es.name, category: es.category)
+                
+                textView(title: "締切日時", value: viewModel.toTime(date: self.es.eventTime), category: es.category)
+            }
+            
+            Group {
 
                 if let motivation = es.motivation {
-                    Section(
-                        header: Text("志望動機")
-                            .sectionTitle(),
-                        footer:Text("\(motivation.count)count")
-                            .footer()
-                            .font(.system(size: 15))
-                            .padding(.leading, 11)
-                            .padding(.bottom, 5)
-                    ) {
-                        Text(motivation)
-                            .TextArea(es.category)
-                    }
+                    sectionView(title: "志望動機", value: motivation, category: es.category)
                 }
-
 
                 if let gakuchika = es.gakuchika {
-                    Section (
-                        header: Text("ガクチカ")
-                            .sectionTitle(),
-                        footer: Text("\(gakuchika.count)count")
-                            .footer()
-                            .font(.system(size: 15))
-                            .padding(.leading, 11)
-                            .padding(.bottom, 5)
-                    ) {
-                        Text(gakuchika)
-                            .TextArea(es.category)
-                    }
+                    sectionView(title: "ガクチカ", value: gakuchika, category: es.category)
                 }
-            }
-
-            Group {
+                
                 if let strongPoints = es.strongPoints {
-                    Section (
-                        header: Text("長所")
-                            .sectionTitle(),
-                        footer: Text("\(strongPoints.count)count")
-                            .footer()
-                            .font(.system(size: 15))
-                            .padding(.leading, 11)
-                            .padding(.bottom, 5)
-                    ) {
-                        Text(strongPoints)
-                            .TextArea(es.category)
-                    }
+                    sectionView(title: "長所", value: strongPoints, category: es.category)
                 }
 
                 if let weakPoints = es.weakPoints {
-                    Section(
-                        header: Text("短所")
-                            .sectionTitle(),
-                        footer: Text("\(weakPoints.count)count")
-                            .footer()
-                            .font(.system(size: 15))
-                            .padding(.leading, 11)
-                            .padding(.bottom, 5)
-                    ) {
-                        Text(weakPoints)
-                            .TextArea(es.category)
-                    }
+                    sectionView(title: "短所", value: weakPoints, category: es.category)
                 }
-
-                Text("その他")
-                    .sectionTitle()
+                
                 if let other = es.other {
-                    Text(other)
-                        .TextArea(es.category)
+                    textView(title: "その他", value: other, category: es.category)
                 }
             }
         }

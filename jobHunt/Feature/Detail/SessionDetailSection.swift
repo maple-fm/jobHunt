@@ -13,56 +13,35 @@ struct SessionDetailSection: View {
     let viewModel = DetailViewModel()
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Group {
-                Text("会社名")
-                    .sectionTitle()
-                Text(session.name)
-                    .TextArea(session.category)
-
-                Text("開始時間")
-                    .sectionTitle()
-                Text(viewModel.toTime(date: session.eventTime))
-                    .TextArea(session.category)
+                
+                textView(title: "会社名", value: session.name, category: session.category)
+                
+                textView(title: "開始時間", value: viewModel.toTime(date: session.eventTime), category: session.category)
+                
             }
 
             Group {
-
-                Text("開催場所")
-                    .sectionTitle()
+                
                 if let location = session.location {
-                    Text(location)
-                        .TextArea(session.category)
+                    textView(title: "開催場所", value: location, category: session.category)
                 }
-
-                Text("服装")
-                    .sectionTitle()
+                
                 if let clothes = session.clothes {
-                    Text(clothes)
-                        .TextArea(session.category)
+                    textView(title: "服装", value: clothes, category: session.category)
                 }
-            }
 
-            Group {
-                Text("持ち物")
-                    .sectionTitle()
                 if let item = session.item {
-                    Text(item)
-                        .TextArea(session.category)
+                    textView(title: "持ち物", value: item, category: session.category)
                 }
-
-                Text("質問したいこと")
-                    .sectionTitle()
+                
                 if let questions = session.questions {
-                    Text(questions)
-                        .TextArea(session.category)
+                    textView(title: "質問したいこと", value: questions, category: session.category)
                 }
-
-                Text("その他")
-                    .sectionTitle()
+                
                 if let other = session.other {
-                    Text(other)
-                        .TextArea(session.category)
+                    textView(title: "その他", value: other, category: session.category)
                 }
             }
         }

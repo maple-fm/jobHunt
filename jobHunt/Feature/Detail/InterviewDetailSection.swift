@@ -13,11 +13,15 @@ struct InterviewDetailSection: View {
     let viewModel = DetailViewModel()
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Group {
                 textView(title: "会社名", value: interview.name, category: interview.category)
 
                 textView(title: "開始時間", value: viewModel.toTime(date: interview.eventTime), category: interview.category)
+                
+//                if let end = interview.endTime {
+//                    textView(title: "終了時間", value: viewModel.toTime(date: interview.endTime), category: interview.eventTime)
+//                }
 
                 textView(title: "選考フロー", value: interview.flow.rawValue, category: interview.category)
             }

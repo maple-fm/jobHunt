@@ -17,4 +17,21 @@ extension View {
                 .TextArea(category)
         }
     }
+    
+    func sectionView(title: String, value: String, category: EventName) -> some View {
+        VStack(alignment: .leading) {
+            Section(
+                header: Text(title)
+                    .sectionTitle(),
+                footer: Text("\(value.count)count")
+                    .footer()
+                    .font(.system(size: 15))
+                    .padding(.leading, 11)
+                    .padding(.bottom, 5)
+            ) {
+                Text(value)
+                    .TextArea(category)
+            }
+        }
+    }
 }

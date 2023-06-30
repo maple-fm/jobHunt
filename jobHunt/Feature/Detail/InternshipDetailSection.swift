@@ -13,49 +13,31 @@ struct InternshipDetailSection: View {
     let viewModel = DetailViewModel()
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Group {
-                Text("会社名")
-                    .sectionTitle()
-                Text(intern.name)
-                    .TextArea(intern.category)
+                
+                textView(title: "会社名", value: intern.name, category: intern.category)
+                
+                textView(title: "開始時間", value: viewModel.toTime(date: intern.eventTime), category: intern.category)
 
-                Text("開始時間")
-                    .sectionTitle()
-                Text(viewModel.toTime(date: intern.eventTime))
-                    .TextArea(intern.category)
             }
 
             Group {
-
-                Text("開催場所")
-                    .sectionTitle()
+                
                 if let location = intern.location {
-                    Text(location)
-                        .TextArea(intern.category)
-                } else {
-                    Text("nil")
+                    textView(title: "開催場所", value: location, category: intern.category)
                 }
-
-                Text("服装")
-                    .sectionTitle()
+                
                 if let clothes = intern.clothes {
-                    Text(clothes)
-                        .TextArea(intern.category)
+                    textView(title: "服装", value: clothes, category: intern.category)
                 }
-
-                Text("持ち物")
-                    .sectionTitle()
+                
                 if let item = intern.item {
-                    Text(item)
-                        .TextArea(intern.category)
+                    textView(title: "持ち物", value: item, category: intern.category)
                 }
 
-                Text("その他")
-                    .sectionTitle()
                 if let other = intern.other {
-                    Text(other)
-                        .TextArea(intern.category)
+                    textView(title: "その他", value: other, category: intern.category)
                 }
             }
         }
