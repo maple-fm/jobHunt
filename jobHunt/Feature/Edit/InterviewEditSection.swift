@@ -41,7 +41,22 @@ struct InterviewEditSection: View {
                             viewModel.eventTime = interview.eventTime
                         }
                 }
-
+                
+                Section(
+                    header: Text("終了時間")
+                        .sectionTitle()
+                ) {
+                    DatePicker("終了時間", selection: $viewModel.endTime)
+                        .PickerItem()
+                        .onAppear() {
+                            if let end = interview.endTime {
+                                viewModel.endTime = end
+                            }
+                            
+                        }
+                }
+                
+                
                 Section(
                     header: Text("選考フロー")
                         .sectionTitle()
