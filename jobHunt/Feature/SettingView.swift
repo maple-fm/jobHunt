@@ -33,9 +33,10 @@ struct SettingView: View {
                     Section(header: Text("広告")) {
                         VStack {
                             BannerView()
-                                .frame(height: 60)
+                                .frame(width: 450)
                         }
                         .padding(.bottom, 50)
+                        .background(.blue)
                     }
                 }
                 .navigationTitle("設定")
@@ -84,11 +85,11 @@ struct PrivacyAndTerms: View {
         Form {
             List {
                 Section(header: Text("")) {
-                    if let url = URL(string: "https://maple-fm.github.io/jobHunt-privacy/Terms.html") {
+                    if let url = URL(string: "https://maple-fm.github.io/maple-apps/jobHunt/Terms.html") {
                         Link("利用規約", destination: url)
                     }
 
-                    if let url = URL(string: "https://maple-fm.github.io/jobHunt-privacy/privacy.html") {
+                    if let url = URL(string: "https://maple-fm.github.io/maple-apps/jobHunt/privacy.html") {
                         Link("プライバシーポリシー", destination: url)
                     }
                 }

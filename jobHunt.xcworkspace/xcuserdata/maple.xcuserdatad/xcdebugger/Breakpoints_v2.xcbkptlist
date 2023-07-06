@@ -237,6 +237,21 @@
                   endingLineNumber = "229"
                   offsetFromSymbolStart = "240">
                </Location>
+               <Location
+                  uuid = "3A34D1DF-28DB-45BA-81CA-80F4BCB05C22 - 9d056b48e23f2ae4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (jobHunt.InterviewDataSource) -&gt; jobHunt.InterviewModel in jobHunt.EventRepository.getInterviewArrays() -&gt; Swift.Array&lt;jobHunt.InterviewModel&gt;"
+                  moduleName = "jobHunt"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/Repository/EventRepository.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "168">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
