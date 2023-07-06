@@ -12,6 +12,7 @@ struct SessionView: View {
     @ObservedObject var viewModel: CreateViewModel
     @Binding var click: Bool
     @State var eventTime: Date
+    @State var endTime: Date
 
     let action: () -> Void
 
@@ -31,6 +32,14 @@ struct SessionView: View {
                         .sectionTitle()
                 ) {
                     DatePicker("開始時間", selection: $eventTime)
+                        .PickerItem()
+                }
+                
+                Section(
+                    header: Text("終了時間")
+                        .sectionTitle()
+                ) {
+                    DatePicker("終了時間", selection: $endTime)
                         .PickerItem()
                 }
 
@@ -90,7 +99,7 @@ struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
         let viewModel = CreateViewModel()
-        SessionView(viewModel: viewModel, click: .constant(false), eventTime: date) {}
+        SessionView(viewModel: viewModel, click: .constant(false), eventTime: date, endTime: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

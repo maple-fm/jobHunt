@@ -19,6 +19,10 @@ struct InternshipDetailSection: View {
                 textView(title: "会社名", value: intern.name, category: intern.category)
                 
                 textView(title: "開始時間", value: viewModel.toTime(date: intern.eventTime), category: intern.category)
+                
+                if let end = intern.endTime {
+                    textView(title: "終了時間", value: viewModel.toTime(date: end), category: intern.category)
+                }
 
             }
 
@@ -47,6 +51,6 @@ struct InternshipDetailSection: View {
 
 struct InternshipDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        InternshipDetailSection(intern: .init(id: "", name: "", start: .now, location: "", clothes: "", item: "", other: "", category: .internship))
+        InternshipDetailSection(intern: .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", other: "", category: .internship))
     }
 }

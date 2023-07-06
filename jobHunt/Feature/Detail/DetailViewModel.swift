@@ -37,11 +37,11 @@ class DetailViewModel: ObservableObject {
     }
 
     func getInternshipArray(id: String) -> InternshipModel {
-        eventRepository.getInternshipArray(id: id).first ?? InternshipModel(id: UUID().uuidString, name: "", start: Date.now, location: "", clothes: "", item: "", other: "", category: .internship)
+        eventRepository.getInternshipArray(id: id).first ?? InternshipModel(id: UUID().uuidString, name: "", start: Date.now, end: Date.now, location: "", clothes: "", item: "", other: "", category: .internship)
     }
 
     func getSessionpArray(id: String) -> SessionModel {
-        eventRepository.getSessionArray(id: id).first ?? SessionModel(id: UUID().uuidString, name: "", start: Date.now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
+        eventRepository.getSessionArray(id: id).first ?? SessionModel(id: UUID().uuidString, name: "", start: Date.now, end: Date.now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
     }
 
     func toTime(date: Date) -> String {

@@ -42,7 +42,7 @@ class CreateViewModel: ObservableObject {
                 weakPoints: weakPoints,
                 other: other,
                 category: .es)
-
+            
         case .interview:
             
             guard let endTime = endTime else { return }
@@ -61,11 +61,15 @@ class CreateViewModel: ObservableObject {
                 questions: questions,
                 other: other,
                 category: .interview)
-
+            
         case .session:
+            
+            guard let endTime = endTime else { return }
+            
             eventReprository.saveNewSession(
                 name: name,
                 start: eventTime,
+                end: endTime,
                 location: location,
                 clothes: clothes,
                 item: item,
@@ -74,9 +78,13 @@ class CreateViewModel: ObservableObject {
                 category: .session)
             
         case .internship:
+            
+            guard let endTime = endTime else { return }
+            
             eventReprository.saveNewInternship(
                 name: name,
                 start: eventTime,
+                end: endTime, 
                 location: location,
                 clothes: clothes,
                 item: item,

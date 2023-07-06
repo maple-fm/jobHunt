@@ -193,8 +193,8 @@
             filePath = "jobHunt/Domain/Repository/EventRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "getInterviewArrays()"
             landmarkType = "7">
             <Actions>
@@ -208,7 +208,7 @@
             </Actions>
             <Locations>
                <Location
-                  uuid = "3A34D1DF-28DB-45BA-81CA-80F4BCB05C22 - 9d056b48e23f2d9d"
+                  uuid = "3A34D1DF-28DB-45BA-81CA-80F4BCB05C22 - 9d056b48e23f2bec"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -218,12 +218,12 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/Repository/EventRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "222"
-                  endingLineNumber = "222"
-                  offsetFromSymbolStart = "168">
+                  startingLineNumber = "237"
+                  endingLineNumber = "237"
+                  offsetFromSymbolStart = "896">
                </Location>
                <Location
-                  uuid = "3A34D1DF-28DB-45BA-81CA-80F4BCB05C22 - 9d056b48e23f2d9d"
+                  uuid = "3A34D1DF-28DB-45BA-81CA-80F4BCB05C22 - 9d056b48e23f2ae4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -233,8 +233,8 @@
                   urlString = "file:///Users/maple/Desktop/Swiftapp/jobHunt/jobHunt/Domain/Repository/EventRepository.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "222"
-                  endingLineNumber = "222"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
                   offsetFromSymbolStart = "240">
                </Location>
             </Locations>

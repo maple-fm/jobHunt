@@ -83,6 +83,7 @@ class EventRepository {
     func saveNewSession(
         name: String,
         start eventTime: Date,
+        end endTime: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -93,12 +94,14 @@ class EventRepository {
         let datasource = SessionDataSource(
             name: name,
             start: eventTime,
+            end: endTime,
             location: location ?? "",
             clothes: clothes ?? "",
             item: item ?? "",
             questions: questions ?? "",
             other: other ?? "",
-            category: category)
+            category: category
+        )
 
         datasource.write(datasource: datasource)
 
@@ -107,6 +110,7 @@ class EventRepository {
     func saveNewInternship(
         name: String,
         start eventTime: Date,
+        end endTime: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -116,6 +120,7 @@ class EventRepository {
         let datasource = InternshipDataSource(
             name: name,
             start: eventTime,
+            end: endTime,
             location: location ?? "",
             clothes: clothes ?? "",
             item: item ?? "",
@@ -190,6 +195,7 @@ class EventRepository {
                 id: datasource.id,
                 name: datasource.name,
                 start: datasource.eventTime,
+                end: datasource.endTime, 
                 location: datasource.location,
                 clothes: datasource.clothes,
                 item: datasource.item,
@@ -206,6 +212,7 @@ class EventRepository {
                 id: datasource.id,
                 name: datasource.name,
                 start: datasource.eventTime,
+                end: datasource.endTime,
                 location: datasource.location,
                 clothes: datasource.clothes,
                 item: datasource.item,
@@ -245,6 +252,7 @@ class EventRepository {
                 id: datasource.id,
                 name: datasource.name,
                 start: datasource.eventTime,
+                end: datasource.endTime,
                 location: datasource.location,
                 clothes: datasource.clothes,
                 item: datasource.item,
@@ -262,6 +270,7 @@ class EventRepository {
                 id: datasource.id,
                 name: datasource.name,
                 start: datasource.eventTime,
+                end: datasource.endTime,
                 location: datasource.location,
                 clothes: datasource.clothes,
                 item: datasource.item,
@@ -348,6 +357,7 @@ class EventRepository {
         id: String,
         name: String,
         start eventTime: Date,
+        end endTime: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -358,6 +368,7 @@ class EventRepository {
             id: id,
             name: name,
             start: eventTime,
+            end: endTime, 
             location: location,
             clothes: clothes,
             item: item,
@@ -370,6 +381,7 @@ class EventRepository {
         id: String,
         name: String,
         start eventTime: Date,
+        end endTime: Date,
         location: String?,
         clothes: String?,
         item: String?,
@@ -381,6 +393,7 @@ class EventRepository {
             id: id,
             name: name,
             start: eventTime,
+            end: endTime,
             location: location,
             clothes: clothes,
             item: item,

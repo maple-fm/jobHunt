@@ -41,6 +41,20 @@ struct SessionEditSection: View {
                             viewModel.eventTime = session.eventTime
                         }
                 }
+                
+                Section(
+                    header: Text("終了時間")
+                        .sectionTitle()
+                ) {
+                    DatePicker("終了時間", selection: $viewModel.endTime)
+                        .PickerItem()
+                        .onAppear() {
+                            if let end = session.endTime {
+                                viewModel.endTime = end
+                            }
+                            
+                        }
+                }
 
                 Section(
                     header: Text("開催場所")
@@ -118,6 +132,6 @@ struct SessionEditSection: View {
 
 struct SessionEditSection_Previews: PreviewProvider {
     static var previews: some View {
-        SessionEditSection(session: .init(id: "", name: "", start: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
+        SessionEditSection(session: .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
     }
 }

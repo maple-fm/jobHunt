@@ -41,6 +41,20 @@ struct InternshipEditSection: View {
                             viewModel.eventTime = intern.eventTime
                         }
                 }
+                
+                Section(
+                    header: Text("終了時間")
+                        .sectionTitle()
+                ) {
+                    DatePicker("終了時間", selection: $viewModel.endTime)
+                        .PickerItem()
+                        .onAppear() {
+                            if let end = intern.endTime {
+                                viewModel.endTime = end
+                            }
+                            
+                        }
+                }
 
                 Section(
                     header: Text("開催場所")
@@ -105,6 +119,6 @@ struct InternshipEditSection: View {
 
 struct InternshipEditSection_Previews: PreviewProvider {
     static var previews: some View {
-        InternshipEditSection(intern: .init(id: "", name: "", start: .now, location: "", clothes: "", item: "", other: "", category: .internship))
+        InternshipEditSection(intern: .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", other: "", category: .internship))
     }
 }

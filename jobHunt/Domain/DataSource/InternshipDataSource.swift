@@ -14,17 +14,19 @@ class InternshipDataSource: Object{
     @Persisted var id: String
     @Persisted var name: String
     @Persisted var eventTime: Date
+    @Persisted var endTime: Date
     @Persisted var location: String
     @Persisted var clothes: String
     @Persisted var item: String
     @Persisted var other: String
     @Persisted var category: EventName
 
-    init(name: String, start eventTime: Date, location: String, clothes: String, item: String, other: String, category: EventName) {
+    init(name: String, start eventTime: Date, end endTime: Date, location: String, clothes: String, item: String, other: String, category: EventName) {
         
         self.id = UUID().uuidString
         self.name = name
         self.eventTime = eventTime
+        self.endTime = endTime
         self.location = location
         self.clothes = clothes
         self.item = item
@@ -33,7 +35,7 @@ class InternshipDataSource: Object{
     }
 
     convenience override init() {
-        self.init(name: "", start: Date.now, location: "", clothes: "", item: "", other: "", category: .internship)
+        self.init(name: "", start: Date.now, end: Date.now, location: "", clothes: "", item: "", other: "", category: .internship)
     }
 
     func write(datasource: InternshipDataSource) {
@@ -75,6 +77,7 @@ class InternshipDataSource: Object{
         try! realm.write {
             target.name = model.name
             target.eventTime = model.eventTime
+            target.endTime = model.endTime ?? model.eventTime
             target.location = model.location ?? ""
             target.clothes = model.clothes ?? ""
             target.item = model.item ?? ""

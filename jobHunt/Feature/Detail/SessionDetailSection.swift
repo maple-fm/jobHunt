@@ -20,6 +20,10 @@ struct SessionDetailSection: View {
                 
                 textView(title: "開始時間", value: viewModel.toTime(date: session.eventTime), category: session.category)
                 
+                if let end = session.endTime {
+                    textView(title: "終了時間", value: viewModel.toTime(date: end), category: session.category)
+                }
+                
             }
 
             Group {
@@ -50,6 +54,6 @@ struct SessionDetailSection: View {
 
 struct SessionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionDetailSection(session: .init(id: "", name: "", start: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
+        SessionDetailSection(session: .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
     }
 }

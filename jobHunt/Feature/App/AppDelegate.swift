@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         let config = Realm.Configuration(
-                        schemaVersion: 9,
+                        schemaVersion: 10,
                         migrationBlock: { migration, oldSchemaVersion in
                             if oldSchemaVersion < 5 {
                                 migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
@@ -35,15 +35,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 migration.renameProperty(onType: InterviewDataSource.className(), from: "deadline", to: "eventTime")
                                 migration.renameProperty(onType: InterviewDataSource.className(), from: "endDeadline", to: "endTime")
                                 migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
-                                    newObject?["endTime"] = oldObject.self
+                                    newObject?["endTime"] = Date.now
                                 }
                                 
                                 // session
                                 migration.renameProperty(onType: SessionDataSource.className(), from: "deadline", to: "eventTime")
                                 
+                                
                                 // intern
                                 migration.renameProperty(onType: InternshipDataSource.className(), from: "deadline", to: "eventTime")
                             }
+                            
+                            if oldSchemaVersion < 10 {
+                                migration.enumerateObjects(ofType: SessionDataSource.className()) { oldObject, newObject in
+                                    newObject?["endTime"] = Date.now
+                                }
+                                
+                                migration.enumerateObjects(ofType: InternshipDataSource.className()) { oldObject, newObject in
+                                    newObject?["endTime"] = Date.now
+                                }
+                                
+                                
+                            }
+                            
+
                         })
 
         Realm.Configuration.defaultConfiguration = config
