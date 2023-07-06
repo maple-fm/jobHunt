@@ -29,15 +29,7 @@ struct SettingView: View {
                             Link("アプリを評価する", destination: url)
                         }
                     }
-                    
-                    Section(header: Text("広告")) {
-                        VStack {
-                            BannerView()
-                                .frame(width: 450)
-                        }
-                        .padding(.bottom, 50)
-                        .background(.blue)
-                    }
+                
                 }
                 .navigationTitle("設定")
             }
@@ -64,6 +56,11 @@ struct SettingView: View {
                     }
                 }
             )
+            
+            BannerView()
+                .frame(width: 300, height: 150)
+            
+            
         }
 
 
