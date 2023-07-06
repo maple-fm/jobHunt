@@ -11,7 +11,7 @@ struct InternshipView: View {
 
     @ObservedObject var viewModel: CreateViewModel
     @Binding var click: Bool
-    @State var deadline: Date
+    @State var eventTime: Date
 
     let action: () -> Void
 
@@ -30,7 +30,7 @@ struct InternshipView: View {
                     header: Text("開始時間")
                         .sectionTitle()
                 ) {
-                    DatePicker("開始時間", selection: $deadline)
+                    DatePicker("開始時間", selection: $eventTime)
                         .PickerItem()
                 }
 
@@ -71,7 +71,7 @@ struct InternshipView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(event: .internship, click: $0, start: deadline)
+                viewModel.clickButton(event: .internship, click: $0, start: eventTime)
                 action()
             }
         }
@@ -82,7 +82,7 @@ struct InternshipView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
         let viewModel = CreateViewModel()
-        return InternshipView(viewModel: viewModel, click: .constant(false), deadline: date) {}
+        return InternshipView(viewModel: viewModel, click: .constant(false), eventTime: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

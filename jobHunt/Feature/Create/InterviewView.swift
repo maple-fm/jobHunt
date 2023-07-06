@@ -11,8 +11,8 @@ struct InterviewView: View {
 
     @ObservedObject var viewModel: CreateViewModel
     @Binding var click: Bool
-    @State var deadline: Date
-    @State var endDeadline: Date
+    @State var eventTime: Date
+    @State var endTime: Date
 
     let action: () -> Void
 
@@ -33,7 +33,7 @@ struct InterviewView: View {
                         header: Text("開始時間")
                             .sectionTitle()
                     ) {
-                        DatePicker("開始時間", selection: $deadline)
+                        DatePicker("開始時間", selection: $eventTime)
                             .PickerItem()
                         
                     }
@@ -42,7 +42,7 @@ struct InterviewView: View {
                         header: Text("終了時間")
                             .sectionTitle()
                     ) {
-                        DatePicker("終了時間", selection: $endDeadline)
+                        DatePicker("終了時間", selection: $endTime)
                             .PickerItem()
                     }
 
@@ -132,7 +132,7 @@ struct InterviewView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(event: .interview, click: $0, start: deadline, end: endDeadline)
+                viewModel.clickButton(event: .interview, click: $0, start: eventTime, end: endTime)
                 action()
             }
         }
@@ -143,7 +143,7 @@ struct InterviewView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
         let viewModel = CreateViewModel()
-        return InterviewView(viewModel: viewModel, click: .constant(false), deadline: date, endDeadline: date) {}
+        return InterviewView(viewModel: viewModel, click: .constant(false), eventTime: date, endTime: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }

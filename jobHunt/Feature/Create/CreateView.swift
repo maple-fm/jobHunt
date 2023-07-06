@@ -142,9 +142,9 @@ private extension EventName {
     func eventView(viewModel: CreateViewModel, selectedDate: Date, click: Binding<Bool>, action: @escaping () -> Void) -> some View {
         switch self {
         case .es : return AnyView(ESView(viewModel: viewModel, click: click, deadline: selectedDate , action: action))
-        case .interview : return AnyView(InterviewView(viewModel: viewModel, click: click, deadline: selectedDate, endDeadline: selectedDate, action: action))
-        case .session : return AnyView(SessionView(viewModel: viewModel, click: click, deadline: selectedDate, action: action))
-        case .internship : return AnyView(InternshipView(viewModel: viewModel, click: click, deadline: selectedDate, action: action))
+        case .interview : return AnyView(InterviewView(viewModel: viewModel, click: click, eventTime: selectedDate, endTime: selectedDate, action: action))
+        case .session : return AnyView(SessionView(viewModel: viewModel, click: click, eventTime: selectedDate, action: action))
+        case .internship : return AnyView(InternshipView(viewModel: viewModel, click: click, eventTime: selectedDate, action: action))
         }
     }
 }

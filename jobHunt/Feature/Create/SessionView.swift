@@ -11,7 +11,7 @@ struct SessionView: View {
 
     @ObservedObject var viewModel: CreateViewModel
     @Binding var click: Bool
-    @State var deadline: Date
+    @State var eventTime: Date
 
     let action: () -> Void
 
@@ -30,7 +30,7 @@ struct SessionView: View {
                     header: Text("開始時間")
                         .sectionTitle()
                 ) {
-                    DatePicker("開始時間", selection: $deadline)
+                    DatePicker("開始時間", selection: $eventTime)
                         .PickerItem()
                 }
 
@@ -79,7 +79,7 @@ struct SessionView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(event: .session, click: $0, start: deadline)
+                viewModel.clickButton(event: .session, click: $0, start: eventTime)
                 action()
             }
         }
@@ -90,7 +90,7 @@ struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
         let viewModel = CreateViewModel()
-        SessionView(viewModel: viewModel, click: .constant(false), deadline: date) {}
+        SessionView(viewModel: viewModel, click: .constant(false), eventTime: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }
