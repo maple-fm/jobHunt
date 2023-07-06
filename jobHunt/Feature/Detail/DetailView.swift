@@ -51,21 +51,25 @@ struct DetailView: View {
                         dismiss()
                     }
                 }) {
-                    if isUpdate {
-                        Text("完了")
-                            .padding(.leading, 10)
-                            .foregroundColor(.black)
-                    } else {
-                        HStack {
+                    Group {
+                        if isUpdate {
+                            // 完了
+                            Image(systemName: "checkmark")
+                                .padding(.leading, 10)
+                            
+                        } else {
+                            // 戻る
                             Image(systemName: "chevron.backward")
+                                .foregroundColor(.black)
                                 .font(.system(size: 17, weight: .medium))
-                            Text("カレンダー")
+                               
                         }
-                        .foregroundColor(.black)
                     }
+                    
+
                 }
             }
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItem() {
                 Button(action: {
                     if isUpdate {
 
@@ -77,9 +81,11 @@ struct DetailView: View {
 
                 }) {
                     if isUpdate {
-                        Text("削除")
+                        // 削除
+                        Image(systemName: "trash")
                     } else {
-                        Text("編集")
+                        // 編集
+                        Image(systemName: "square.and.pencil")
                     }
 
                 }
