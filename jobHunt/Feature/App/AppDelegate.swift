@@ -15,7 +15,7 @@ import GoogleMobileAds
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
 
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        MobileAds.shared.start()
 
         let config = Realm.Configuration(
                         schemaVersion: 10,

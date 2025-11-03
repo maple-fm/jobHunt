@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 import FSCalendar
 import UIKit
-import CalculateCalendarLogic
 
 struct CalendarTestView: UIViewRepresentable {
 
@@ -90,20 +89,6 @@ struct CalendarTestView: UIViewRepresentable {
             self.parent = parent
         }
 
-        func judgeHoliday(_ date: Date) -> Bool {
-            //祝日判定用のカレンダークラスのインスタンス
-            let tmpCalendar = Calendar(identifier: .gregorian)
-            // 祝日判定を行う日にちの年、月、日を取得
-            let year = tmpCalendar.component(.year, from: date)
-            let month = tmpCalendar.component(.month, from: date)
-            let day = tmpCalendar.component(.day, from: date)
-
-            // CalculateCalendarLogic()：祝日判定のインスタンスの生成
-            let holiday = CalculateCalendarLogic()
-
-            return holiday.judgeJapaneseHoliday(year: year, month: month, day: day)
-        }
-
         func getDay(_ date:Date) -> (Int,Int,Int){
             let tmpCalendar = Calendar(identifier: .gregorian)
             let year = tmpCalendar.component(.year, from: date)
@@ -118,16 +103,11 @@ struct CalendarTestView: UIViewRepresentable {
         }
 
         func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
-            //祝日判定をする（祝日は赤色で表示する）
-            if self.judgeHoliday(date){
-                return UIColor(red: 1, green: 0.354, blue: 0.354, alpha: 1)
-            }
             //土日の判定を行う（土曜日は青色、日曜日は赤色で表示する）
             let weekday = self.getWeekIdx(date)
             if weekday == 1 {   //日曜日
                 return UIColor(red: 1, green: 0.354, blue: 0.354, alpha: 1)
-            }
-            else if weekday == 7 {  //土曜日
+            } else if weekday == 7 {  //土曜日
                 return UIColor(red: 0.271, green: 0.475, blue: 1, alpha: 1)
             }
             return nil

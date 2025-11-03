@@ -20,8 +20,9 @@ struct HomeView: View {
         NavigationView {
             VStack(alignment: .leading) {
 
-                BannerView()
-                        .frame(height: 50)
+                BannerViewRepresentable()
+                    .frame(height: 50)
+                
                 ZStack(alignment: .top) {
 
                     CalendarTestView(selectedDate: $selectedDate,

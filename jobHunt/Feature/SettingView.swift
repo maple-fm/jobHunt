@@ -57,7 +57,7 @@ struct SettingView: View {
                 }
             )
             
-            BannerView()
+            BannerViewRepresentable()
                 .frame(width: 300, height: 150)
             
             
