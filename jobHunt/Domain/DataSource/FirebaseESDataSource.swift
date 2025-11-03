@@ -15,6 +15,9 @@ class FirebaseESDataSource {
     private let uid: String
     
     init(uid: String) {
+        guard !uid.isEmpty else {
+            fatalError("Firestore UID cannot be empty!")
+        }
         self.uid = uid
     }
     
@@ -63,9 +66,9 @@ class FirebaseESDataSource {
 extension FirebaseESDataSource {
     func readAsync() async -> [ESModel] {
         await withCheckedContinuation { continuation in
-            self.read(completion: { models in
+            self.read { models in
                 continuation.resume(returning: models)
-            })
+            }
         }
     }
 

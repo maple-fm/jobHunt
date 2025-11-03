@@ -9,15 +9,18 @@ import Foundation
 import FirebaseAuth
 
 class EventRepositoryWrapper: ObservableObject {
-    @Published var homeViewModel: HomeViewModel?
+    @Published var homeViewModel: HomeViewModel? = nil
     
-    init() {
+    func initializeHomeViewModel() {
+        // 匿名認証で UID を取得
         Auth.auth().signInAnonymously { result, error in
             if let error = error {
                 print("匿名認証失敗: \(error)")
                 return
             }
             guard let uid = result?.user.uid else { return }
+            
+            // UID を渡して HomeViewModel を初期化
             DispatchQueue.main.async {
                 self.homeViewModel = HomeViewModel(uid: uid)
             }

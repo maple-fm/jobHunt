@@ -6,12 +6,13 @@
 //
 
 import Foundation
-import FirebaseCore
+import FirebaseFirestore
 
 // エントリーシート
 struct ESModel: Entry {
-    
-    var id: String
+
+    var id: String             // Firestore 用 ID
+    var realmId: String?       // 元 Realm ID を保持
     var name: String
     var eventTime: Date
     var endTime: Date?
@@ -21,9 +22,21 @@ struct ESModel: Entry {
     var weakPoints: String?
     var other: String?
     var category: EventName
-
-    init(id: String, name: String, start eventTime: Date, motivation: String?, gakuchika: String?, strongPoints: String?, weakPoints: String?, other: String?, category: EventName) {
+    
+    init(
+        id: String = UUID().uuidString,
+        realmId: String? = nil,
+        name: String,
+        start eventTime: Date,
+        motivation: String? = nil,
+        gakuchika: String? = nil,
+        strongPoints: String? = nil,
+        weakPoints: String? = nil,
+        other: String? = nil,
+        category: EventName
+    ) {
         self.id = id
+        self.realmId = realmId
         self.name = name
         self.eventTime = eventTime
         self.motivation = motivation
@@ -33,10 +46,24 @@ struct ESModel: Entry {
         self.other = other
         self.category = category
     }
-
-}
-
-extension ESModel {
+    
+    // Firestore 用変換
+    func toFirestore() -> [String: Any] {
+        return [
+            "id": id,
+            "realmId": realmId as Any,
+            "name": name,
+            "eventTime": eventTime,
+            "motivation": motivation ?? "",
+            "gakuchika": gakuchika ?? "",
+            "strongPoints": strongPoints ?? "",
+            "weakPoints": weakPoints ?? "",
+            "other": other ?? "",
+            "category": category.rawValue
+        ]
+    }
+    
+    // Firestore から生成
     static func fromFirestore(data: [String: Any]) -> ESModel? {
         guard
             let id = data["id"] as? String,
@@ -48,6 +75,7 @@ extension ESModel {
         
         return ESModel(
             id: id,
+            realmId: data["realmId"] as? String,
             name: name,
             start: timestamp.dateValue(),
             motivation: data["motivation"] as? String,
@@ -57,20 +85,5 @@ extension ESModel {
             other: data["other"] as? String,
             category: category
         )
-    }
-    
-    // Firestore に書き込む際の辞書化
-    func toFirestore() -> [String: Any] {
-        return [
-            "id": id,
-            "name": name,
-            "eventTime": eventTime,
-            "motivation": motivation ?? "",
-            "gakuchika": gakuchika ?? "",
-            "strongPoints": strongPoints ?? "",
-            "weakPoints": weakPoints ?? "",
-            "other": other ?? "",
-            "category": category.rawValue
-        ]
     }
 }

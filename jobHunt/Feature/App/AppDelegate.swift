@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Foundation
 import RealmSwift
 import GoogleMobileAds
 import FirebaseCore
@@ -14,23 +13,17 @@ import FirebaseAuth
 import FirebaseFirestore
 import UserNotifications
 
-
-// 参考サイト：https://tech.amefure.com/swift-notification
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         
-        // ------------------------
         // Firebase 初期化
-        // ------------------------
         FirebaseApp.configure()
         
-        // ------------------------
-        // Realm マイグレーション設定（既存 Realm データ保持用）
-        // ------------------------
+        // Realm マイグレーション設定
         let config = Realm.Configuration(
             schemaVersion: 10,
             migrationBlock: { migration, oldSchemaVersion in
@@ -39,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         newObject?["flow"] = Flow.first.rawValue
                     }
                 }
-                
                 if oldSchemaVersion < 9 {
                     migration.renameProperty(onType: ESDataSource.className(), from: "deadline", to: "eventTime")
                     migration.renameProperty(onType: InterviewDataSource.className(), from: "deadline", to: "eventTime")
@@ -50,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     migration.renameProperty(onType: SessionDataSource.className(), from: "deadline", to: "eventTime")
                     migration.renameProperty(onType: InternshipDataSource.className(), from: "deadline", to: "eventTime")
                 }
-                
                 if oldSchemaVersion < 10 {
                     migration.enumerateObjects(ofType: SessionDataSource.className()) { oldObject, newObject in
                         newObject?["endTime"] = Date.now
@@ -63,9 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         )
         Realm.Configuration.defaultConfiguration = config
         
-        // ------------------------
-        // 匿名認証 + Firestore への ES マイグレーション
-        // ------------------------
+        // 匿名認証 + Firestore マイグレーション
         Auth.auth().signInAnonymously { result, error in
             if let error = error {
                 print("匿名認証失敗: \(error)")
@@ -74,43 +63,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             guard let uid = result?.user.uid else { return }
             print("匿名UID: \(uid)")
             
-            // UID取得後に Realm → Firestore マイグレーションを実行
             self.migrateES(uid: uid)
         }
         
-        // ------------------------
         // 通知許可
-        // ------------------------
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
             if granted {
                 UNUserNotificationCenter.current().delegate = self
-                print("通知許可されました！")
+                print("通知許可されました")
             } else {
-                print("通知拒否されました...")
+                print("通知拒否")
             }
         }
         
-        // ------------------------
         // Google Mobile Ads 初期化
-        // ------------------------
         MobileAds.shared.start()
         
         return true
     }
     
-    // ------------------------
-    // Realm → Firestore マイグレーション（ES のみ）
-    // ------------------------
+    // Realm → Firestore マイグレーション（ESのみ）
     private func migrateES(uid: String) {
         let realm = try! Realm()
         let db = Firestore.firestore()
         let esCollection = db.collection("users").document(uid).collection("events")
         
-        // Realm から取得
-        let realmESResults = realm.objects(ESDataSource.self)
-        let realmESArray = Array(realmESResults)
+        let realmESArray = Array(realm.objects(ESDataSource.self))
         
-        // Firestore へ書き込み
         for es in realmESArray {
             let model = ESModel(
                 id: es.id,
@@ -134,9 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
-    // ------------------------
-    // 通知表示方法
-    // ------------------------
+    // 通知表示
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
@@ -145,5 +122,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler([.banner, .list, .sound])
     }
 }
-
-

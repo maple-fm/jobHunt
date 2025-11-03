@@ -13,29 +13,44 @@ struct jobHuntApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @Environment(\.scenePhase) private var scenePhase
     
-    @StateObject private var repository: EventRepositoryWrapper = EventRepositoryWrapper()
+    @StateObject private var repositoryWrapper = EventRepositoryWrapper()
     private var format = FormatRepository()
     
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: repository.homeViewModel ?? HomeViewModel(uid: ""))
-                .environment(\.locale, Locale(identifier: "ja_JP"))
-                .onChange(of: scenePhase) { phase in
-                    switch phase {
-                    case .active:
-                        UIApplication.shared.applicationIconBadgeNumber = 0
-                    case .inactive:
-                        Task {
-                            if let homeVM = repository.homeViewModel {
-                                let numberOfEvent = await homeVM.events.filter { format.formatDate(date: $0.eventTime) == format.formatDate(date: .now) }.count
-                                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-                                notification(numberOfEvent)
-                            }
-                        }
-                    case .background: break
-                    @unknown default: break
+            if let homeVM = repositoryWrapper.homeViewModel {
+                // UID 取得済みで HomeViewModel 初期化済み
+                HomeView(viewModel: homeVM)
+                    .environment(\.locale, Locale(identifier: "ja_JP"))
+                    .onChange(of: scenePhase) { phase in
+                        handleScenePhase(phase)
                     }
+            } else {
+                // UID まだ取得中 → ローディング表示
+                ProgressView("Loading...")
+                    .onAppear {
+                        repositoryWrapper.initializeHomeViewModel()
+                    }
+            }
+        }
+    }
+    
+    private func handleScenePhase(_ phase: ScenePhase) {
+        switch phase {
+        case .active:
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        case .inactive:
+            Task {
+                if let homeVM = repositoryWrapper.homeViewModel {
+                    let numberOfEvent = await homeVM.events.filter {
+                        format.formatDate(date: $0.eventTime) == format.formatDate(date: .now)
+                    }.count
+                    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                    notification(numberOfEvent)
                 }
+            }
+        case .background: break
+        @unknown default: break
         }
     }
     
