@@ -10,7 +10,6 @@ import SwiftUI
 struct ESDetailSection: View {
     
     let es: ESModel
-    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack {

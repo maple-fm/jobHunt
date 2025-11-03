@@ -10,12 +10,21 @@ import SwiftUI
 struct DetailView: View {
 
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var viewModel = DetailViewModel()
+    @StateObject private var viewModel: DetailViewModel
     @State var event: any Entry
     @State private var isUpdate = false
     @State private var isDelete = false
     public var onEdit: (() -> Void)?
-    var eventId: String
+    let eventId: String
+    let uid: String
+    
+    init(event: any Entry, eventId: String, uid: String = "", onEdit: (() -> Void)? = nil) {
+        self.event = event
+        self.eventId = eventId
+        self.uid = uid
+        _viewModel = StateObject(wrappedValue: DetailViewModel(uid: uid))
+        self.onEdit = onEdit
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -151,12 +160,20 @@ struct DetailView: View {
             if isUpdate {
                 ESEditSection(es: event)
                     .onDisappear() {
-                        self.event = self.viewModel.getESArray(id: eventId)
+                        Task {
+                            await viewModel.getESArray(id: eventId) { updatedES in
+                                self.event = updatedES!
+                            }
+                        }
                     }
             } else {
                 ESDetailSection(es: event)
                     .onDisappear() {
-                        self.event = self.viewModel.getESArray(id: eventId)
+                        Task {
+                            await viewModel.getESArray(id: eventId) { updatedES in
+                                self.event = updatedES!
+                            }
+                        }
                     }
             }
         }

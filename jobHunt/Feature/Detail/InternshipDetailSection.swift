@@ -10,7 +10,6 @@ import SwiftUI
 struct InternshipDetailSection: View {
 
     let intern: InternshipModel
-    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack {

@@ -11,6 +11,11 @@ struct EventList: View {
 
     @ObservedObject var viewModel: HomeViewModel
     var selectedDate: Date
+    
+    init(viewModel: HomeViewModel, selectedDate: Date) {
+        self.viewModel = viewModel
+        self.selectedDate = selectedDate
+    }
 
     var body: some View {
         ZStack {
@@ -21,14 +26,19 @@ struct EventList: View {
                             NavigationLink(
                                 destination: DetailView(
                                     event: event,
+                                    eventId: event.id,
+                                    uid: viewModel.uid,
                                     onEdit: {
-
-                                        viewModel.onUpdated()
-                                    },
-                                    eventId: event.id
+                                        Task {
+                                            await viewModel.onUpdated()
+                                        }
+                                        
+                                    }
                                 )
                                 .onDisappear(){
-                                    viewModel.onUpdated()
+                                    Task {
+                                        await viewModel.onUpdated()
+                                    }
                                 }
                             ) {
                                 ZStack {
@@ -106,7 +116,7 @@ struct EventList: View {
 
 struct EventList_Previews: PreviewProvider {
     static var previews: some View {
-        EventList(viewModel: HomeViewModel(), selectedDate: .now)
+        EventList(viewModel: HomeViewModel(uid: ""), selectedDate: .now)
     }
 }
 

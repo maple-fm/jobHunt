@@ -6,21 +6,46 @@
 //
 
 import Foundation
+import FirebaseAuth
+
+class EventRepositoryWrapper: ObservableObject {
+    @Published var homeViewModel: HomeViewModel?
+    
+    init() {
+        Auth.auth().signInAnonymously { result, error in
+            if let error = error {
+                print("匿名認証失敗: \(error)")
+                return
+            }
+            guard let uid = result?.user.uid else { return }
+            DispatchQueue.main.async {
+                self.homeViewModel = HomeViewModel(uid: uid)
+            }
+        }
+    }
+}
 
 class EventRepository {
+    
+    private let esDataSource: FirebaseESDataSource
+    
+    init(uid: String) {
+        self.esDataSource = FirebaseESDataSource(uid: uid)
+    }
 
-    func getEvents() -> [any Entry] {
-
-        var events: [any Entry]
-        let esArray = self.getESArrays()
-        let interviewArray = self.getInterviewArrays()
-        let sessionArray = self.getSessionArrays()
-        let internshipArray = self.getInternshipArrays()
-
-        events = esArray + interviewArray + sessionArray + internshipArray
-        events.sort(by: {$0.eventTime < $1.eventTime})
-
-        return events
+    func getEvents() async -> [any Entry] {
+        var allEvents: [any Entry] = []
+        
+        // ES
+        let esArray = await esDataSource.readAsync()
+        allEvents.append(contentsOf: esArray)
+        
+        // Interview, Session, Internship も同様に非同期で取得
+        // let interviewArray = await interviewDataSource.readAsync()
+        // allEvents.append(contentsOf: interviewArray)
+        // ...
+        
+        return allEvents.sorted { $0.eventTime < $1.eventTime }
     }
 
     func saveNewES(
@@ -33,17 +58,18 @@ class EventRepository {
         other: String?,
         category: EventName
     ) {
-        let datasource = ESDataSource(
+        let model = ESModel(
+            id: UUID().uuidString,
             name: name,
             start: eventTime,
-            motivation: motivation ?? "",
-            gakuchika: gakuchika ?? "",
-            strongPoints: strongPoints ?? "",
-            weakPoints: weakPoints ?? "",
-            other: other ?? "",
-            category: category)
-
-        datasource.write(datasource: datasource)
+            motivation: motivation,
+            gakuchika: gakuchika,
+            strongPoints: strongPoints,
+            weakPoints: weakPoints,
+            other: other,
+            category: category
+        )
+        esDataSource.write(model: model)
     }
 
     func saveInterview(
@@ -131,37 +157,20 @@ class EventRepository {
         datasource.write(datasource: datasource)
     }
 
-    func getESArrays() -> [ESModel] {
-        let datasources = ESDataSource().read()
-
-        return datasources.map { datasource in
-            ESModel(
-                id: datasource.id,
-                name: datasource.name,
-                start: datasource.eventTime,
-                motivation: datasource.motivation,
-                gakuchika: datasource.gakuchika,
-                strongPoints: datasource.strongPoints,
-                weakPoints: datasource.weakPoints,
-                other: datasource.other,
-                category: datasource.category)
+    func getESArrays(completion: @escaping ([ESModel]) -> Void) {
+        esDataSource.read { models in
+            let sorted = models.sorted { $0.eventTime < $1.eventTime }
+            completion(sorted)
         }
     }
-
-    func getESArray(id: String) -> [ESModel] {
-        let datasources = ESDataSource().readOne(id: id)
-
-        return datasources.map { datasource in
-            ESModel(
-                id: datasource.id,
-                name: datasource.name,
-                start: datasource.eventTime,
-                motivation: datasource.motivation,
-                gakuchika: datasource.gakuchika,
-                strongPoints: datasource.strongPoints,
-                weakPoints: datasource.weakPoints,
-                other: datasource.other,
-                category: datasource.category)
+    
+    func getESArray(id: String, completion: @escaping ([ESModel]) -> Void) {
+        esDataSource.readOne(id: id) { model in
+            if let model = model {
+                completion([model])
+            } else {
+                completion([])
+            }
         }
     }
 
@@ -281,7 +290,7 @@ class EventRepository {
     }
 
     func deleteES(id: String) {
-        ESDataSource().delete(id: id)
+        esDataSource.delete(id: id)
     }
 
     func deleteInterview(id: String) {
@@ -306,8 +315,7 @@ class EventRepository {
         weakPoints: String?,
         other: String?
     ) {
-
-        ESDataSource().edit(model:ESModel(
+        let model = ESModel(
             id: id,
             name: name,
             start: eventTime,
@@ -317,7 +325,8 @@ class EventRepository {
             weakPoints: weakPoints,
             other: other,
             category: .es
-        ))
+        )
+        esDataSource.edit(model: model)
     }
 
     func editInterview(

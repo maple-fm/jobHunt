@@ -7,11 +7,16 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
 
 class DetailViewModel: ObservableObject {
 
-    private var eventRepository = EventRepository()
+    private var eventRepository: EventRepository
     private var format = FormatRepository()
+    
+    init(uid: String) {
+        self.eventRepository = EventRepository(uid: uid)
+    }
 
     func delete(event: any Entry) {
         if let es = event as? ESModel {
@@ -28,10 +33,12 @@ class DetailViewModel: ObservableObject {
         }
     }
 
-    func getESArray(id: String) -> ESModel {
-        eventRepository.getESArray(id: id).first ?? ESModel(id: UUID().uuidString, name: "", start: Date.now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
+    func getESArray(id: String, completion: @escaping (ESModel?) -> Void) {
+        eventRepository.getESArray(id: id) { es in
+            completion(es.first)
+        }
     }
-
+    
     func getInterviewArray(id: String) -> InterviewModel {
         eventRepository.getInterviewArray(id: id).first ?? InterviewModel(id: UUID().uuidString, name: "", start: Date.now, end: Date.now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
     }

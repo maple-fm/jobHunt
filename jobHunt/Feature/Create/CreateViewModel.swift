@@ -11,7 +11,7 @@ import SwiftUI
 
 class CreateViewModel: ObservableObject {
 
-    private var eventReprository = EventRepository()
+    private var eventRepository: EventRepository
     private var createRepository = CreateRepository()
 
     @Published var name: String = ""
@@ -25,15 +25,26 @@ class CreateViewModel: ObservableObject {
     @Published var item: String = ""
     @Published var questions: String = ""
     @Published var other: String = ""
+    
+    init(uid: String = "guest") { // uid は適宜設定
+        self.eventRepository = EventRepository(uid: uid)
+    }
 
     func isValidated() -> Bool {
         createRepository.isValidated(name: name)
     }
 
-    func clickButton(event: EventName, click: Bool, start eventTime: Date, end endTime: Date? = nil) {
+    func clickButton(
+        event: EventName,
+        click: Bool,
+        start eventTime: Date,
+        end endTime: Date? = nil,
+        completion: (() -> Void)? = nil
+    ) {
         switch event {
         case .es:
-            eventReprository.saveNewES(
+            // Firestore は非同期ですが書き込みは即座に呼べる
+            eventRepository.saveNewES(
                 name: name,
                 start: eventTime,
                 motivation: motivation,
@@ -41,13 +52,13 @@ class CreateViewModel: ObservableObject {
                 strongPoints: strongPoints,
                 weakPoints: weakPoints,
                 other: other,
-                category: .es)
+                category: .es
+            )
+            completion?()
             
         case .interview:
-            
             guard let endTime = endTime else { return }
-            
-            eventReprository.saveInterview(
+            eventRepository.saveInterview(
                 name: name,
                 start: eventTime,
                 end: endTime,
@@ -60,13 +71,13 @@ class CreateViewModel: ObservableObject {
                 weakPoints: weakPoints,
                 questions: questions,
                 other: other,
-                category: .interview)
+                category: .interview
+            )
+            completion?()
             
         case .session:
-            
             guard let endTime = endTime else { return }
-            
-            eventReprository.saveNewSession(
+            eventRepository.saveNewSession(
                 name: name,
                 start: eventTime,
                 end: endTime,
@@ -75,21 +86,23 @@ class CreateViewModel: ObservableObject {
                 item: item,
                 questions: questions,
                 other: other,
-                category: .session)
+                category: .session
+            )
+            completion?()
             
         case .internship:
-            
             guard let endTime = endTime else { return }
-            
-            eventReprository.saveNewInternship(
+            eventRepository.saveNewInternship(
                 name: name,
                 start: eventTime,
-                end: endTime, 
+                end: endTime,
                 location: location,
                 clothes: clothes,
                 item: item,
                 other: other,
-                category: .internship)
+                category: .internship
+            )
+            completion?()
         }
     }
 }

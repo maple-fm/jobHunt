@@ -10,7 +10,6 @@ import SwiftUI
 struct SessionDetailSection: View {
     
     let session: SessionModel
-    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack {

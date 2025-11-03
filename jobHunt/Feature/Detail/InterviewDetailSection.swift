@@ -10,7 +10,6 @@ import SwiftUI
 struct InterviewDetailSection: View {
     
     let interview: InterviewModel
-    let viewModel = DetailViewModel()
 
     var body: some View {
         VStack {

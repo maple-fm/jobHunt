@@ -8,32 +8,47 @@
 import Foundation
 import Combine
 
+@MainActor
 class HomeViewModel: ObservableObject {
-
-    @Published private(set) var events: [any Entry] = []
-    var eventsDateArray: [String] {
-        events.map {
-            toString(date: $0.eventTime)
+    
+    @Published var events: [any Entry] = []
+    @Published var uid: String
+    private var format = FormatRepository()
+    private var repository: EventRepository
+    
+    // UID を受け取って初期化
+    init(uid: String) {
+        self.uid = uid
+        self.repository = EventRepository(uid: uid)
+        Task {
+            await self.fetchEvents()
         }
     }
-    private var repository = EventRepository()
-    private var format = FormatRepository()
-
-
-    init() {
-        onUpdated()
+    
+    // 非同期で Firestore からイベント取得
+    func fetchEvents() async {
+        self.events = await repository.getEvents()
     }
-
-    func onUpdated() {
-        events = repository.getEvents()
+    
+    // 今日のイベント日付リスト
+    var eventsDateArray: [String] {
+        events.map { format.formatDate(date: $0.eventTime) }
     }
-
+    
+    // 日付を文字列に変換
     func toString(date: Date) -> String {
-        return format.formatDate(date: date)
+        format.formatDate(date: date)
     }
-
+    
+    // 時刻を文字列に変換
     func toTime(date: Date) -> String {
-        return format.formatTime(date: date)
+        format.formatTime(date: date)
     }
-
+    
+    // 手動更新用
+    func onUpdated() {
+        Task {
+            await fetchEvents()
+        }
+    }
 }

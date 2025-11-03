@@ -6,10 +6,16 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 class EditViewModel: ObservableObject {
 
-    private var repository = EventRepository()
+    private var repository: EventRepository
+    
+    init() {
+        let uid = Auth.auth().currentUser?.uid ?? "unknown"
+        self.repository = EventRepository(uid: uid)
+    }
 
     @Published var name: String = ""
     @Published var eventTime: Date = .now

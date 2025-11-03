@@ -10,6 +10,12 @@
 		F50863C12EB8AF83002E37D2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F50863C02EB8AF83002E37D2 /* RealmSwift */; };
 		F50863C42EB8AFDB002E37D2 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = F50863C32EB8AFDB002E37D2 /* FSCalendar */; };
 		F50863C72EB8B015002E37D2 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = F50863C62EB8B015002E37D2 /* GoogleMobileAds */; };
+		F50863CA2EB8C4CB002E37D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F50863C92EB8C4CB002E37D2 /* FirebaseAuth */; };
+		F50863CC2EB8C4CB002E37D2 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F50863CB2EB8C4CB002E37D2 /* FirebaseCore */; };
+		F50863CE2EB8C4CB002E37D2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F50863CD2EB8C4CB002E37D2 /* FirebaseFirestore */; };
+		F50863D02EB8C568002E37D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F50863CF2EB8C568002E37D2 /* GoogleService-Info.plist */; };
+		F50863D22EB8C636002E37D2 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50863D12EB8C630002E37D2 /* FirebaseManager.swift */; };
+		F50863D42EB8CD33002E37D2 /* FirebaseESDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50863D32EB8CD26002E37D2 /* FirebaseESDataSource.swift */; };
 		F50FBEB12A4BF8EF00767718 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50FBEB02A4BF8EF00767718 /* View+Extension.swift */; };
 		F523936629125F190000F2C0 /* ESDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F523936529125F190000F2C0 /* ESDetailSection.swift */; };
 		F5239368291260B00000F2C0 /* InterviewDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5239367291260B00000F2C0 /* InterviewDetailSection.swift */; };
@@ -78,6 +84,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F50863CF2EB8C568002E37D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F50863D12EB8C630002E37D2 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		F50863D32EB8CD26002E37D2 /* FirebaseESDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseESDataSource.swift; sourceTree = "<group>"; };
 		F50FBEB02A4BF8EF00767718 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		F523936529125F190000F2C0 /* ESDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESDetailSection.swift; sourceTree = "<group>"; };
 		F5239367291260B00000F2C0 /* InterviewDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterviewDetailSection.swift; sourceTree = "<group>"; };
@@ -138,8 +147,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F50863C72EB8B015002E37D2 /* GoogleMobileAds in Frameworks */,
+				F50863CC2EB8C4CB002E37D2 /* FirebaseCore in Frameworks */,
 				F50863C12EB8AF83002E37D2 /* RealmSwift in Frameworks */,
 				F50863C42EB8AFDB002E37D2 /* FSCalendar in Frameworks */,
+				F50863CA2EB8C4CB002E37D2 /* FirebaseAuth in Frameworks */,
+				F50863CE2EB8C4CB002E37D2 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +234,7 @@
 		F5716BD32924E03B00B41A25 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				F50863D12EB8C630002E37D2 /* FirebaseManager.swift */,
 				F5716BD12924E00600B41A25 /* AppDelegate.swift */,
 				F5C83B6B28F311FE00A01E4E /* jobHuntApp.swift */,
 			);
@@ -268,6 +281,7 @@
 		F5B789E528F3210E00B4E3E3 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				F50863D32EB8CD26002E37D2 /* FirebaseESDataSource.swift */,
 				F5B789E828F3311A00B4E3E3 /* ESDataSource.swift */,
 				F5B789EA28F3315500B4E3E3 /* InternshipDataSource.swift */,
 				F5B789EC28F3318900B4E3E3 /* InterviewDataSource.swift */,
@@ -317,6 +331,7 @@
 				F5C83B6F28F311FF00A01E4E /* Assets.xcassets */,
 				F5C83B7128F311FF00A01E4E /* jobHunt.entitlements */,
 				F5C83B7228F311FF00A01E4E /* Preview Content */,
+				F50863CF2EB8C568002E37D2 /* GoogleService-Info.plist */,
 			);
 			path = jobHunt;
 			sourceTree = "<group>";
@@ -439,6 +454,7 @@
 				F50863BF2EB8AF83002E37D2 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				F50863C22EB8AFDB002E37D2 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				F50863C52EB8B015002E37D2 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				F50863C82EB8C4CB002E37D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = F5C83B6928F311FE00A01E4E /* Products */;
 			projectDirPath = "";
@@ -458,6 +474,7 @@
 			files = (
 				F5C83B7428F311FF00A01E4E /* Preview Assets.xcassets in Resources */,
 				F5C83B7028F311FF00A01E4E /* Assets.xcassets in Resources */,
+				F50863D02EB8C568002E37D2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +503,7 @@
 				F5716BD5292672F200B41A25 /* EventRepository.swift in Sources */,
 				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
+				F50863D22EB8C636002E37D2 /* FirebaseManager.swift in Sources */,
 				F5B789EB28F3315500B4E3E3 /* InternshipDataSource.swift in Sources */,
 				F570A8A529BE3D0700C656BA /* CreateViewModel.swift in Sources */,
 				F5262AD72912A9D500B98ACE /* SessionDetailSection.swift in Sources */,
@@ -508,6 +526,7 @@
 				F5C83B9728F31D3100A01E4E /* CalendarTestView.swift in Sources */,
 				F54EC1D4299E70B0009319D1 /* EventList.swift in Sources */,
 				F5B789E728F3212500B4E3E3 /* Event.swift in Sources */,
+				F50863D42EB8CD33002E37D2 /* FirebaseESDataSource.swift in Sources */,
 				F58BEBAD2902706C00323EFA /* DetailView.swift in Sources */,
 				F5B78A0828F3382200B4E3E3 /* Image.swift in Sources */,
 				F5FAEDCF2960EDA200E64997 /* Color.swift in Sources */,
@@ -920,6 +939,14 @@
 				minimumVersion = 12.12.0;
 			};
 		};
+		F50863C82EB8C4CB002E37D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -937,6 +964,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F50863C52EB8B015002E37D2 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		F50863C92EB8C4CB002E37D2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50863C82EB8C4CB002E37D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F50863CB2EB8C4CB002E37D2 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50863C82EB8C4CB002E37D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		F50863CD2EB8C4CB002E37D2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50863C82EB8C4CB002E37D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
