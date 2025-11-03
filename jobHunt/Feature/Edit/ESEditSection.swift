@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ESEditSection: View {
+    
+    @StateObject private var viewModel: EditViewModel
     let es: ESModel
-    @StateObject private var viewModel = EditViewModel()
 
-    init(es: ESModel) {
+
+    init(es: ESModel, viewModel: EditViewModel) {
         self.es = es
+        self._viewModel = StateObject(wrappedValue: viewModel)
         UITextView.appearance().backgroundColor = .clear
     }
 
@@ -126,14 +129,11 @@ struct ESEditSection: View {
             }
 
         }
-        .onDisappear(perform: {
-            viewModel.clickUpdateOfES(id: es.id)
-        })
     }
 }
 
-struct ESEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        ESEditSection(es: .init(id: "", name: "", start: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
-    }
+#Preview {
+    let viewModel: EditViewModel = EditViewModel()
+    let model = ESModel(id: "", name: "", start: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
+    ESEditSection(es: model, viewModel: viewModel)
 }

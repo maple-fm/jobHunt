@@ -14,9 +14,13 @@ struct DetailView: View {
     @State var event: any Entry
     @State private var isUpdate = false
     @State private var isDelete = false
-    public var onEdit: (() -> Void)?
+    
+    @StateObject private var editViewModel = EditViewModel()
+    
     let eventId: String
     let uid: String
+    
+    public var onEdit: (() -> Void)?
     
     init(event: any Entry, eventId: String, uid: String = "", onEdit: (() -> Void)? = nil) {
         self.event = event
@@ -83,8 +87,11 @@ struct DetailView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     if isUpdate {
-                        // TODO: 編集機能、保存機能
                         isUpdate.toggle()
+                        if let es = event as? ESModel {
+                            viewModel.updateES(viewModelES: editViewModel, id: eventId)
+                        }
+                        
                     } else {
                         dismiss()
                     }
@@ -107,7 +114,6 @@ struct DetailView: View {
             ToolbarItem() {
                 Button(action: {
                     if isUpdate {
-
                         isDelete.toggle()
 
                     } else {
@@ -158,11 +164,16 @@ struct DetailView: View {
     func ESContent(event: ESModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
-                ESEditSection(es: event)
+                ESEditSection(es: event, viewModel: editViewModel)
                     .onDisappear() {
                         Task {
                             await viewModel.getESArray(id: eventId) { updatedES in
-                                self.event = updatedES!
+                                if let updated = updatedES {
+                                    self.event = updated
+                                } else {
+                                    // 削除済みならビューを閉じる
+                                    dismiss()
+                                }
                             }
                         }
                     }

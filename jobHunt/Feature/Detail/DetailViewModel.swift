@@ -55,4 +55,28 @@ class DetailViewModel: ObservableObject {
         return format.formatTime(date: date)
     }
     
+    func updateES(viewModelES: EditViewModel, id: String) {
+        let updatedES = ESModel(
+            id: id,
+            name: viewModelES.name,
+            start: viewModelES.eventTime,
+            motivation: viewModelES.motivation,
+            gakuchika: viewModelES.gakuchika,
+            strongPoints: viewModelES.strongPoints,
+            weakPoints: viewModelES.weakPoints,
+            other: viewModelES.other,
+            category: .es
+        )
+        eventRepository.editES(
+            id: id,
+            name: viewModelES.name,
+            start: viewModelES.eventTime,
+            motivation: viewModelES.motivation,
+            gakuchika: viewModelES.gakuchika,
+            strongPoints: viewModelES.strongPoints,
+            weakPoints: viewModelES.weakPoints,
+            other: viewModelES.other
+        )
+    }
+    
 }
