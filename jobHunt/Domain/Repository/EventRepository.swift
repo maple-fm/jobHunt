@@ -39,15 +39,23 @@ class EventRepository {
     func getEvents() async -> [any Entry] {
         var allEvents: [any Entry] = []
         
-        // ES
+        // ------------------------
+        // ES: Firestore から非同期取得
+        // ------------------------
         let esArray = await esDataSource.readAsync()
         allEvents.append(contentsOf: esArray)
         
-        // Interview, Session, Internship も同様に非同期で取得
-        // let interviewArray = await interviewDataSource.readAsync()
-        // allEvents.append(contentsOf: interviewArray)
-        // ...
+        let interviewArray = self.getInterviewArrays()
+        let sessionArray = self.getSessionArrays()
+        let internshipArray = self.getInternshipArrays()
         
+        allEvents.append(contentsOf: interviewArray)
+        allEvents.append(contentsOf: internshipArray)
+        allEvents.append(contentsOf: sessionArray)
+        
+        // ------------------------
+        // 日付順にソートして返す
+        // ------------------------
         return allEvents.sorted { $0.eventTime < $1.eventTime }
     }
 
