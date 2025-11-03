@@ -80,7 +80,7 @@ struct InternshipView: View {
         .onChange(of: click) {
             // clickが変更したときだけ実行される
             if viewModel.isValidated() {
-                viewModel.clickButton(event: .internship, click: $0, start: eventTime)
+                viewModel.clickButton(event: .internship, click: $0, start: eventTime, end: endTime)
                 action()
             }
         }

@@ -15,13 +15,6 @@ struct ESDetailSection: View {
     var body: some View {
         VStack {
             Group {
-                
-                textView(title: "会社名", value: self.es.name, category: es.category)
-                
-                textView(title: "締切日時", value: viewModel.toTime(date: self.es.eventTime), category: es.category)
-            }
-            
-            Group {
 
                 if let motivation = es.motivation {
                     sectionView(title: "志望動機", value: motivation, category: es.category)
@@ -44,7 +37,7 @@ struct ESDetailSection: View {
                 }
             }
         }
-
+        .padding(.vertical, 20)
     }
 }
 

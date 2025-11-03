@@ -15,18 +15,6 @@ struct InterviewDetailSection: View {
     var body: some View {
         VStack {
             Group {
-                textView(title: "会社名", value: interview.name, category: interview.category)
-
-                textView(title: "開始時間", value: viewModel.toTime(date: interview.eventTime), category: interview.category)
-                
-                if let end = interview.endTime {
-                    textView(title: "終了時間", value: viewModel.toTime(date: end), category: interview.category)
-                }
-
-                textView(title: "選考フロー", value: interview.flow.rawValue, category: interview.category)
-            }
-
-            Group {
                 
                 if let location = interview.location {
                     textView(title: "開催場所", value: location, category: interview.category)
@@ -63,6 +51,7 @@ struct InterviewDetailSection: View {
 
             }
         }
+        .padding(.vertical, 20)
     }
 }
 

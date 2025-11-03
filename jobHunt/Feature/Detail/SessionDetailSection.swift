@@ -16,18 +16,6 @@ struct SessionDetailSection: View {
         VStack {
             Group {
                 
-                textView(title: "会社名", value: session.name, category: session.category)
-                
-                textView(title: "開始時間", value: viewModel.toTime(date: session.eventTime), category: session.category)
-                
-                if let end = session.endTime {
-                    textView(title: "終了時間", value: viewModel.toTime(date: end), category: session.category)
-                }
-                
-            }
-
-            Group {
-                
                 if let location = session.location {
                     textView(title: "開催場所", value: location, category: session.category)
                 }
@@ -49,6 +37,7 @@ struct SessionDetailSection: View {
                 }
             }
         }
+        .padding(.vertical, 20)
     }
 }
 

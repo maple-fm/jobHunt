@@ -16,18 +16,6 @@ struct InternshipDetailSection: View {
         VStack {
             Group {
                 
-                textView(title: "会社名", value: intern.name, category: intern.category)
-                
-                textView(title: "開始時間", value: viewModel.toTime(date: intern.eventTime), category: intern.category)
-                
-                if let end = intern.endTime {
-                    textView(title: "終了時間", value: viewModel.toTime(date: end), category: intern.category)
-                }
-
-            }
-
-            Group {
-                
                 if let location = intern.location {
                     textView(title: "開催場所", value: location, category: intern.category)
                 }
@@ -45,7 +33,7 @@ struct InternshipDetailSection: View {
                 }
             }
         }
-
+        .padding(.vertical, 20)
     }
 }
 

@@ -12,9 +12,13 @@ import SwiftUI
 protocol Entry: Identifiable {
 
     var id: String { get }
+    // 企業名
     var name: String { get }
+    // 開始時間
     var eventTime: Date { get }
+    // 終了時間
     var endTime: Date? { get }
+    // カテゴリ
     var category: EventName { get }
 }
 
@@ -30,8 +34,8 @@ extension EventName {
     var bgColor: Color {
         switch self {
         case .es : return Color(UIColor(named: "esbg")!.cgColor)
-        case .interview : return Color(UIColor(named: "interviewBg")!.cgColor)
-        case .session: return Color(UIColor(named: "sessionBg")!.cgColor)
+        case .interview : return Color(UIColor(named: "interviewbg")!.cgColor)
+        case .session: return Color(UIColor(named: "sessionbg")!.cgColor)
         case .internship: return Color(UIColor(named: "internBg")!.cgColor)
         }
     }
