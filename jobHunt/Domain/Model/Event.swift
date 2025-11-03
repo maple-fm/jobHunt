@@ -29,7 +29,7 @@ extension EventName {
 
     var bgColor: Color {
         switch self {
-        case .es : return Color(UIColor(named: "esBg")!.cgColor)
+        case .es : return Color(UIColor(named: "esbg")!.cgColor)
         case .interview : return Color(UIColor(named: "interviewBg")!.cgColor)
         case .session: return Color(UIColor(named: "sessionBg")!.cgColor)
         case .internship: return Color(UIColor(named: "internBg")!.cgColor)
