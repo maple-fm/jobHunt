@@ -26,7 +26,7 @@ class CreateViewModel: ObservableObject {
     @Published var questions: String = ""
     @Published var other: String = ""
     
-    init(uid: String = "guest") { // uid は適宜設定
+    init(uid: String) {
         self.eventRepository = EventRepository(uid: uid)
     }
 

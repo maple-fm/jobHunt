@@ -11,11 +11,27 @@ struct CreateView: View {
 
     @Environment(\.dismiss) var dismiss
     @Binding var selectedDate: Date
-    @State private var event: EventName = .es
-    @State private var canCreate = false
-    @State private var swipeRight = false
-    @State private var swipeLeft = false
-    @StateObject private var viewModel = CreateViewModel()
+    @State private var event: EventName
+    @State private var canCreate: Bool
+    @State private var swipeRight: Bool
+    @State private var swipeLeft: Bool
+    @StateObject private var viewModel: CreateViewModel
+    
+    init(
+        uid: String,
+        selectedDate: Binding<Date>,
+        event: EventName,
+        canCreate: Bool = false,
+        swipeRight: Bool = false,
+        swipeLeft: Bool = false
+    ) {
+        self._selectedDate = selectedDate
+        self.event = event
+        self.canCreate = canCreate
+        self.swipeRight = swipeRight
+        self.swipeLeft = swipeLeft
+        self._viewModel = StateObject(wrappedValue: CreateViewModel(uid: uid))
+    }
 
     var body: some View {
         ZStack {
@@ -133,8 +149,7 @@ struct CreateView: View {
 struct CreateEvent_Previews: PreviewProvider {
 
     static var previews: some View {
-        let date = Date() // 外側のスコープで$datedを宣言する
-        return CreateView(selectedDate: .constant(date))
+        return CreateView(uid: "", selectedDate: .constant(.now), event: .es)
     }
 }
 

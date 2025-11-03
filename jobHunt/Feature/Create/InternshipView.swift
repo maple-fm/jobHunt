@@ -90,7 +90,7 @@ struct InternshipView: View {
 struct InternshipView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
-        let viewModel = CreateViewModel()
+        let viewModel = CreateViewModel(uid: "")
         return InternshipView(viewModel: viewModel, click: .constant(false), eventTime: date, endTime: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }

@@ -15,6 +15,12 @@ struct CalendarTestView: UIViewRepresentable {
     @Binding var selectedDate: Date
     let eventsDate: [String]
     let today: Date
+    
+    init(selectedDate: Binding<Date>, eventsDate: [String], today: Date) {
+        self._selectedDate = selectedDate
+        self.eventsDate = eventsDate
+        self.today = today
+    }
 
     func makeUIView(context: Context) -> UIView {
 

@@ -11,7 +11,7 @@ import FirebaseFirestore
 class FirebaseESDataSource {
     
     private let db = Firestore.firestore()
-    private let collectionName = "es"
+    private let collectionName = "events"
     private let uid: String
     
     init(uid: String) {

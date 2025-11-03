@@ -33,7 +33,7 @@ struct HomeView: View {
                     
                     CalendarTestView(
                         selectedDate: $selectedDate,
-                        eventsDate: viewModel.events as! [String],
+                        eventsDate: viewModel.eventsDateArray,
                         today: today
                     )
                     .frame(maxWidth: .infinity, minHeight: 400.0, alignment: .center)
@@ -78,7 +78,7 @@ struct HomeView: View {
                     .sheet(isPresented: $add, onDismiss: {
                         Task { await viewModel.onUpdated() }
                     }) {
-                        CreateView(selectedDate: $selectedDate)
+                        CreateView(uid: viewModel.uid, selectedDate: $selectedDate, event: .es)
                     }
                 }
                 

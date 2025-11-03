@@ -13,6 +13,18 @@ struct ESView: View {
     @Binding var click: Bool
     @State var deadline: Date
     let action: () -> Void // クロージャ
+    
+    init(
+        viewModel: CreateViewModel,
+        click: Binding<Bool>,
+        deadline: Date,
+        action: @escaping () -> Void
+    ) {
+        self.viewModel = viewModel
+        self._click = click
+        self.deadline = deadline
+        self.action = action
+    }
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -98,7 +110,7 @@ struct ESView: View {
 struct EntrysheetView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
-        let viewModel = CreateViewModel()
+        let viewModel = CreateViewModel(uid: "")
         return ESView(viewModel: viewModel, click: .constant(false), deadline: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }

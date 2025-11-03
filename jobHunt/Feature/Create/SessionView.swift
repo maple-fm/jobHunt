@@ -98,7 +98,7 @@ struct SessionView: View {
 struct SessionView_Previews: PreviewProvider {
     static var previews: some View {
         let date = Date()
-        let viewModel = CreateViewModel()
+        let viewModel = CreateViewModel(uid: "")
         SessionView(viewModel: viewModel, click: .constant(false), eventTime: date, endTime: date) {}
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
