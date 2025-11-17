@@ -117,14 +117,27 @@ struct CreateView: View {
                         }
                     )
                 }
-
+            }
+            
+            VStack {
+                Spacer()
+                
                 Button(action: {
                     canCreate.toggle()
                 }) {
-                    Image(systemName: "checkmark.circle.fill")
-                        .ImageItem()
+                    Text("登録する")
+                        .font(.title)
+                        .foregroundStyle(.white)
+                        .frame(width: 150, height: 30, alignment: .center)
+                        .padding(10)
+                        .background(.green)
+                        .cornerRadius(20)
                 }
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .shadow(color: Color.black.opacity(0.3), radius: 4, x: 2, y: 4)
+                
             }
+
         }
     }
 }
