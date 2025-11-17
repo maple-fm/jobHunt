@@ -74,7 +74,6 @@ struct DetailView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     if isUpdate {
-                        // TODO: 編集機能、保存機能
                         isUpdate.toggle()
                     } else {
                         dismiss()
@@ -84,7 +83,6 @@ struct DetailView: View {
                         if isUpdate {
                             // 完了
                             Image(systemName: "checkmark")
-                                .padding(.leading, 10)
                             
                         } else {
                             // 戻る
@@ -109,14 +107,13 @@ struct DetailView: View {
                     if isUpdate {
                         // 削除
                         Image(systemName: "trash")
+                            .foregroundStyle(.red)
                     } else {
                         // 編集
                         Image(systemName: "square.and.pencil")
                     }
 
                 }
-                .padding(.trailing, 10)
-                .foregroundColor(.black)
                 .alert(isPresented: $isDelete) {
                     Alert(
                         title: Text("本当に削除しますか"),
@@ -167,12 +164,12 @@ struct DetailView: View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
                 InterviewEditSection(interview: event)
-                    .onDisappear() {
+                    .onDisappear {
                         self.event = self.viewModel.getInterviewArray(id: eventId)
                     }
             } else {
                 InterviewDetailSection(interview: event)
-                    .onDisappear() {
+                    .onDisappear {
                         self.event = self.viewModel.getInterviewArray(id: eventId)
                     }
             }
@@ -184,7 +181,7 @@ struct DetailView: View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
                 InternshipEditSection(intern: event)
-                    .onDisappear() {
+                    .onDisappear {
                         self.event = self.viewModel.getInternshipArray(id: eventId)
                     }
             } else {
@@ -202,12 +199,12 @@ struct DetailView: View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
                 SessionEditSection(session: event)
-                    .onDisappear() {
+                    .onDisappear {
                         self.event = self.viewModel.getSessionpArray(id: eventId)
                     }
             } else {
                 SessionDetailSection(session: event)
-                    .onDisappear() {
+                    .onDisappear {
                         self.event = self.viewModel.getSessionpArray(id: eventId)
                     }
             }
