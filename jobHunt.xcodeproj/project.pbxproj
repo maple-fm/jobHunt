@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -131,6 +131,10 @@
 		F5FAEDCE2960EDA200E64997 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F5FC75B72A28C06100EF997B /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F554BB972ECB651500572006 /* UI */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = UI; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F5C83B6528F311FE00A01E4E /* Frameworks */ = {
@@ -312,6 +316,7 @@
 		F5C83B6A28F311FE00A01E4E /* jobHunt */ = {
 			isa = PBXGroup;
 			children = (
+				F554BB972ECB651500572006 /* UI */,
 				F5262AE2291BE57300B98ACE /* Domain */,
 				F5262AE1291BE56D00B98ACE /* Feature */,
 				F5C83B6F28F311FF00A01E4E /* Assets.xcassets */,
@@ -360,6 +365,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F554BB972ECB651500572006 /* UI */,
 			);
 			name = jobHunt;
 			productName = jobHunt;
