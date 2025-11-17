@@ -20,56 +20,49 @@ struct InternshipView: View {
         VStack {
             Form {
                 Section(
-                    header: Text("会社名")
-                        .sectionTitle()
+                    header: SectionTitle(title: "会社名", isRequired: true)
                 ) {
                     TextField("", text: $viewModel.name)
                         .input()
                 }
 
                 Section(
-                    header: Text("開始時間")
-                        .sectionTitle()
+                    header: SectionTitle(title: "開始時間")
                 ) {
                     DatePicker("開始時間", selection: $eventTime)
                         .PickerItem()
                 }
                 
                 Section(
-                    header: Text("終了時間")
-                        .sectionTitle()
+                    header: SectionTitle(title: "終了時間")
                 ) {
                     DatePicker("終了時間", selection: $endTime)
                         .PickerItem()
                 }
 
                 Section(
-                    header: Text("開催場所")
-                        .sectionTitle()
+                    header: SectionTitle(title: "開催場所")
                 ) {
                     TextField("", text: $viewModel.location)
                         .input()
                 }
 
                 Section(
-                    header: Text("服装")
-                        .sectionTitle()
+                    header: SectionTitle(title: "服装")
                 ) {
                     TextField("", text: $viewModel.clothes)
                         .input()
                 }
 
                 Section(
-                    header: Text("持ち物")
-                        .sectionTitle()
+                    header: SectionTitle(title: "持ち物")
                 ) {
                     TextField("", text: $viewModel.item)
                         .input()
                 }
 
                 Section(
-                    header: Text("その他")
-                        .sectionTitle()
+                    header: SectionTitle(title: "その他")
                 ) {
                     TextEditor(text: $viewModel.other)
                         .input()

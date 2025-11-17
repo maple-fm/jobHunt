@@ -21,8 +21,7 @@ struct InterviewEditSection: View {
         VStack(alignment: .leading) {
             Group {
                 Section(
-                    header: Text("会社名")
-                        .sectionTitle()
+                    header: SectionTitle(title: "会社名", isRequired: true)
                 ) {
                     TextEditor(text: $viewModel.name)
                         .textArea(interview.category)
@@ -32,8 +31,7 @@ struct InterviewEditSection: View {
                 }
 
                 Section(
-                    header: Text("開始時間")
-                        .sectionTitle()
+                    header: SectionTitle(title: "開始時間")
                 ) {
                     DatePicker("開始時間", selection: $viewModel.eventTime)
                         .PickerItem()
@@ -43,8 +41,7 @@ struct InterviewEditSection: View {
                 }
                 
                 Section(
-                    header: Text("終了時間")
-                        .sectionTitle()
+                    header: SectionTitle(title: "終了時間")
                 ) {
                     DatePicker("終了時間", selection: $viewModel.endTime)
                         .PickerItem()
@@ -58,8 +55,7 @@ struct InterviewEditSection: View {
                 
                 
                 Section(
-                    header: Text("選考フロー")
-                        .sectionTitle()
+                    header: SectionTitle(title: "選考フロー")
                 ) {
                     Picker("", selection: $viewModel.flow) {
                         ForEach(Flow.allCases, id: \.self) { (value) in
@@ -80,8 +76,7 @@ struct InterviewEditSection: View {
                 }
 
                 Section(
-                    header: Text("開催場所")
-                        .sectionTitle()
+                    header: SectionTitle(title: "開催場所")
                 ) {
                     TextEditor(text: $viewModel.location)
                         .textArea(interview.category)
@@ -93,8 +88,7 @@ struct InterviewEditSection: View {
                 }
 
                 Section(
-                    header: Text("服装")
-                        .sectionTitle()
+                    header: SectionTitle(title: "服装")
                 ) {
                     TextEditor(text: $viewModel.clothes)
                         .textArea(interview.category)
@@ -108,8 +102,7 @@ struct InterviewEditSection: View {
 
             Group {
                 Section(
-                    header: Text("志望動機")
-                        .sectionTitle()
+                    header: SectionTitle(title: "志望動機")
                 ) {
                     TextEditor(text: $viewModel.motivation)
                         .textArea(interview.category)
@@ -121,8 +114,7 @@ struct InterviewEditSection: View {
                 }
 
                 Section(
-                    header: Text("ガクチカ")
-                        .sectionTitle()
+                    header: SectionTitle(title: "ガクチカ")
                 ) {
                     TextEditor(text: $viewModel.gakuchika)
                         .textArea(interview.category)
@@ -134,8 +126,7 @@ struct InterviewEditSection: View {
                 }
 
                 Section(
-                    header: Text("長所")
-                        .sectionTitle()
+                    header: SectionTitle(title: "長所")
                 ) {
                     TextEditor(text: $viewModel.strongPoints)
                         .textArea(interview.category)
@@ -147,8 +138,7 @@ struct InterviewEditSection: View {
                         }
                 }
                 Section(
-                    header: Text("短所")
-                        .sectionTitle()
+                    header: SectionTitle(title: "短所")
                 ) {
                     TextEditor(text: $viewModel.weakPoints)
                         .textArea(interview.category)
@@ -160,8 +150,7 @@ struct InterviewEditSection: View {
                 }
 
                 Section(
-                    header: Text("質問したいこと")
-                        .sectionTitle()
+                    header: SectionTitle(title: "質問したいこと")
                 ) {
                     TextEditor(text: $viewModel.questions)
                         .textArea(interview.category)
@@ -175,8 +164,7 @@ struct InterviewEditSection: View {
 
 
             Section(
-                header: Text("その他")
-                    .sectionTitle()
+                header: SectionTitle(title: "その他")
             ) {
                 TextEditor(text: $viewModel.other)
                     .textArea(interview.category)
@@ -198,3 +186,4 @@ struct InterviewEditSection_Previews: PreviewProvider {
         InterviewEditSection(interview: InterviewModel(id: "", name: "", start: Date(), end: .now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
     }
 }
+

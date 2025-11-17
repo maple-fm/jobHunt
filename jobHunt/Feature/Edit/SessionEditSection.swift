@@ -21,8 +21,7 @@ struct SessionEditSection: View {
         VStack(alignment: .leading) {
             Group {
                 Section(
-                    header: Text("会社名")
-                        .sectionTitle()
+                    header: SectionTitle(title: "会社名")
                 ) {
                     TextEditor(text: $viewModel.name)
                         .textArea(session.category)
@@ -32,8 +31,7 @@ struct SessionEditSection: View {
                 }
 
                 Section(
-                    header: Text("開始時間")
-                        .sectionTitle()
+                    header: SectionTitle(title: "開始時間")
                 ) {
                     DatePicker("開始時間", selection: $viewModel.eventTime)
                         .PickerItem()
@@ -43,8 +41,7 @@ struct SessionEditSection: View {
                 }
                 
                 Section(
-                    header: Text("終了時間")
-                        .sectionTitle()
+                    header: SectionTitle(title: "終了時間")
                 ) {
                     DatePicker("終了時間", selection: $viewModel.endTime)
                         .PickerItem()
@@ -57,8 +54,7 @@ struct SessionEditSection: View {
                 }
 
                 Section(
-                    header: Text("開催場所")
-                        .sectionTitle()
+                    header: SectionTitle(title: "開催場所")
                 ) {
                     TextEditor(text: $viewModel.location)
                         .textArea(session.category)
@@ -70,8 +66,7 @@ struct SessionEditSection: View {
                 }
 
                 Section(
-                    header: Text("服装")
-                        .sectionTitle()
+                    header: SectionTitle(title: "服装")
                 ) {
                     TextEditor(text: $viewModel.clothes)
                         .textArea(session.category)
@@ -85,8 +80,7 @@ struct SessionEditSection: View {
 
             Group {
                 Section(
-                    header: Text("持ち物")
-                        .sectionTitle()
+                    header: SectionTitle(title: "持ち物")
                 ) {
                     TextEditor(text: $viewModel.item)
                         .textArea(session.category)
@@ -98,8 +92,7 @@ struct SessionEditSection: View {
                 }
 
                 Section(
-                    header: Text("質問したいこと")
-                        .sectionTitle()
+                    header: SectionTitle(title: "質問したいこと")
                 ) {
                     TextEditor(text: $viewModel.questions)
                         .textArea(session.category)
@@ -111,8 +104,7 @@ struct SessionEditSection: View {
                 }
 
                 Section(
-                    header: Text("その他")
-                        .sectionTitle()
+                    header: SectionTitle(title: "その他")
                 ) {
                     TextEditor(text: $viewModel.other)
                         .textArea(session.category)
@@ -135,3 +127,4 @@ struct SessionEditSection_Previews: PreviewProvider {
         SessionEditSection(session: .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
     }
 }
+

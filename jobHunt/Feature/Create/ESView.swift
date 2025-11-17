@@ -18,24 +18,21 @@ struct ESView: View {
         VStack(alignment: .leading) {
             Form {
                 Section(
-                    header: Text("会社名")
-                        .sectionTitle()
+                    header: SectionTitle(title: "会社名", isRequired: true)
                 ) {
                     TextField("", text: $viewModel.name)
                         .input()
                 }
 
                 Section(
-                    header: Text("締切日時")
-                        .sectionTitle()
+                    header: SectionTitle(title: "締切日時")
                 ) {
                     DatePicker("締切日時", selection: $deadline)
                         .PickerItem()
                 }
 
                 Section(
-                    header: Text("志望動機")
-                        .sectionTitle(),
+                    header: SectionTitle(title: "志望動機"),
                     footer: Text("\(viewModel.motivation.count)count")
                         .footer()
                 ) {
@@ -45,8 +42,7 @@ struct ESView: View {
 
 
                 Section(
-                    header: Text("ガクチカ")
-                        .sectionTitle(),
+                    header: SectionTitle(title: "ガクチカ"),
                     footer: Text("\(viewModel.gakuchika.count)count")
                         .footer()
                 ) {
@@ -55,8 +51,7 @@ struct ESView: View {
                 }
 
                 Section(
-                    header: Text("長所")
-                        .sectionTitle(),
+                    header: SectionTitle(title: "長所"),
                     footer: Text("\(viewModel.strongPoints.count)count")
                         .footer()
                 ) {
@@ -65,8 +60,7 @@ struct ESView: View {
                 }
 
                 Section(
-                    header: Text("短所")
-                        .sectionTitle(),
+                    header: SectionTitle(title: "短所"),
                     footer: Text("\(viewModel.weakPoints.count)count")
                         .footer()
                 ) {
@@ -75,8 +69,7 @@ struct ESView: View {
                 }
 
                 Section(
-                    header: Text("その他")
-                        .sectionTitle()
+                    header: SectionTitle(title: "その他")
                 ) {
                     TextEditor(text: $viewModel.other)
                         .input()
@@ -103,3 +96,4 @@ struct EntrysheetView_Previews: PreviewProvider {
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }
+

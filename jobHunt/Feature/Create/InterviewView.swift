@@ -22,16 +22,14 @@ struct InterviewView: View {
 
                 Group {
                     Section(
-                        header: Text("会社名")
-                            .sectionTitle()
+                        header: SectionTitle(title: "会社名", isRequired: true)
                     ) {
                         TextField("", text: $viewModel.name)
                             .input()
                     }
 
                     Section(
-                        header: Text("開始時間")
-                            .sectionTitle()
+                        header: SectionTitle(title: "開始時間")
                     ) {
                         DatePicker("開始時間", selection: $eventTime)
                             .PickerItem()
@@ -39,16 +37,14 @@ struct InterviewView: View {
                     }
                     
                     Section(
-                        header: Text("終了時間")
-                            .sectionTitle()
+                        header: SectionTitle(title: "終了時間")
                     ) {
                         DatePicker("終了時間", selection: $endTime)
                             .PickerItem()
                     }
 
                     Section(
-                        header: Text("選考フロー")
-                            .sectionTitle()
+                        header: SectionTitle(title: "選考フロー")
                     ) {
                         Picker("", selection: $viewModel.flow) {
                             ForEach(Flow.allCases, id: \.self) { (value) in
@@ -64,64 +60,56 @@ struct InterviewView: View {
                 }
 
                 Section(
-                    header: Text("開催場所")
-                        .sectionTitle()
+                    header: SectionTitle(title: "開催場所")
                 ) {
                     TextField("", text: $viewModel.location)
                         .input()
                 }
 
                 Section(
-                    header: Text("服装")
-                        .sectionTitle()
+                    header: SectionTitle(title: "服装")
                 ) {
                     TextField("", text: $viewModel.clothes)
                         .input()
                 }
 
                 Section(
-                    header: Text("志望動機")
-                        .sectionTitle()
+                    header: SectionTitle(title: "志望動機")
                 ) {
                     TextEditor(text: $viewModel.motivation)
                         .input()
                 }
 
                 Section(
-                    header: Text("ガクチカ")
-                        .sectionTitle()
+                    header: SectionTitle(title: "ガクチカ")
                 ) {
                     TextEditor(text: $viewModel.gakuchika)
                         .input()
                 }
 
                 Section(
-                    header: Text("長所")
-                        .sectionTitle()
+                    header: SectionTitle(title: "長所")
                 ) {
                     TextEditor(text: $viewModel.strongPoints)
                         .input()
                 }
 
                 Section(
-                    header: Text("短所")
-                        .sectionTitle()
+                    header: SectionTitle(title: "短所")
                 ) {
                     TextEditor(text: $viewModel.weakPoints)
                         .input()
                 }
 
                 Section(
-                    header: Text("質問したいこと")
-                        .sectionTitle()
+                    header: SectionTitle(title: "質問したいこと")
                 ) {
                     TextEditor(text: $viewModel.questions)
                         .input()
                 }
 
                 Section(
-                    header: Text("その他")
-                        .sectionTitle()
+                    header: SectionTitle(title: "その他")
                 ) {
                     TextEditor(text: $viewModel.other)
                         .input()
@@ -147,3 +135,4 @@ struct InterviewView_Previews: PreviewProvider {
             .environment(\.locale, Locale(identifier: "ja_JP"))
     }
 }
+
