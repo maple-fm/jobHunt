@@ -13,7 +13,7 @@ protocol Entry: Identifiable {
 
     var id: String { get }
     // 企業名
-    var name: String { get }
+    var name: String { get set }
     // 開始時間
     var eventTime: Date { get }
     // 終了時間

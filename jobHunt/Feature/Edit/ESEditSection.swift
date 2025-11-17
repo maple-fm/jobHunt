@@ -10,25 +10,14 @@ import SwiftUI
 struct ESEditSection: View {
     let es: ESModel
     @StateObject private var viewModel = EditViewModel()
-
+    
     init(es: ESModel) {
         self.es = es
         UITextView.appearance().backgroundColor = .clear
     }
-
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Section(
-                header: Text("会社名")
-                    .sectionTitle()
-            ) {
-                TextEditor(text: $viewModel.name)
-                    .textArea(es.category)
-                    .onAppear() {
-                        viewModel.name = es.name
-                    }
-            }
-
             Section(
                 header: Text("締切日時")
                     .sectionTitle()
@@ -39,7 +28,7 @@ struct ESEditSection: View {
                         viewModel.eventTime = es.eventTime
                     }
             }
-
+            
             Section(
                 header: Text("志望動機")
                     .sectionTitle(),
@@ -57,7 +46,7 @@ struct ESEditSection: View {
                         }
                     }
             }
-
+            
             Section(
                 header: Text("ガクチカ")
                     .sectionTitle(),
@@ -75,7 +64,7 @@ struct ESEditSection: View {
                         }
                     }
             }
-
+            
             Section(
                 header: Text("長所")
                     .sectionTitle(),
@@ -91,7 +80,7 @@ struct ESEditSection: View {
                         if let strongPoints = es.strongPoints {
                             viewModel.strongPoints = strongPoints
                         }
-
+                        
                     }
             }
             Section(
@@ -111,7 +100,7 @@ struct ESEditSection: View {
                         }
                     }
             }
-
+            
             Section(
                 header: Text("その他")
                     .sectionTitle()
@@ -124,11 +113,8 @@ struct ESEditSection: View {
                         }
                     }
             }
-
+            
         }
-        .onDisappear(perform: {
-            viewModel.clickUpdateOfES(id: es.id)
-        })
     }
 }
 

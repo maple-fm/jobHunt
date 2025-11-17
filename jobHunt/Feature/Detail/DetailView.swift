@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-
+    
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel = DetailViewModel()
     @State var event: any Entry
@@ -16,19 +16,25 @@ struct DetailView: View {
     @State private var isDelete = false
     public var onEdit: (() -> Void)?
     var eventId: String
-
+    
     var body: some View {
         VStack(spacing: 0) {
-            
             VStack(spacing: 30) {
-
                 HStack(spacing: 8) {
                     Circle()
                         .fill(event.category.bgColor)
                         .frame(width: 20, height: 20)
                     
-                    Text(event.name)
-                        .font(.system(size: 24, weight: .bold))
+                    if isUpdate {
+                        TextField("", text: $viewModel.name)
+                            .font(.system(size: 24, weight: .bold))
+                            .onAppear {
+                                viewModel.name = event.name
+                            }
+                    } else {
+                        Text(event.name)
+                            .font(.system(size: 24, weight: .bold))
+                    }
                 }
                 
                 HStack {
@@ -74,6 +80,7 @@ struct DetailView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     if isUpdate {
+                        viewModel.updateEvent(id: eventId, category: event.category)
                         isUpdate.toggle()
                     } else {
                         dismiss()
@@ -96,13 +103,11 @@ struct DetailView: View {
             ToolbarItem() {
                 Button(action: {
                     if isUpdate {
-
                         isDelete.toggle()
-
                     } else {
                         isUpdate.toggle()
                     }
-
+                    
                 }) {
                     if isUpdate {
                         // 削除
@@ -112,7 +117,7 @@ struct DetailView: View {
                         // 編集
                         Image(systemName: "square.and.pencil")
                     }
-
+                    
                 }
                 .alert(isPresented: $isDelete) {
                     Alert(
@@ -140,80 +145,77 @@ struct DetailView: View {
                 }
             }
         )
-
+        
     }
-
+    
     func ESContent(event: ESModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
                 ESEditSection(es: event)
                     .onDisappear() {
-                        self.event = self.viewModel.getESArray(id: eventId)
+                        self.event = viewModel.getEvent(id: eventId, type: ESModel.self)
                     }
             } else {
                 ESDetailSection(es: event)
                     .onDisappear() {
-                        self.event = self.viewModel.getESArray(id: eventId)
+                        self.event = viewModel.getEvent(id: eventId, type: ESModel.self)
                     }
             }
         }
         .padding(.horizontal, 25)
     }
-
+    
     func InterviewContent(event: InterviewModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
                 InterviewEditSection(interview: event)
                     .onDisappear {
-                        self.event = self.viewModel.getInterviewArray(id: eventId)
+                        self.event = viewModel.getEvent(id: eventId, type: InterviewModel.self)
                     }
             } else {
                 InterviewDetailSection(interview: event)
                     .onDisappear {
-                        self.event = self.viewModel.getInterviewArray(id: eventId)
+                        self.event = viewModel.getEvent(id: eventId, type: InterviewModel.self)
                     }
             }
         }
         .padding(.horizontal, 25)
     }
-
+    
     func InternshipContent(event: InternshipModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
                 InternshipEditSection(intern: event)
                     .onDisappear {
-                        self.event = self.viewModel.getInternshipArray(id: eventId)
+                        self.event = viewModel.getEvent(id: eventId, type: InternshipModel.self)
                     }
             } else {
                 InternshipDetailSection(intern: event)
                     .onDisappear() {
-                        self.event = self.viewModel.getInternshipArray(id: eventId)
+                        self.event = viewModel.getEvent(id: eventId, type: InternshipModel.self)
                     }
             }
         }
         .padding(.horizontal, 25)
-
+        
     }
-
+    
     func SessionContent(event: SessionModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
                 SessionEditSection(session: event)
                     .onDisappear {
-                        self.event = self.viewModel.getSessionpArray(id: eventId)
+                        self.event = viewModel.getEvent(id: eventId, type: SessionModel.self)
                     }
             } else {
                 SessionDetailSection(session: event)
                     .onDisappear {
-                        self.event = self.viewModel.getSessionpArray(id: eventId)
+                        self.event = viewModel.getEvent(id: eventId, type: SessionModel.self)
                     }
             }
         }
         .padding(.horizontal, 25)
     }
-
-
-    
 }
 
 #Preview("ES") {
