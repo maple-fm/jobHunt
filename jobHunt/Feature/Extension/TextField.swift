@@ -21,6 +21,7 @@ extension TextEditor {
     func input() -> some View {
         self
             .listRowBackground(Color(UIColor(named: "form")!.cgColor))
+            .frame(height: 120)
             .foregroundColor(.black)
     }
 
