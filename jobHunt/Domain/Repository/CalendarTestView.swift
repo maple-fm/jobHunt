@@ -45,11 +45,11 @@ struct CalendarTestView: UIViewRepresentable {
                 return .black
             }
         }
-        fsCalendar.appearance.todayColor = UIColor(named: "esBg") //本日の選択カラー
+        fsCalendar.appearance.todayColor = UIColor(named: "Primary")?.withAlphaComponent(0.5) //本日の選択カラー
         fsCalendar.appearance.titleTodayColor = .black //本日のテキストカラー
 
         fsCalendar.appearance.selectionColor = .clear //選択した日付のカラー
-        fsCalendar.appearance.borderSelectionColor = UIColor(red: 0.019, green: 0.75, blue: 0.223, alpha: 1) //選択した日付のボーダーカラー
+        fsCalendar.appearance.borderSelectionColor = UIColor(named: "Primary") //選択した日付のボーダーカラー
         fsCalendar.appearance.titleSelectionColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
             // ダークモードの場合
             if traitCollection.userInterfaceStyle == .dark {

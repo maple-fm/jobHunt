@@ -54,7 +54,7 @@ struct CreateView: View {
 
                                     Rectangle()
                                         .foregroundColor(event == eventName
-                                                         ? Color(UIColor(named: "selectedColor")!.cgColor)
+                                                         ? Color(UIColor(named: "Primary")!.cgColor)
                                                          : .clear)
                                         .frame(width: 120, height: 5)
                                         .cornerRadius(20)

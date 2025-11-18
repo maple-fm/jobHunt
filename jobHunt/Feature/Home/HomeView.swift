@@ -47,9 +47,9 @@ struct HomeView: View {
                         Image(systemName: "gearshape.fill")
                             .resizable()
                             .frame(width: 20, height: 20, alignment: .center)
+                            .foregroundStyle(Color(UIColor(named: "Primary")!))
                     }
-                    .foregroundColor(.green)
-                    .offset(x: 155, y: 5)
+                    .offset(x: 160, y: 5)
                     .frame(width: 40, height: 40)
 
                 }
@@ -69,7 +69,7 @@ struct HomeView: View {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
                             .frame(width: 40, height: 40)
-                            .foregroundColor(.green)
+                            .foregroundStyle(Color(UIColor(named: "Primary")!))
                             .mask(Circle())
                     }
                     .padding(EdgeInsets(

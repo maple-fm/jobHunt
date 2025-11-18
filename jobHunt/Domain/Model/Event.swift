@@ -33,10 +33,10 @@ extension EventName {
 
     var bgColor: Color {
         switch self {
-        case .es : return Color(UIColor(named: "esbg")!.cgColor)
-        case .interview : return Color(UIColor(named: "interviewbg")!.cgColor)
-        case .session: return Color(UIColor(named: "sessionbg")!.cgColor)
-        case .internship: return Color(UIColor(named: "internBg")!.cgColor)
+        case .es : return Color(UIColor(named: "Es")!.cgColor)
+        case .interview : return Color(UIColor(named: "Interview")!.cgColor)
+        case .session: return Color(UIColor(named: "Session")!.cgColor)
+        case .internship: return Color(UIColor(named: "Intern")!.cgColor)
         }
     }
 }
