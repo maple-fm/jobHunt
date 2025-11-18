@@ -30,7 +30,7 @@ struct InternshipDetailSection: View {
                 textView(title: "その他", value: other, category: intern.category)
             }
         }
-        .padding(.vertical, 20)
+        .padding(.vertical, 24)
     }
 }
 

@@ -34,7 +34,7 @@ struct ESDetailSection: View {
                 textView(title: "その他", value: other, category: es.category)
             }
         }
-        .padding(.vertical, 20)
+        .padding(.vertical, 24)
     }
 }
 

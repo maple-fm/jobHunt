@@ -34,7 +34,7 @@ struct SessionDetailSection: View {
                 textView(title: "その他", value: other, category: session.category)
             }
         }
-        .padding(.vertical, 20)
+        .padding(.vertical, 24)
     }
 }
 

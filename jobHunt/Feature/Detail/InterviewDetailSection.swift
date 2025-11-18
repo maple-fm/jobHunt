@@ -47,7 +47,7 @@ struct InterviewDetailSection: View {
                 textView(title: "その他", value: other, category: interview.category)
             }
         }
-        .padding(.vertical, 20)
+        .padding(.vertical, 24)
     }
 }
 

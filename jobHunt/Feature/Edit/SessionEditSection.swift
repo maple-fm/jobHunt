@@ -18,18 +18,8 @@ struct SessionEditSection: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Group {
-                Section(
-                    header: SectionTitle(title: "会社名")
-                ) {
-                    TextEditor(text: $viewModel.name)
-                        .textArea(session.category)
-                        .onAppear() {
-                            viewModel.name = session.name
-                        }
-                }
-
                 Section(
                     header: SectionTitle(title: "開始時間")
                 ) {
@@ -116,9 +106,7 @@ struct SessionEditSection: View {
                 }
             }
         }
-        .onDisappear {
-            viewModel.clickUpdateOfSession(id: session.id)
-        }
+        .padding(.vertical, 24)
     }
 }
 

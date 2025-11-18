@@ -18,18 +18,8 @@ struct InterviewEditSection: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Group {
-                Section(
-                    header: SectionTitle(title: "会社名", isRequired: true)
-                ) {
-                    TextEditor(text: $viewModel.name)
-                        .textArea(interview.category)
-                        .onAppear() {
-                            viewModel.name = interview.name
-                        }
-                }
-
                 Section(
                     header: SectionTitle(title: "開始時間")
                 ) {
@@ -174,9 +164,7 @@ struct InterviewEditSection: View {
                     }
             }
         }
-        .onDisappear(perform: {
-            viewModel.clickUpdateOfInterview(id: interview.id)
-        })
+        .padding(.vertical, 24)
     }
 }
 

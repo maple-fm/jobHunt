@@ -17,7 +17,7 @@ struct ESEditSection: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Section(
                 header: Text("締切日時")
                     .sectionTitle()
@@ -115,6 +115,7 @@ struct ESEditSection: View {
             }
             
         }
+        .padding(.vertical, 24)
     }
 }
 
