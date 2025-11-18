@@ -125,7 +125,7 @@ struct DetailView: View {
     func ESContent(event: ESModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
-                ESEditSection(es: event)
+                ESEditSection(es: event, viewModel: viewModel)
                     .onDisappear() {
                         self.event = viewModel.getEvent(id: eventId, type: ESModel.self)
                     }

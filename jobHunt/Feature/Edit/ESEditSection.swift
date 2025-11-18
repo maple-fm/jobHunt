@@ -1,21 +1,22 @@
-//
-//  ESEditSection.swift
-//  jobHunt
-//
-//  Created by 出口楓真 on 2022/11/08.
-//
+    //
+    //  ESEditSection.swift
+    //  jobHunt
+    //
+    //  Created by 出口楓真 on 2022/11/08.
+    //
 
 import SwiftUI
 
 struct ESEditSection: View {
     let es: ESModel
-    @StateObject private var viewModel = EditViewModel()
-    
-    init(es: ESModel) {
+    @ObservedObject var viewModel: DetailViewModel
+
+    init(es: ESModel, viewModel: DetailViewModel) {
         self.es = es
+        self.viewModel = viewModel
         UITextView.appearance().backgroundColor = .clear
     }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Section(
@@ -28,7 +29,7 @@ struct ESEditSection: View {
                         viewModel.eventTime = es.eventTime
                     }
             }
-            
+
             Section(
                 header: Text("志望動機")
                     .sectionTitle(),
@@ -46,7 +47,7 @@ struct ESEditSection: View {
                         }
                     }
             }
-            
+
             Section(
                 header: Text("ガクチカ")
                     .sectionTitle(),
@@ -64,7 +65,7 @@ struct ESEditSection: View {
                         }
                     }
             }
-            
+
             Section(
                 header: Text("長所")
                     .sectionTitle(),
@@ -80,7 +81,7 @@ struct ESEditSection: View {
                         if let strongPoints = es.strongPoints {
                             viewModel.strongPoints = strongPoints
                         }
-                        
+
                     }
             }
             Section(
@@ -100,7 +101,7 @@ struct ESEditSection: View {
                         }
                     }
             }
-            
+
             Section(
                 header: Text("その他")
                     .sectionTitle()
@@ -113,7 +114,7 @@ struct ESEditSection: View {
                         }
                     }
             }
-            
+
         }
         .padding(.vertical, 24)
     }
@@ -122,5 +123,5 @@ struct ESEditSection: View {
 
 #Preview {
     let es: ESModel = .init(id: "", name: "", start: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
-    ESEditSection(es: es)
+    ESEditSection(es: es, viewModel: DetailViewModel())
 }
