@@ -10,10 +10,11 @@ import SwiftUI
 struct InterviewEditSection: View {
 
     let interview: InterviewModel
-    @StateObject private var viewModel = EditViewModel()
+    @ObservedObject var viewModel: DetailViewModel
 
-    init(interview: InterviewModel) {
+    init(interview: InterviewModel, viewModel: DetailViewModel) {
         self.interview = interview
+        self.viewModel = viewModel
         UITextView.appearance().backgroundColor = .clear
     }
 
@@ -170,5 +171,5 @@ struct InterviewEditSection: View {
 
 #Preview {
     let interview: InterviewModel = .init(id: "", name: "", start: Date(), end: .now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
-    InterviewEditSection(interview: interview)
+    InterviewEditSection(interview: interview, viewModel: DetailViewModel())
 }

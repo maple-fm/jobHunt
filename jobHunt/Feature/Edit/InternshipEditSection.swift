@@ -10,10 +10,11 @@ import SwiftUI
 struct InternshipEditSection: View {
 
     let intern: InternshipModel
-    @StateObject private var viewModel = EditViewModel()
+    @ObservedObject private var viewModel: DetailViewModel
 
-    init(intern: InternshipModel) {
+    init(intern: InternshipModel, viewModel: DetailViewModel) {
         self.intern = intern
+        self.viewModel = viewModel
         UITextView.appearance().backgroundColor = .clear
     }
 
@@ -100,5 +101,5 @@ struct InternshipEditSection: View {
 
 #Preview {
     let intern: InternshipModel = .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", other: "", category: .internship)
-    InternshipEditSection(intern: intern)
+    InternshipEditSection(intern: intern, viewModel: DetailViewModel())
 }

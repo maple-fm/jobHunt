@@ -142,7 +142,7 @@ struct DetailView: View {
     func InterviewContent(event: InterviewModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
-                InterviewEditSection(interview: event)
+                InterviewEditSection(interview: event, viewModel: viewModel)
                     .onDisappear {
                         self.event = viewModel.getEvent(id: eventId, type: InterviewModel.self)
                     }
@@ -155,29 +155,28 @@ struct DetailView: View {
         }
         .padding(.horizontal, 25)
     }
-    
+
     func InternshipContent(event: InternshipModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
-                InternshipEditSection(intern: event)
+                InternshipEditSection(intern: event, viewModel: viewModel)
                     .onDisappear {
                         self.event = viewModel.getEvent(id: eventId, type: InternshipModel.self)
                     }
             } else {
                 InternshipDetailSection(intern: event)
-                    .onDisappear() {
+                    .onDisappear {
                         self.event = viewModel.getEvent(id: eventId, type: InternshipModel.self)
                     }
             }
         }
         .padding(.horizontal, 25)
-        
     }
-    
+
     func SessionContent(event: SessionModel) -> some View {
         ScrollView(.vertical, showsIndicators: false) {
             if isUpdate {
-                SessionEditSection(session: event)
+                SessionEditSection(session: event, viewModel: viewModel)
                     .onDisappear {
                         self.event = viewModel.getEvent(id: eventId, type: SessionModel.self)
                     }

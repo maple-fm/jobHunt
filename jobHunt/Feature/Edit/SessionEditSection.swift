@@ -10,10 +10,11 @@ import SwiftUI
 struct SessionEditSection: View {
 
     let session: SessionModel
-    @StateObject private var viewModel = EditViewModel()
+    @ObservedObject private var viewModel: DetailViewModel
 
-    init(session: SessionModel) {
+    init(session: SessionModel, viewModel: DetailViewModel) {
         self.session = session
+        self.viewModel = viewModel
         UITextView.appearance().backgroundColor = .clear
     }
 
@@ -112,5 +113,5 @@ struct SessionEditSection: View {
 
 #Preview {
     let session: SessionModel = .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
-    SessionEditSection(session: session)
+    SessionEditSection(session: session, viewModel: DetailViewModel())
 }

@@ -23,7 +23,6 @@
 		F54EC1D4299E70B0009319D1 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54EC1D3299E70B0009319D1 /* EventList.swift */; };
 		F570A8A529BE3D0700C656BA /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F570A8A429BE3D0700C656BA /* CreateViewModel.swift */; };
 		F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCD2923FD6000B41A25 /* CreateRepository.swift */; };
-		F5716BD02924D63D00B41A25 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCF2924D63D00B41A25 /* EditViewModel.swift */; };
 		F5716BD22924E00600B41A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BD12924E00600B41A25 /* AppDelegate.swift */; };
 		F5716BD5292672F200B41A25 /* EventRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BD4292672F200B41A25 /* EventRepository.swift */; };
 		F58BEB9428F988EE00323EFA /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58BEB9328F988EE00323EFA /* DatePicker.swift */; };
@@ -91,7 +90,6 @@
 		F54EC1D3299E70B0009319D1 /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		F570A8A429BE3D0700C656BA /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
 		F5716BCD2923FD6000B41A25 /* CreateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRepository.swift; sourceTree = "<group>"; };
-		F5716BCF2924D63D00B41A25 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		F5716BD12924E00600B41A25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5716BD4292672F200B41A25 /* EventRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRepository.swift; sourceTree = "<group>"; };
 		F58BEB9328F988EE00323EFA /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				F52DBAD7293C880400C0DAA6 /* InterviewEditSection.swift */,
 				F52DBAD9293C881A00C0DAA6 /* InternshipEditSection.swift */,
 				F52DBADB293C882D00C0DAA6 /* SessionEditSection.swift */,
-				F5716BCF2924D63D00B41A25 /* EditViewModel.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -490,7 +487,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5716BD02924D63D00B41A25 /* EditViewModel.swift in Sources */,
 				F5716BD5292672F200B41A25 /* EventRepository.swift in Sources */,
 				F5B789F728F3327C00B4E3E3 /* SessionView.swift in Sources */,
 				F5B78A0628F3380800B4E3E3 /* Text.swift in Sources */,
