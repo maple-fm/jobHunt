@@ -126,7 +126,7 @@ struct CreateView: View {
                     canCreate.toggle()
                 }) {
                     Text("登録する")
-                        .font(.title)
+                        .font(.system(size: 16))
                         .foregroundStyle(.white)
                         .frame(width: 150, height: 30, alignment: .center)
                         .padding(10)

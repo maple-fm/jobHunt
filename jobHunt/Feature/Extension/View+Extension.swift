@@ -11,18 +11,16 @@ import SwiftUI
 extension View {
     func textView(title: String, value: String, category: EventName) -> some View {
         VStack(alignment: .leading) {
-            Text(title)
-                .sectionTitle()
+            SectionTitle(title: title)
             Text(value)
                 .TextArea(category)
         }
     }
     
     func sectionView(title: String, value: String, category: EventName) -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 4) {
             Section(
-                header: Text(title)
-                    .sectionTitle(),
+                header: SectionTitle(title: title),
                 footer: Text("\(value.count)count")
                     .footer()
                     .font(.system(size: 15))

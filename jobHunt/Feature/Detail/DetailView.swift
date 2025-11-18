@@ -20,13 +20,14 @@ struct DetailView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 30) {
-                HStack(spacing: 8) {
+                HStack(alignment: .center, spacing: 8) {
                     Circle()
                         .fill(event.category.bgColor)
                         .frame(width: 20, height: 20)
                     
                     if isUpdate {
                         TextField("", text: $viewModel.name)
+                            .frame(width: 240, height: 50)
                             .font(.system(size: 24, weight: .bold))
                             .onAppear {
                                 viewModel.name = event.name
@@ -37,19 +38,10 @@ struct DetailView: View {
                     }
                 }
                 
-                HStack {
-                    if let endTime = event.endTime {
-                        Text(event.eventTime.formatted())
-                        
-                        Text("~")
-                        
-                        Text(endTime.formatted())
-                        
-                    } else {
-                        Text("~")
-                        
-                        Text(event.eventTime.formatted())
-                    }
+                if let endTime = event.endTime {
+                    Text("\(event.eventTime.formatted()) ~ \(endTime.formatted())")
+                } else {
+                    Text(" ~ \(event.eventTime.formatted())")
                 }
                 
                 Divider()
@@ -86,37 +78,19 @@ struct DetailView: View {
                         dismiss()
                     }
                 }) {
-                    Group {
-                        if isUpdate {
-                            // 完了
-                            Image(systemName: "checkmark")
-                            
-                        } else {
-                            // 戻る
-                            Image(systemName: "chevron.backward")
-                                .foregroundColor(.black)
-                                .font(.system(size: 17, weight: .medium))
-                        }
-                    }
+                    Image(systemName: isUpdate ? "checkmark" : "chevron.backward")
+                        .foregroundColor(.black)
+                        .frame(width: 20, height: 20)
                 }
             }
             ToolbarItem() {
                 Button(action: {
-                    if isUpdate {
-                        isDelete.toggle()
-                    } else {
-                        isUpdate.toggle()
-                    }
+                    isUpdate ? isDelete.toggle() : isUpdate.toggle()
                     
                 }) {
-                    if isUpdate {
-                        // 削除
-                        Image(systemName: "trash")
-                            .foregroundStyle(.red)
-                    } else {
-                        // 編集
-                        Image(systemName: "square.and.pencil")
-                    }
+                    Image(systemName: isUpdate ? "trash" : "square.and.pencil")
+                        .foregroundStyle(isUpdate ? .red : .black)
+                        .frame(width: 20, height: 20)
                     
                 }
                 .alert(isPresented: $isDelete) {

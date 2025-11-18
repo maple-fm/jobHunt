@@ -1,9 +1,9 @@
-//
-//  InterviewEditSection.swift
-//  jobHunt
-//
-//  Created by 出口楓真 on 2022/12/04.
-//
+    //
+    //  InterviewEditSection.swift
+    //  jobHunt
+    //
+    //  Created by 出口楓真 on 2022/12/04.
+    //
 
 import SwiftUI
 
@@ -39,7 +39,7 @@ struct InterviewEditSection: View {
                             viewModel.eventTime = interview.eventTime
                         }
                 }
-                
+
                 Section(
                     header: SectionTitle(title: "終了時間")
                 ) {
@@ -49,11 +49,11 @@ struct InterviewEditSection: View {
                             if let end = interview.endTime {
                                 viewModel.endTime = end
                             }
-                            
+
                         }
                 }
-                
-                
+
+
                 Section(
                     header: SectionTitle(title: "選考フロー")
                 ) {
@@ -162,7 +162,6 @@ struct InterviewEditSection: View {
                 }
             }
 
-
             Section(
                 header: SectionTitle(title: "その他")
             ) {
@@ -181,9 +180,7 @@ struct InterviewEditSection: View {
     }
 }
 
-struct InterviewEditSection_Previews: PreviewProvider {
-    static var previews: some View {
-        InterviewEditSection(interview: InterviewModel(id: "", name: "", start: Date(), end: .now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview))
-    }
+#Preview {
+    let interview: InterviewModel = .init(id: "", name: "", start: Date(), end: .now, flow: .first, location: "", clothes: "", motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", questions: "", other: "", category: .interview)
+    InterviewEditSection(interview: interview)
 }
-

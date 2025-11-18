@@ -13,32 +13,28 @@ struct InternshipDetailSection: View {
     let viewModel = DetailViewModel()
 
     var body: some View {
-        VStack {
-            Group {
-                
-                if let location = intern.location {
-                    textView(title: "開催場所", value: location, category: intern.category)
-                }
-                
-                if let clothes = intern.clothes {
-                    textView(title: "服装", value: clothes, category: intern.category)
-                }
-                
-                if let item = intern.item {
-                    textView(title: "持ち物", value: item, category: intern.category)
-                }
+        VStack(spacing: 16) {
+            if let location = intern.location {
+                textView(title: "開催場所", value: location, category: intern.category)
+            }
 
-                if let other = intern.other {
-                    textView(title: "その他", value: other, category: intern.category)
-                }
+            if let clothes = intern.clothes {
+                textView(title: "服装", value: clothes, category: intern.category)
+            }
+
+            if let item = intern.item {
+                textView(title: "持ち物", value: item, category: intern.category)
+            }
+
+            if let other = intern.other {
+                textView(title: "その他", value: other, category: intern.category)
             }
         }
         .padding(.vertical, 20)
     }
 }
 
-struct InternshipDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        InternshipDetailSection(intern: .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", other: "", category: .internship))
-    }
+#Preview {
+    let intern: InternshipModel = .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", other: "", category: .internship)
+    InternshipDetailSection(intern: intern)
 }

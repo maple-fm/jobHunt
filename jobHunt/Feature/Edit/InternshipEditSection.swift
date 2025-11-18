@@ -110,9 +110,7 @@ struct InternshipEditSection: View {
     }
 }
 
-struct InternshipEditSection_Previews: PreviewProvider {
-    static var previews: some View {
-        InternshipEditSection(intern: .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", other: "", category: .internship))
-    }
+#Preview {
+    let intern: InternshipModel = .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", other: "", category: .internship)
+    InternshipEditSection(intern: intern)
 }
-

@@ -22,12 +22,11 @@ struct EventList: View {
                                 destination: DetailView(
                                     event: event,
                                     onEdit: {
-
                                         viewModel.onUpdated()
                                     },
                                     eventId: event.id
                                 )
-                                .onDisappear(){
+                                .onDisappear {
                                     viewModel.onUpdated()
                                 }
                             ) {
@@ -67,8 +66,6 @@ struct EventList: View {
                                                     ))
                                                     .foregroundColor(Color(UIColor(named: "Text")!))
                                             }
-                                            
-                                            
                                         }
 
                                         Text(event.name)
@@ -104,18 +101,12 @@ struct EventList: View {
     }
 }
 
-struct EventList_Previews: PreviewProvider {
-    static var previews: some View {
-        EventList(viewModel: HomeViewModel(), selectedDate: .now)
-    }
-}
 
-
-extension View {
-    func tag(event: any Entry) -> some View {
+// MARK: - Private
+extension EventList {
+    private func tag(event: any Entry) -> some View {
 
         VStack {
-
             if event.category == .interview {
                 if let interview = event as? InterviewModel {
                     Text(interview.flow.rawValue)
@@ -135,9 +126,12 @@ extension View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 5)
                         .foregroundColor(Color(UIColor(named: "tag")!))
-
                 )
         )
         .position(x:80, y:20)
     }
+}
+
+#Preview {
+    EventList(viewModel: HomeViewModel(), selectedDate: .now)
 }

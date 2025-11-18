@@ -118,8 +118,8 @@ struct ESEditSection: View {
     }
 }
 
-struct ESEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        ESEditSection(es: .init(id: "", name: "", start: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es))
-    }
+
+#Preview {
+    let es: ESModel = .init(id: "", name: "", start: .now, motivation: "", gakuchika: "", strongPoints: "", weakPoints: "", other: "", category: .es)
+    ESEditSection(es: es)
 }

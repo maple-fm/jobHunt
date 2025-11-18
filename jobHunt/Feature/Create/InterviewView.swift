@@ -33,7 +33,6 @@ struct InterviewView: View {
                     ) {
                         DatePicker("開始時間", selection: $eventTime)
                             .PickerItem()
-                        
                     }
                     
                     Section(
@@ -127,12 +126,9 @@ struct InterviewView: View {
     }
 }
 
-struct InterviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        let date = Date()
-        let viewModel = CreateViewModel()
-        return InterviewView(viewModel: viewModel, click: .constant(false), eventTime: date, endTime: date) {}
-            .environment(\.locale, Locale(identifier: "ja_JP"))
-    }
+#Preview {
+    let date = Date()
+    let viewModel = CreateViewModel()
+    InterviewView(viewModel: viewModel, click: .constant(false), eventTime: date, endTime: date) {}
 }
 

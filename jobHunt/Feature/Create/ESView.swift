@@ -15,7 +15,7 @@ struct ESView: View {
     let action: () -> Void // クロージャ
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Form {
                 Section(
                     header: SectionTitle(title: "会社名", isRequired: true)
@@ -88,12 +88,9 @@ struct ESView: View {
     }
 }
 
-struct EntrysheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        let date = Date()
-        let viewModel = CreateViewModel()
-        return ESView(viewModel: viewModel, click: .constant(false), deadline: date) {}
-            .environment(\.locale, Locale(identifier: "ja_JP"))
-    }
+#Preview {
+    let date = Date()
+    let viewModel = CreateViewModel()
+    ESView(viewModel: viewModel, click: .constant(false), deadline: date) {}
 }
 

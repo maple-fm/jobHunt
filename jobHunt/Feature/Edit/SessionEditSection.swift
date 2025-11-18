@@ -116,15 +116,13 @@ struct SessionEditSection: View {
                 }
             }
         }
-        .onDisappear(perform: {
+        .onDisappear {
             viewModel.clickUpdateOfSession(id: session.id)
-        })
+        }
     }
 }
 
-struct SessionEditSection_Previews: PreviewProvider {
-    static var previews: some View {
-        SessionEditSection(session: .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session))
-    }
+#Preview {
+    let session: SessionModel = .init(id: "", name: "", start: .now, end: .now, location: "", clothes: "", item: "", questions: "", other: "", category: .session)
+    SessionEditSection(session: session)
 }
-
