@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 
                                 // interview
                                 migration.renameProperty(onType: InterviewDataSource.className(), from: "deadline", to: "eventTime")
-                                migration.renameProperty(onType: InterviewDataSource.className(), from: "endDeadline", to: "endTime")
+//                                migration.renameProperty(onType: InterviewDataSource.className(), from: "endDeadline", to: "endTime")
                                 migration.enumerateObjects(ofType: InterviewDataSource.className()) { oldObject, newObject in
                                     newObject?["endTime"] = Date.now
                                 }

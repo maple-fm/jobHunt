@@ -21,6 +21,8 @@
 		F52DBADA293C881A00C0DAA6 /* InternshipEditSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52DBAD9293C881A00C0DAA6 /* InternshipEditSection.swift */; };
 		F52DBADC293C882D00C0DAA6 /* SessionEditSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52DBADB293C882D00C0DAA6 /* SessionEditSection.swift */; };
 		F54EC1D4299E70B0009319D1 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54EC1D3299E70B0009319D1 /* EventList.swift */; };
+		F554BB9D2ECE06AC00572006 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F554BB9C2ECE06AC00572006 /* RealmSwift */; };
+		F554BB9E2ECE06C400572006 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = F554BB9C2ECE06AC00572006 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		F570A8A529BE3D0700C656BA /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F570A8A429BE3D0700C656BA /* CreateViewModel.swift */; };
 		F5716BCE2923FD6000B41A25 /* CreateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BCD2923FD6000B41A25 /* CreateRepository.swift */; };
 		F5716BD22924E00600B41A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5716BD12924E00600B41A25 /* AppDelegate.swift */; };
@@ -75,6 +77,20 @@
 			remoteInfo = jobHunt;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F554BB9F2ECE06C400572006 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F554BB9E2ECE06C400572006 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F50FBEB02A4BF8EF00767718 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -139,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F554BB9D2ECE06AC00572006 /* RealmSwift in Frameworks */,
 				F50863C72EB8B015002E37D2 /* GoogleMobileAds in Frameworks */,
 				F50863C12EB8AF83002E37D2 /* RealmSwift in Frameworks */,
 				F50863C42EB8AFDB002E37D2 /* FSCalendar in Frameworks */,
@@ -358,6 +375,7 @@
 				F5C83B6428F311FE00A01E4E /* Sources */,
 				F5C83B6528F311FE00A01E4E /* Frameworks */,
 				F5C83B6628F311FE00A01E4E /* Resources */,
+				F554BB9F2ECE06C400572006 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -941,6 +959,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F50863C52EB8B015002E37D2 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		F554BB9C2ECE06AC00572006 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F50863BF2EB8AF83002E37D2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
