@@ -702,7 +702,7 @@
 				CODE_SIGN_ENTITLEMENTS = jobHunt/jobHunt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.3;
+				CURRENT_PROJECT_VERSION = 2.3.1;
 				DEVELOPMENT_ASSET_PATHS = "\"jobHunt/Preview Content\"";
 				DEVELOPMENT_TEAM = 94M9FJ82WR;
 				ENABLE_PREVIEWS = YES;
@@ -750,7 +750,7 @@
 				CODE_SIGN_ENTITLEMENTS = jobHunt/jobHunt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.3;
+				CURRENT_PROJECT_VERSION = 2.3.1;
 				DEVELOPMENT_ASSET_PATHS = "\"jobHunt/Preview Content\"";
 				DEVELOPMENT_TEAM = 94M9FJ82WR;
 				ENABLE_PREVIEWS = YES;
